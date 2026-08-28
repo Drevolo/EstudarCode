@@ -2231,3 +2231,257 @@ pre code {
   border-radius: 5px;
   font-family: Consolas, monospace;
 }
+
+/* ==================================================================
+ * MOBILE POLISH
+ * Camada de refinamento para celulares/tablets. Adicionada ao final
+ * para sobrescrever regras anteriores mantendo a lógica existente.
+ * ================================================================== */
+
+/* Evita que efeitos de toque fiquem "presos" em telas touch */
+@media (hover: none) {
+  .q-option:active:not(:disabled) { transform: none; }
+  .app-btn:active { border-bottom-width: 4px; transform: none; }
+}
+
+/* ---------- tablets menores ---------- */
+@media (max-width: 900px) {
+  .layout {
+    gap: 14px;
+    padding: 14px;
+  }
+}
+
+/* ---------- celulares ---------- */
+@media (max-width: 640px) {
+  /* ==== Topbar: empilha em faixas horizontais organizadas ==== */
+  .topbar { position: static; }
+  .topbar-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 12px;
+    gap: 7px;
+  }
+  .logo {
+    font-size: 1.3rem;
+    gap: 7px;
+    align-self: flex-start;
+  }
+  .logo::before {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+  }
+
+  .topbar-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 7px;
+  }
+
+  /* Stats: faixa rolável horizontal */
+  .stats {
+    width: 100%;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 1px;
+  }
+  .stats::-webkit-scrollbar { display: none; }
+  .stat-chip {
+    flex: 0 0 auto;
+    height: 34px;
+    padding: 0 10px;
+    gap: 5px;
+    font-size: 0.76rem;
+    border-radius: 10px;
+  }
+  .heart { font-size: 0.95rem; }
+  .chip-xp .xp-mini { width: 46px; height: 6px; }
+
+  /* Ações: faixa rolável horizontal alinhada à direita */
+  .top-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 1px;
+  }
+  .top-actions::-webkit-scrollbar { display: none; }
+  .top-actions .app-btn,
+  .top-actions .reset-btn {
+    flex: 0 0 auto;
+    padding: 7px 12px;
+    font-size: 0.72rem;
+    border-radius: 10px;
+  }
+
+  /* Conteúdo: mais respiro de borda, menos "caixa pesada" */
+  .layout { padding: 8px; gap: 8px; }
+  .content {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  /* Home */
+  .home-hero { padding: 18px 16px; border-radius: 16px; }
+  .home-hero h2 { font-size: 1.3rem; }
+  .home-grid { gap: 12px; }
+  .course-card { padding: 14px 14px 16px; border-radius: 16px; }
+  .course-card-top { gap: 10px; }
+  .course-emblem { width: 42px; height: 42px; border-radius: 13px; font-size: 1rem; }
+
+  /* Lições */
+  .content h2 { font-size: 1.35rem; }
+  .lesson-menu { gap: 8px; }
+  .lesson-menu-btn {
+    flex: 1 1 auto;
+    padding: 9px 10px;
+    font-size: 0.84rem;
+    text-align: center;
+  }
+
+  /* Quiz */
+  .quiz { margin-top: 22px; padding-top: 16px; }
+  .question { padding: 16px; border-radius: var(--radius-sm); }
+  .q-option { padding: 12px 12px; gap: 10px; font-size: 0.9rem; }
+  .q-option::before { flex-basis: 32px; height: 32px; font-size: 0.78rem; }
+
+  /* Navegação anterior/próximo ocupa a largura toda (tipo app) */
+  .quiz-actions.nav .btn { flex: 1 1 auto; }
+
+  /* Ações do quiz empilhadas quando não há espaço */
+  .quiz-actions { gap: 8px; }
+
+  /* Código */
+  pre { padding: 12px; font-size: 0.8rem; }
+  blockquote, .note { padding: 10px 12px; }
+
+  /* Depurador: empilha controles */
+  .dbg-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+  .dbg-tabs::-webkit-scrollbar { display: none; }
+  .dbg-tab { flex: 0 0 auto; }
+  .dbg-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .dbg-top .dbg-label { width: 100%; margin-bottom: 0; }
+  .dbg-top .dbg-sample { width: 100%; flex: 1 1 100%; min-width: 0; }
+  .dbg-top .btn { flex: 1 1 calc(50% - 4px); }
+
+  /* Footer */
+  .footer { padding: 16px 12px; }
+}
+
+/* ---------- celulares pequenos ---------- */
+@media (max-width: 480px) {
+  .topbar-row { flex-wrap: nowrap; }
+  /* Esconde o texto do tema, deixa só o ícone */
+  .theme-btn { width: 42px; height: 42px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+  .theme-btn .theme-text { display: none; }
+  .theme-btn .theme-icon { font-size: 1rem; line-height: 1; }
+  /* Stats: chips mais enxutos */
+  .stat-chip { height: 34px; padding: 0 8px; }
+  .chip-streak { display: none; }  /* removed o streak em telas bem pequenas p/ caber */
+
+  .content h2 { font-size: 1.25rem; }
+  .course-card-foot { font-size: 0.78rem; }
+}
+
+/* ---------- drawer (trilha) em toque ---------- */
+@media (max-width: 640px) {
+  .layout.course-mode .sidebar {
+    width: min(86vw, 340px);
+    top: 0;
+    left: 0;
+    max-width: 86vw;
+    height: 100vh;
+    border-radius: 0 18px 18px 0;
+    transform: translateX(-100%);
+  }
+  .layout.course-mode .sidebar.open {
+    transform: translateX(0);
+  }
+  .drawer-head { padding: 14px 12px; }
+  .sidebar .topic-scroll { padding: 14px 12px; }
+
+  /* Ao abrir o drawer a partir do curso, mostrar o conteúdo atrás com leve escurecer */
+  .side-backdrop.show { background: var(--backdrop); }
+}
+
+/* Overlays no celular: viram "bottom sheet" para facilitar o toque */
+@media (max-width: 560px) {
+  .overlay-card {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    max-height: 92vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 18px calc(20px + env(safe-area-inset-bottom));
+  }
+  .overlay-card.wide { width: 100%; }
+  .overlay-close { top: 12px; right: 14px; }
+}
+
+/* Tela de login no celular */
+@media (max-width: 560px) {
+  .auth-screen { align-items: stretch; padding: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .auth-card {
+    width: 100%;
+    max-width: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 28px 22px calc(28px + env(safe-area-inset-bottom));
+  }
+  .auth-tagline { margin-bottom: 18px; }
+}
+
+/* Botão do depurador: permite rolagem suave da saída */
+@media (max-width: 640px) {
+  .output-box { max-height: 40vh; overflow-y: auto; }
+  .edit-area { font-size: 15px; }
+}
+
+/* Legibilidade do conteúdo de leitura no celular */
+@media (max-width: 640px) {
+  .content p,
+  .content li {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .content ul,
+  .content ol {
+    padding-left: 20px;
+    gap: 6px;
+  }
+  .content li { margin-bottom: 6px; }
+  .content h3 { font-size: 1.2rem; }
+  .content h4 { font-size: 1.05rem; }
+  .content code { font-size: 0.85em; white-space: pre-wrap; word-break: break-word; }
+  .content strong { color: var(--text); }
+}

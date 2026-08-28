@@ -2845,7 +2845,12 @@ const THEME_KEY = "estudarCode_theme";
 function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
   const b = document.getElementById("themeBtn");
-  if (b) b.textContent = t === "dark" ? "☀ claro" : "☾ escuro";
+  if (b) {
+    const icon = b.querySelector(".theme-icon");
+    const txt = b.querySelector(".theme-text");
+    if (icon) icon.textContent = t === "dark" ? "☀" : "☾";
+    if (txt) txt.textContent = t === "dark" ? "claro" : "escuro";
+  }
 }
 
 function toggleTheme() {
