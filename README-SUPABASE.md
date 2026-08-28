@@ -31,7 +31,7 @@ enquanto o site continua sendo estático (pode ficar no GitHub Pages).
 
 ### 3. Preencher a configuração do site
 
-Abra o arquivo **`supabase-config.js`** deste projeto e preencha:
+Abra o arquivo **`js/supabase-config.js`** deste projeto e preencha:
 
 ```js
 window.SUPABASE_CONFIG = {
