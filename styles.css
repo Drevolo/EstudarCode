@@ -2097,3 +2097,137 @@ pre code {
     font-size: 0.82rem;
   }
 }
+
+/* ---------- Botão Sair ---------- */
+.logout-btn {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ---------- Tela de autenticação (login obrigatório) ---------- */
+.auth-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg-app);
+}
+
+.auth-screen[hidden] {
+  display: none;
+}
+
+.auth-card {
+  width: min(400px, 100%);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  padding: 30px 28px 26px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.auth-logo {
+  justify-content: center;
+  margin: 0 auto 6px;
+}
+
+.auth-tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+.auth-form,
+.auth-label {
+  display: block;
+  text-align: left;
+}
+
+.auth-label {
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.12s;
+}
+
+.auth-input:focus {
+  border-color: var(--accent-2);
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.auth-msg {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.auth-msg.error { background: var(--red-soft); color: var(--red); border: 2px solid var(--red); }
+.auth-msg.info { background: var(--accent-soft); color: var(--green-text); border: 2px solid var(--green); }
+
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.auth-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-2);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.auth-config-error {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border: 2px dashed var(--red);
+  border-radius: var(--radius-sm);
+  background: var(--red-soft);
+  color: var(--red);
+  font-size: 0.82rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.auth-config-error code {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-family: Consolas, monospace;
+}

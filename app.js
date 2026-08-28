@@ -1672,9 +1672,10 @@ int main() {
 };
 
 /* ----------------------------------------------------------------
- * Estado e persistência
+ * Estado e persistência (local + nuvem via Supabase)
  * ---------------------------------------------------------------- */
 const PROGRESS_KEY = "estudarC_progress";
+const S = window.supabaseSync;
 
 const state = {
   course: "home",
@@ -1683,11 +1684,12 @@ const state = {
 let prevCourse = "home";
 
 function loadProgress() {
-  try {
-    return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
-  } catch (e) {
-    return {};
-  }
+  // Fonte de verdade: espelho em memória do supabaseSync (local quando sem conta)
+  return S && S.getAnswers ? S.getAnswers() : (tryParseJSON(localStorage.getItem(PROGRESS_KEY)) || {});
+}
+
+function tryParseJSON(str) {
+  try { return JSON.parse(str); } catch (e) { return null; }
 }
 
 function qkey(course, topicId, qi) {
@@ -1695,18 +1697,26 @@ function qkey(course, topicId, qi) {
 }
 
 function saveAnswer(course, topicId, qi, picked, correct) {
-  const p = loadProgress();
-  p[qkey(course, topicId, qi)] = { picked: picked, correct: correct };
-  localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+  if (S && S.setAnswer) S.setAnswer(qkey(course, topicId, qi), { picked: picked, correct: correct });
+  else {
+    const p = tryParseJSON(localStorage.getItem(PROGRESS_KEY)) || {};
+    p[qkey(course, topicId, qi)] = { picked: picked, correct: correct };
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+  }
 }
 
 function removeAnswer(course, topicId, qi) {
-  const p = loadProgress();
-  delete p[qkey(course, topicId, qi)];
-  localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+  if (S && S.removeAnswer) S.removeAnswer(qkey(course, topicId, qi));
+  else {
+    const p = tryParseJSON(localStorage.getItem(PROGRESS_KEY)) || {};
+    delete p[qkey(course, topicId, qi)];
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+  }
 }
 
 function resetProgress() {
+  // Com Supabase, o reset completo é feito por S.resetAll() (inclusive nuvem).
+  // Aqui apenas o fallback local.
   localStorage.removeItem(PROGRESS_KEY);
 }
 
@@ -2288,17 +2298,17 @@ function freshGam() {
 }
 
 function loadGam() {
-  try {
-    const p = JSON.parse(localStorage.getItem(GAM_KEY));
-    if (p && typeof p === "object" && typeof p.hearts === "number") return Object.assign(freshGam(), p);
-  } catch (e) { /* segue com novo */ }
+  // Fonte de verdade: espelho em memória do supabaseSync (local quando sem conta)
+  const src = (S && S.getGam) ? S.getGam() : (tryParseJSON(localStorage.getItem(GAM_KEY)) || {});
+  if (src && typeof src === "object" && typeof src.hearts === "number") return Object.assign(freshGam(), src);
   return freshGam();
 }
 
 let gam = loadGam();
 
 function saveGam() {
-  localStorage.setItem(GAM_KEY, JSON.stringify(gam));
+  if (S && S.setGam) S.setGam(gam);
+  else localStorage.setItem(GAM_KEY, JSON.stringify(gam));
 }
 
 function todayStr(offsetDays) {
@@ -2862,8 +2872,11 @@ document.addEventListener("keydown", function (e) {
 
 document.getElementById("resetBtn").addEventListener("click", function () {
   if (confirm("Tem certeza que deseja apagar todo o progresso e as conquistas?")) {
-    resetProgress();
-    localStorage.removeItem(GAM_KEY);
+    if (S && S.resetAll) S.resetAll();
+    else {
+      resetProgress();
+      localStorage.removeItem(GAM_KEY);
+    }
     gam = freshGam();
     saveGam();
     state.course = "home";
@@ -2872,6 +2885,137 @@ document.getElementById("resetBtn").addEventListener("click", function () {
     renderAll();
   }
 });
+
+/* ----------------------------------------------------------------
+ * Autenticação obrigatória + sincronização com a nuvem
+ * ---------------------------------------------------------------- */
+const authScreen = document.getElementById("authScreen");
+const authForm = document.getElementById("authForm");
+const authEmail = document.getElementById("authEmail");
+const authPass = document.getElementById("authPass");
+const authSubmit = document.getElementById("authSubmit");
+const authToggle = document.getElementById("authToggle");
+const authForgot = document.getElementById("authForgot");
+const authMsg = document.getElementById("authMsg");
+const authConfigError = document.getElementById("authConfigError");
+const authConfigErrorText = document.getElementById("authConfigErrorText");
+
+let authMode = "login"; // login | signup | forgot
+
+function showAuthMsg(text, type) {
+  if (!authMsg) return;
+  authMsg.textContent = text;
+  authMsg.className = "auth-msg " + (type || "info");
+  authMsg.hidden = false;
+}
+
+function hideAuthMsg() { if (authMsg) authMsg.hidden = true; }
+
+function renderAuthScreen() {
+  const cfgErr = (S && S.configError) ? S.configError() : null;
+  if (authConfigError) {
+    authConfigError.hidden = !!cfgErr;
+    if (authConfigErrorText && cfgErr) authConfigErrorText.textContent = cfgErr;
+  }
+  if (authSubmit) authSubmit.disabled = !!cfgErr;
+  if (authToggle) authToggle.hidden = !!cfgErr;
+  if (authForgot) authForgot.hidden = !!cfgErr;
+  hideAuthMsg();
+}
+
+function syncLocalToCloud() {
+  // Re-sincroniza o gam e respostas após merge/auth (fonte de verdade é a nuvem agora)
+  if (S) {
+    const g = S.getGam ? S.getGam() : null;
+    if (g && typeof g.hearts === "number") gam = Object.assign(freshGam(), g);
+    // progresso em memória já é o espelho do S
+  }
+}
+
+async function handleAuthChange(ev) {
+  const logged = ev && ev.user;
+  if (authScreen) authScreen.hidden = (logged || !S || !S.ready);
+  if (logged) {
+    syncLocalToCloud();
+    if (authScreen) authScreen.setAttribute("data-logged", "true");
+  }
+  renderStats();
+  renderAll();
+  registerDay();
+}
+
+if (authForm) {
+  authForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const email = authEmail.value.trim();
+    const pass = authPass.value;
+    try {
+      hideAuthMsg();
+      if (authMode === "forgot") {
+        authSubmit.disabled = true;
+        authSubmit.textContent = "Enviando...";
+        if (S && S.resetPassword) await S.resetPassword(email);
+        showAuthMsg("Enviamos um link de redefinição de senha para o seu e-mail (se ele existir).", "info");
+        setAuthMode("login");
+      } else {
+        authSubmit.disabled = true;
+        authSubmit.textContent = authMode === "signup" ? "Criando..." : "Entrando...";
+        const data = authMode === "signup"
+          ? await S.signUp(email, pass)
+          : await S.signIn(email, pass);
+        if (authMode === "signup") {
+          showAuthMsg("Conta criada! Confirme seu e-mail se necessário e entre.", "info");
+          setAuthMode("login");
+        }
+        // login com sucesso fecha a tela via handleAuthChange
+      }
+    } catch (err) {
+      showAuthMsg(err.message || "Não foi possível realizar a ação.", "error");
+    } finally {
+      authSubmit.disabled = false;
+      authSubmit.textContent = authMode === "signup" ? "Criar conta" : "Entrar";
+    }
+  });
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const isLogin = mode === "login";
+  const isForgot = mode === "forgot";
+  if (authSubmit) {
+    authSubmit.textContent = isForgot ? "Enviar link" : isLogin ? "Entrar" : "Criar conta";
+  }
+  if (authPass) {
+    authPass.style.display = isForgot ? "none" : "";
+    authPass.required = !isForgot;
+    authPass.setAttribute("placeholder", !isLogin && !isForgot ? "Crie uma senha (mín. 6 caracteres)" : "Digite sua senha");
+  }
+  if (authToggle) authToggle.innerHTML = isForgot
+    ? "Voltar para o login"
+    : isLogin
+      ? "Não tem conta? <b>Criar conta</b>"
+      : "Já tem conta? <b>Entrar</b>";
+  if (authForgot) authForgot.hidden = !isLogin;
+  hideAuthMsg();
+}
+
+if (authToggle) authToggle.addEventListener("click", function () {
+  setAuthMode(authMode === "login" ? "signup" : "login");
+});
+if (authForgot) authForgot.addEventListener("click", function () {
+  setAuthMode("forgot");
+});
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) logoutBtn.addEventListener("click", async function () {
+  if (S) await S.signOut();
+});
+
+if (S && S.onAuthChange) {
+  S.onAuthChange(handleAuthChange);
+}
+
+renderAuthScreen();
 
 renderStats();
 renderAll();
