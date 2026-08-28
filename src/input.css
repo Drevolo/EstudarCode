@@ -158,6 +158,7 @@ html[data-theme="dark"] {
 
   .course-tabs {
     @apply max-w-[1160px] mx-auto px-5 py-[9px] flex gap-2 overflow-x-auto;
+    flex-wrap: wrap;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
@@ -1309,8 +1310,8 @@ html[data-theme="dark"] {
   @media (max-width: 640px) {
     .topbar { position: static; }
     .tabs-bar { position: static; }
-    .course-tabs { padding: 8px 12px; gap: 8px; }
-    .tab-btn { padding: 7px 13px; font-size: 0.8rem; }
+    .course-tabs { padding: 8px 12px; gap: 6px; }
+    .tab-btn { padding: 6px 10px; font-size: 0.74rem; }
     .topbar-row { flex-direction: column; align-items: stretch; padding: 8px 12px; gap: 7px; }
     .topbar-right { flex-direction: column; width: 100%; gap: 7px; }
     .logo { font-size: 1.3rem; gap: 7px; align-self: flex-start; }
@@ -1318,31 +1319,24 @@ html[data-theme="dark"] {
 
     .stats {
       width: 100%;
-      gap: 6px;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      gap: 4px;
+      flex-wrap: wrap;
       padding: 1px;
     }
-    .stats::-webkit-scrollbar { display: none; }
-    .stat-chip { flex: 0 0 auto; height: 34px; padding: 0 10px; gap: 5px; font-size: 0.76rem; border-radius: 10px; }
-    .heart { font-size: 0.95rem; }
-    .chip-xp .xp-mini { width: 46px; height: 6px; }
+    .stat-chip { flex: 0 0 auto; height: 30px; padding: 0 8px; gap: 4px; font-size: 0.7rem; border-radius: 8px; }
+    .heart { font-size: 0.9rem; }
+    .chip-xp .xp-mini { width: 38px; height: 5px; }
 
     .top-actions {
       width: 100%;
       display: flex;
       justify-content: flex-start;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      flex-wrap: wrap;
+      gap: 6px;
       padding: 1px;
     }
-    .top-actions::-webkit-scrollbar { display: none; }
     .top-actions .app-btn,
-    .top-actions .reset-btn { flex: 0 0 auto; padding: 7px 12px; font-size: 0.72rem; border-radius: 10px; }
+    .top-actions .reset-btn { flex: 0 0 auto; padding: 5px 9px; font-size: 0.66rem; border-radius: 8px; }
 
     .layout { padding: 8px; gap: 8px; }
     .layout:not(.course-mode) {
@@ -1357,10 +1351,16 @@ html[data-theme="dark"] {
 
     .home-hero { padding: 18px 16px; border-radius: 16px; }
     .home-hero h2 { font-size: 1.3rem; }
-    .home-grid { gap: 12px; }
-    .course-card { padding: 14px 14px 16px; border-radius: 16px; }
-    .course-card-top { gap: 10px; }
-    .course-emblem { width: 42px; height: 42px; border-radius: 13px; font-size: 1rem; }
+    .home-grid { gap: 10px; grid-template-columns: repeat(2, 1fr); }
+    .course-card { padding: 10px 10px 12px; border-radius: 12px; }
+    .course-card-top { gap: 8px; }
+    .course-emblem { width: 34px; height: 34px; border-radius: 10px; font-size: 0.85rem; }
+    .course-card h3 { font-size: 0.92rem; }
+    .course-card-top .course-pills { gap: 4px; }
+    .course-card .mini-pill { padding: 2px 5px; font-size: 0.6rem; border-width: 1.5px; }
+    .course-card .status,
+    .course-card .course-pct { font-size: 0.72rem; }
+    .course-card .btn { padding: 8px 6px; font-size: 0.78rem; }
 
     .content h2 { font-size: 1.35rem; }
     .lesson-menu { gap: 8px; }

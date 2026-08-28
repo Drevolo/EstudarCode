@@ -245,6 +245,7 @@ button:not(:disabled) {
   padding-right: 1.25rem;
   padding-top: 9px;
   padding-bottom: 9px;
+  flex-wrap: wrap;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -2572,12 +2573,12 @@ pre code {
 
   .course-tabs {
     padding: 8px 12px;
-    gap: 8px;
+    gap: 6px;
   }
 
   .tab-btn {
-    padding: 7px 13px;
-    font-size: 0.8rem;
+    padding: 6px 10px;
+    font-size: 0.74rem;
   }
 
   .topbar-row {
@@ -2607,57 +2608,44 @@ pre code {
 
   .stats {
     width: 100%;
-    gap: 6px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    gap: 4px;
+    flex-wrap: wrap;
     padding: 1px;
-  }
-
-  .stats::-webkit-scrollbar {
-    display: none;
   }
 
   .stat-chip {
     flex: 0 0 auto;
-    height: 34px;
-    padding: 0 10px;
-    gap: 5px;
-    font-size: 0.76rem;
-    border-radius: 10px;
+    height: 30px;
+    padding: 0 8px;
+    gap: 4px;
+    font-size: 0.7rem;
+    border-radius: 8px;
   }
 
   .heart {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .chip-xp .xp-mini {
-    width: 46px;
-    height: 6px;
+    width: 38px;
+    height: 5px;
   }
 
   .top-actions {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    flex-wrap: wrap;
+    gap: 6px;
     padding: 1px;
-  }
-
-  .top-actions::-webkit-scrollbar {
-    display: none;
   }
 
   .top-actions .app-btn,
     .top-actions .reset-btn {
     flex: 0 0 auto;
-    padding: 7px 12px;
-    font-size: 0.72rem;
-    border-radius: 10px;
+    padding: 5px 9px;
+    font-size: 0.66rem;
+    border-radius: 8px;
   }
 
   .layout {
@@ -2690,23 +2678,48 @@ pre code {
   }
 
   .home-grid {
-    gap: 12px;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .course-card {
-    padding: 14px 14px 16px;
-    border-radius: 16px;
+    padding: 10px 10px 12px;
+    border-radius: 12px;
   }
 
   .course-card-top {
-    gap: 10px;
+    gap: 8px;
   }
 
   .course-emblem {
-    width: 42px;
-    height: 42px;
-    border-radius: 13px;
-    font-size: 1rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+  }
+
+  .course-card h3 {
+    font-size: 0.92rem;
+  }
+
+  .course-card-top .course-pills {
+    gap: 4px;
+  }
+
+  .course-card .mini-pill {
+    padding: 2px 5px;
+    font-size: 0.6rem;
+    border-width: 1.5px;
+  }
+
+  .course-card .status,
+    .course-card .course-pct {
+    font-size: 0.72rem;
+  }
+
+  .course-card .btn {
+    padding: 8px 6px;
+    font-size: 0.78rem;
   }
 
   .content h2 {
