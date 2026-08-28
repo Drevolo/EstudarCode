@@ -54,7 +54,7 @@
       <div id="authMsg" class="auth-msg" hidden></div>
 
       <!-- Formulário único: alterna entre Entrar / Criar conta -->
-      <form id="authForm" autocomplete="on">
+      <form id="authForm" autocomplete="on" onsubmit="event.preventDefault(); return false;">
         <label class="auth-label" for="authEmail">E-mail</label>
         <input class="auth-input" id="authEmail" type="email" required autocomplete="email" placeholder="voce@email.com" />
 
@@ -81,13 +81,13 @@
     Feito para estudar programação: Lógica, C, Python, JavaScript, HTML e CSS.
   </footer>
 
-  <script src="js/supabase-config.js"></script>
-  <script src="js/supabase-client.js"></script>
-  <script src="js/data-py.js"></script>
-  <script src="js/data-js.js"></script>
-  <script src="js/data-html.js"></script>
-  <script src="js/data-css.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/interpreter.js"></script>
+  <script src="js/supabase-config.js?v=2"></script>
+  <script src="js/supabase-client.js?v=2"></script>
+  <script src="js/data-py.js?v=2"></script>
+  <script src="js/data-js.js?v=2"></script>
+  <script src="js/data-html.js?v=2"></script>
+  <script src="js/data-css.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
+  <script src="js/interpreter.js?v=2"></script>
 </body>
 </html>
