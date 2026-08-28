@@ -2934,10 +2934,22 @@ function syncLocalToCloud() {
 
 async function handleAuthChange(ev) {
   const logged = ev && ev.user;
-  if (authScreen) authScreen.hidden = (logged || !S || !S.ready);
+  const tagline = document.getElementById("authTagline");
   if (logged) {
     syncLocalToCloud();
-    if (authScreen) authScreen.setAttribute("data-logged", "true");
+    if (authScreen) {
+      authScreen.hidden = true;
+      authScreen.setAttribute("data-logged", "true");
+    }
+  } else {
+    // Sem sessão confirmada: exige login (nunca "entra direto").
+    if (authScreen) {
+      authScreen.hidden = false;
+      authScreen.removeAttribute("data-logged");
+    }
+    if (tagline) tagline.textContent = "Entre para manter seu progresso em qualquer máquina.";
+    // Estado do formulário (habilita/desabilita conforme config)
+    renderAuthScreen();
   }
   renderStats();
   renderAll();
@@ -3013,6 +3025,12 @@ if (logoutBtn) logoutBtn.addEventListener("click", async function () {
 
 if (S && S.onAuthChange) {
   S.onAuthChange(handleAuthChange);
+}
+
+// Defesa em camadas: se o cliente estiver sem config (S.ready=false), o notify
+// inicial pode ter sido perdido antes deste listener. Força o estado "sem sessão".
+if (S && !S.ready) {
+  handleAuthChange({ user: null });
 }
 
 renderAuthScreen();

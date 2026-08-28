@@ -210,7 +210,15 @@
 
   async function signOut() {
     if (!sb) return;
-    await sb.auth.signOut();
+    try { await sb.auth.signOut(); } catch (e) { console.warn("[supabase] signOut", e); }
+    // Garantia extra: remove qualquer token de sessão deixado no localStorage
+    // (evita que o App "entre direto" após atualizar a página pós-logout).
+    try {
+      Object.keys(localStorage).forEach(function (k) {
+        if (k.indexOf("sb-") === 0 && k.indexOf("auth-token") > -1) localStorage.removeItem(k);
+      });
+    } catch (e) { /* ignore */ }
+    currentUser = null;
   }
 
   async function resetPassword(email) {
@@ -240,20 +248,24 @@
   /* ---------------- init ---------------- */
   async function init() {
     if (!sb) { notify(); return; }
-    const { data, error } = await sb.auth.getSession();
-    if (error) console.warn("[supabase] session", error);
-    currentUser = (data && data.session && data.session.user) || null;
-
-    if (currentUser) {
-      // Carrega a nuvem e mescla com o local (se houver algo local ainda).
-      await mergeLocalIntoCloud();
+    try {
+      const { data, error } = await sb.auth.getSession();
+      if (error) console.warn("[supabase] session", error);
+      currentUser = (data && data.session && data.session.user) || null;
+      if (currentUser) {
+        await mergeLocalIntoCloud();
+      }
+    } catch (e) {
+      // Se falhar a leitura da sessão, garante que o app NÃO fique "logado".
+      console.warn("[supabase] session error", e);
+      currentUser = null;
+    } finally {
+      sb.auth.onAuthStateChange(function (_event, session) {
+        handleAuth((session && session.user) || null);
+      });
+      // Sempre notifica no fim para que a tela de login seja exibida corretamente.
+      notify();
     }
-
-    sb.auth.onAuthStateChange(function (_event, session) {
-      handleAuth((session && session.user) || null);
-    });
-
-    notify();
   }
 
   /* ================================================================
