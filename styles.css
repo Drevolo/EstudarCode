@@ -1904,6 +1904,7 @@ pre code {
     overflow-x: auto;
     gap: 8px;
     padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
   }
   #topicList .topic-link {
     width: auto;
@@ -1942,5 +1943,157 @@ pre code {
   }
   .hero-level {
     flex-wrap: wrap;
+  }
+}
+
+/* ---------- tablets / celulares menos de 720px ---------- */
+@media (max-width: 720px) {
+  .stats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .stats::-webkit-scrollbar {
+    display: none;
+  }
+  .stat-chip {
+    flex: 0 0 auto;
+  }
+  .home-hero {
+    padding: 18px 16px;
+  }
+  .home-hero h2 {
+    font-size: 1.3rem;
+  }
+  .content h2 {
+    font-size: 1.45rem;
+  }
+  .course-tabs {
+    padding: 8px 14px;
+  }
+}
+
+/* ---------- celulares ---------- */
+@media (max-width: 640px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  .layout {
+    padding: 12px;
+  }
+  .content {
+    padding: 14px;
+    border-radius: 14px;
+    min-height: 50vh;
+  }
+  .overlay-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+  .side-tab {
+    left: 8px;
+    top: 8px;
+    padding: 9px 14px;
+    font-size: 0.82rem;
+  }
+  .layout.course-mode {
+    padding: 0;
+  }
+  .layout.course-mode .content {
+    padding: 14px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    min-height: 100vh;
+    padding-top: 64px;
+  }
+  .layout.course-mode .sidebar {
+    top: 8px;
+    left: 8px;
+  }
+  .btn {
+    padding: 11px 18px;
+    font-size: 0.88rem;
+  }
+  .lesson-menu {
+    margin: 14px 0 18px;
+    gap: 6px;
+  }
+  .lesson-menu-btn {
+    padding: 9px 14px;
+    font-size: 0.84rem;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .flash-face {
+    padding: 18px;
+    font-size: 1rem;
+  }
+  .flash-wrap {
+    margin: 6px 0 16px;
+  }
+  .q-option {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  .question {
+    padding: 16px;
+  }
+  .quiz {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+  .course-card {
+    padding: 14px 14px 16px;
+  }
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+  .badge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .edit-area,
+  .dbg-input {
+    font-size: 16px;
+  }
+  .dbg-top .dbg-sample {
+    width: 100%;
+  }
+  .footer {
+    font-size: 0.75rem;
+    padding: 14px 12px;
+  }
+}
+
+/* ---------- celulares muito pequenos ---------- */
+@media (max-width: 420px) {
+  .content h2 {
+    font-size: 1.3rem;
+  }
+  .topbar-row {
+    padding: 8px 10px;
+  }
+  .course-tabs {
+    padding: 7px 10px;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+  .logo::before {
+    width: 26px;
+    height: 26px;
+  }
+  .app-btn {
+    padding: 9px 14px;
+    font-size: 0.8rem;
+  }
+  .tab-btn {
+    padding: 7px 12px;
+    font-size: 0.84rem;
+  }
+  .path-side {
+    font-size: 0.82rem;
   }
 }
