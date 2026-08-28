@@ -1912,10 +1912,6 @@ function currentDebugLang() {
   return debugLangForCourse(state.course);
 }
 
-function openDebuggerForCourse() {
-  openDebugger(currentDebugLang());
-}
-
 function topicProgress(course) {
   let done = 0;
   DATA[course].topics.forEach(function (t) { if (allDone(course, t.id)) done++; });
@@ -2875,22 +2871,6 @@ const sideBackdrop = document.getElementById("sideBackdrop");
 if (sideBackdrop) sideBackdrop.addEventListener("click", function () { setSidebarOpen(false); });
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") setSidebarOpen(false);
-});
-
-document.getElementById("resetBtn").addEventListener("click", function () {
-  if (confirm("Tem certeza que deseja apagar todo o progresso e as conquistas?")) {
-    if (S && S.resetAll) S.resetAll();
-    else {
-      resetProgress();
-      localStorage.removeItem(GAM_KEY);
-    }
-    gam = freshGam();
-    saveGam();
-    state.course = "home";
-    state.topic = null;
-    renderStats();
-    renderAll();
-  }
 });
 
 /* ----------------------------------------------------------------
