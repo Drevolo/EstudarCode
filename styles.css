@@ -393,6 +393,30 @@ button:not(:disabled) {
   margin-bottom: 0.25rem;
 }
 
+@media (max-width: 640px) {
+  .xp-mini i pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .xp-mini i code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .xp-mini i pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .xp-mini i code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
 .xp-mini i {
   display: block;
   height: 100%;
@@ -1536,6 +1560,30 @@ pre code {
   margin-bottom: 0.25rem;
 }
 
+@media (max-width: 640px) {
+  .hero-bar pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-bar code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-bar pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-bar code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
 .hero-bar {
   display: block;
   height: 0.875rem;
@@ -1568,6 +1616,30 @@ pre code {
 
 .hero-bar i li {
   margin-bottom: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .hero-bar i pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-bar i code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-bar i pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-bar i code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
 }
 
 .hero-bar i {
@@ -2028,6 +2100,30 @@ pre code {
   margin-bottom: 0.25rem;
 }
 
+@media (max-width: 640px) {
+  .dbg-label pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dbg-label code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .dbg-label pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dbg-label code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
 .dbg-label {
   margin-bottom: 0.25rem;
   display: block;
@@ -2284,6 +2380,34 @@ pre code {
   margin-bottom: 0.25rem;
 }
 
+@media (max-width: 640px) {
+  .auth-form pre,
+  .auth-label pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .auth-form code,
+  .auth-label code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .auth-form pre,
+  .auth-label pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .auth-form code,
+  .auth-label code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
 .auth-form,
   .auth-label {
   display: block;
@@ -2417,9 +2541,43 @@ pre code {
   }
 }
 
+@media (max-width: 900px) and (min-width: 641px) {
+  .layout {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .sidebar {
+    top: 84px;
+  }
+
+  .\!sidebar {
+    top: 84px !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .home-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
   .topbar {
     position: static;
+  }
+
+  .tabs-bar {
+    position: static;
+  }
+
+  .course-tabs {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .tab-btn {
+    padding: 7px 13px;
+    font-size: 0.8rem;
   }
 
   .topbar-row {
@@ -2505,6 +2663,16 @@ pre code {
   .layout {
     padding: 8px;
     gap: 8px;
+  }
+
+  .layout:not(.course-mode) {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .layout:not(.course-mode) .sidebar {
+    position: static;
+    top: auto;
   }
 
   .content {
@@ -2595,6 +2763,30 @@ pre code {
     padding: 10px 12px;
   }
 
+  .block pre,
+    .content pre {
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content code,
+    .block code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .content p,
+    .content li,
+    .content h2,
+    .content h3,
+    .content h4,
+    .breadcrumb,
+    .topic-subtitle {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
   .dbg-tabs {
     display: flex;
     flex-wrap: nowrap;
@@ -2680,6 +2872,11 @@ pre code {
 
   .content strong {
     color: var(--text);
+  }
+
+  .layout:not(.course-mode) .\!sidebar {
+    position: static !important;
+    top: auto !important;
   }
 }
 
@@ -2829,7 +3026,20 @@ pre code {
     top: 12px;
     right: 14px;
   }
+}
 
+@media (min-width: 561px) and (max-width: 700px) {
+  .overlay-card,
+    .overlay-card.wide {
+    width: min(560px, calc(100vw - 28px));
+  }
+
+  .overlay-card {
+    max-height: 92vh;
+  }
+}
+
+@media (max-width: 560px) {
   .auth-screen {
     align-items: stretch;
     padding: 0;

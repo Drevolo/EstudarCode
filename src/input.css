@@ -1297,8 +1297,20 @@ html[data-theme="dark"] {
     .layout { gap: 14px; padding: 14px; }
   }
 
+  @media (max-width: 900px) and (min-width: 641px) {
+    .layout { grid-template-columns: 220px 1fr; }
+    .sidebar { top: 84px; }
+  }
+
+  @media (min-width: 641px) {
+    .home-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+  }
+
   @media (max-width: 640px) {
     .topbar { position: static; }
+    .tabs-bar { position: static; }
+    .course-tabs { padding: 8px 12px; gap: 8px; }
+    .tab-btn { padding: 7px 13px; font-size: 0.8rem; }
     .topbar-row { flex-direction: column; align-items: stretch; padding: 8px 12px; gap: 7px; }
     .topbar-right { flex-direction: column; width: 100%; gap: 7px; }
     .logo { font-size: 1.3rem; gap: 7px; align-self: flex-start; }
@@ -1333,6 +1345,14 @@ html[data-theme="dark"] {
     .top-actions .reset-btn { flex: 0 0 auto; padding: 7px 12px; font-size: 0.72rem; border-radius: 10px; }
 
     .layout { padding: 8px; gap: 8px; }
+    .layout:not(.course-mode) {
+      grid-template-columns: 1fr;
+      display: grid;
+    }
+    .layout:not(.course-mode) .sidebar {
+      position: static;
+      top: auto;
+    }
     .content { padding: 16px 14px; border-radius: 16px; }
 
     .home-hero { padding: 18px 16px; border-radius: 16px; }
@@ -1355,6 +1375,28 @@ html[data-theme="dark"] {
 
     pre { padding: 12px; font-size: 0.8rem; }
     blockquote, .note { padding: 10px 12px; }
+
+    .block pre,
+    .content pre {
+      width: 100%;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+    }
+    .content code,
+    .block code {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .content p,
+    .content li,
+    .content h2,
+    .content h3,
+    .content h4,
+    .breadcrumb,
+    .topic-subtitle {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
 
     .dbg-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 6px; padding-bottom: 4px; }
     .dbg-tabs::-webkit-scrollbar { display: none; }
@@ -1420,6 +1462,14 @@ html[data-theme="dark"] {
     }
     .overlay-card.wide { width: 100%; }
     .overlay-close { top: 12px; right: 14px; }
+  }
+
+  @media (min-width: 561px) and (max-width: 700px) {
+    .overlay-card,
+    .overlay-card.wide {
+      width: min(560px, calc(100vw - 28px));
+    }
+    .overlay-card { max-height: 92vh; }
   }
 
   @media (max-width: 560px) {
