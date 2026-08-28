@@ -2914,7 +2914,7 @@ function hideAuthMsg() { if (authMsg) authMsg.hidden = true; }
 function renderAuthScreen() {
   const cfgErr = (S && S.configError) ? S.configError() : null;
   if (authConfigError) {
-    authConfigError.hidden = !!cfgErr;
+    authConfigError.hidden = !cfgErr;   // esconde quando NÃO há erro de config
     if (authConfigErrorText && cfgErr) authConfigErrorText.textContent = cfgErr;
   }
   if (authSubmit) authSubmit.disabled = !!cfgErr;
