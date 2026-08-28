@@ -1,0 +1,2878 @@
+/***************************************************************
+ *  EstudarCode - plataforma para aprender a programar
+ *  Cursos: Lógica de Programação, C, Python, JavaScript, HTML e CSS
+ *  Os cursos extras (data-*.js) são mesclados a este DATA.
+ ***************************************************************/
+
+const DATA = {
+  lp: {
+    name: "Lógica de Programação",
+    topics: [
+      {
+        id: "lp-algoritmo",
+        title: "O que é um Algoritmo",
+        subtitle: "A base de tudo: sequência de passos para resolver problemas.",
+        blocks: [
+          { t: "h", h: "O que é um algoritmo?" },
+          { t: "p", p: "Um algoritmo é uma sequência finita e ordenada de passos que leva de um problema até a sua solução. Ele funciona como uma receita de bolo: se você seguir os passos na ordem certa, o resultado sai como o esperado. Todo programa de computador começa com um algoritmo." },
+          { t: "h", h: "Características de um bom algoritmo" },
+          { t: "lst", items: [
+            "Finito: termina depois de um número de passos.",
+            "Bem definido: cada passo é claro e sem ambiguidade.",
+            "Eficaz: resolve realmente o problema proposto.",
+            "Entrada e saída definidas: recebe dados e produz um resultado."
+          ]},
+          { t: "h", h: "Exemplo: trocar um pneu" },
+          { t: "ol", items: [
+            "Pegue o estepe, o macaco e a chave de roda.",
+            "Afrouxe os parafusos do pneu furado.",
+            "Eleve o carro com o macaco.",
+            "Retire os parafusos e o pneu.",
+            "Encaixe o pneu novo e aperte os parafusos.",
+            "Abaixe o carro.",
+            "Aperte os parafusos novamente."
+          ]},
+          { t: "h", h: "Formas de representar um algoritmo" },
+          { t: "lst", items: [
+            "Descrição narrativa: passar o passo a passo em linguagem comum (como o exemplo do pneu).",
+            "Fluxograma: representar os passos com formas geométricas e setas.",
+            "Pseudocódigo (Portugol): escrever em um texto estruturado, próximo do português. É o que usaremos."
+          ]},
+          { t: "code", c: String.raw`ALGORITMO soma_de_dois_numeros
+VAR
+    n1, n2, soma : INTEIRO
+INICIO
+    ESCREVER("Digite o primeiro número: ")
+    LER(n1)
+    ESCREVER("Digite o segundo número: ")
+    LER(n2)
+    soma <- n1 + n2
+    ESCREVER("A soma é: ", soma)
+FIM` },
+          { t: "note", p: "O pseudocódigo não executa direto no computador. Primeiro você resolve a lógica nele e depois traduz para uma linguagem como o C." , msg: "Atenção" },
+          { t: "h", h: "Lógica de Programação" },
+          { t: "p", p: "Lógica de programação é a habilidade de organizar o raciocínio para transformar um problema em uma sequência lógica de comandos. Ela independe da linguagem: quem domina a lógica aprende qualquer linguagem com muito mais facilidade." }
+        ],
+        quiz: [
+          { q: "O que é um algoritmo?", opts: ["Um programa pronto para ser executado.", "Uma sequência finita e ordenada de passos para resolver um problema.", "Um tipo de dado numérico.", "Uma linguagem de programação."], ans: 1, expl: "O algoritmo é o passo a passo da solução e serve de base para qualquer programa." },
+          { q: "Qual das opções NÃO é característica de um bom algoritmo?", opts: ["Terminar em algum momento (ser finito).", "Ter passos claros e sem ambiguidade.", "Não receber nem produzir dados, para rodar sem erro.", "Resolver um problema de forma estruturada."], ans: 2, expl: "Um bom algoritmo pode até dispensar entrada, mas normalmente produz uma saída — e sempre resolve um problema de forma clara e finita." },
+          { q: "O pseudocódigo (Portugol) é usado para:", opts: ["Rodar direto no processador.", "Descrever a lógica do algoritmo de forma estruturada, próxima do português.", "Substituir o fluxograma em todos os casos.", "Compilar programas em C."], ans: 1, expl: "O Portugol representa a lógica em texto estruturado, servindo de ponte entre o raciocínio e a linguagem de programação." }
+        ]
+      },
+      {
+        id: "lp-variaveis",
+        title: "Variáveis e Tipos de Dados",
+        subtitle: "As 'caixinhas' da memória que guardam os valores do programa.",
+        blocks: [
+          { t: "h", h: "O que é uma variável?" },
+          { t: "p", p: "Uma variável é um espaço reservado na memória do computador para armazenar um valor. Chama-se variável porque o valor pode mudar durante a execução. Pense nela como uma caixinha etiquetada: a etiqueta é o nome e o conteúdo é o valor." },
+          { t: "lst", items: [
+            "Nome (identificador): como vamos nos referir à variável.",
+            "Tipo: o tipo de dado que ela pode guardar.",
+            "Valor: o conteúdo atual (que pode ser alterado)."
+          ]},
+          { t: "h", h: "Regras para nomes (identificadores)" },
+          { t: "lst", items: [
+            "Não pode começar com número (1nome é inválido).",
+            "Não pode ter espaços (use idadeAluno ou idade_aluno).",
+            "Não pode ser palavra reservada (ex.: SE, INICIO, FIM).",
+            "Evite acentos e caracteres especiais.",
+            "Use nomes significativos: nomeDoCliente é melhor que xyz."
+          ]},
+          { t: "h", h: "Tipos de dados mais comuns" },
+          { t: "lst", items: [
+            "INTEIRO: números sem casa decimal (ex.: 5, -3, 1000).",
+            "REAL: números com casa decimal (ex.: 3.14, 19.90).",
+            "CARACTERE: letras, símbolos ou textos (ex.: \"Ana\", \"a\").",
+            "LOGICO: somente VERDADEIRO ou FALSO (ex.: aprovado)."
+          ]},
+          { t: "h", h: "Constantes" },
+          { t: "p", p: "Uma constante é um valor fixo que não muda durante o programa — por exemplo, PI = 3.14159. Usamos constantes para proteger valores de alterações acidentais." },
+          { t: "code", c: String.raw`VAR
+    idade     : INTEIRO
+    preco     : REAL
+    nome      : CARACTERE
+    aprovado  : LOGICO
+
+INICIO
+    idade <- 18
+    preco <- 19.90
+    nome <- "Gabriel"
+    aprovado <- VERDADEIRO
+
+    ESCREVER(nome, " tem ", idade, " anos.")
+    ESCREVER("Preço: ", preco)
+    ESCREVER("Aprovado: ", aprovado)
+FIM` },
+          { t: "note", p: "O símbolo <- significa \"recebe\" (atribuição). Lemos idade <- 18 como \"a variável idade recebe o valor 18\"." },
+          { t: "warn", p: "Uma variável só pode guardar valores do tipo com que foi declarada. Não tente colocar um texto em uma variável INTEIRA." }
+        ],
+        quiz: [
+          { q: "Qual das opções é um nome válido para uma variável?", opts: ["2nota", "nota do aluno", "notaAluno", "Se"], ans: 2, expl: "Não pode começar com número, não pode ter espaço e \"Se\" é palavra reservada. notaAluno segue todas as regras." },
+          { q: "O tipo de dado mais adequado para \"aprovado ou reprovado\" é:", opts: ["INTEIRO", "LOGICO", "REAL", "CARACTERE"], ans: 1, expl: "Lógico guarda apenas VERDADEIRO ou FALSO — perfeito para esse caso." },
+          { q: "A atribuição \"idade <- 18\" significa:", opts: ["A variável idade é comparada com 18.", "A variável idade recebe o valor 18.", "18 é mudado para idade.", "O programa imprime \"idade 18\"."], ans: 1, expl: "O operador <- armazena (atribui) o valor 18 na variável idade." }
+        ]
+      },
+      {
+        id: "lp-operadores",
+        title: "Operadores",
+        subtitle: "Aritméticos, relacionais e lógicos — as ferramentas dos cálculos e testes.",
+        blocks: [
+          { t: "h", h: "Operadores aritméticos" },
+          { t: "lst", items: [
+            "+ soma            ex.: 5 + 3 = 8",
+            "- subtração       ex.: 5 - 3 = 2",
+            "* multiplicação   ex.: 5 * 3 = 15",
+            "/ divisão         ex.: 10 / 2 = 5",
+            "mod resto da divisão inteira  ex.: 7 mod 3 = 1"
+          ]},
+          { t: "h", h: "Operadores relacionais" },
+          { t: "p", p: "Compara dois valores e o resultado é sempre LOGICO (VERDADEIRO ou FALSO):" },
+          { t: "lst", items: [
+            ">  maior que",
+            "<  menor que",
+            ">= maior ou igual a",
+            "<= menor ou igual a",
+            "=  igual a",
+            "<> diferente de"
+          ]},
+          { t: "h", h: "Operadores lógicos" },
+          { t: "lst", items: [
+            "E: verdadeiro somente quando as duas condições são verdadeiras.",
+            "OU: verdadeiro quando pelo menos uma das condições é verdadeira.",
+            "NAO: inverte o valor lógico (verdadeiro vira falso e vice-versa)."
+          ]},
+          { t: "h", h: "Tabela verdade (E e OU)" },
+          { t: "code", c: String.raw`   A   |   B   | A E B | A OU B
+ ------+-------+-------+--------
+  V    |  V    |   V   |   V
+  V    |  F    |   F   |   V
+  F    |  V    |   F   |   V
+  F    |  F    |   F   |   F` },
+          { t: "h", h: "Exemplo no pseudocódigo" },
+          { t: "code", c: String.raw`VAR
+    media : REAL
+INICIO
+    ESCREVER("Digite a média: ")
+    LER(media)
+
+    SE (media >= 6) E (media <= 10) ENTAO
+        ESCREVER("Média válida.")
+    FIMSE
+FIM` },
+          { t: "note", p: "Precedência: primeiro (), depois * / mod, depois + -, depois os relacionais (>, <, =...), e por fim os lógicos E, OU, NAO." }
+        ],
+        quiz: [
+          { q: "Qual é o resultado de 7 mod 3?", opts: ["3", "2", "1", "1.5"], ans: 2, expl: "7 dividido por 3 dá 2 e sobra resto 1. O operador mod retorna esse resto." },
+          { q: "O resultado de (5 > 3) E (2 < 1) é:", opts: ["VERDADEIRO", "FALSO", "Erro de execução", "Depende do dia"], ans: 1, expl: "A segunda condição é falsa e, no operador E, basta uma condição falsa para o resultado ser falso." },
+          { q: "Qual operador relacional retorna VERDADEIRO quando os dois valores são iguais?", opts: ["<>", "=", ">", ">="], ans: 1, expl: "O operador de igualdade no pseudocódigo é = . Já <> significa diferente." }
+        ]
+      },
+      {
+        id: "lp-condicionais",
+        title: "Estruturas Condicionais",
+        subtitle: "Fazendo o programa tomar decisões (SE, SENAO).",
+        blocks: [
+          { t: "h", h: "Decisões com SE" },
+          { t: "p", p: "As condicionais permitem que o programa siga caminhos diferentes conforme uma condição. A estrutura fundamental é o SE (if)." },
+          { t: "code", c: String.raw`SE (condicao) ENTAO
+    ...bloco se a condicao for verdadeira...
+FIMSE
+
+SE (condicao) ENTAO
+    ...bloco se verdadeira...
+SENAO
+    ...bloco se falsa...
+FIMSE` },
+          { t: "h", h: "Exemplo 1 — Par ou ímpar" },
+          { t: "code", c: String.raw`VAR
+    n : INTEIRO
+INICIO
+    ESCREVER("Digite um número: ")
+    LER(n)
+
+    SE (n mod 2 = 0) ENTAO
+        ESCREVER(n, " é par.")
+    SENAO
+        ESCREVER(n, " é ímpar.")
+    FIMSE
+FIM` },
+          { t: "h", h: "Exemplo 2 — Nota do aluno" },
+          { t: "code", c: String.raw`VAR
+    nota : REAL
+INICIO
+    ESCREVER("Digite a nota: ")
+    LER(nota)
+
+    SE (nota >= 6) ENTAO
+        ESCREVER("Aprovado!")
+    SENAO SE (nota >= 4) ENTAO
+        ESCREVER("Recuperação.")
+    SENAO
+        ESCREVER("Reprovado.")
+    FIMSE
+FIM` },
+          { t: "note", p: "Condicionais podem ser aninhadas (um SE dentro de outro). Cuidado para fechar todos com o FIMSE correspondente." },
+          { t: "warn", p: "Você pode combinar condições com os operadores E e OU, ex.: SE (n > 0) E (n < 100)." }
+        ],
+        quiz: [
+          { q: "A estrutura SE...SENAO executa:", opts: ["O bloco do SENAO quando a condição é verdadeira.", "O bloco do SE e depois o do SENAO.", "O bloco do SE quando verdadeiro, senão o do SENAO.", "Nenhum dos blocos."], ans: 2, expl: "O SE é exclusivo: um dos caminhos é executado, nunca os dois ao mesmo tempo." },
+          { q: "Com nota = 5, o que o Exemplo 2 imprime?", opts: ["Aprovado!", "Recuperação.", "Reprovado.", "Nada."], ans: 1, expl: "5 não é >= 6, mas é >= 4, então cai no meio: Recuperação." },
+          { q: "Para testar uma condição sem executar nada quando ela for falsa, usamos:", opts: ["Apenas o SE", "O SE...SENAO", "Duas variáveis", "Um laço"], ans: 0, expl: "Sem o SENAO, quando a condição é falsa o programa simplesmente segue para a próxima linha." }
+        ]
+      },
+      {
+        id: "lp-repeticoes",
+        title: "Estruturas de Repetição",
+        subtitle: "Laços: repetindo blocos sem escrever mil linhas.",
+        blocks: [
+          { t: "h", h: "Por que usar laços" },
+          { t: "p", p: "Laços (repetições) executam um bloco várias vezes. São ideais para tarefas repetitivas, como somar as notas de 40 alunos sem escrever 40 linhas de código." },
+          { t: "h", h: "PARA (repetição com contagem conhecida)" },
+          { t: "code", c: String.raw`PARA i DE 1 ATE 10 FACA
+    ESCREVER(i)
+FIMPARA` },
+          { t: "h", h: "ENQUANTO (repete enquanto a condição for verdadeira)" },
+          { t: "code", c: String.raw`VAR
+    cont : INTEIRO
+INICIO
+    cont <- 1
+    ENQUANTO (cont <= 10) FACA
+        ESCREVER(cont)
+        cont <- cont + 1
+    FIMENQUANTO
+FIM` },
+          { t: "h", h: "REPITA (executa ao menos uma vez)" },
+          { t: "code", c: String.raw`VAR
+    senha : INTEIRO
+INICIO
+    REPITA
+        ESCREVER("Digite a senha: ")
+        LER(senha)
+    ATE (senha = 1234)
+FIM` },
+          { t: "h", h: "Exemplo: soma de 1 a 5" },
+          { t: "code", c: String.raw`VAR
+    i, soma : INTEIRO
+INICIO
+    soma <- 0
+    PARA i DE 1 ATE 5 FACA
+        soma <- soma + i
+    FIMPARA
+    ESCREVER("Soma: ", soma)   {imprime 15}
+FIM` },
+          { t: "note", p: "O padrão soma <- soma + i acumula valores. É a base de somatórios e médias." },
+          { t: "warn", p: "Se a condição do ENQUANTO nunca ficar falsa, o programa vira um loop infinito. Sempre garanta que algo muda dentro do laço (como cont <- cont + 1)." }
+        ],
+        quiz: [
+          { q: "Quantas vezes o corpo a seguir executa? PARA i DE 1 ATE 3 FACA ... FIMPARA", opts: ["1 vez", "2 vezes", "3 vezes", "4 vezes"], ans: 2, expl: "O laço roda para i = 1, 2 e 3 — ou seja, 3 repetições." },
+          { q: "A diferença principal entre ENQUANTO e REPITA é:", opts: ["ENQUANTO testa antes de executar; REPITA testa depois (executa ao menos uma vez).", "Não há diferença.", "REPITA é sempre mais rápido.", "ENQUANTO não usa condição."], ans: 0, expl: "ENQUANTO verifica no início; REPITA verifica no final, por isso sempre executa pelo menos uma vez." },
+          { q: "No trecho soma <- soma + i, a variável soma:", opts: ["Recebe o valor de i.", "Acumula o valor de i a cada repetição.", "É comparada com i.", "Sempre vale 1."], ans: 1, expl: "Esse padrão acumula: a cada iteração o total recebe o valor atual de i somado ao que já tinha." }
+        ]
+      },
+      {
+        id: "lp-vetores",
+        title: "Vetores e Matrizes",
+        subtitle: "Agrupando vários valores do mesmo tipo.",
+        blocks: [
+          { t: "h", h: "Vetor" },
+          { t: "p", p: "Um vetor (ou array) guarda vários valores do mesmo tipo acessados por um índice. No pseudocódigo, a contagem normalmente começa em 1 e vai até N." },
+          { t: "code", c: String.raw`VAR
+    notas : VETOR [1..5] DE INTEIRO
+    i     : INTEIRO
+INICIO
+    PARA i DE 1 ATE 5 FACA
+        ESCREVER("Digite a nota do aluno ", i, ": ")
+        LER(notas[i])
+    FIMPARA
+
+    PARA i DE 1 ATE 5 FACA
+        ESCREVER("Aluno ", i, ": ", notas[i])
+    FIMPARA
+FIM` },
+          { t: "h", h: "Matriz" },
+          { t: "p", p: "Uma matriz é um \"vetor de vetores\": uma tabela com linhas e colunas. Exemplo: notas de 3 alunos em 4 provas." },
+          { t: "code", c: String.raw`VAR
+    notas : MATRIZ [1..3, 1..4] DE REAL
+    lin, col : INTEIRO
+INICIO
+    PARA lin DE 1 ATE 3 FACA
+        PARA col DE 1 ATE 4 FACA
+            ESCREVER("Nota do aluno ", lin, " na prova ", col, ": ")
+            LER(notas[lin, col])
+        FIMPARA
+    FIMPARA
+FIM` },
+          { t: "h", h: "Por que usar vetores?" },
+          { t: "lst", items: [
+            "Evita criar mil variáveis (nota1, nota2, nota3...).",
+            "Permite percorrer os dados com laços.",
+            "Facilita cálculos como média, maior, menor e ordenação."
+          ]},
+          { t: "note", p: "Sempre respeite os limites do vetor. Acessar um índice fora do intervalo é um erro clássico de prova e de execução." }
+        ],
+        quiz: [
+          { q: "No vetor notas[1..5], quantos valores cabem?", opts: ["4", "5", "6", "10"], ans: 1, expl: "São as posições 1, 2, 3, 4 e 5 — cinco valores." },
+          { q: "Qual é a principal utilidade de um vetor?", opts: ["Guardar tipos diferentes na mesma posição.", "Armazenar vários valores do mesmo tipo para manipular com laços.", "Só enfeitar o código.", "Eliminar a necessidade de entrada de dados."], ans: 1, expl: "O vetor agrupa valores do mesmo tipo e permite processá-los em conjunto com laços." },
+          { q: "Para guardar as notas de 30 alunos em 7 provas, o ideal é:", opts: ["30 variáveis.", "Um vetor simples.", "Uma matriz [1..30, 1..7].", "Uma constante."], ans: 2, expl: "Precisamos de duas dimensões: uma para o aluno e outra para a prova. Isso é uma matriz." }
+        ]
+      },
+      {
+        id: "lp-funcoes",
+        title: "Funções e Modularização",
+        subtitle: "Dividindo o problema em blocos menores e reutilizáveis.",
+        blocks: [
+          { t: "h", h: "Por que usar funções?" },
+          { t: "p", p: "Funções separam o programa em blocos reutilizáveis. Cada função resolve uma parte do problema, recebendo dados (parâmetros) e devolvendo um resultado (retorno)." },
+          { t: "h", h: "Estrutura de uma função" },
+          { t: "code", c: String.raw`FUNCAO nome(parametros) : TIPO_DE_RETORNO
+INICIO
+    ...corpo da função...
+    RETORNAR valor
+FIM` },
+          { t: "h", h: "Exemplo: maior entre dois números" },
+          { t: "code", c: String.raw`FUNCAO maior(a, b : INTEIRO) : INTEIRO
+INICIO
+    SE (a > b) ENTAO
+        RETORNAR a
+    SENAO
+        RETORNAR b
+    FIMSE
+FIM
+
+{ Programa principal }
+INICIO
+    VAR
+        x, y : INTEIRO
+    ESCREVER("Digite dois números: ")
+    LER(x)
+    LER(y)
+    ESCREVER("Maior: ", maior(x, y))
+FIM` },
+          { t: "h", h: "Vantagens" },
+          { t: "lst", items: [
+            "Dividir para conquistar: problemas complexos viram problemas menores.",
+            "Reutilizar código: a função é chamada quantas vezes precisar.",
+            "Facilitar correção e testes (dá para testar função por função)."
+          ]}
+        ],
+        quiz: [
+          { q: "O que o comando RETORNAR faz em uma função?", opts: ["Imprime um valor na tela.", "Devolve um valor a quem chamou a função e encerra a função.", "Reinicia o programa.", "Declara uma variável."], ans: 1, expl: "RETORNAR envia o resultado para a chamada e encerra imediatamente a execução da função." },
+          { q: "Os parâmetros de uma função servem para:", opts: ["Melhorar a aparência do código.", "Receber os dados que a função precisa para trabalhar.", "Não servem para nada.", "Declarar o tipo de retorno."], ans: 1, expl: "Parâmetros são a porta de entrada da função: é por eles que passamos as informações necessárias." },
+          { q: "Qual é a grande vantagem de modularizar o programa com funções?", opts: ["O programa fica obrigatoriamente mais rápido.", "É possível reutilizar e testar cada parte separadamente.", "Elimina a necessidade de variáveis.", "O programa nunca terá erros."], ans: 1, expl: "Modularizar organiza o raciocínio, facilita reuso e torna os testes muito mais fáceis." }
+        ]
+      },
+      {
+        id: "lp-matrizes",
+        title: "Matrizes (Vetores 2D)",
+        subtitle: "Vetores de vetores: organizando dados em linhas e colunas.",
+        blocks: [
+          { t: "h", h: "O que é uma matriz" },
+          { t: "p", p: "Uma matriz é um vetor de vetores, ou seja, uma estrutura bidimensional organizada em linhas e colunas. Enquanto um vetor usa um único índice, uma matriz usa dois: o primeiro para a linha e o segundo para a coluna. Pense em uma planilha ou em um quadro de tabuleiro." },
+          { t: "h", h: "Declarando e acessando" },
+          { t: "p", p: "Declaramos uma matriz indicando a quantidade de linhas e de colunas. Para acessar um elemento, usamos dois índices: m[linha][coluna]. O elemento da segunda linha e terceira coluna é m[2][3]." },
+          { t: "lst", items: [
+            "O primeiro índice seleciona a linha (que linha estamos).",
+            "O segundo índice seleciona a coluna (qual posição daquela linha).",
+            "Índices fora dos limites causam erros lógicos — o programa acessa memória errada."
+          ]},
+          { t: "h", h: "Preenchendo com PARA aninhados" },
+          { t: "p", p: "Para percorrer todos os elementos de uma matriz usamos um PARA dentro de outro: o laço externo varre as linhas e o interno as colunas. No exemplo a seguir preenchemos uma matriz 3x3 com os números de 1 a 9 e somamos a primeira linha." },
+          { t: "code", c: String.raw`VAR
+    m : INTEIRO[3][3]
+    linha, coluna, valor, soma : INTEIRO
+INICIO
+    valor <- 1
+
+    { preenche a matriz linha a linha, coluna a coluna }
+    PARA linha DE 1 ATE 3 FACA
+        PARA coluna DE 1 ATE 3 FACA
+            m[linha][coluna] <- valor
+            valor <- valor + 1
+        FIMPARA
+    FIMPARA
+
+    { soma os elementos da primeira linha }
+    soma <- 0
+    PARA coluna DE 1 ATE 3 FACA
+        soma <- soma + m[1][coluna]
+    FIMPARA
+    ESCREVER("Soma da linha 1: ", soma)
+FIM` },
+          { t: "h", h: "Exemplo prático: uma grade de tabuleiro" },
+          { t: "p", p: "O mesmo padrão serve para imprimir uma grade. Percorrendo cada linha, imprimimos os elementos da linha e depois quebramos a linha para começar a próxima. Sem o controle de \"quebra\" ao final de cada linha, todo o conteúdo sairia em uma única sequência." },
+          { t: "note", p: "A ordem dos laços importa: se você trocar os laços (colunas por fora), a matriz é percorrida na vertical em vez de na horizontal." },
+          { t: "warn", p: "Lembre-se de que índices começam em 1 no Portugol. Acessar m[0][...] ou m[4][...] em uma matriz 3x3 está fora dos limites e gera resultados imprevisíveis." }
+        ],
+        quiz: [
+          { q: "Uma matriz 3x4 possui:", opts: ["3 linhas e 4 colunas.", "4 linhas e 3 colunas.", "7 elementos no total.", "34 elementos."], ans: 0, expl: "A primeira dimensão é a linha e a segunda a coluna, logo 3 linhas e 4 colunas." },
+          { q: "Em uma matriz m[3][3], qual expressão acessa o elemento da segunda linha e terceira coluna?", opts: ["m[3][2]", "m[2][3]", "m[6]", "m[1][2]"], ans: 1, expl: "O primeiro índice é a linha (2) e o segundo a coluna (3): m[2][3]." },
+          { q: "No exemplo, por que a \"quebra de linha\" no fim de cada linha é importante ao exibir a matriz?", opts: ["Para não estourar a memória.", "Sem ela, todas as linhas seriam impressas em sequência contínua, perdendo o formato de grade.", "Não é importante.", "Para acelerar o programa."], ans: 1, expl: "A quebra de linha separa as linhas visualmente, preservando a estrutura bidimensional na saída." },
+          { q: "Qual é a consequência de acessar um índice fora dos limites da matriz?", opts: ["O programa sempre para com um erro claro.", "Não causa nenhum problema.", "Acessa memória indevida, gerando resultados imprevisíveis.", "O valor retornado é sempre zero."], ans: 2, expl: "Índices fora dos limites acessam regiões de memória que não pertencem à matriz, causando bugs difíceis de encontrar." }
+        ]
+      },
+      {
+        id: "lp-recursao",
+        title: "Recursão",
+        subtitle: "Quando uma função chama a si mesma para resolver um problema.",
+        blocks: [
+          { t: "h", h: "O que é recursão" },
+          { t: "p", p: "Recursão é a técnica em que uma função resolve um problema chamando a si mesma com um caso menor. Todo algoritmo recursivo precisa de dois ingredientes: um caso-base (que interrompe a recursão) e um passo recursivo (que aproxima cada chamada do caso-base)." },
+          { t: "lst", items: [
+            "Caso-base: a condição que resolve o problema diretamente, sem nova chamada. Sem ele, a recursão nunca para.",
+            "Passo recursivo: a chamada a si mesma com uma entrada menor, que reduz o problema a cada iteração."
+          ]},
+          { t: "h", h: "Fatorial passo a passo" },
+          { t: "p", p: "A definição do fatorial é naturalmente recursiva: n! = n × (n-1)!, e 0! = 1! = 1. Quando fatorial(5) é chamado, ele pede fatorial(4), que pede fatorial(3), e assim por diante, até chegar ao caso-base fatorial(1), que retorna 1. Depois os retornos \"sobem\" multiplicando: 1×2=2, 2×3=6, 6×4=24, 24×5=120." },
+          { t: "code", c: String.raw`FUNCAO fatorial(n : INTEIRO) : INTEIRO
+INICIO
+    SE (n <= 1) ENTAO
+        RETORNAR 1    { caso-base }
+    SENAO
+        RETORNAR n * fatorial(n - 1)   { passo recursivo }
+    FIMSE
+FIM
+
+{ Programa principal }
+INICIO
+    ESCREVER("5! = ", fatorial(5))
+FIM` },
+          { t: "h", h: "Fibonacci passo a passo" },
+          { t: "p", p: "A sequência de Fibonacci começa com 0 e 1, e cada termo é a soma dos dois anteriores. A função recursiva espelha essa definição: cada chamada gera duas novas chamadas, formando uma árvore de execução." },
+          { t: "code", c: String.raw`FUNCAO fibonacci(n : INTEIRO) : INTEIRO
+INICIO
+    SE (n <= 1) ENTAO
+        RETORNAR n    { caso-base }
+    SENAO
+        RETORNAR fibonacci(n - 1) + fibonacci(n - 2)
+    FIMSE
+FIM
+
+INICIO
+    ESCREVER("fibonacci(6) = ", fibonacci(6))
+FIM` },
+          { t: "h", h: "Recursão vs. iteração" },
+          { t: "lst", items: [
+            "Recursão costuma ser mais elegante e próxima da definição matemática do problema.",
+            "Iteração (com laços) costuma usar menos memória e ser mais rápida para casos simples.",
+            "Toda recursão pode ser escrita como iteração, e vice-versa; a escolha depende da clareza."
+          ]},
+          { t: "warn", p: "Cuidado: sem um caso-base correto, a função nunca para de chamar a si mesma. Cada chamada ocupa um espaço na pilha de memória; uma recursão infinita (ou muito profunda) causa estouro de pilha e derruba o programa." }
+        ],
+        quiz: [
+          { q: "No fatorial, qual é o caso-base que interrompe a recursão?", opts: ["n > 1", "n <= 1", "n = 10", "qualquer valor de n"], ans: 1, expl: "Quando n é 0 ou 1, a função retorna 1 diretamente, sem nova chamada." },
+          { q: "Se a chamada fatorial(0) ocorrer na função acima, o resultado é:", opts: ["0", "Erro de estouro de pilha", "1", "-1"], ans: 2, expl: "A condição n <= 1 retorna 1 para n = 0, porque 0! é definido como 1." },
+          { q: "O que acontece se removêssemos o caso-base do fatorial?", opts: ["O resultado fica maior.", "Nada muda.", "A função entraria em recursão infinita até estourar a pilha.", "O programa compila mais rápido."], ans: 2, expl: "Sem caso-base, cada chamada gera outra, sem fim, esgotando a memória da pilha." },
+          { q: "A diferença conceitual central entre recursão e iteração é:", opts: ["Não há diferença.", "Recursão resolve chamando a si mesma com um caso menor; iteração repete com laços.", "Iteração sempre é mais lenta.", "Recursão nunca usa caso-base."], ans: 1, expl: "Recursão reduz o problema com autochamadas; iteração repete um bloco com laços." }
+        ]
+      },
+      {
+        id: "lp-busca-ordenacao",
+        title: "Busca e Ordenação",
+        subtitle: "Encontrar dados rapidamente e colocar tudo em ordem.",
+        blocks: [
+          { t: "h", h: "Busca linear" },
+          { t: "p", p: "A busca linear percorre o vetor do início ao fim comparando cada elemento com o valor procurado. Ela funciona em qualquer vetor, mesmo desordenado, mas no pior caso examina todos os elementos — o custo cresce com o tamanho dos dados." },
+          { t: "h", h: "Busca binária: por que exige dados ordenados" },
+          { t: "p", p: "A busca binária divide o vetor ao meio a cada passo, comparando o valor procurado com o elemento central. Se for menor, continua à esquerda; se maior, à direita. Isso só faz sentido se os dados estiverem ordenados — caso contrário, descartar metade do vetor a cada comparação não é seguro. Em um vetor ordenado, ela encontra o valor em pouquíssimos passos, mesmo em listas enormes." },
+          { t: "code", c: String.raw`VAR
+    v : INTEIRO[5]
+    i, buscado, inicio, fim, meio, achou : INTEIRO
+INICIO
+    { dados já ordenados: pré-requisito da busca binária }
+    v[1] <- 3
+    v[2] <- 8
+    v[3] <- 12
+    v[4] <- 21
+    v[5] <- 35
+
+    ESCREVER("Digite o valor a buscar: ")
+    LER(buscado)
+
+    inicio <- 1
+    fim <- 5
+    achou <- 0
+
+    ENQUANTO (inicio <= fim) E (achou = 0) FACA
+        meio <- (inicio + fim) / 2
+        SE (v[meio] = buscado) ENTAO
+            achou <- 1
+        SENAO
+            SE (buscado < v[meio]) ENTAO
+                fim <- meio - 1
+            SENAO
+                inicio <- meio + 1
+            FIMSE
+        FIMSE
+    FIMENQUANTO
+
+    SE (achou = 1) ENTAO
+        ESCREVER("Encontrado na posição ", meio)
+    SENAO
+        ESCREVER("Não encontrado.")
+    FIMSE
+FIM` },
+          { t: "h", h: "Ordenação por seleção" },
+          { t: "p", p: "Na ordenação por seleção, percorremos o vetor procurando o menor elemento e o trocamos com a primeira posição. Depois repetimos para o restante. O algoritmo é simples, porém lento em vetores grandes porque compara repetidamente os mesmos trechos." },
+          { t: "h", h: "Ordenação por bolha (bubble sort)" },
+          { t: "p", p: "Na ordenação por bolha, comparamos elementos vizinhos e os trocamos quando estão fora de ordem, repetindo o processo até não haver mais trocas. Os maiores valores \"sobem\" como bolhas até o fim do vetor a cada passada." },
+          { t: "code", c: String.raw`VAR
+    v : INTEIRO[5]
+    i, j, aux : INTEIRO
+INICIO
+    v[1] <- 5
+    v[2] <- 2
+    v[3] <- 9
+    v[4] <- 1
+    v[5] <- 7
+
+    { ordenação por bolha: comparar vizinhos e trocar }
+    PARA i DE 1 ATE 4 FACA
+        PARA j DE 1 ATE (5 - i) FACA
+            SE (v[j] > v[j + 1]) ENTAO
+                aux <- v[j]
+                v[j] <- v[j + 1]
+                v[j + 1] <- aux
+            FIMSE
+        FIMPARA
+    FIMPARA
+
+    { exibe o vetor ordenado }
+    PARA i DE 1 ATE 5 FACA
+        ESCREVER(v[i], " ")
+    FIMPARA
+FIM` },
+          { t: "note", p: "Busca binária e ordenação andam juntas: você ordena uma vez (demorando mais), mas depois encontra qualquer valor rapidamente com a busca binária." },
+          { t: "warn", p: "Aplicar busca binária a um vetor desordenado é um bug silencioso: ela pode descartar a metade que contém o valor e responder \"não encontrado\" sem erro nenhum." }
+        ],
+        quiz: [
+          { q: "Por que a busca binária exige dados ordenados?", opts: ["Por ser mais lenta em dados ordenados.", "Porque ela descarta metade do vetor a cada passo, o que só é seguro se os dados estão em ordem.", "Porque só funciona com números pares.", "Porque exige mais memória."], ans: 1, expl: "Assumir que o valor está à esquerda ou à direita do meio só é válido em dados ordenados." },
+          { q: "Em um vetor ordenado, o que a busca binária faz a cada comparação?", opts: ["Examina todos os elementos.", "Descarta metade do vetor restante.", "Ordena novamente os dados.", "Para de procurar."], ans: 1, expl: "Comparando com o meio, ela elimina metade das possibilidades a cada passo." },
+          { q: "Na busca linear, no pior caso, quantos elementos são examinados?", opts: ["Sempre somente um.", "Metade deles.", "Todos eles.", "Nenhum."], ans: 2, expl: "Se o valor estiver no final (ou ausente), a busca linear examina o vetor inteiro." },
+          { q: "Na ordenação por bolha, o que \"sobe\" a cada passada pelo vetor?", opts: ["O menor valor.", "Nada se move.", "Os valores menores vão para o fim.", "Os maiores valores vão para o fim."], ans: 3, expl: "As comparações de vizinhos empurram os maiores valores para as últimas posições." }
+        ]
+      },
+      {
+        id: "lp-teste-mesa",
+        title: "Teste de mesa",
+        subtitle: "Simular a execução do algoritmo no papel, passo a passo, para conferir o resultado.",
+        blocks: [
+          { t: "h", h: "O que é o teste de mesa" },
+          { t: "p", p: "O teste de mesa é a execução manual de um algoritmo: você simula cada instrução na ordem em que o computador faria, anotando em uma tabela o valor de todas as variáveis a cada passo." },
+          { t: "p", p: "É a ferramenta mais simples e poderosa para encontrar erros antes de digitar o código. Todo programador faz teste de mesa, mesmo sem saber o nome." },
+          { t: "h", h: "Como montar a tabela" },
+          { t: "ol", items: [
+            "Crie uma coluna para cada variável do algoritmo.",
+            "Crie uma coluna (ou linha) para anotar o que apareceu na tela.",
+            "Execute as instruções uma a uma, na ordem, atualizando as células.",
+            "Marque como \"?\" as variáveis que ainda não receberam valor."
+          ]},
+          { t: "h", h: "Exemplo 1: atribuições" },
+          { t: "code", c: String.raw`algoritmo
+  declare X, Y numérico
+        COR literal
+        TESTE lógico
+  X <- 2
+  Y <- 0,05
+  X <- Y
+  COR <- "VERDE"
+  TESTE <- falso
+fim algoritmo` },
+          { t: "lst", items: [
+            "Instrução X <- 2:  X = 2 | Y = ? | COR = ? | TESTE = ?",
+            "Instrução Y <- 0,05:  X = 2 | Y = 0,05 | COR = ? | TESTE = ?",
+            "Instrução X <- Y:  X = 0,05 | Y = 0,05 | COR = ? | TESTE = ?",
+            "Instrução COR <- \"VERDE\":  X = 0,05 | Y = 0,05 | COR = \"VERDE\" | TESTE = ?",
+            "Instrução TESTE <- falso:  X = 0,05 | Y = 0,05 | COR = \"VERDE\" | TESTE = falso"
+          ]},
+          { t: "note", p: "Repare que X <- Y copia o valor de Y para X, apagando o 2 anterior. Cada variável guarda apenas um valor por vez." },
+          { t: "h", h: "Exemplo 2: um laço com vetor (preencher M[5])" },
+          { t: "code", c: String.raw`algoritmo
+  declare M[5], cont numérico
+  para cont <- 1 até 5 faça
+    início
+      escreva "Digite um número: "
+      leia M[cont]
+    fim
+fim algoritmo` },
+          { t: "p", p: "Suponha que o usuário digitou 26, 15, -21, 45 e 0:" },
+          { t: "lst", items: [
+            "cont = 1:  M[1] = 26, demais = ?",
+            "cont = 2:  M[1] = 26, M[2] = 15",
+            "cont = 3:  M[3] = -21",
+            "cont = 4:  M[4] = 45",
+            "cont = 5:  M[5] = 0",
+            "cont = 6:  a condição cont <= 5 falha e o laço termina."
+          ]},
+          { t: "warn", p: "Uma variável usada antes de receber valor, ou lida e nunca utilizada, aparece como \"?\" na tabela e quase sempre indica um erro de lógica." }
+        ],
+        quiz: [
+          { q: "Quando é mais útil fazer o teste de mesa?", opts: ["Somente depois de entregar o programa.", "Para simular a execução passo a passo e encontrar erros de lógica.", "Nunca é útil.", "Somente em programas com funções."], ans: 1, expl: "O teste de mesa antecipa o comportamento do algoritmo, revelando erros antes de executar o programa." },
+          { q: "Durante o teste de mesa, o que você anota quando a variável ainda não recebeu valor?", opts: ["Somente o valor zero.", "O símbolo \"?\" (indeterminado).", "O nome do algoritmo.", "A letra V."], ans: 1, expl: "Variáveis ainda não atribuídas ficam indeterminadas (\"?\") na tabela." },
+          { q: "Após X <- 2 e depois X <- Y (com Y = 0,05), qual é o valor final de X?", opts: ["2", "0,05", "2,05", "Indefinido"], ans: 1, expl: "A segunda atribuição sobrescreve X: ele passa a guardar o valor de Y." },
+          { q: "No teste de mesa do laço para cont <- 1 até 5, por que o laço termina?", opts: ["Porque o vetor tem 5 posições.", "Porque cont fica maior que 5 e o teste cont <= 5 falha.", "Porque o usuário digitou 0.", "Porque leia parou."], ans: 1, expl: "A condição de continuidade do PARA falha quando a variável de controle ultrapassa o limite." }
+        ]
+      },
+      {
+        id: "lp-funcoes-matematicas",
+        title: "Funções matemáticas",
+        subtitle: "Funções prontas nas expressões aritméticas: LOG, LN, ABS, TRUNCA, RESTO e outras.",
+        blocks: [
+          { t: "h", h: "Funções nas expressões aritméticas" },
+          { t: "p", p: "Além das quatro operações, os algoritmos usam funções prontas, que recebem um ou mais valores (argumentos) e devolvem um resultado calculado." },
+          { t: "lst", items: [
+            "LOG(EA): logaritmo na base 10 de EA.",
+            "LN(EA): logaritmo neperiano (natural) de EA.",
+            "EXP(EA): o número de Euler elevado a EA.",
+            "ABS(EA): valor absoluto (módulo) de EA.",
+            "TRUNCA(EA): a parte inteira de um número fracionário.",
+            "ARREDONDA(EA): transforma um número fracionário em inteiro, por arredondamento.",
+            "SINAL(EA): devolve -1, +1 ou 0 conforme EA seja negativo, positivo ou zero.",
+            "QUOCIENTE(EAx, EAy): quociente inteiro da divisão de EAx por EAy.",
+            "RESTO(EAx, EAy): resto da divisão de EAx por EAy."
+          ]},
+          { t: "h", h: "Exemplos de expressões com funções" },
+          { t: "p", p: "X + LN(Y) - ABS(A - B)  |  QUOCIENTE(NOTA, 2) * 100 + T  |  H*H - G * F * SINAL(C + D)" },
+          { t: "note", p: "Potenciação (SOMA^2) e radiciação em alguns materiais aparecem com símbolos próprios; nas linguagens reais elas viram funções como pow e sqrt (tópico de C)." },
+          { t: "h", h: "Exemplo pronto: par ou ímpar com RESTO" },
+          { t: "code", c: String.raw`algoritmo
+  declare N numérico
+  escreva "Digite um número: "
+  leia N
+  se RESTO(N, 2) = 0
+    então escreva N, " é par"
+    senão escreva N, " é ímpar"
+fim algoritmo` },
+          { t: "p", p: "A função RESTO(N, 2) devolve o resto da divisão de N por 2. Se o resto for zero, o número é par — a mesma lógica usada nos exercícios de vetores." },
+          { t: "h", h: "Prioridade das operações aritméticas" },
+          { t: "lst", items: [
+            "1º: potenciação e radiciação.",
+            "2º: multiplicação e divisão.",
+            "3º: adição e subtração.",
+            "Parênteses alteram a ordem: A - B * (C + D / (E - 1) - F) + G."
+          ]},
+          { t: "warn", p: "Não é permitido omitir o operador de multiplicação: para multiplicar, escreva o * explicitamente (2 * NOTA, e não 2NOTA)." }
+        ],
+        quiz: [
+          { q: "O que devolve ABS(-27)?", opts: ["-27", "27", "0", "Erro"], ans: 1, expl: "ABS calcula o valor absoluto, ou seja, remove o sinal negativo." },
+          { q: "QUOCIENTE(13, 4) e RESTO(13, 4) devolvem, respectivamente:", opts: ["1 e 3", "3 e 1", "3 e 3", "4 e 1"], ans: 1, expl: "13 dividido por 4 dá quociente 3 e resto 1." },
+          { q: "Com N = 7, o que RESTO(N, 2) devolve e o que isso significa?", opts: ["0; o número é par", "1; o número é ímpar", "2; o número é divisível", "3,5; resultado decimal"], ans: 1, expl: "7 não é divisível por 2: sobra 1, e por isso o número é ímpar." },
+          { q: "Na expressão A - B * C + D, qual operação é resolvida primeiro?", opts: ["A - B", "B * C", "C + D", "A + D"], ans: 1, expl: "Multiplicação tem prioridade sobre adição e subtração, então B * C é resolvida antes." }
+        ]
+      },
+      {
+        id: "lp-expressoes-logicas",
+        title: "Expressões lógicas",
+        subtitle: "Relações, operadores lógicos (e, ou, não) e a ordem de prioridade entre eles.",
+        blocks: [
+          { t: "h", h: "Relações" },
+          { t: "p", p: "Uma relação é uma comparação entre dois valores do MESMO tipo. O resultado de uma relação é sempre um valor lógico: verdadeiro ou falso." },
+          { t: "lst", items: [
+            "igual a (=):  NOME = \"JOÃO\"",
+            "diferente de (≠):  A ≠ B",
+            "maior que (>):  B*B - 4*A*C < 0",
+            "menor que (<)",
+            "maior ou igual a (>=)",
+            "menor ou igual a (<=)"
+          ]},
+          { t: "h", h: "Operadores lógicos" },
+          { t: "p", p: "A álgebra das proposições define três conectivos para combinar relações e variáveis lógicas: e (conjunção), ou (disjunção) e não (negação)." },
+          { t: "lst", items: [
+            "p e q = verdadeiro somente quando p e q são verdadeiros.",
+            "p ou q = verdadeiro quando pelo menos um dos dois é verdadeiro.",
+            "não p = inverte o valor de p."
+          ]},
+          { t: "h", h: "Tabela verdade" },
+          { t: "lst", items: [
+            "p | q | p e q | p ou q | não p",
+            "V | V |   V  |   V  |   F",
+            "V | F |   F  |   V  |   F",
+            "F | V |   F  |   V  |   V",
+            "F | F |   F  |   F  |   V"
+          ]},
+          { t: "h", h: "Prioridade na avaliação" },
+          { t: "lst", items: [
+            "1º: operadores aritméticos.",
+            "2º: operadores relacionais.",
+            "3º: não.",
+            "4º: e.",
+            "5º: ou."
+          ]},
+          { t: "note", p: "Essa ordem é igual à da matemática e de quase todas as linguagens: cálculo e relações primeiro; depois não (mais forte), e depois ou." },
+          { t: "h", h: "Exercício de fixação" },
+          { t: "p", p: "Considere A = 2, B = 7, C = 3,5 e a variável lógica L = falso. Avalie:" },
+          { t: "lst", items: [
+            "a) B = A * C e (L ou C > A):  7 = 7 (V) e (falso ou V)  =  V e V  =  verdadeiro.",
+            "b) B > A ou B = A^2:  V ou F  =  verdadeiro.",
+            "c) não L e A / B >= C:  V e F  =  falso.",
+            "d) L e B / A <= C ou não A <= C:  F ou F  =  falso."
+          ]},
+          { t: "warn", p: "Confundir o = da RELAÇÃO com a atribuição é o erro clássico: em uma relação, o sinal = pergunta se dois valores são iguais." }
+        ],
+        quiz: [
+          { q: "O resultado de uma relação (comparação) é sempre:", opts: ["um número", "um caractere", "um valor lógico (verdadeiro ou falso)", "um vetor"], ans: 2, expl: "Relação é comparação; o resultado é sempre verdadeiro ou falso." },
+          { q: "Qual é o valor de V e F?", opts: ["V", "F", "Depende", "Erro"], ans: 1, expl: "A conjunção (e) só é verdadeira quando as duas proposições são verdadeiras." },
+          { q: "Com L = falso, A = 2, B = 7 e C = 3,5, quanto vale \"não L e A / B >= C\"?", opts: ["verdadeiro", "falso", "depende do programa", "não dá para avaliar"], ans: 1, expl: "não L é V; A / B = 0,28... >= 3,5 é F; então V e F = F." },
+          { q: "Qual é a ordem de prioridade entre os operadores lógicos?", opts: ["ou, e, não", "e, ou, não", "não, e, ou", "todos têm a mesma prioridade"], ans: 2, expl: "A prioridade é 1º não, 2º e, 3º ou." }
+        ]
+      },
+      {
+        id: "lp-contadores-acumuladores",
+        title: "Contadores, acumuladores, maior/menor e sentinela",
+        subtitle: "Padrões clássicos com laços: contagem, soma, maior/menor e parada por valor especial.",
+        blocks: [
+          { t: "h", h: "Contador" },
+          { t: "p", p: "O contador é uma variável numérica que registra QUANTAS VEZES algo aconteceu. Costuma começar em zero (elemento neutro da soma) e receber +1 a cada ocorrência." },
+          { t: "code", c: String.raw`algoritmo
+  declare CON numérico
+  CON <- 0
+  enquanto CON < 3 faça
+    início
+      escreva CON
+      CON <- CON + 1
+    fim
+fim algoritmo` },
+          { t: "p", p: "Saída: 0, 1, 2. Quando CON chega a 3, a condição CON < 3 é falsa e a repetição para." },
+          { t: "h", h: "Acumulador" },
+          { t: "p", p: "O acumulador soma (ou multiplica) valores lidos. Para soma começa em zero; para produto começa em um (elementos neutros)." },
+          { t: "code", c: String.raw`algoritmo
+  declare CON, X, ACM numérico
+  CON <- 0
+  ACM <- 0
+  enquanto CON < 3 faça
+    início
+      CON <- CON + 1
+      leia X
+      ACM <- ACM + X
+    fim
+fim algoritmo` },
+          { t: "p", p: "Digitando 5, 2 e 4, a tabela fica: X = 5, 2, 4 e ACM = 0 depois 5, 7, 11." },
+          { t: "h", h: "Maior e menor valor" },
+          { t: "lst", items: [
+            "Use o PRIMEIRO valor lido como referência para o maior e o menor.",
+            "A cada repetição, compare o novo valor com os atuais maior e menor.",
+            "Se for maior que o maior, substitui; se for menor que o menor, substitui."
+          ]},
+          { t: "code", c: String.raw`algoritmo
+  declare valor, maior, menor, i numérico
+  leia valor
+  maior <- valor
+  menor <- valor
+  para i <- 2 até 10 faça
+    início
+      leia valor
+      se valor > maior
+        então maior <- valor
+      se valor < menor
+        então menor <- valor
+    fim
+  escreva "Maior: ", maior, " | Menor: ", menor
+fim algoritmo` },
+          { t: "note", p: "Recomendação do material: iniciar maior e menor com o primeiro valor lido evita chutes como \"maior = 0\", que quebrariam quando todos os números fossem negativos." },
+          { t: "h", h: "Controle por entrada (flag ou sentinela)" },
+          { t: "p", p: "Quando a QUANTIDADE de valores não é conhecida antes, usa-se um valor especial (o flag) para encerrar a repetição." },
+          { t: "code", c: String.raw`algoritmo
+  declare NUM, CONT, SOMA, MEDIA numérico
+  SOMA <- 0
+  CONT <- 0
+  escreva "Digite valores ou 0 para sair: "
+  leia NUM
+  enquanto NUM <> 0 faça
+    início
+      SOMA <- SOMA + NUM
+      CONT <- CONT + 1
+      escreva "Digite valores ou 0 para sair: "
+      leia NUM
+    fim
+  MEDIA <- SOMA / CONT
+  escreva "Média: ", MEDIA
+fim algoritmo` },
+          { t: "warn", p: "Se CONT for zero (o primeiro valor digitado já era o flag), a divisão SOMA / CONT divide por zero. Em algoritmos reais, é preciso tratar esse caso antes de calcular a média." }
+        ],
+        quiz: [
+          { q: "Qual é o valor inicial mais comum para um acumulador de soma?", opts: ["1", "-1", "0", "Depende do laço"], ans: 2, expl: "A soma começa em 0, que é o elemento neutro da adição." },
+          { q: "Para calcular o maior entre N números, o melhor é iniciar a variável maior com:", opts: ["0", "1000000", "o primeiro valor lido", "a média dos valores"], ans: 2, expl: "Iniciar pelo primeiro valor lido evita valores extremos pré-definidos errados." },
+          { q: "O que faz o comando CON <- CON + 1?", opts: ["Soma o valor de CON à própria CON, contando uma ocorrência.", "Multiplica CON por 1.", "Apaga CON.", "Lê um valor para CON."], ans: 0, expl: "Incrementar CON em 1 é a forma clássica de contar quantas vezes o laço passou." },
+          { q: "Um flag (ou sentinela) serve para:", opts: ["deixar o laço mais rápido", "indicar, por um valor especial, que a leitura deve parar", "trocar valores entre variáveis", "arredondar números"], ans: 1, expl: "Um valor especial (como 0) marca o fim das entradas quando a quantidade é desconhecida." }
+        ]
+      },
+      {
+        id: "lp-repeticoes-avancadas",
+        title: "Repetição: passo, comparação e laços aninhados",
+        subtitle: "passo no PARA, como escolher o laço e laço dentro de laço.",
+        blocks: [
+          { t: "h", h: "Comparação entre as estruturas de repetição" },
+          { t: "lst", items: [
+            "Enquanto: testa no início; executa zero ou muitas vezes; repete enquanto a condição for verdadeira.",
+            "Repita (até): testa no fim; executa uma ou muitas vezes; repete até a condição ficar verdadeira.",
+            "Para: usa variável de controle; executa ((vf - vi) div passo) + 1 vezes; para quando a variável passa do limite."
+          ]},
+          { t: "h", h: "O passo no PARA" },
+          { t: "p", p: "O passo (padrão 1) pode ser outro valor para contar de 2 em 2, ou negativo para contar de trás para frente." },
+          { t: "code", c: String.raw`para J <- 1 até 9 faça passo 2
+  escreva J` },
+          { t: "p", p: "Saída: 1 3 5 7 9." },
+          { t: "code", c: String.raw`para J <- 10 até 1 faça passo -1
+  escreva J` },
+          { t: "p", p: "Saída: 10 9 8 7 6 5 4 3 2 1." },
+          { t: "h", h: "Laços aninhados" },
+          { t: "p", p: "Uma repetição aninhada é uma repetição dentro do bloco de outra. O laço interno é executado POR COMPLETO a cada iteração do externo. É o padrão usado para matrizes (linhas e colunas) e conjuntos agrupados." },
+          { t: "code", c: String.raw`algoritmo
+  declare somaNF, somaTotal, val numérico
+  declare nfa, nnf, ia, ni numérico
+  escreva "Número de notas fiscais: "
+  leia nnf
+  somaTotal <- 0
+  para nfa <- 1 até nnf faça
+    início
+      escreva "Itens da NF ", nfa, ": "
+      leia ni
+      somaNF <- 0
+      para ia <- 1 até ni faça
+        início
+          escreva "Valor do item ", ia, ": "
+          leia val
+          somaNF <- somaNF + val
+        fim
+      somaTotal <- somaTotal + somaNF
+      escreva "Total da NF ", nfa, ": ", somaNF
+    fim
+  escreva "Total geral: ", somaTotal
+fim algoritmo` },
+          { t: "note", p: "No exemplo, o laço interno soma os itens de uma NF; o externo repete essa soma para cada NF. O acumulador somaNF precisa ser zerado logo antes do laço interno." },
+          { t: "warn", p: "Esquecer de reiniciar somaNF dentro do laço externo faz o total da segunda NF em diante vir acumulado (incorreto)." }
+        ],
+        quiz: [
+          { q: "para J <- 10 até 1 faça passo -1 imprime:", opts: ["1 2 3 ... 10", "10 9 8 ... 1", "10 8 6 4 2", "nada"], ans: 1, expl: "O passo negativo faz a contagem regressiva de 10 até 1." },
+          { q: "Quantas vezes a instrução escreva \"X\" é executada?\npara i <- 1 até 3 faça\n  para j <- 1 até 2 faça\n    escreva \"X\"", opts: ["3", "2", "6", "5"], ans: 2, expl: "O laço interno roda 2 vezes para cada uma das 3 iterações do externo: 3 x 2 = 6." },
+          { q: "Qual estrutura executa o corpo SEMPRE pelo menos uma vez?", opts: ["Enquanto", "Repita (até)", "Para com passo 1", "Todas"], ans: 1, expl: "O Repita testa a condição no final, garantindo no mínimo uma execução." },
+          { q: "Se o passo não for informado em para A até B, ele vale:", opts: ["0", "1", "B", "depende de A"], ans: 1, expl: "O passo padrão do PARA é 1." }
+        ]
+      },
+      {
+        id: "lp-modularizacao",
+        title: "Modularização: sub-rotinas e funções",
+        subtitle: "Dividir o algoritmo em módulos, objetos globais/locais e passagem de parâmetros.",
+        blocks: [
+          { t: "h", h: "Programação modularizada" },
+          { t: "p", p: "Problemas grandes são divididos em problemas menores e mais simples — os MÓDULOS. Um módulo é um trecho de algoritmo com uma função bem definida, o mais independente possível do restante." },
+          { t: "lst", items: [
+            "Módulo principal: por onde começa a execução; chama os demais módulos.",
+            "Sub-rotina: trecho declarado uma vez e chamado várias vezes; NÃO devolve valor como retorno.",
+            "Função: como uma função matemática; devolve OBRIGATORIAMENTE um valor a cada chamada (associado ao próprio nome)."
+          ]},
+          { t: "h", h: "Objetos globais e locais" },
+          { t: "lst", items: [
+            "Globais: podem ser usados em qualquer módulo do algoritmo.",
+            "Locais: existem apenas dentro do módulo onde foram declarados; são criados quando o módulo é chamado e liberados quando ele termina.",
+            "Usar objetos locais minimiza efeitos colaterais: o que você faz em um módulo não interfere nos outros."
+          ]},
+          { t: "h", h: "Parâmetros formais e atuais" },
+          { t: "p", p: "Os parâmetros são canais de comunicação entre o chamador e o módulo. Os PARÂMETROS FORMAIS aparecem no cabeçalho do módulo; os PARÂMETROS ATUAIS (argumentos) são os valores passados na chamada." },
+          { t: "p", p: "O argumento pode ser constante, variável ou expressão (5, v1, v1 + 5 - v2) e deve concordar em número, ordem e tipo com os parâmetros formais." },
+          { t: "h", h: "Exemplo: sub-rotina que calcula o quadrado" },
+          { t: "code", c: String.raw`sub-rotina QUADRADO(N numérico)
+  declare Q numérico
+  Q <- N * N
+  escreva "O quadrado do número é: ", Q
+fim sub-rotina
+
+algoritmo
+  declare X, Y numérico
+  escreva "Digite o valor de X e Y: "
+  leia X, Y
+  QUADRADO(X)
+  QUADRADO(Y)
+fim algoritmo` },
+          { t: "h", h: "Exemplo: função que verifica se um número é par" },
+          { t: "code", c: String.raw`função numérico PAR(N numérico)
+  se RESTO(N, 2) = 0
+    então PAR <- 1
+    senão PAR <- 0
+fim função
+
+algoritmo
+  declare X, N, CONT, ACM numérico
+  escreva "Digite o total de números: "
+  leia N
+  CONT <- 1
+  ACM <- 0
+  enquanto CONT <= N faça
+    início
+      escreva "Digite um número: "
+      leia X
+      ACM <- ACM + PAR(X)
+      CONT <- CONT + 1
+    fim
+  escreva "Total de pares: ", ACM
+fim algoritmo` },
+          { t: "note", p: "A função devolve o valor pelo próprio nome (PAR <- 1). Por isso ela pode ser usada dentro de uma expressão, como em ACM <- ACM + PAR(X)." },
+          { t: "warn", p: "Se a intenção é apenas imprimir (sem devolver valor), o ideal é uma sub-rotina. Uma função deve ser usada quando o chamador espera usar o valor retornado." }
+        ],
+        quiz: [
+          { q: "Qual é a diferença essencial entre sub-rotina e função?", opts: ["Não há diferença.", "A função devolve um valor associado ao seu nome; a sub-rotina não.", "A sub-rotina é mais rápida.", "A função não aceita parâmetros."], ans: 1, expl: "As funções retornam um valor usável em expressões; sub-rotinas apenas executam comandos." },
+          { q: "O que são parâmetros atuais?", opts: ["Os nomes que aparecem no cabeçalho do módulo.", "Os valores passados na chamada do módulo.", "As variáveis globais.", "Os comentários do módulo."], ans: 1, expl: "Os atuais (argumentos) substituem os formais no momento da chamada." },
+          { q: "Um objeto local:", opts: ["pode ser usado em qualquer módulo", "existe somente dentro do módulo que o declarou", "é criado quando o programa inicia", "é sempre uma constante"], ans: 1, expl: "Locais só existem dentro do módulo que os define; são criados na chamada e liberados no fim." },
+          { q: "Quantos valores uma função pode devolver?", opts: ["nenhum", "um valor, associado ao próprio nome", "dois", "quantos quiser"], ans: 1, expl: "A função devolve um único valor, ligado ao nome da função." }
+        ]
+      },
+      {
+        id: "lp-matrizes-especiais",
+        title: "Matrizes especiais e produto de matrizes",
+        subtitle: "Quadrada, diagonal, identidade, triangular, transposta, simétrica e o produto A x B = C.",
+        blocks: [
+          { t: "h", h: "Matriz quadrada e diagonais" },
+          { t: "p", p: "Matriz quadrada tem o mesmo número de linhas e colunas. A DIAGONAL PRINCIPAL reúne os elementos com I = J; a DIAGONAL SECUNDÁRIA reúne os com I + J = N + 1 (N é a ordem)." },
+          { t: "lst", items: [
+            "Diagonal principal: I = J.",
+            "Diagonal secundária: I + J = N + 1.",
+            "Matriz diagonal: apenas uma das diagonais vale; o resto é zero.",
+            "Matriz identidade: diagonal principal vale 1 e todo o resto vale 0.",
+            "Triangular inferior: zeros acima da diagonal principal (I < J -> 0).",
+            "Triangular superior: zeros abaixo (I + J > N + 1 -> 0)."
+          ]},
+          { t: "code", c: String.raw`algoritmo
+  declare M[4, 4], i, j numérico
+  para i <- 1 até 4 faça
+    para j <- 1 até 4 faça
+      se i = j
+        então M[i, j] <- 1
+        senão M[i, j] <- 0
+fim algoritmo` },
+          { t: "p", p: "Esse trecho monta a matriz IDENTIDADE 4x4: testa se o índice da linha é igual ao da coluna para colocar 1 na diagonal principal." },
+          { t: "h", h: "Transposta, simétrica e antissimétrica" },
+          { t: "lst", items: [
+            "Transposta: AT[i, j] <- A[j, i] (linhas viram colunas).",
+            "Simétrica: M[i, j] = M[j, i], ou seja, a matriz é igual à própria transposta.",
+            "Antissimétrica: para i ≠ j, M[i, j] = -M[j, i] (a transposta tem o sinal trocado)."
+          ]},
+          { t: "h", h: "Produto de matrizes" },
+          { t: "p", p: "Para multiplicar A (m x n) por B (n x p), o número de colunas de A precisa ser igual ao de linhas de B. O resultado C é m x p, com C[i, k] = SOMA de A[i, j] * B[j, k]." },
+          { t: "code", c: String.raw`algoritmo
+  declare A[3, 2], B[2, 3], C[3, 3] numérico
+  declare i, j, k numérico
+  para i <- 1 até 3 faça
+    para j <- 1 até 2 faça
+      leia A[i, j]
+  para i <- 1 até 2 faça
+    para j <- 1 até 3 faça
+      leia B[i, j]
+  para i <- 1 até 3 faça
+    para k <- 1 até 3 faça
+      início
+        C[i, k] <- 0
+        para j <- 1 até 2 faça
+          C[i, k] <- C[i, k] + A[i, j] * B[j, k]
+      fim
+  para i <- 1 até 3 faça
+    para j <- 1 até 3 faça
+      escreva C[i, j]
+fim algoritmo` },
+          { t: "note", p: "Para somar ou multiplicar matrizes não se opera o conjunto inteiro: opera-se elemento a elemento, dentro de laços aninhados." },
+          { t: "warn", p: "Matrizes precisam ser \"conformes\" para o produto: o número de colunas de A deve ser igual ao número de linhas de B, senão o produto não existe." }
+        ],
+        quiz: [
+          { q: "Na diagonal principal de uma matriz quadrada de ordem N, quais elementos valem?", opts: ["os com I + J = N + 1", "os com I = J", "os da última linha", "todos os da primeira coluna"], ans: 1, expl: "Diagonal principal: I = J." },
+          { q: "Em uma matriz de ordem 4, é da diagonal secundária o elemento M[2, 3]?", opts: ["sim, pois 2 + 3 = 5 = 4 + 1", "não, pois 2 ≠ 3", "sempre", "só se for quadrada"], ans: 0, expl: "Diagonal secundária: I + J = N + 1 = 5, e 2 + 3 = 5." },
+          { q: "A matriz identidade de ordem N tem:", opts: ["todos os elementos 1", "diagonal principal 1 e o resto 0", "diagonal secundária 1", "todos os elementos 0"], ans: 1, expl: "Identidade: 1 na diagonal principal, 0 nos demais." },
+          { q: "Multiplicando A (2x3) por B (3x4), a matriz C resultante é:", opts: ["de ordem 2x4", "de ordem 3x3", "de ordem 2x3", "impossível"], ans: 0, expl: "O produto tem as linhas de A (2) e as colunas de B (4): C é 2x4." }
+        ]
+      }
+    ]
+  },
+  c: {
+    name: "Algoritmos em C",
+    topics: [
+      {
+        id: "c-intro",
+        title: "Introdução ao C",
+        subtitle: "Estrutura básica de um programa em C: includes, main, printf.",
+        blocks: [
+          { t: "h", h: "Estrutura básica de um programa em C" },
+          { t: "p", p: "Todo programa em C começa incluindo bibliotecas (como stdio.h, de entrada e saída) e tem a função principal main(). A execução começa a partir do main." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    printf("Olá, mundo!\n");
+    return 0;
+}` },
+          { t: "h", h: "O que cada parte significa" },
+          { t: "lst", items: [
+            "#include <stdio.h>: importa as funções de entrada e saída (printf, scanf).",
+            "int main(): função principal; int indica que ela devolve um inteiro.",
+            "{ }: delimitam o bloco de comandos.",
+            "printf(\"...\"): imprime texto na tela.",
+            "\\n: quebra de linha.",
+            "return 0;: indica que o programa terminou com sucesso.",
+            "; : todo comando em C termina com ponto e vírgula."
+          ]},
+          { t: "h", h: "Do algoritmo ao programa" },
+          { t: "p", p: "Você escreve o algoritmo, traduz para C, compila (ex.: com o GCC) e só então executa. Dois tipos de erro podem aparecer: erros de sintaxe (você escreveu algo inválido) e erros de lógica (o programa roda, mas faz o que não deveria)." },
+          { t: "note", p: "C é compilada: o código-fonte é transformado em um executável antes de rodar. Por isso, é uma das linguagens mais rápidas e usadas em sistemas." }
+        ],
+        quiz: [
+          { q: "Todo programa em C precisa ter uma função chamada:", opts: ["inicio()", "main()", "principal()", "comeca()"], ans: 1, expl: "A função principal do C se chama main(). É por ela que a execução começa." },
+          { q: "Para usar printf e scanf, precisamos incluir:", opts: ["#include <string.h>", "#include <stdio.h>", "#include <math.h>", "#include <windows.h>"], ans: 1, expl: "stdio.h (standard I/O) contém as funções de entrada e saída." },
+          { q: "O que significa \\n dentro do printf?", opts: ["Um erro de sintaxe.", "Quebra de linha.", "Uma variável.", "Um comentário."], ans: 1, expl: "\\n é a sequência de escape que pula para a próxima linha." },
+          { q: "Em C, cada comando termina com:", opts: ["Ponto final .", "Ponto e vírgula ;", "Dois pontos :", "Nada."], ans: 1, expl: "O ponto e vírgula finaliza cada instrução em C." }
+        ]
+      },
+      {
+        id: "c-variaveis",
+        title: "Variáveis, printf e scanf",
+        subtitle: "Tipos de dados, exibição e leitura de valores.",
+        blocks: [
+          { t: "h", h: "Tipos de dados em C" },
+          { t: "lst", items: [
+            "int: números inteiros (ex.: 42, -7).",
+            "float: ponto flutuante de precisão simples (ex.: 3.14).",
+            "double: ponto flutuante de precisão dupla (mais preciso).",
+            "char: um único caractere (ex.: 'a', 'Z')."
+          ]},
+          { t: "h", h: "Declarando e exibindo valores" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int idade = 18;
+    float altura = 1.75;
+    double pi = 3.14159;
+    char inicial = 'G';
+
+    printf("Idade: %d\n", idade);
+    printf("Altura: %.2f\n", altura);
+    printf("PI: %lf\n", pi);
+    printf("Inicial: %c\n", inicial);
+    return 0;
+}` },
+          { t: "h", h: "Principais códigos de formato" },
+          { t: "lst", items: [
+            "%d → int",
+            "%f → float      | %.2f → float com 2 casas decimais",
+            "%lf → double",
+            "%c → char",
+            "%s → string (texto)"
+          ]},
+          { t: "h", h: "Lendo valores com scanf" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int n1, n2, soma;
+
+    printf("Digite o primeiro número: ");
+    scanf("%d", &n1);
+
+    printf("Digite o segundo número: ");
+    scanf("%d", &n2);
+
+    soma = n1 + n2;
+    printf("A soma é: %d\n", soma);
+    return 0;
+}` },
+          { t: "note", p: "O & na frente da variável no scanf é obrigatório: ele entrega o endereço de memória da variável para o scanf guardar o valor lá." },
+          { t: "warn", p: "Cuidado: scanf(\"%d\", n1) sem o & é um erro clássico que derruba muita prova!" }
+        ],
+        quiz: [
+          { q: "O símbolo & em scanf(\"%d\", &n1) serve para:", opts: ["Multiplicar n1 por 8.", "Passar o endereço de memória da variável.", "Indicar que é um texto.", "Não serve para nada."], ans: 1, expl: "O & obtém o endereço de memória da variável, permitindo ao scanf gravar o valor nela." },
+          { q: "Qual código imprime um float com 2 casas decimais?", opts: ["%f", "%.2f", "%d", "%2f"], ans: 1, expl: "%.2f limita a exibição a duas casas decimais." },
+          { q: "Para ler um double com scanf, usamos:", opts: ["%d", "%c", "%lf", "%s"], ans: 2, expl: "double é lido com %lf. (float seria %f.)" },
+          { q: "O tipo char armazena:", opts: ["Um número inteiro grande.", "Um único caractere, como 'a' ou 'Z'.", "Um texto inteiro.", "Números decimais."], ans: 1, expl: "char guarda um único caractere; textos usam vetores de char (strings)." }
+        ]
+      },
+      {
+        id: "c-condicionais",
+        title: "Condicionais em C",
+        subtitle: "if, else e switch: tomando decisões no código.",
+        blocks: [
+          { t: "h", h: "if e else" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Digite um número: ");
+    scanf("%d", &n);
+
+    if (n % 2 == 0) {
+        printf("%d é par.\n", n);
+    } else {
+        printf("%d é ímpar.\n", n);
+    }
+    return 0;
+}` },
+          { t: "h", h: "else if (cadeia de testes)" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    float nota;
+    printf("Digite a nota: ");
+    scanf("%f", &nota);
+
+    if (nota >= 6) {
+        printf("Aprovado!\n");
+    } else if (nota >= 4) {
+        printf("Recuperação.\n");
+    } else {
+        printf("Reprovado.\n");
+    }
+    return 0;
+}` },
+          { t: "h", h: "switch" },
+          { t: "p", p: "O switch é útil quando você testa uma única variável contra vários valores constantes." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int opcao = 2;
+
+    switch (opcao) {
+        case 1: printf("Opção 1\n"); break;
+        case 2: printf("Opção 2\n"); break;
+        default: printf("Inválida\n");
+    }
+    return 0;
+}` },
+          { t: "note", p: "Em C, igualdade é == e diferença é !=. Um \"=\" sozinho é atribuição!" },
+          { t: "warn", p: "Não esqueça o break em cada case do switch, senão o programa \"cai\" no case seguinte." }
+        ],
+        quiz: [
+          { q: "Em C, o operador de igualdade é:", opts: ["=", "==", ":=", "!="], ans: 1, expl: "== compara valores; = é apenas atribuição; != verifica diferença." },
+          { q: "Com nota = 7.5, o segundo exemplo imprime:", opts: ["Recuperação.", "Aprovado!", "Reprovado.", "Nada."], ans: 1, expl: "7.5 >= 6, então cai no primeiro if: Aprovado!" },
+          { q: "O \"default\" do switch executa quando:", opts: ["A condição é verdadeira.", "Nenhum case corresponde à variável.", "Sempre, antes do primeiro case.", "O programa encerra."], ans: 1, expl: "default é o \"senão\" do switch: roda se nenhum case der match." },
+          { q: "Para testar vários valores constantes de uma única variável, a estrutura ideal é:", opts: ["while", "switch", "for", "vetor"], ans: 1, expl: "O switch foi feito exatamente para esse padrão de testes com valores constantes." }
+        ]
+      },
+      {
+        id: "c-lacos",
+        title: "Laços em C",
+        subtitle: "for, while e do-while: repetindo blocos.",
+        blocks: [
+          { t: "h", h: "for" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int i;
+    for (i = 1; i <= 10; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    return 0;
+}` },
+          { t: "h", h: "while" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int i = 1;
+    while (i <= 10) {
+        printf("%d ", i);
+        i++;
+    }
+    printf("\n");
+    return 0;
+}` },
+          { t: "h", h: "do-while" },
+          { t: "p", p: "Diferente do while, o do-while testa a condição no final: o bloco roda pelo menos uma vez." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int senha;
+    do {
+        printf("Digite a senha (1234): ");
+        scanf("%d", &senha);
+    } while (senha != 1234);
+
+    printf("Senha correta!\n");
+    return 0;
+}` },
+          { t: "h", h: "Incremento e operadores compostos" },
+          { t: "p", p: "i++ equivale a i = i + 1 e i-- equivale a i = i - 1. Também existem +=, -=, *= e /=: por exemplo, soma += i é o mesmo que soma = soma + i." },
+          { t: "note", p: "O for tem três partes: inicialização; condição; incremento. O while testa antes de executar; o do-while testa depois." },
+          { t: "warn", p: "Cuidado com loop infinito: se i++ ficar de fora do while, a condição nunca muda e o programa não termina." }
+        ],
+        quiz: [
+          { q: "Quantas vezes executa o laço for (i = 1; i <= 3; i++)?", opts: ["2 vezes", "3 vezes", "4 vezes", "Infinitas vezes"], ans: 1, expl: "Roda para i = 1, 2 e 3 — três repetições." },
+          { q: "Qual laço garante que o bloco seja executado pelo menos uma vez?", opts: ["for", "while", "do-while", "if"], ans: 2, expl: "No do-while a condição é testada no final, então o corpo sempre roda ao menos uma vez." },
+          { q: "soma += i é o mesmo que:", opts: ["soma = i", "soma = soma + i", "i = i + soma", "soma = soma * i"], ans: 1, expl: "O operador composto += soma o valor da direita à variável da esquerda." }
+        ]
+      },
+      {
+        id: "c-vetores",
+        title: "Vetores e Strings em C",
+        subtitle: "Arrays, strings e matrizes — o coração dos dados.",
+        blocks: [
+          { t: "h", h: "Vetores em C" },
+          { t: "p", p: "Vetores armazenam vários valores do mesmo tipo. A contagem começa em 0: um vetor int v[5] tem posições v[0] até v[4]." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int notas[5], i;
+    int soma = 0;
+    float media;
+
+    for (i = 0; i < 5; i++) {
+        printf("Nota do aluno %d: ", i + 1);
+        scanf("%d", &notas[i]);
+        soma += notas[i];
+    }
+
+    media = (float) soma / 5;
+    printf("Média: %.2f\n", media);
+    return 0;
+}` },
+          { t: "h", h: "Strings (textos)" },
+          { t: "p", p: "Em C não existe o tipo string nativo: um texto é um vetor de char terminado pelo caractere especial '\\0'." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    char nome[50];
+
+    printf("Digite seu nome: ");
+    scanf("%s", nome);
+
+    printf("Olá, %s!\n", nome);
+    return 0;
+}` },
+          { t: "h", h: "Matrizes (vetor de vetores)" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int mat[2][3];   /* 2 linhas, 3 colunas */
+    int L, C, v = 1;
+
+    for (L = 0; L < 2; L++)
+        for (C = 0; C < 3; C++) {
+            mat[L][C] = v;
+            v++;
+        }
+
+    for (L = 0; L < 2; L++) {
+        for (C = 0; C < 3; C++)
+            printf("%d ", mat[L][C]);
+        printf("\n");
+    }
+    return 0;
+}` },
+          { t: "note", p: "No scanf de string NÃO usamos &: nome já é a posição do primeiro caractere. Já em int/float/char simples, o & é obrigatório." },
+          { t: "warn", p: "Com %s o scanf lê apenas até o espaço. Para ler frases completas, use fgets(nome, 50, stdin)." }
+        ],
+        quiz: [
+          { q: "int v[5] cria as posições:", opts: ["v[1] a v[5]", "v[0] a v[4]", "v[0] a v[5]", "v[1] a v[6]"], ans: 1, expl: "Em C, o índice começa em 0, então v[5] vai de v[0] até v[4]." },
+          { q: "Em C, uma string é:", opts: ["Um tipo nativo chamado string.", "Um vetor de char que termina com '\\0'.", "Uma variável do tipo int.", "Um número em aspas."], ans: 1, expl: "C não tem string nativa: textos são vetores de char finalizados por '\\0'." },
+          { q: "Para ler um inteiro na posição i do vetor, usamos:", opts: ["scanf(\"%d\", notas[i]);", "scanf(\"%d\", &notas[i]);", "scanf(\"%d\", &notas);", "scanf(\"%d\", notas);"], ans: 1, expl: "Cada elemento precisa do seu endereço: &notas[i]." },
+          { q: "Em uma matriz, mat[1][2] significa:", opts: ["Linha 1, coluna 2.", "Linha 2, coluna 1.", "Expressão inválida.", "O valor 12."], ans: 0, expl: "O primeiro índice é a linha e o segundo a coluna." }
+        ]
+      },
+      {
+        id: "c-funcoes",
+        title: "Funções em C",
+        subtitle: "Dividindo o código em funções com retorno e parâmetros.",
+        blocks: [
+          { t: "h", h: "Declarando uma função" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int quadrado(int x) {
+    return x * x;
+}
+
+int main() {
+    int n = 4;
+    printf("O quadrado de %d é %d\n", n, quadrado(n));
+    return 0;
+}` },
+          { t: "h", h: "Passagem por valor vs. por referência" },
+          { t: "lst", items: [
+            "Por valor: a função recebe uma cópia; alterações dentro dela NÃO afetam a variável original.",
+            "Por referência (com ponteiro): a função recebe o endereço e pode alterar a variável original."
+          ]},
+          { t: "h", h: "Protótipos" },
+          { t: "p", p: "Se quiser declarar a função depois do main, precisa primeiro avisar o compilador com um protótipo." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int soma(int a, int b);   /* protótipo */
+
+int main() {
+    printf("%d\n", soma(2, 3));
+    return 0;
+}
+
+int soma(int a, int b) {
+    return a + b;
+}` },
+          { t: "h", h: "Função void (sem retorno)" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+void cumprimentar(char nome[]) {
+    printf("Olá, %s!\n", nome);
+}
+
+int main() {
+    cumprimentar("Ana");
+    return 0;
+}` },
+          { t: "note", p: "return encerra a função e devolve um valor a quem a chamou. Uma função void não retorna nada." }
+        ],
+        quiz: [
+          { q: "O que acontece se você alterar um parâmetro passado por valor?", opts: ["A variável original muda.", "Muda apenas a cópia dentro da função.", "O programa trava.", "Nada acontece."], ans: 1, expl: "Por valor, a função trabalha com uma cópia; a variável original fica inalterada." },
+          { q: "Uma função declarada como void:", opts: ["Precisa retornar um int.", "Não retorna valor.", "Só pode imprimir números.", "Não pode ter parâmetros."], ans: 1, expl: "void indica que a função não devolve nenhum resultado." },
+          { q: "O protótipo de uma função serve para:", opts: ["Imprimir o resultado antecipadamente.", "Avisar o compilador sobre a função antes de seu uso.", "Armazenar valores.", "Quebrar linha."], ans: 1, expl: "O protótipo declara a assinatura da função, permitindo chamá-la antes da definição." }
+        ]
+      },
+      {
+        id: "c-ponteiros",
+        title: "Ponteiros (Fundamentos)",
+        subtitle: "Endereços de memória com & e * — o tópico dos 'oi?'.",
+        blocks: [
+          { t: "h", h: "O que é um ponteiro" },
+          { t: "p", p: "Um ponteiro guarda o endereço de memória de uma variável. É usado para passagem por referência, manipulação de vetores e alocação dinâmica." },
+          { t: "h", h: "Operadores-chave" },
+          { t: "lst", items: [
+            "& → \"endereço de\" uma variável.",
+            "* → na declaração, indica que é ponteiro; no uso, \"desreferencia\" (acessa o valor apontado)."
+          ]},
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int x = 10;
+    int *ptr;          /* ptr é um ponteiro para int */
+    ptr = &x;          /* ptr guarda o endereço de x */
+
+    printf("Valor de x: %d\n", x);
+    printf("Endereço de x: %p\n", &x);
+    printf("Valor apontado por ptr: %d\n", *ptr);
+
+    *ptr = 20;         /* muda o valor de x usando o ponteiro */
+    printf("x agora vale: %d\n", x);
+    return 0;
+}` },
+          { t: "h", h: "Por que usar ponteiros?" },
+          { t: "lst", items: [
+            "Alterar variáveis dentro de funções (passagem por referência).",
+            "Trabalhar com vetores e strings com eficiência.",
+            "Criar estruturas dinâmicas (listas, árvores) com malloc.",
+            "É campeão de questões de prova!"
+          ]},
+          { t: "note", p: "Um vetor em C é, na prática, um ponteiro para o primeiro elemento: notas equivale a &notas[0]." }
+        ],
+        quiz: [
+          { q: "O operador & aplicado a uma variável retorna:", opts: ["O valor armazenado.", "O endereço de memória da variável.", "Um erro.", "O tipo da variável."], ans: 1, expl: "& é o \"endereço de\": entrega a posição da variável na memória." },
+          { q: "Dado int *ptr = &x, a expressão *ptr representa:", opts: ["O endereço de x.", "O valor armazenado em x.", "Um erro de sintaxe.", "Um texto."], ans: 1, expl: "Desreferenciar (*ptr) acessa o valor guardado no endereço apontado — ou seja, o valor de x." },
+          { q: "Qual é a principal utilidade de passar um ponteiro para uma função?", opts: ["Tornar o programa menor.", "Permitir alterar a variável original dentro da função.", "Eliminar as variáveis.", "Acelerar o compilador."], ans: 1, expl: "Com ponteiros, a função muda o valor na própria variável original (passagem por referência)." }
+        ]
+      },
+      {
+        id: "c-matrizes",
+        title: "Matrizes (Vetores 2D)",
+        subtitle: "Armazenando dados em linhas e colunas com dois índices.",
+        blocks: [
+          { t: "h", h: "O que é uma matriz" },
+          { t: "p", p: "Uma matriz em C é um vetor de vetores: uma estrutura bidimensional com linhas e colunas. Acessamos cada elemento com dois índices, m[linha][coluna], onde o primeiro seleciona a linha e o segundo a coluna. É como uma tabela ou uma grade." },
+          { t: "h", h: "Declarando e preenchendo" },
+          { t: "p", p: "Declaramos int m[3][3]; — uma matriz de 3 linhas e 3 colunas. Como não podemos inicializar com chaves aninhadas aqui, preenchemos elemento a elemento, normalmente dentro de dois loops aninhados: o externo percorre as linhas e o interno as colunas." },
+          { t: "h", h: "Preenchendo e somando a diagonal e uma linha" },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int m[3][3];
+    int L, C, v = 1;
+
+    /* preenche elemento a elemento, linha a linha */
+    for (L = 0; L < 3; L++)
+        for (C = 0; C < 3; C++) {
+            m[L][C] = v;
+            v++;
+        }
+
+    /* soma a diagonal principal: m[0][0] + m[1][1] + m[2][2] */
+    int somaDiag = 0;
+    for (L = 0; L < 3; L++) somaDiag += m[L][L];
+    printf("Diagonal: %d\n", somaDiag);
+
+    /* soma a linha 0 */
+    int somaLinha0 = 0;
+    for (C = 0; C < 3; C++) somaLinha0 += m[0][C];
+    printf("Soma linha 0: %d\n", somaLinha0);
+
+    return 0;
+}` },
+          { t: "h", h: "Somar uma coluna" },
+          { t: "p", p: "Somar uma coluna é o inverso de somar uma linha: mantemos a coluna fixa e variamos a linha no loop externo. No exemplo a seguir somamos todos os elementos da coluna 2." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int m[3][3];
+    int L, C, v = 1;
+    for (L = 0; L < 3; L++)
+        for (C = 0; C < 3; C++) {
+            m[L][C] = v;
+            v++;
+        }
+
+    int somaCol2 = 0;
+    for (L = 0; L < 3; L++) somaCol2 += m[L][2];
+    printf("Soma coluna 2: %d\n", somaCol2);
+    return 0;
+}` },
+          { t: "note", p: "A diagonal principal usa o mesmo valor para linha e coluna (m[0][0], m[1][1], m[2][2]). Somar a diagonal secundária exige relacionar a coluna com o tamanho da linha, por exemplo m[L][2-L] em uma matriz 3x3." },
+          { t: "warn", p: "Índice fora dos limites é um problema clássico: acessar m[3][0] em uma matriz 3x3 compila, mas lê memória de outra região, gerando resultados inesperados. Em C, o programa não te avisa — você precisa cuidar das fronteiras." }
+        ],
+        quiz: [
+          { q: "Dada uma matriz int m[4][5], quantos elementos ela possui?", opts: ["9", "20", "45", "4"], ans: 1, expl: "Multiplicamos linhas por colunas: 4 × 5 = 20 elementos." },
+          { q: "Em uma matriz 3x3 preenchida com 1 a 9, a soma da diagonal principal (m[0][0]+m[1][1]+m[2][2]) é:", opts: ["6", "15", "45", "9"], ans: 1, expl: "A diagonal principal contém 1, 5 e 9, cuja soma é 15." },
+          { q: "Para somar todos os elementos da coluna C, qual é o papel dos loops?", opts: ["Manter C fixo e variar L no loop externo.", "Variar C fixo e manter L.", "Usar apenas um loop sem índices.", "Não é possível somar colunas."], ans: 0, expl: "A coluna fica fixa (m[L][C] com C constante) enquanto a linha varia no loop." },
+          { q: "O que acontece se você acessar m[3][1] em uma matriz int m[3][3]?", opts: ["Um erro de compilação garantido.", "Acessa memória fora da matriz, com resultado imprevisível.", "Retorna sempre zero.", "O programa trava na hora."], ans: 1, expl: "Os índices válidos vão de 0 a 2; acessar índice 3 lê memória indevida sem aviso." }
+        ]
+      },
+      {
+        id: "c-strings",
+        title: "Strings (Vetores de char)",
+        subtitle: "Textos como sequências de caracteres terminadas por '\\0'.",
+        blocks: [
+          { t: "h", h: "O que é uma string" },
+          { t: "p", p: "C não tem um tipo string nativo. Um texto é um vetor de char, e o caractere especial '\\0' (nulo) marca o fim da string. Por isso \"Ana\" ocupa na verdade 4 posições: 'A', 'n', 'a' e o '\\0' final. O '\\0' não é impresso, mas é o que permite às funções saberem onde o texto termina." },
+          { t: "h", h: "Contando o tamanho sem strlen" },
+          { t: "p", p: "Um erro comum é tentar usar strlen, strcpy e funções de <string.h>, que não estão disponíveis aqui. Para contar o tamanho, percorremos o vetor com um loop até encontrar o '\\0', incrementando um contador." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    char n[20] = "Ana";
+    int tam = 0;
+
+    /* percorre até o '\0' final */
+    while (n[tam] != '\0') tam++;
+
+    printf("Tamanho: %d\n", tam);
+    printf("%s\n", n);
+    return 0;
+}` },
+          { t: "h", h: "Comparando strings char a char" },
+          { t: "p", p: "Para comparar textos, percorremos os dois vetores comparando caractere a caractere. O loop continua enquanto houver caracteres em qualquer das strings ('\\0' ainda não encontrado). Se em algum ponto os caracteres diferirem, os textos são diferentes." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    char a[20] = "Ana";
+    char b[20] = "Bia";
+    int iguais = 1, i = 0;
+
+    while (a[i] != '\0' || b[i] != '\0') {
+        if (a[i] != b[i]) { iguais = 0; break; }
+        i++;
+    }
+
+    if (iguais) printf("Iguais\n");
+    else printf("Diferentes\n");
+    return 0;
+}` },
+          { t: "note", p: "Devido ao '\\0', o vetor que guarda a string precisa ser maior que o próprio texto: declaremos char nome[20] para caber até 19 caracteres significativos mais o terminador." },
+          { t: "warn", p: "Se o '\\0' não estiver presente (por exemplo, ao preencher o vetor caractere a caractere e esquecer de pôr o terminador), o loop ultrapassa o fim do vetor e conta caracteres de memória vizinha — um bug clássico de strings." }
+        ],
+        quiz: [
+          { q: "Em C, a string \"Ana\" ocupa quantas posições de memória?", opts: ["3", "4", "2", "Depende do usuário"], ans: 1, expl: "São os caracteres 'A', 'n', 'a' mais o terminador '\\0': 4 posições." },
+          { q: "Qual é a função do caractere '\\0'?", opts: ["Indicar o início da string.", "Fazer quebra de linha.", "Marcar o fim da string.", "Substituir espaços."], ans: 2, expl: "O '\\0' (nulo) sinaliza onde a string termina; sem ele, a leitura estouraria o vetor." },
+          { q: "Para declarar uma string capaz de guardar até 19 caracteres significativos, usamos:", opts: ["char s[19];", "char s[20];", "char s;", "string s;"], ans: 1, expl: "Precisamos de espaço para os caracteres mais o '\\0': 19 + 1 = 20." },
+          { q: "O que acontece na comparação se uma string não tiver o '\\0' final?", opts: ["A comparação para imediatamente.", "O loop lê além do vetor, comparando memória indevida.", "Resulta em erro de compilação.", "O programa imprime \"Iguais\" sempre."], ans: 1, expl: "Sem o terminador, o loop não encontra o fim e segue lendo memória além do vetor, com resultados imprevisíveis." }
+        ]
+      },
+      {
+        id: "c-recursao",
+        title: "Recursão em C",
+        subtitle: "Funções que chamam a si mesmas, com caso-base e passo recursivo.",
+        blocks: [
+          { t: "h", h: "O que é recursão" },
+          { t: "p", p: "Recursão ocorre quando uma função chama a si mesma para resolver um caso menor. Todo algoritmo recursivo precisa de um caso-base, que para a recursão, e de um passo recursivo, que aproxima cada chamada do caso-base. O caso-base é o que impede a função de rodar para sempre." },
+          { t: "h", h: "Fatorial" },
+          { t: "p", p: "Como n! = n × (n-1)! e 0! = 1! = 1, o fatorial se escreve de forma naturalmente recursiva. O caso-base é n <= 1. Observe o uso de if/else — o interpretador não aceita o operador ternário ?:." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int fatorial(int n) {
+    if (n <= 1) return 1;
+    return n * fatorial(n - 1);
+}
+
+int main() {
+    printf("%d\n", fatorial(5));
+    return 0;
+}` },
+          { t: "h", h: "Fibonacci" },
+          { t: "p", p: "A sequência de Fibonacci começa em 0 e 1, e cada termo seguinte é a soma dos dois anteriores. A versão recursiva espelha essa definição, mas cada chamada gera duas novas chamadas, formando uma árvore de execução que cresce muito rápido." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int fib(int n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+
+int main() {
+    printf("%d\n", fib(6));
+    return 0;
+}` },
+          { t: "h", h: "Prós e contras vs. loop" },
+          { t: "lst", items: [
+            "Pró: o código fica elegante e próximo da definição matemática do problema.",
+            "Pró: facilita problemas naturalmente recursivos, como árvores e divisão e conquista.",
+            "Contra: cada chamada consome memória na pilha; recursões profundas ou sem caso-base causam estouro de pilha.",
+            "Contra: Fibonacci recursivo recalcula os mesmos valores muitas vezes, sendo bem mais lento que a versão com loop."
+          ]},
+          { t: "note", p: "Fib(30) recursivo pode demorar muito por causa das recálculos repetidos. A solução iterativa (com um laço) resolve o mesmo problema em pouquíssimos passos e sem gastar pilha." },
+          { t: "warn", p: "Esquecer o caso-base, ou escrever um que nunca é alcançado, produz uma recursão infinita. Cada chamada empilha memória até estourar a pilha e derrubar o programa." }
+        ],
+        quiz: [
+          { q: "O que impede uma função recursiva de rodar para sempre?", opts: ["O tipo de retorno int.", "O caso-base.", "A ordem dos parâmetros.", "O comando printf."], ans: 1, expl: "O caso-base retorna sem nova chamada, interrompendo a recursão." },
+          { q: "Qual é o resultado de fatorial(0) na função acima?", opts: ["0", "1", "Erro de estouro", "Imprevisível"], ans: 1, expl: "Como n <= 1, retorna 1 — e 0! é matematicamente 1." },
+          { q: "Por que fib(30) recursivo é muito mais lento que um loop?", opts: ["Porque usa mais varáveis.", "Porque recalcula os mesmos valores muitas vezes, em árvore.", "Porque C não suporta recursão.", "Não é mais lento."], ans: 1, expl: "As chamadas sobrepostas repetem o cálculo de muitos termos, explodindo o número de operações." },
+          { q: "No interpretador, por que o código recursivo não pode usar o operador ?:", opts: ["Porque ?: é mais lento.", "Porque o interpretador não suporta o ternário ?:.", "Porque ?: não existe em C.", "Porque exige mais memória."], ans: 1, expl: "O interpretador deste projeto não dá suporte ao operador ternário; devemos usar if/else." }
+        ]
+      },
+      {
+        id: "c-matematica",
+        title: "Funções matemáticas (math.h)",
+        subtitle: "sqrt, pow, fabs, floor, ceil, log, log10 e o resto da divisão com %.",
+        blocks: [
+          { t: "h", h: "A biblioteca math.h" },
+          { t: "p", p: "A linguagem C traz funções matemáticas prontas. Em C ANSI, é preciso incluir a biblioteca <math.h>. No depurador deste site elas já estão disponíveis, sem precisar do include." },
+          { t: "lst", items: [
+            "sqrt(n): calcula a raiz quadrada positiva de n.",
+            "pow(n, y): calcula n elevado a y.",
+            "exp(x): o número de Euler elevado a x.",
+            "log(n): logaritmo natural (neperiano) de n.",
+            "log10(n): logaritmo de n na base 10.",
+            "fabs(n): valor absoluto (módulo) de n.",
+            "trunc(n): parte inteira de um número fracionário.",
+            "ceil(n): arredonda para o inteiro de cima.",
+            "floor(n): arredonda para o inteiro de baixo."
+          ]},
+          { t: "h", h: "Exemplo: hipotenusa" },
+          { t: "code", c: String.raw`#include <stdio.h>
+int main() {
+    float a, b, h;
+    printf("Digite os catetos: ");
+    scanf("%f %f", &a, &b);
+    h = sqrt(a * a + b * b);
+    printf("Hipotenusa: %.2f\n", h);
+}` },
+          { t: "h", h: "Potência e arredondamentos" },
+          { t: "code", c: String.raw`#include <stdio.h>
+int main() {
+    printf("2 elevado a 10 = %d\n", (int)pow(2, 10));
+    printf("fabs(-5.2) = %.1f\n", fabs(-5.2));
+    printf("trunc(3.7) = %d\n", trunc(3.7));
+    printf("floor(3.7) = %.1f | ceil(3.7) = %.1f\n", floor(3.7), ceil(3.7));
+}` },
+          { t: "note", p: "Essas funções devolvem double. Ao exibir com %d é comum converter com (int), como em (int)pow(2, 10), para evitar avisos." },
+          { t: "h", h: "Resto da divisão (%)" },
+          { t: "p", p: "O operador % devolve o resto da divisão entre inteiros: 13 % 4 é 1. É o equivalente do RESTO dos pseudocódigos, muito usado para testar paridade (n % 2 == 0)." },
+          { t: "warn", p: "O % em C só vale para inteiros. Para números reais seria preciso fmod ou uma lógica própria; este material deixa o % para inteiros." }
+        ],
+        quiz: [
+          { q: "Qual função calcula a raiz quadrada em C?", opts: ["pow", "sqrt", "raiz", "exp"], ans: 1, expl: "sqrt(n) calcula a raiz quadrada positiva de n." },
+          { q: "(int)pow(2, 3) vale:", opts: ["6", "8", "9", "23"], ans: 1, expl: "2 elevado a 3 = 8." },
+          { q: "O que devolve fabs(-7.5)?", opts: ["-7.5", "7.5", "0", "erro em tempo de execução"], ans: 1, expl: "fabs devolve o valor absoluto, sem o sinal." },
+          { q: "floor(2.9) e ceil(2.1) são, respectivamente:", opts: ["2 e 2", "3 e 3", "2 e 3", "3 e 2"], ans: 2, expl: "floor arredonda para baixo (2.9 -> 2); ceil arredonda para cima (2.1 -> 3)." }
+        ]
+      },
+      {
+        id: "c-formatacao",
+        title: "Formatação com printf e scanf",
+        subtitle: "Códigos de formato, precisão e leitura de linhas completas.",
+        blocks: [
+          { t: "h", h: "Códigos de formatação" },
+          { t: "lst", items: [
+            "%c: caractere simples.",
+            "%d e %i: inteiro decimal com sinal.",
+            "%e e %E: notação científica (e minúsculo / E maiúsculo).",
+            "%f: ponto flutuante decimal.",
+            "%g e %G: usa %e ou %f, o que for mais curto.",
+            "%o: octal sem sinal.",
+            "%s: cadeia de caracteres (string).",
+            "%u: inteiro decimal sem sinal.",
+            "%x e %X: hexadecimal sem sinal (minúsculas / maiúsculas).",
+            "%%: escreve o símbolo de porcentagem.",
+            "%.2f: fixa a precisão (duas casas decimais).",
+            "%lf: espera um double (variante com l)."
+          ]},
+          { t: "h", h: "Exemplo: tipos na prática" },
+          { t: "code", c: String.raw`#include <stdio.h>
+int main() {
+    char letra = 'a';
+    int num = 567;
+    float real = 789.564332;
+    double xx = 8912.7815533613;
+    printf("%c\n", letra);
+    printf("%d\n", num);
+    printf("%.2f e %.2lf\n", real, xx);
+}` },
+          { t: "h", h: "Lendo inteiros, reais, caracteres e texto" },
+          { t: "code", c: String.raw`#include <stdio.h>
+int main() {
+    char nome[50];
+    int idade;
+    float peso;
+    printf("Digite o nome completo: ");
+    scanf(" %[^\n]", nome);
+    printf("Digite a idade e o peso: ");
+    scanf("%d %f", &idade, &peso);
+    printf("Nome: %s\nIdade: %d\nPeso: %.1f\n", nome, idade, peso);
+}` },
+          { t: "note", p: "No scanf, variáveis simples vão com & (endereço, ex.: &idade). Já as strings, por serem vetores de char, são passadas SEM &: scanf(\"%s\", nome)." },
+          { t: "p", p: "O formato \" %[^\\n]\" lê uma linha inteira (até a quebra de linha). O espaço ANTES do % limpa o buffer do teclado, descartando a quebra de linha de um scanf anterior." },
+          { t: "warn", p: "Em C, 5 / 2 divide inteiros e trunca: dá 2, e não 2.5. Para obter decimal, use 5.0 / 2 ou variáveis float/double — o depurador do site segue esse comportamento." }
+        ],
+        quiz: [
+          { q: "Qual código de formato imprime um número real com duas casas decimais?", opts: ["%d", "%.2f", "%c", "%s"], ans: 1, expl: "%.2f aplica precisão de duas casas a um float." },
+          { q: "No scanf, por que as variáveis simples vão acompanhadas de &?", opts: ["Porque é obrigatório para funções com retorno.", "Para passar o endereço de memória onde o valor será escrito.", "Porque sem & o programa não compila com printf.", "Não é obrigatório."], ans: 1, expl: "scanf escreve no endereço da variável; o & entrega esse endereço." },
+          { q: "Como ler uma linha inteira de texto (com espaços) em C?", opts: ["scanf(\"%d\", &x)", "scanf(\" %[^\\n]\", nome)", "printf(\"%s\", x)", "Nenhuma das anteriores."], ans: 1, expl: "O scanset %[^\\n] lê todos os caracteres até a quebra de linha." },
+          { q: "5 / 2 em C com tipos inteiros devolve:", opts: ["2.5", "2", "3", "erro de compilação"], ans: 1, expl: "A divisão entre inteiros trunca: 5 / 2 = 2." }
+        ]
+      },
+      {
+        id: "c-produto-matrizes",
+        title: "Produto de matrizes",
+        subtitle: "Multiplicar A (m x n) por B (n x p) com laços aninhados.",
+        blocks: [
+          { t: "h", h: "O problema" },
+          { t: "p", p: "Dadas duas matrizes A (m x n) e B (n x p), o produto C = A x B é uma matriz m x p, onde cada elemento C[i][k] é a soma de A[i][j] * B[j][k] para todos os j." },
+          { t: "p", p: "O número de colunas de A precisa ser igual ao número de linhas de B. Neste exemplo: A é 3x2, B é 2x3, e o resultado C é 3x3." },
+          { t: "h", h: "Solução em C" },
+          { t: "code", c: String.raw`#include <stdio.h>
+int main() {
+    int A[3][2], B[2][3], C[3][3];
+    int i, j, k;
+    printf("Digite A (3x2):\n");
+    for (i = 0; i < 3; i++)
+        for (j = 0; j < 2; j++)
+            scanf("%d", &A[i][j]);
+    printf("Digite B (2x3):\n");
+    for (i = 0; i < 2; i++)
+        for (j = 0; j < 3; j++)
+            scanf("%d", &B[i][j]);
+    for (i = 0; i < 3; i++)
+        for (k = 0; k < 3; k++) {
+            C[i][k] = 0;
+            for (j = 0; j < 2; j++)
+                C[i][k] += A[i][j] * B[j][k];
+        }
+    printf("Produto C:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++)
+            printf("%d ", C[i][j]);
+        printf("\n");
+    }
+}` },
+          { t: "note", p: "Cada C[i][k] começa em 0 e vai acumulando os produtos. O encadeamento (i, k, j) percorre linha de A, coluna de B e, no laço mais interno, a soma dos produtos." },
+          { t: "warn", p: "No interpretador do site, declare a matriz e preencha elemento a elemento (como acima). Inicialização entre chaves, como int M[2][3] = {{1,2,3},{4,5,6}}, ainda não é suportada." },
+          { t: "h", h: "Matrizes tridimensionais" },
+          { t: "p", p: "C também permite mais dimensões: int LIVRO[4][3][3] cria 4 x 3 x 3 = 36 elementos, acessados por três índices (linha, coluna e página)." }
+        ],
+        quiz: [
+          { q: "O que torna válido o produto A x B?", opts: ["as duas serem quadradas", "o número de colunas de A igualar o de linhas de B", "as duas terem o mesmo tamanho", "A ser uma matriz identidade"], ans: 1, expl: "A é m x n e B é n x p: o número de colunas de A deve igualar o de linhas de B." },
+          { q: "Por que C[i][k] = 0 dentro do laço?", opts: ["para não carregar lixo do cálculo anterior", "para tornar o laço mais rápido", "para evitar soma dobrada", "para contar repetições"], ans: 0, expl: "Zera a célula antes de acumular os produtos sobre todos os j." },
+          { q: "int LIVRO[4][3][3] armazena quantos elementos?", opts: ["9", "12", "36", "33"], ans: 2, expl: "4 x 3 x 3 = 36." },
+          { q: "Para percorrer uma matriz 3x3 em C, quantos laços aninhados são necessários?", opts: ["um", "dois", "três", "nenhum"], ans: 1, expl: "Uma dimensão por laço: um para linhas e outro para colunas." }
+        ]
+      }
+    ]
+  },
+  ...(window.COURSES || {})
+};
+
+/* ----------------------------------------------------------------
+ * Estado e persistência
+ * ---------------------------------------------------------------- */
+const PROGRESS_KEY = "estudarC_progress";
+
+const state = {
+  course: "home",
+  topic: null
+};
+let prevCourse = "home";
+
+function loadProgress() {
+  try {
+    return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function qkey(course, topicId, qi) {
+  return course + "/" + topicId + "/q" + qi;
+}
+
+function saveAnswer(course, topicId, qi, picked, correct) {
+  const p = loadProgress();
+  p[qkey(course, topicId, qi)] = { picked: picked, correct: correct };
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+}
+
+function removeAnswer(course, topicId, qi) {
+  const p = loadProgress();
+  delete p[qkey(course, topicId, qi)];
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+}
+
+function resetProgress() {
+  localStorage.removeItem(PROGRESS_KEY);
+}
+
+function allDone(course, topicId) {
+  const p = loadProgress();
+  const topic = DATA[course].topics.find(function (t) { return t.id === topicId; });
+  return topic.quiz.every(function (_, qi) {
+    const s = p[qkey(course, topicId, qi)];
+    return s && s.correct === true;
+  });
+}
+
+function courseStats(course) {
+  const p = loadProgress();
+  let total = 0, correct = 0;
+  DATA[course].topics.forEach(function (t) {
+    t.quiz.forEach(function (_, qi) {
+      total++;
+      const s = p[qkey(course, t.id, qi)];
+      if (s && s.correct === true) correct++;
+    });
+  });
+  return { total: total, correct: correct, pct: total ? Math.round((correct / total) * 100) : 0 };
+}
+
+function findTopic(id) {
+  for (const key in DATA) {
+    const t = DATA[key].topics.find(function (x) { return x.id === id; });
+    if (t) return t;
+  }
+  return null;
+}
+
+/* ----------------------------------------------------------------
+ * Destaque de código (multi-linguagem)
+ * ---------------------------------------------------------------- */
+function escapeHtml(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+const K_DEFAULT = "if|else|for|while|do|return|break|continue|switch|case|default|int|float|double|char|void|long|short|unsigned|struct|typedef|enum|const|static|include|define|sizeof|ALGORITMO|FUNCAO|PROCEDIMENTO|VAR|INICIO|FIM|ESCREVER|LER|SE|ENTAO|SENAO|FIMSE|PARA|ATE|FACA|FIMPARA|ENQUANTO|FIMENQUANTO|REPITA|RETORNAR|VERDADEIRO|FALSO|NAO|MOD|mod|E|OU|DE|algoritmo|declare|leia|escreva|então|senão|não|faça|passo|caso|igual|função|sub-rotina|início|fim|numérico|lógico|literal|verdadeiro|falso|enquanto|repita|até|para|e|ou|módulo";
+
+const HL_TOKENS = {
+  default: [
+    { src: "/\\*[\\s\\S]*?\\*\\/|\\/\\/[^\\n]*|\\{[^\\n}]*\\}", cls: "cmt" },
+    { src: "\\\"(?:[^\\\"\\\\\\n]|\\\\.)*\\\"|'(?:[^'\\\\\\n]|\\\\.)*'", cls: "str" },
+    { src: "\\b\\d+(?:\\.\\d+)?\\b", cls: "num" },
+    { src: "\\b(?:" + K_DEFAULT + ")\\b", cls: "kw" },
+    { src: "[A-Za-z_]\\w*(?=\\()", cls: "fn" }
+  ],
+  python: [
+    { src: "#[^\\n]*", cls: "cmt" },
+    { src: "\\\"\\\"\\\"[\\s\\S]*?\\\"\\\"\\\"|'''[\\s\\S]*?'''", cls: "str" },
+    { src: "\\\"(?:[^\\\"\\\\\\n]|\\\\.)*\\\"|'(?:[^'\\\\\\n]|\\\\.)*'", cls: "str" },
+    { src: "\\b\\d+(?:\\.\\d+)?\\b", cls: "num" },
+    { src: "\\b(?:def|return|import|from|if|elif|else|for|while|in|not|and|or|is|break|continue|pass|print|len|range|input|int|float|str|bool|list|dict|set|tuple|True|False|None|class|global|lambda|try|except|finally|with|as|yield|self|assert|del)\\b", cls: "kw" },
+    { src: "[A-Za-z_]\\w*(?=\\()", cls: "fn" }
+  ],
+  js: [
+    { src: "/\\*[\\s\\S]*?\\*\\/|\\/\\/[^\\n]*", cls: "cmt" },
+    { src: "\\\"(?:[^\\\"\\\\\\n]|\\\\.)*\\\"|'(?:[^'\\\\\\n]|\\\\.)*'", cls: "str" },
+    { src: "\\b\\d+(?:\\.\\d+)?\\b", cls: "num" },
+    { src: "\\b(?:const|let|var|function|return|if|else|for|while|do|switch|case|break|continue|console|document|window|typeof|new|this|class|try|catch|finally|import|export|default|async|await|null|undefined|true|false)\\b", cls: "kw" },
+    { src: "[A-Za-z_]\\w*(?=\\()", cls: "fn" }
+  ],
+  html: [
+    { src: "&lt;!--[\\s\\S]*?--&gt;", cls: "cmt" },
+    { src: "&lt;\\/?[a-zA-Z][^&]*?&gt;", cls: "tag" },
+    { src: "\\\"(?:[^\\\"\\\\\\n]|\\\\.)*\\\"", cls: "str" },
+    { src: "\\b\\d+(?:\\.\\d+)?\\b", cls: "num" }
+  ],
+  css: [
+    { src: "/\\*[\\s\\S]*?\\*\\/", cls: "cmt" },
+    { src: "\\\"(?:[^\\\"\\\\\\n]|\\\\.)*\\\"", cls: "str" },
+    { src: "#[\\da-fA-F]{3,8}|-?\\d+\\.?\\d*(?:px|rem|em|%|vh|vw|s|ms|fr|pt|deg)?", cls: "num" },
+    { src: "[a-zA-Z-]+(?=\\s*:)", cls: "fn" }
+  ]
+};
+
+function highlight(code, lang) {
+  const tokens = HL_TOKENS[lang] || HL_TOKENS.default;
+  const re = new RegExp(tokens.map(function (g) { return "(" + g.src + ")"; }).join("|"), "g");
+  return escapeHtml(code).replace(re, function (m) {
+    for (let i = 0; i < tokens.length; i++) {
+      if (arguments[i + 1] !== undefined) {
+        return '<span class="' + tokens[i].cls + '">' + m + "</span>";
+      }
+    }
+    return m;
+  });
+}
+
+/* ----------------------------------------------------------------
+ * Renderização
+ * ---------------------------------------------------------------- */
+function renderAll() {
+  const leavingHome = state.course !== "home" && prevCourse === "home";
+  prevCourse = state.course;
+  renderTabs();
+  renderSidebar();
+  renderContent();
+  syncSidebar();
+  if (state.course === "home" || leavingHome) setSidebarOpen(false);
+}
+
+function setSidebarOpen(open) {
+  const s = document.getElementById("sidebar");
+  const b = document.getElementById("sideBackdrop");
+  const layout = document.getElementById("layout");
+  if (s) s.classList.toggle("open", !!open);
+  if (b) b.classList.toggle("show", !!open);
+  if (layout) layout.classList.toggle("drawer-open", !!open);
+}
+
+function toggleSidebar() {
+  const s = document.getElementById("sidebar");
+  setSidebarOpen(s && !s.classList.contains("open"));
+}
+
+function syncSidebar() {
+  const layout = document.getElementById("layout");
+  const tab = document.getElementById("sideTab");
+  const topbar = document.getElementById("topbar");
+  const inCourse = state.course !== "home";
+  if (layout) layout.classList.toggle("course-mode", inCourse);
+  if (topbar) topbar.style.display = inCourse ? "none" : "";
+  if (inCourse) tab.style.display = "flex";
+  else tab.style.display = "none";
+  placeHeader();
+}
+
+let drawerHead = null;
+
+function ensureDrawerHead() {
+  if (drawerHead) return drawerHead;
+  drawerHead = document.createElement("div");
+  drawerHead.className = "drawer-head";
+  drawerHead.innerHTML = '<button class="btn drawer-home" type="button">&#8592; Início</button>';
+  drawerHead.querySelector(".drawer-home").addEventListener("click", function () {
+    state.course = "home";
+    state.topic = null;
+    setSidebarOpen(false);
+    renderAll();
+  });
+  return drawerHead;
+}
+
+function placeHeader() {
+  const sidebar = document.getElementById("sidebar");
+  if (!sidebar) return;
+  const inCourse = state.course !== "home";
+  sidebar.style.setProperty("--c", courseColor(state.course));
+  if (!inCourse) {
+    if (drawerHead && drawerHead.parentNode) drawerHead.remove();
+    return;
+  }
+  const head = ensureDrawerHead();
+  if (!sidebar.contains(head)) sidebar.insertBefore(head, sidebar.firstChild);
+}
+
+function renderTabs() {
+  const el = document.getElementById("courseTabs");
+  el.innerHTML = "";
+  const home = document.createElement("button");
+  home.className = "tab-btn" + (state.course === "home" ? " active" : "");
+  home.textContent = "⌂ Início";
+  home.onclick = function () {
+    state.course = "home";
+    state.topic = null;
+    renderAll();
+  };
+  el.appendChild(home);
+  for (const key in DATA) {
+    const b = document.createElement("button");
+    b.className = "tab-btn" + (state.course === key ? " active" : "");
+    b.textContent = DATA[key].name;
+    b.onclick = function () {
+      if (state.course === key) {
+        renderAll();
+        return;
+      }
+      openCourseStart(key);
+    };
+    el.appendChild(b);
+  }
+}
+
+function debugLangForCourse(course) {
+  return ({ lp: "c", c: "c", py: "python", js: "js", html: "web", css: "web" })[course] || "c";
+}
+
+function currentDebugLang() {
+  return debugLangForCourse(state.course);
+}
+
+function openDebuggerForCourse() {
+  openDebugger(currentDebugLang());
+}
+
+function topicProgress(course) {
+  let done = 0;
+  DATA[course].topics.forEach(function (t) { if (allDone(course, t.id)) done++; });
+  return { done: done, total: DATA[course].topics.length };
+}
+
+function overallProgress() {
+  let correct = 0, total = 0, dt = 0, tt = 0;
+  for (const key in DATA) {
+    const qs = courseStats(key);
+    correct += qs.correct; total += qs.total;
+    const tp = topicProgress(key);
+    dt += tp.done; tt += tp.total;
+  }
+  return { correct: correct, total: total, pct: total ? Math.round((correct / total) * 100) : 0, doneTopics: dt, totalTopics: tt };
+}
+
+function openCourse(course) {
+  state.course = course;
+  const next = DATA[course].topics.find(function (t) { return !allDone(course, t.id); });
+  state.topic = next ? next.id : DATA[course].topics[0].id;
+  lessonView = "text";
+  renderAll();
+  scrollTop();
+}
+
+function openCourseStart(course) {
+  state.course = course;
+  state.topic = DATA[course].topics[0].id;
+  lessonView = "text";
+  renderAll();
+  scrollTop();
+}
+
+function scrollTop() {
+  if (window.scrollTo) window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function courseColor(key) {
+  const colors = {
+    lp: "#ce82ff", c: "#1cb0f6", py: "#58cc02",
+    js: "#ffc800", html: "#ff9600", css: "#00cd9c"
+  };
+  return colors[key] || "#58cc02";
+}
+
+function renderDashboard() {
+  const li = levelInfo();
+  const lvlPct = Math.min(100, Math.round((li.into / li.need) * 100));
+  const ov = overallProgress();
+  let cards = "";
+  for (const key in DATA) {
+    const c = DATA[key];
+    const qs = courseStats(key);
+    const tp = topicProgress(key);
+    const done = tp.total > 0 && tp.done === tp.total;
+    const color = courseColor(key);
+    const emblemTxt = key === "js" ? "#4b4b4b" : "#ffffff";
+    cards += '<div class="course-card' + (done ? " done" : "") + '" style="--c:' + color + '">' +
+      '<div class="cc-rail" style="background:' + color + '"></div>' +
+      '<div class="course-card-top">' +
+      '<span class="course-emblem" style="background:linear-gradient(180deg,' + color + ',' + color + 'cc);color:' + emblemTxt + '">' + escapeHtml(c.name.charAt(0)) + "</span>" +
+      "<div><h3>" + escapeHtml(c.name) + "</h3>" +
+      '<div class="course-pills">' +
+      '<span class="mini-pill">' + qs.correct + "/" + qs.total + " questões</span>" +
+      '<span class="mini-pill">' + tp.done + "/" + tp.total + " tópicos</span>" +
+      "</div></div></div>" +
+      '<div class="bar"><i style="width:' + qs.pct + '%"></i></div>' +
+      '<div class="course-card-foot">' +
+      '<span class="status">' + (done
+        ? "Concluído &#10003;"
+        : tp.done > 0 ? "Em andamento" : "Ainda não começou") +
+      "</span>" +
+      '<span class="course-pct">' + qs.pct + "%</span>" +
+      "</div>" +
+      '<button class="btn" onclick="openCourse(\'' + key + '\')">' +
+      (done ? "Rever" : tp.done > 0 ? "Continuar" : "Começar") +
+      "</button>" +
+      "</div>";
+  }
+  return '<div class="home-hero">' +
+    '<div class="hero-level">' +
+    '<span class="hero-orb">' + li.lvl + "</span>" +
+    '<div class="hero-xp">' +
+    "<b>Nível " + li.lvl + "</b>" +
+    '<span class="hero-bar"><i style="width:' + lvlPct + '%"></i></span>' +
+    "<span>" + li.into + " / " + li.need + " XP para o nível " + (li.lvl + 1) + "</span>" +
+    "</div></div>" +
+    "<h2>Olá, estudante!</h2>" +
+    "<p>Escolha o seu caminho de aprendizado. Seu progresso é salvo automaticamente neste navegador.</p>" +
+    '<div class="home-overall">' +
+    '<span class="hero-bar overall"><i style="width:' + ov.pct + '%"></i></span>' +
+    "<span>Total no site: " + ov.correct + "/" + ov.total + " questões (" + ov.pct + "%)</span>" +
+    "</div>" +
+    "</div>" +
+    '<div class="home-grid">' + cards + "</div>";
+}
+
+function renderSidebar() {
+  const el = document.getElementById("topicList");
+  let html = "";
+
+  if (state.course === "home") {
+    const ov = overallProgress();
+    html += '<div class="progress-pill">' +
+      '<div class="progress-bar"><div class="progress-bar-fill" style="width:' + ov.pct + '%"></div></div>' +
+      "Geral: <b>" + ov.correct + "/" + ov.total + "</b> questões (" + ov.pct + "%)" +
+      "</div>";
+
+    const ids = Object.keys(BADGES);
+    const unlocked = ids.filter(function (id) { return gam.badges[id]; });
+    html += '<div class="side-title">Conquistas</div>';
+    let mini = "";
+    unlocked.forEach(function (id) {
+      const b = BADGES[id];
+      mini += '<div class="mini-badge" title="' + escapeHtml(b.desc) + '"><span class="badge-icon">' + b.icon + "</span>" + escapeHtml(b.name) + "</div>";
+    });
+    html += '<div class="mini-badges">' +
+      (mini || '<p class="muted-small">Nenhuma conquista ainda. Comece a estudar para desbloquear!</p>') +
+      "</div>";
+    html += '<button class="btn ghost" style="width:100%;margin-top:12px" onclick="openBadges()">Ver conquistas</button>';
+  } else {
+    const stats = courseStats(state.course);
+    html += '<div class="progress-pill">' +
+      '<div class="progress-bar"><div class="progress-bar-fill" style="width:' + stats.pct + '%"></div></div>' +
+      "Progresso: <b>" + stats.correct + "/" + stats.total + "</b> (" + stats.pct + "%)" +
+      "</div>";
+
+    html += '<div class="side-title">Trilha · ' + escapeHtml(DATA[state.course].name) + "</div>";
+    html += '<div class="path">';
+    DATA[state.course].topics.forEach(function (t, i) {
+      const done = allDone(state.course, t.id);
+      const active = state.topic === t.id;
+      html += '<div class="path-item' + (done ? " done" : "") + (active ? " active" : "") + '">' +
+        '<div class="path-marker"><span class="path-circle">' + (done ? "&#10003;" : i + 1) + "</span></div>" +
+        '<div class="path-side">' +
+        '<button class="topic-link" onclick="selectTopic(\'' + t.id + '\')" title="' + escapeHtml(t.title) + '">' + escapeHtml(t.title) + "</button>" +
+        (active ? '<span class="path-here">você está aqui</span>' : "") +
+        "</div>" +
+        "</div>";
+    });
+    html += "</div>";
+  }
+
+  el.innerHTML = html;
+}
+
+function selectTopic(id) {
+  state.topic = id;
+  lessonView = "text";
+  renderSidebar();
+  renderContent();
+  if (window.matchMedia && window.matchMedia("(max-width: 860px)").matches) {
+    setSidebarOpen(false);
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* ---------- visão da lição: texto | flashcard | depurador ---------- */
+let lessonView = "text";
+
+function setLessonView(v) {
+  lessonView = (v === "flash" || v === "debug") ? v : "text";
+  if (lessonView === "flash") initFlashSession();
+  else if (lessonView === "debug") dbgState.lang = currentDebugLang();
+  renderContent();
+  if (window.matchMedia && window.matchMedia("(max-width: 860px)").matches) setSidebarOpen(false);
+  if (window.scrollTo) window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function lessonMenuHTML() {
+  const opts = [["text", "Texto"], ["flash", "Flashcard"], ["debug", "Depurador"]];
+  let h = '<div class="lesson-menu">';
+  opts.forEach(function (o) {
+    h += '<button class="lesson-menu-btn' + (lessonView === o[0] ? " active" : "") + '" onclick="setLessonView(\'' + o[0] + '\')">' + o[1] + "</button>";
+  });
+  return h + "</div>";
+}
+
+function renderContent() {
+  const el = document.getElementById("contentArea");
+
+  if (state.course === "home") {
+    el.innerHTML = renderDashboard();
+    return;
+  }
+
+  const course = DATA[state.course];
+  const topic = course.topics.find(function (t) { return t.id === state.topic; });
+  if (!topic) { el.innerHTML = "<p>Selecione um tópico.</p>"; return; }
+
+  let html = '<div class="breadcrumb">' + escapeHtml(course.name) + "</div>";
+  html += "<h2>" + escapeHtml(topic.title) + "</h2>";
+  html += '<p class="topic-subtitle">' + escapeHtml(topic.subtitle) + "</p>";
+
+  html += lessonMenuHTML();
+
+  if (lessonView === "flash") {
+    html += '<div id="lessonFlash">' + flashcardHTML() + "</div>";
+  } else if (lessonView === "debug") {
+    html += debuggerBody(currentDebugLang());
+  } else {
+    html += buildBlocks(topic.blocks);
+    html += buildQuiz(topic, topic.id);
+    html += buildLearnMore(course, topic);
+    html += buildNav();
+  }
+
+  el.innerHTML = html;
+
+  if (lessonView === "debug") {
+    const ta = document.getElementById("dbgCode");
+    if (ta) ta.value = firstSample(dbgState.lang);
+    dbgClear();
+  }
+}
+
+function buildBlocks(blocks) {
+  let html = "";
+  blocks.forEach(function (b) {
+    switch (b.t) {
+      case "h":
+        html += '<div class="block"><h3>' + escapeHtml(b.h) + "</h3></div>";
+        break;
+      case "p":
+        html += '<div class="block"><p>' + escapeHtml(b.p) + "</p></div>";
+        break;
+      case "lst":
+      case "ol":
+        html += '<div class="block"><' + (b.t === "ol" ? "ol" : "ul") + ">";
+        b.items.forEach(function (it) {
+          html += "<li>" + escapeHtml(it) + "</li>";
+        });
+        html += "</" + (b.t === "ol" ? "ol" : "ul") + "></div>";
+        break;
+      case "code":
+        html += '<div class="block"><pre><code>' + highlight(b.c, b.lang) + "</code></pre></div>";
+        break;
+      case "note":
+        html += '<div class="block"><div class="note">' + (b.msg ? "<b>" + escapeHtml(b.msg) + ": </b>" : "") + escapeHtml(b.p) + "</div></div>";
+        break;
+      case "warn":
+        html += '<div class="block"><div class="note warn"><b>Atenção: </b>' + escapeHtml(b.p) + "</div></div>";
+        break;
+    }
+  });
+  return html;
+}
+
+function buildQuiz(topic, topicId) {
+  const progress = loadProgress();
+  const courseId = state.course;
+  let html = '<div class="quiz"><h3>Teste seu conhecimento</h3>';
+
+  topic.quiz.forEach(function (q, qi) {
+    const key = qkey(courseId, topicId, qi);
+    const saved = progress[key];
+    let optHtml = "";
+
+    q.opts.forEach(function (op, i) {
+      let cls = "q-option";
+      let checked = "";
+      let disabled = "";
+
+      if (saved) {
+        disabled = "disabled";
+        if (i === q.ans) cls += " correct";
+        else if (i === saved.picked && !saved.correct) cls += " wrong";
+        if (i === saved.picked) checked = "checked";
+      }
+
+      optHtml += '<label class="' + cls + '">' +
+        '<input type="radio" name="opt-' + topicId + "-" + qi + '" value="' + i + '" ' + checked + " " + disabled + ">" +
+        '<span>' + escapeHtml(op) + "</span></label>";
+    });
+
+    let feedback = "";
+    let btnHtml = "";
+    if (saved) {
+      feedback = saved.correct
+        ? '<div class="feedback correct-fb"><b>Correto! </b>' + escapeHtml(q.expl) + "</div>"
+        : '<div class="feedback wrong-fb"><b>Incorreto. </b>' + escapeHtml(q.expl) + "</div>";
+
+      btnHtml = saved.correct
+        ? '<button class="btn" disabled>Acertou! &#10003;</button>'
+        : '<button class="btn" onclick="retryAnswer(\'' + topicId + "', " + qi + ')">Responder novamente</button>';
+    } else {
+      btnHtml = '<button class="btn" onclick="checkAnswer(\'' + topicId + "', " + qi + ')">Verificar resposta</button>';
+    }
+
+    html += '<div class="question" id="q-' + topicId + "-" + qi + '">' +
+      '<div class="question-text">' + (qi + 1) + ". " + escapeHtml(q.q) + "</div>" +
+      '<div class="q-options">' + optHtml + "</div>" +
+      feedback +
+      '<div class="quiz-actions">' + btnHtml + "</div>" +
+      "</div>";
+  });
+
+  html += "</div>";
+  return html;
+}
+
+function buildNav() {
+  const topics = DATA[state.course].topics;
+  const idx = topics.findIndex(function (t) { return t.id === state.topic; });
+  const prev = topics[idx - 1];
+  const next = topics[idx + 1];
+
+  let html = '<div class="quiz-actions nav" style="margin-top:8px">';
+  html += prev
+    ? '<button class="btn" onclick="selectTopic(\'' + prev.id + '\')">&larr; ' + escapeHtml(prev.title) + "</button>"
+    : '<button class="btn" disabled>&larr; Anterior</button>';
+  html += next
+    ? '<button class="btn" onclick="selectTopic(\'' + next.id + '\')">' + escapeHtml(next.title) + " &rarr;</button>"
+    : '<button class="btn" disabled>Concluído &#10003;</button>';
+  html += "</div>";
+  return html;
+}
+
+/* ----------------------------------------------------------------
+ * Ações do quiz
+ * ---------------------------------------------------------------- */
+function checkAnswer(topicId, qi) {
+  const topic = findTopic(topicId);
+  const q = topic.quiz[qi];
+  const container = document.getElementById("q-" + topicId + "-" + qi);
+  const checked = container.querySelector('input[name="opt-' + topicId + "-" + qi + '"]:checked');
+
+  if (!checked) {
+    alert("Escolha uma opção antes de verificar!");
+    return;
+  }
+
+  const picked = parseInt(checked.value, 10);
+  const correct = picked === q.ans;
+
+  saveAnswer(state.course, topicId, qi, picked, correct);
+
+  const key = qkey(state.course, topicId, qi);
+  if (correct) {
+    if (!gam.earned[key]) {
+      gam.earned[key] = 1;
+      gam.correctQ++;
+      addXP(10);
+    }
+    const tkey = state.course + "/" + topicId;
+    if (allDone(state.course, topicId) && !gam.doneTopics[tkey]) {
+      gam.doneTopics[tkey] = 1;
+      addXP(20);
+      confetti();
+      toast("Tópico completo! +20 XP");
+    }
+    toast("Correto! +10 XP");
+  } else {
+    loseHeart();
+    toast("Resposta errada. -1 coração");
+  }
+
+  checkBadges();
+  renderContent();
+  renderSidebar();
+}
+
+function retryAnswer(topicId, qi) {
+  removeAnswer(state.course, topicId, qi);
+  renderContent();
+  renderSidebar();
+}
+
+/* ----------------------------------------------------------------
+ * Gamificação, cartões, links de pesquisa e depurador
+ * ---------------------------------------------------------------- */
+const GAM_KEY = "estudarCode_gam";
+
+function freshGam() {
+  return {
+    xp: 0, hearts: 5, maxHearts: 5, streak: 0, bestStreak: 0, lastActive: null,
+    correctQ: 0, earned: {}, doneTopics: {}, badges: {}, cardsSeen: 0, runs: 0
+  };
+}
+
+function loadGam() {
+  try {
+    const p = JSON.parse(localStorage.getItem(GAM_KEY));
+    if (p && typeof p === "object" && typeof p.hearts === "number") return Object.assign(freshGam(), p);
+  } catch (e) { /* segue com novo */ }
+  return freshGam();
+}
+
+let gam = loadGam();
+
+function saveGam() {
+  localStorage.setItem(GAM_KEY, JSON.stringify(gam));
+}
+
+function todayStr(offsetDays) {
+  const d = new Date(Date.now() + (offsetDays || 0) * 86400000);
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+}
+
+function registerDay() {
+  const t = todayStr(0);
+  if (gam.lastActive === t) return;
+  if (gam.lastActive) gam.streak = gam.lastActive === todayStr(-1) ? gam.streak + 1 : 1;
+  else gam.streak = 1;
+  gam.lastActive = t;
+  if (gam.streak > gam.bestStreak) gam.bestStreak = gam.streak;
+  if (gam.hearts < gam.maxHearts) gam.hearts = gam.maxHearts;
+  saveGam();
+}
+
+function levelInfo() {
+  let lvl = 1, need = 100, rem = gam.xp;
+  while (rem >= need) { rem -= need; lvl++; need += 50; }
+  return { lvl: lvl, into: rem, need: need };
+}
+
+function addXP(n) {
+  const before = levelInfo().lvl;
+  gam.xp += n;
+  const after = levelInfo().lvl;
+  saveGam();
+  if (after > before) { confetti(); toast("Nível " + after + " alcançado! +" + n + " XP"); }
+}
+
+function loseHeart() {
+  if (gam.hearts > 0) gam.hearts--;
+  saveGam();
+  if (gam.hearts <= 0) toast("Corações esgotados! Responda certo para ganhar XP — as corações recarregam diariamente.");
+}
+
+const BADGES = {
+  first:    { name: "Primeiros Passos", desc: "Acertar a 1ª questão",          icon: "&#9733;" },
+  q10:      { name: "10 Certas",         desc: "Acertar 10 questões",          icon: "&#10022;" },
+  q50:      { name: "50 Certas",         desc: "Acertar 50 questões",          icon: "&#10052;" },
+  xp100:    { name: "100 XP",            desc: "Acumular 100 XP",              icon: "&#9670;" },
+  xp500:    { name: "500 XP",            desc: "Acumular 500 XP",              icon: "&#10038;" },
+  xp1000:   { name: "1.000 XP",          desc: "Acumular 1.000 XP",            icon: "&#9642;" },
+  streak3:  { name: "3 Dias Seguidos",   desc: "Estudar 3 dias seguidos",      icon: "&#9744;" },
+  streak7:  { name: "7 Dias Seguidos",   desc: "Estudar 7 dias seguidos",      icon: "&#9745;" },
+  cards10:  { name: "10 Cartões",        desc: "Responder 10 cartões",         icon: "&#9827;" },
+  cards50:  { name: "50 Cartões",        desc: "Responder 50 cartões",         icon: "&#9824;" },
+  code1:    { name: "Primeiro Run",      desc: "Executar um código",           icon: "&#9654;" },
+  code10:   { name: "10 Execuções",      desc: "Executar 10 códigos",          icon: "&#9658;" },
+  done_lp:  { name: "Lógica OK",         desc: "Concluir todos os tópicos de Lógica", icon: "&#9312;" },
+  done_c:   { name: "C OK",              desc: "Concluir todos os tópicos de C",      icon: "&#9313;" },
+  done_py:  { name: "Python OK",         desc: "Concluir todos os tópicos de Python", icon: "&#9314;" },
+  done_js:  { name: "JavaScript OK",     desc: "Concluir todos os tópicos de JavaScript", icon: "&#9315;" },
+  done_html:{ name: "HTML OK",           desc: "Concluir todos os tópicos de HTML",    icon: "&#9316;" },
+  done_css: { name: "CSS OK",            desc: "Concluir todos os tópicos de CSS",     icon: "&#9317;" }
+};
+
+function unlockBadge(id) {
+  if (gam.badges[id]) return false;
+  const b = BADGES[id];
+  if (!b) return false;
+  gam.badges[id] = 1;
+  saveGam();
+  toast("Conquista desbloqueada: " + b.name);
+  return true;
+}
+
+function checkBadges() {
+  registerDay();
+  const c = gam.correctQ;
+  if (c >= 1) unlockBadge("first");
+  if (c >= 10) unlockBadge("q10");
+  if (c >= 50) unlockBadge("q50");
+  if (gam.xp >= 100) unlockBadge("xp100");
+  if (gam.xp >= 500) unlockBadge("xp500");
+  if (gam.xp >= 1000) unlockBadge("xp1000");
+  if (gam.streak >= 3) unlockBadge("streak3");
+  if (gam.streak >= 7) unlockBadge("streak7");
+  if (gam.cardsSeen >= 10) unlockBadge("cards10");
+  if (gam.cardsSeen >= 50) unlockBadge("cards50");
+  if (gam.runs >= 1) unlockBadge("code1");
+  if (gam.runs >= 10) unlockBadge("code10");
+  for (const key in DATA) {
+    if (DATA[key].topics.every(function (t) { return allDone(key, t.id); })) unlockBadge("done_" + key);
+  }
+  renderStats();
+}
+
+function renderStats() {
+  const el = document.getElementById("statsBar");
+  if (!el) return;
+  const li = levelInfo();
+  const lvlPct = Math.min(100, Math.round((li.into / li.need) * 100));
+  let heartsHtml = "";
+  for (let i = 0; i < gam.maxHearts; i++) {
+    heartsHtml += '<span class="heart' + (i < gam.hearts ? "" : " lost") + '">&#9829;</span>';
+  }
+  el.innerHTML =
+    '<span class="stat-chip chip-hearts" title="Corações de hoje (recarregam diariamente)">' + heartsHtml + "</span>" +
+    '<span class="stat-chip chip-xp" title="Pontos de experiência">' +
+    'Nível <b>' + li.lvl + "</b>" +
+    '<span class="xp-mini"><i style="width:' + lvlPct + '%"></i></span>' +
+    "<b>" + gam.xp + "</b> XP" +
+    "</span>" +
+    '<span class="stat-chip chip-streak" title="Dias seguidos estudando">' +
+    '<span class="chip-icon">&#128293;</span>' +
+    gam.streak + " dia" + (gam.streak === 1 ? "" : "s") +
+    "</span>";
+}
+
+/* ---------- toast e confete ---------- */
+let _toastTimer = null;
+function toast(msg, ms) {
+  let t = document.getElementById("toast");
+  if (!t) { t = document.createElement("div"); t.id = "toast"; document.body.appendChild(t); }
+  t.textContent = msg;
+  t.className = "show";
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(function () { t.className = ""; }, ms || 2600);
+}
+
+function confetti() {
+  const colors = ["#8fb0d9", "#7cc5a8", "#d9c38a", "#d9a899", "#b39bd6"];
+  for (let i = 0; i < 36; i++) {
+    const d = document.createElement("div");
+    d.className = "confetti";
+    d.style.left = (Math.random() * 100) + "vw";
+    d.style.background = colors[i % colors.length];
+    d.style.animationDelay = (Math.random() * 0.6) + "s";
+    d.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+    document.body.appendChild(d);
+    (function (el) { setTimeout(function () { el.remove(); }, 2000); })(d);
+  }
+}
+
+/* ---------- overlays ---------- */
+function openOverlay(bodyHtml, wide) {
+  const root = document.getElementById("overlayRoot");
+  root.innerHTML =
+    '<div class="overlay-backdrop" onclick="closeOverlay()"></div>' +
+    '<div class="overlay-card' + (wide ? " wide" : "") + '">' +
+    '<button class="overlay-close" onclick="closeOverlay()" title="Fechar">&times;</button>' +
+    '<div class="overlay-body">' + bodyHtml + "</div>" +
+    "</div>";
+  document.body.classList.add("no-scroll");
+}
+
+function closeOverlay() {
+  document.getElementById("overlayRoot").innerHTML = "";
+  document.body.classList.remove("no-scroll");
+}
+
+/* ---------- conquistas ---------- */
+function openBadges() {
+  const ids = Object.keys(BADGES);
+  const got = ids.filter(function (id) { return gam.badges[id]; }).length;
+  let grid = "";
+  ids.forEach(function (id) {
+    const b = BADGES[id];
+    const has = !!gam.badges[id];
+    grid += '<div class="badge' + (has ? " unlocked" : "") + '">' +
+      '<div class="badge-icon">' + b.icon + "</div>" +
+      '<div class="badge-name">' + b.name + "</div>" +
+      '<div class="badge-desc">' + b.desc + "</div>" +
+      '<div class="badge-status">' + (has ? "&#10003;" : "?") + "</div>" +
+      "</div>";
+  });
+  openOverlay(
+    '<h3 class="ov-title">Conquistas</h3>' +
+    '<p class="ov-sub">' + got + " de " + ids.length + " desbloqueadas</p>" +
+    '<div class="badge-grid">' + grid + "</div>"
+  );
+}
+
+/* ---------- cartões de estudo (flashcards) ---------- */
+const fcState = { course: "lp", topicId: null, idx: 0, order: [] };
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function buildFlashcards(course, topicId) {
+  const topic = DATA[course].topics.find(function (t) { return t.id === topicId; });
+  if (!topic) return [];
+  return topic.quiz.map(function (q) {
+    return { front: q.q, back: q.opts[q.ans] + " — " + q.expl };
+  });
+}
+
+function initFlashSession() {
+  fcState.course = state.course;
+  fcState.topicId = state.topic;
+  fcState.order = shuffle(buildFlashcards(fcState.course, fcState.topicId).map(function (_, i) { return i; }));
+  fcState.idx = 0;
+}
+
+function openFlashcards(course, topicId) {
+  fcState.course = course;
+  fcState.topicId = topicId;
+  fcState.order = shuffle(buildFlashcards(course, topicId).map(function (_, i) { return i; }));
+  fcState.idx = 0;
+  openOverlay(flashcardHTML());
+}
+
+function reflash() {
+  if (lessonView === "flash" && state.course === fcState.course && state.topic === fcState.topicId) {
+    initFlashSession();
+    const holder = document.getElementById("lessonFlash");
+    if (holder) holder.innerHTML = flashcardHTML();
+    return;
+  }
+  openFlashcards(fcState.course, fcState.topicId);
+}
+
+function flashcardHTML() {
+  const cards = buildFlashcards(fcState.course, fcState.topicId);
+  if (fcState.idx >= fcState.order.length) {
+    return '<h3 class="ov-title">Revisão concluída!</h3>' +
+      '<p class="ov-sub">Bons estudos. Você ganhou XP por cada resposta.</p>' +
+      '<div class="flash-actions"><button class="btn" onclick="reflash()">Revisar de novo</button>' +
+      (lessonView === "flash"
+        ? '<button class="btn ghost" onclick="setLessonView(\'text\')">Voltar ao texto</button>'
+        : '<button class="btn ghost" onclick="closeOverlay()">Fechar</button>') +
+      "</div>";
+  }
+  const card = cards[fcState.order[fcState.idx]];
+  return '<h3 class="ov-title">Cartões de estudo</h3>' +
+    '<p class="ov-sub">Aperte no cartão para revelar a resposta. (' + (fcState.idx + 1) + " de " + fcState.order.length + ")</p>" +
+    '<div class="flash-wrap"><div class="flash-card" id="flashCard" onclick="flashFlip()">' +
+    '<div class="flash-face flash-front">' + escapeHtml(card.front) + "</div>" +
+    '<div class="flash-face flash-back">' + escapeHtml(card.back) + "</div>" +
+    "</div></div>" +
+    '<div class="flash-actions">' +
+    '<button class="btn danger-ghost" onclick="flashAnswer(0)">Não lembrava</button>' +
+    '<button class="btn" onclick="flashAnswer(1)">Acertei (Sei)</button>' +
+    "</div>";
+}
+
+function flashFlip() {
+  const card = document.getElementById("flashCard");
+  if (card) card.classList.toggle("flipped");
+}
+
+function flashAnswer(ok) {
+  gam.cardsSeen++;
+  addXP(ok ? 3 : 1);
+  checkBadges();
+  fcState.idx++;
+  if (lessonView === "flash") {
+    const holder = document.getElementById("lessonFlash");
+    if (holder) holder.innerHTML = flashcardHTML();
+    return;
+  }
+  const bd = document.querySelector("#overlayRoot .overlay-body");
+  if (bd) bd.innerHTML = flashcardHTML();
+}
+
+/* ---------- links "quero saber mais" ---------- */
+const DOCS_LINKS = {
+  c:     { url: "https://en.cppreference.com/w/c", name: "cppreference" },
+  py:    { url: "https://docs.python.org/pt-br/3/", name: "docs.python.org" },
+  js:    { url: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript", name: "MDN JavaScript" },
+  html:  { url: "https://developer.mozilla.org/pt-BR/docs/Web/HTML", name: "MDN HTML" },
+  css:   { url: "https://developer.mozilla.org/pt-BR/docs/Web/CSS", name: "MDN CSS" },
+  lp:    null
+};
+
+function buildLearnMore(course, topic) {
+  const cfg = DOCS_LINKS[course];
+  const q = encodeURIComponent(course + " - " + topic.title);
+  let links =
+    '<a class="learn-link" target="_blank" rel="noopener" href="https://www.google.com/search?q=' + q + '">Google</a>' +
+    '<a class="learn-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=' + q + '">YouTube</a>';
+  if (cfg) links += '<a class="learn-link" target="_blank" rel="noopener" href="' + cfg.url + '">' + cfg.name + "</a>";
+  links += '<a class="learn-link" target="_blank" rel="noopener" href="https://www.perplexity.ai/search?q=' + q + '">Perplexity</a>';
+  return '<div class="block learn-more">' +
+    '<h3>Quero saber mais</h3>' +
+    "<p>Pesquise sobre \"" + escapeHtml(topic.title) + "\" ou abra a documentação oficial:</p>" +
+    '<div class="learn-links">' + links + "</div></div>";
+}
+
+/* ---------- depurador ---------- */
+const DBG_LABELS = { c: "C", python: "Python", js: "JavaScript", web: "HTML/CSS" };
+const dbgState = { lang: "c" };
+
+const DEBUG_SAMPLES = {
+  c: {
+    "Olá mundo": "#include <stdio.h>\n\nint main() {\n  int n = 5;\n  printf(\"Olá, mundo!\\n\");\n  printf(\"Valor: %d\\n\", n);\n  printf(\"Nota: %.2f\\n\", 7.5);\n  return 0;\n}",
+    "Soma de 1 a N": "#include <stdio.h>\n\nint main() {\n  int n, i, soma = 0;\n  printf(\"Digite n: \");\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i++) soma += i;\n  printf(\"Soma: %d\\n\", soma);\n  return 0;\n}",
+    "Fatorial": "#include <stdio.h>\n\nint main() {\n  int n;\n  long f = 1;\n  printf(\"Digite n: \");\n  scanf(\"%d\", &n);\n  for (int i = 2; i <= n; i++) f *= i;\n  printf(\"%d! = %d\\n\", n, f);\n  return 0;\n}",
+    "Vetores": "#include <stdio.h>\n\nint main() {\n  int v[4];\n  int i, soma = 0;\n  for (i = 0; i < 4; i++) { v[i] = i * 10; soma += v[i]; }\n  printf(\"Soma: %d\\n\", soma);\n  return 0;\n}",
+    "Função": "#include <stdio.h>\n\nint dobro(int x) {\n  return x * 2;\n}\n\nint main() {\n  printf(\"%d\\n\", dobro(21));\n  return 0;\n}",
+    "Ponteiros": "#include <stdio.h>\n\nint main() {\n  int x = 10;\n  int *p = &x;\n  *p = 25;\n  printf(\"x = %d\\n\", x);\n  return 0;\n}"
+  },
+  python: {
+    "Olá mundo": 'print("Olá, mundo!")\n\nn = 5\nprint("Valor:", n)\n',
+    "Soma de 1 a N": 'n = int(input("Digite n: "))\nsoma = 0\nfor i in range(1, n + 1):\n    soma += i\nprint("Soma:", soma)\n',
+    "Fatorial": 'n = int(input("Digite n: "))\nf = 1\nfor i in range(2, n + 1):\n    f *= i\nprint(f"{n}! = {f}")\n',
+    "Laço while": 'i = 1\nwhile i <= 5:\n    print(i)\n    i += 1\n',
+    "Função": 'def dobro(x):\n    return x * 2\n\nprint(dobro(21))\n',
+    "Listas": 'nums = [2, 3, 5, 7]\ntotal = 0\nfor x in nums:\n    total += x\nprint("Soma:", total)\nprint("Média:", total / len(nums))\n'
+  },
+  js: {
+    "Olá mundo": 'console.log("Olá, mundo!");\nlet n = 5;\nconsole.log("Valor:", n);\n',
+    "Soma de 1 a N": 'let n = 5;\nlet soma = 0;\nfor (let i = 1; i <= n; i++) soma += i;\nconsole.log("Soma:", soma);\n',
+    "Laço while": 'let i = 1;\nwhile (i <= 5) {\n  console.log(i);\n  i++;\n}\n',
+    "Função": 'function dobro(x) { return x * 2; }\nconsole.log(dobro(21));\n',
+    "Vetores": 'const v = [2, 3, 5, 7];\nlet total = 0;\nfor (const x of v) total += x;\nconsole.log("Soma:", total);\n'
+  },
+  web: {
+    "Página simples": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Minha página</title>\n</head>\n<body>\n  <h1>Olá, mundo!</h1>\n  <p>Meu primeiro texto em HTML.</p>\n  <a href=\"#\">Um link</a>\n</body>\n</html>",
+    "Estilo CSS": "h1 {\n  color: #58a6ff;\n  font-family: sans-serif;\n}\n\np {\n  color: #333;\n  padding: 8px;\n  background: #eef;\n}",
+    "Formulário": "<form>\n  <label>Nome\n    <input type=\"text\" placeholder=\"Digite seu nome\">\n  </label>\n  <button>Enviar</button>\n</form>",
+    "Centralizar": "<div class=\"card\">\n  <h2>Centralizado</h2>\n  <p>Com flexbox fica fácil.</p>\n</div>\n\n<style>\n  body {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n    margin: 0;\n    background: #f0f4ff;\n  }\n  .card {\n    background: #fff;\n    padding: 32px;\n    border-radius: 12px;\n    box-shadow: 0 8px 24px rgba(0,0,0,.15);\n    text-align: center;\n  }\n</style>"
+  }
+};
+
+function dbgSampleOptions() {
+  const samples = DEBUG_SAMPLES[dbgState.lang];
+  let opts = "";
+  for (const name in samples) opts += '<option value="' + escapeHtml(name) + '">' + escapeHtml(name) + "</option>";
+  return opts;
+}
+
+function debuggerBody(lang) {
+  dbgState.lang = lang && DEBUG_SAMPLES[lang] ? lang : "c";
+  const tabs = Object.keys(DEBUG_SAMPLES).map(function (l) {
+    return '<button class="dbg-tab' + (dbgState.lang === l ? " active" : "") + '" data-lang="' + l + '" onclick="dbgSetLang(\'' + l + '\')">' + DBG_LABELS[l] + "</button>";
+  }).join("");
+  return '<h3 class="ov-title">Depurador</h3>' +
+    '<div class="dbg-tabs">' + tabs + "</div>" +
+    '<div class="dbg-top">' +
+    '<label class="dbg-label">Exemplo</label>' +
+    '<select id="dbgSample" class="dbg-sample" onchange="dbgLoadSample()">' + dbgSampleOptions() + "</select>" +
+    '<button class="btn" onclick="dbgRun()">Executar</button>' +
+    '<button class="btn ghost" onclick="dbgClear()">Limpar</button>' +
+    "</div>" +
+    '<textarea id="dbgCode" class="edit-area dbg-code" spellcheck="false"></textarea>' +
+    '<div class="dbg-io">' +
+    '<label class="dbg-label">Entradas (uma por linha)</label>' +
+    '<textarea id="dbgInput" class="dbg-input" rows="2" placeholder="Valores para scanf/input(), ex.:&#10;5"></textarea>' +
+    "</div>" +
+    '<pre id="dbgOutput" class="output-box"></pre>' +
+    '<div id="dbgFrameWrap" class="dbg-frame" style="display:none"></div>';
+}
+
+function openDebugger(lang) {
+  openOverlay(debuggerBody(lang), true);
+  const ta = document.getElementById("dbgCode");
+  if (ta) ta.value = firstSample(dbgState.lang);
+  dbgClear();
+}
+
+function firstSample(lang) {
+  const s = DEBUG_SAMPLES[lang];
+  for (const k in s) return s[k];
+  return "";
+}
+
+function dbgSetLang(lang) {
+  dbgState.lang = lang;
+  const sel = document.getElementById("dbgSample");
+  if (sel) sel.innerHTML = dbgSampleOptions();
+  const ta = document.getElementById("dbgCode");
+  if (ta) ta.value = firstSample(lang);
+  const btns = document.querySelectorAll(".dbg-tab");
+  btns.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-lang") === lang ? true : false); });
+  dbgClear();
+}
+
+function dbgLoadSample() {
+  const sel = document.getElementById("dbgSample");
+  const ta = document.getElementById("dbgCode");
+  if (sel && ta) ta.value = DEBUG_SAMPLES[dbgState.lang][sel.value] || "";
+}
+
+function dbgClear() {
+  const out = document.getElementById("dbgOutput");
+  const inp = document.getElementById("dbgInput");
+  const wrap = document.getElementById("dbgFrameWrap");
+  if (out) { out.style.display = "none"; out.textContent = ""; }
+  if (inp) inp.value = "";
+  if (wrap) { wrap.style.display = "none"; wrap.innerHTML = ""; }
+}
+
+function dbgInputLines() {
+  const inp = document.getElementById("dbgInput");
+  if (!inp || !inp.value) return [];
+  return inp.value.split(/\r?\n/).filter(function (l) { return l.trim() !== ""; });
+}
+
+function dbgMarkRun() {
+  gam.runs++;
+  saveGam();
+  checkBadges();
+}
+
+function dbgRun() {
+  const ta = document.getElementById("dbgCode");
+  const outEl = document.getElementById("dbgOutput");
+  if (!ta || !outEl) return;
+  const lines = dbgInputLines();
+  const io = {
+    _s: "",
+    out: function (s) { io._s += s; },
+    inp: function () { return lines.length ? lines.shift() : ""; }
+  };
+  outEl.style.display = "block";
+  try {
+    if (dbgState.lang === "c") {
+      if (typeof window.runC === "function") window.runC(ta.value, io);
+      else io.out("\nERRO: interpreter.js ainda não carregou.\n");
+    } else if (dbgState.lang === "python") {
+      dbgRunPython(outEl, ta.value);
+      return;
+    } else if (dbgState.lang === "js") {
+      io.out(dbgRunJS(ta.value));
+    } else if (dbgState.lang === "web") {
+      dbgRenderWeb();
+      return;
+    }
+  } catch (e) {
+    io.out("\nERRO: " + (e && e.message || e));
+  }
+  outEl.textContent = io._s === "" ? "(sem saída)" : io._s;
+  dbgMarkRun();
+}
+
+function fmtAny(v) {
+  if (typeof v === "object" && v !== null) {
+    try { return JSON.stringify(v); } catch (e) { return String(v); }
+  }
+  return String(v);
+}
+
+function dbgRunJS(code) {
+  const logs = [];
+  const oLog = console.log, oWarn = console.warn, oErr = console.error;
+  console.log = function () { logs.push(Array.prototype.map.call(arguments, fmtAny).join(" ")); };
+  console.warn = function () { logs.push("[aviso] " + Array.prototype.map.call(arguments, fmtAny).join(" ")); };
+  console.error = function () { logs.push("[erro] " + Array.prototype.map.call(arguments, fmtAny).join(" ")); };
+  let msg = "";
+  try {
+    new Function(code)();
+  } catch (e) {
+    msg = "\nERRO: " + (e && e.message || e);
+  } finally {
+    console.log = oLog; console.warn = oWarn; console.error = oErr;
+  }
+  return (logs.length ? logs.join("\n") + "\n" : "(sem saída — use console.log(...) para ver resultados)") + msg;
+}
+
+const PY_URL = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
+let _pyodidePromise = null;
+
+function ensurePyodide() {
+  if (typeof window.loadPyodide === "function" && _pyodidePromise) return _pyodidePromise;
+  if (_pyodidePromise) return _pyodidePromise;
+  _pyodidePromise = new Promise(function (resolve, reject) {
+    const boot = function () {
+      window.loadPyodide({ indexURL: PY_URL }).then(resolve, reject);
+    };
+    if (typeof window.loadPyodide === "function") { boot(); return; }
+    const s = document.createElement("script");
+    s.src = PY_URL + "pyodide.js";
+    s.onload = boot;
+    s.onerror = function () { reject(new Error("Falha ao baixar o Python (verifique sua internet).")); };
+    document.head.appendChild(s);
+  });
+  _pyodidePromise.catch(function () { _pyodidePromise = null; });
+  return _pyodidePromise;
+}
+
+function dbgRunPython(outEl, code) {
+  outEl.textContent = "Carregando Python (primeira vez demora um pouco)...";
+  const lines = dbgInputLines();
+  ensurePyodide().then(function (py) {
+    outEl.textContent = "";
+    py.setStdout({ batched: function (s) { outEl.textContent += s; } });
+    py.setStdin({ read: function () { return lines.length ? lines.shift() + "\n" : "\n"; } });
+    try {
+      py.runPython(code);
+    } catch (e) {
+      outEl.textContent += "\nERRO: " + (e && e.message || e);
+    }
+    if (outEl.textContent === "") outEl.textContent = "(sem saída)";
+    dbgMarkRun();
+  }).catch(function (e) {
+    outEl.textContent = "ERRO: " + (e && e.message || e);
+  });
+}
+
+function dbgRenderWeb() {
+  const ta = document.getElementById("dbgCode");
+  const wrap = document.getElementById("dbgFrameWrap");
+  if (!ta || !wrap) return;
+  wrap.style.display = "block";
+  let frame = document.getElementById("dbgFrame");
+  if (!frame) {
+    frame = document.createElement("iframe");
+    frame.id = "dbgFrame";
+    frame.className = "dbg-frame-iframe";
+    frame.setAttribute("sandbox", "allow-scripts");
+    wrap.appendChild(frame);
+  }
+  const code = ta.value;
+  let doc;
+  if (/<\/html>/i.test(code)) {
+    doc = code;
+  } else if (/<style\b/i.test(code) || /<body\b/i.test(code) || /<\/?[a-z]+/i.test(code)) {
+    const st = /<style\b[\s\S]*?<\/style>/i.exec(code) || "";
+    const body = code.replace(/<style\b[\s\S]*?<\/style>/gi, "").trim();
+    doc = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Visualização</title>' +
+      (st) + "</head><body>" + body + "</body></html>";
+  } else {
+    doc = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Visualização</title><style>' +
+      code + "</style></head><body></body></html>";
+  }
+  frame.srcdoc = doc;
+  dbgMarkRun();
+}
+
+/* ----------------------------------------------------------------
+ * Tema claro/escuro
+ * ---------------------------------------------------------------- */
+const THEME_KEY = "estudarCode_theme";
+
+function applyTheme(t) {
+  document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+  const b = document.getElementById("themeBtn");
+  if (b) b.textContent = t === "dark" ? "☀ claro" : "☾ escuro";
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute("data-theme") || "light";
+  const next = cur === "dark" ? "light" : "dark";
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+}
+
+/* ----------------------------------------------------------------
+ * Inicialização
+ * ---------------------------------------------------------------- */
+const themeBtn = document.getElementById("themeBtn");
+if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
+applyTheme(localStorage.getItem(THEME_KEY) || "light");
+
+const sideTab = document.getElementById("sideTab");
+if (sideTab) sideTab.addEventListener("click", toggleSidebar);
+const sideBackdrop = document.getElementById("sideBackdrop");
+if (sideBackdrop) sideBackdrop.addEventListener("click", function () { setSidebarOpen(false); });
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") setSidebarOpen(false);
+});
+
+document.getElementById("resetBtn").addEventListener("click", function () {
+  if (confirm("Tem certeza que deseja apagar todo o progresso e as conquistas?")) {
+    resetProgress();
+    localStorage.removeItem(GAM_KEY);
+    gam = freshGam();
+    saveGam();
+    state.course = "home";
+    state.topic = null;
+    renderStats();
+    renderAll();
+  }
+});
+
+renderStats();
+renderAll();
+registerDay();

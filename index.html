@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EstudarCode — Aprenda a programar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="topbar-row">
+      <h1 class="logo">Estudar<span>Code</span></h1>
+      <div class="topbar-right">
+        <div class="stats" id="statsBar"></div>
+        <div class="top-actions">
+          <button id="themeBtn" class="reset-btn theme-btn" title="Alternar tema claro/escuro">☾ escuro</button>
+          <button id="debugBtn" class="app-btn" onclick="openDebuggerForCourse()" title="Testar código na linguagem do curso atual (C, Python, JavaScript ou HTML/CSS)">Executar código</button>
+          <button id="badgesBtn" class="app-btn" onclick="openBadges()" title="Ver suas conquistas">Conquistas</button>
+          <button id="resetBtn" class="reset-btn" title="Zerar progresso e conquistas">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+    <nav class="tabs-bar">
+      <div class="course-tabs" id="courseTabs"></div>
+    </nav>
+  </header>
+
+  <div class="layout" id="layout">
+    <button id="sideTab" class="side-tab" title="Abrir lista de tópicos e progresso">&#9776;<span>Trilha</span></button>
+    <div id="sideBackdrop" class="side-backdrop"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="topic-scroll">
+        <nav id="topicList"></nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="contentArea"></section>
+    </main>
+  </div>
+
+  <div id="overlayRoot"></div>
+
+  <footer class="footer">
+    Feito para estudar programação: Lógica, C, Python, JavaScript, HTML e CSS.
+  </footer>
+
+  <script src="data-py.js"></script>
+  <script src="data-js.js"></script>
+  <script src="data-html.js"></script>
+  <script src="data-css.js"></script>
+  <script src="app.js"></script>
+  <script src="interpreter.js"></script>
+</body>
+</html>
