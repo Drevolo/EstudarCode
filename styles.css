@@ -2589,9 +2589,11 @@ pre code {
   }
 
   .topbar-right {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     width: 100%;
-    gap: 7px;
+    gap: 6px;
   }
 
   .logo {
@@ -2607,7 +2609,8 @@ pre code {
   }
 
   .stats {
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
     gap: 4px;
     flex-wrap: wrap;
     padding: 1px;
@@ -2632,7 +2635,8 @@ pre code {
   }
 
   .top-actions {
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -2643,9 +2647,26 @@ pre code {
   .top-actions .app-btn,
     .top-actions .reset-btn {
     flex: 0 0 auto;
-    padding: 5px 9px;
+    height: 30px;
+    padding: 0 10px;
     font-size: 0.66rem;
     border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .theme-btn {
+    padding: 0 9px;
+  }
+
+  .theme-btn .theme-text {
+    display: none;
+  }
+
+  .theme-btn .theme-icon {
+    font-size: 0.95rem;
+    line-height: 1;
   }
 
   .layout {
@@ -2894,27 +2915,8 @@ pre code {
 }
 
 @media (max-width: 480px) {
-  .theme-btn {
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-  }
-
-  .theme-btn .theme-text {
-    display: none;
-  }
-
-  .theme-btn .theme-icon {
-    font-size: 1rem;
-    line-height: 1;
-  }
-
   .stat-chip {
-    height: 34px;
+    height: 30px;
     padding: 0 8px;
   }
 
