@@ -2843,7 +2843,9 @@ function dbgRenderWeb() {
 const THEME_KEY = "estudarCode_theme";
 
 function applyTheme(t) {
-  document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+  const dark = t === "dark";
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  document.documentElement.classList.toggle("dark", dark);
   const b = document.getElementById("themeBtn");
   if (b) {
     const icon = b.querySelector(".theme-icon");

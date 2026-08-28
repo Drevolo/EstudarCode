@@ -1,3 +1,6 @@
 # Materiais do curso (não publicar)
 PDF/
 txt.txt
+
+# Dependências de build (o Tailwind é CLI local)
+node_modules/

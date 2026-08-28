@@ -1,0 +1,14 @@
+{
+  "name": "estudarcode",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EstudarCode — plataforma de estudo de programação com login obrigatório e progresso sincronizado (Supabase). Móvel, sem framework.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./styles.css --watch",
+    "minify:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
