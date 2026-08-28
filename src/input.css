@@ -1309,39 +1309,40 @@ html[data-theme="dark"] {
 
   @media (max-width: 640px) {
     .topbar { position: static; }
-    .tabs-bar { position: static; }
+    .tabs-bar { display: none; }
     .course-tabs { padding: 8px 12px; gap: 6px; }
     .tab-btn { padding: 6px 10px; font-size: 0.74rem; }
-    .topbar-row { flex-direction: column; align-items: stretch; padding: 8px 12px; gap: 7px; }
-    .topbar-right { flex-direction: row; flex-wrap: wrap; align-items: center; width: 100%; gap: 6px; }
-    .logo { font-size: 1.3rem; gap: 7px; align-self: flex-start; }
-    .logo::before { width: 26px; height: 26px; border-radius: 7px; }
+    .topbar-row { flex-direction: row; align-items: center; flex-wrap: nowrap; padding: 8px 12px; gap: 8px; }
+    .topbar-right { flex-direction: row; flex-wrap: nowrap; align-items: center; flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 6px; }
+    .logo { font-size: 1.15rem; gap: 6px; flex: 0 0 auto; }
+    .logo::before { width: 24px; height: 24px; border-radius: 7px; }
 
     .stats {
-      flex: 1 1 auto;
+      flex: 0 0 auto;
       min-width: 0;
       gap: 4px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       padding: 1px;
     }
-    .stat-chip { flex: 0 0 auto; height: 30px; padding: 0 8px; gap: 4px; font-size: 0.7rem; border-radius: 8px; }
-    .heart { font-size: 0.9rem; }
-    .chip-xp .xp-mini { width: 38px; height: 5px; }
+    .stat-chip { flex: 0 0 auto; height: 28px; padding: 0 6px; gap: 3px; font-size: 0.66rem; border-radius: 8px; }
+    .heart { font-size: 0.85rem; }
+    .chip-streak { display: none; }
+    .chip-xp .xp-mini { width: 30px; height: 5px; }
 
     .top-actions {
-      flex: 1 1 auto;
+      flex: 0 0 auto;
       min-width: 0;
       display: flex;
       justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 6px;
+      flex-wrap: nowrap;
+      gap: 5px;
       padding: 1px;
     }
     .top-actions .app-btn,
-    .top-actions .reset-btn { flex: 0 0 auto; height: 30px; padding: 0 10px; font-size: 0.66rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 5px; }
-    .theme-btn { padding: 0 9px; }
+    .top-actions .reset-btn { flex: 0 0 auto; height: 28px; padding: 0 8px; font-size: 0.64rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 4px; }
+    .theme-btn { padding: 0 7px; }
     .theme-btn .theme-text { display: none; }
-    .theme-btn .theme-icon { font-size: 0.95rem; line-height: 1; }
+    .theme-btn .theme-icon { font-size: 0.9rem; line-height: 1; }
 
     .layout { padding: 8px; gap: 8px; }
     .layout:not(.course-mode) {
@@ -1427,8 +1428,7 @@ html[data-theme="dark"] {
   }
 
   @media (max-width: 480px) {
-    .stat-chip { height: 30px; padding: 0 8px; }
-    .chip-streak { display: none; }
+    .stat-chip { height: 28px; padding: 0 6px; }
     .content h2 { font-size: 1.25rem; }
     .course-card-foot { font-size: 0.78rem; }
   }
