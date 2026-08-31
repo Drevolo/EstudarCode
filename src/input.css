@@ -676,6 +676,12 @@ html[data-theme="dark"] {
     transition: all 0.12s;
   }
 
+  .q-option > span {
+    @apply min-w-0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
   .q-option::before {
     content: counter(opt, upper-alpha);
     @apply shrink-0 basis-[36px] h-9 w-9 flex items-center justify-center rounded-full border-2 border-edge bg-surface text-text-muted font-black text-[0.85rem] transition-all;

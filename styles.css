@@ -1196,6 +1196,12 @@ pre code {
   transition: all 0.12s;
 }
 
+.q-option > span {
+  min-width: 0px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 .q-option::before {
   content: counter(opt, upper-alpha);
   display: flex;
