@@ -1725,6 +1725,233 @@ int main() {
           { q: "No produto de matrizes, por que precisamos de três laços aninhados?", opts: ["Um para cada dimensão: linhas de A, colunas de B e a soma dos produtos.", "Porque matrizes sempre precisam de 3 laços.", "Para ler os dados de entrada.", "Para imprimir o resultado."], ans: 0, expl: "O laço mais interno calcula a soma dos produtos A[i][j]*B[j][k] para cada par (i, k) da matriz resultado." },
           { q: "Se A é uma matriz 2x3 e B é uma matriz 3x4, qual é a dimensão de C = A x B?", opts: ["2x3", "3x4", "2x4", "3x3"], ans: 2, expl: "C herda as linhas de A (2) e as colunas de B (4), resultando em 2x4." }
         ]
+      },
+      {
+        id: "c-ordenacao",
+        title: "Ordenação de vetores",
+        subtitle: "BubbleSort e InsertSort: colocando os dados em ordem.",
+        blocks: [
+          { t: "h", h: "Por que ordenar?" },
+          { t: "p", p: "Ordenar é rearranjar os elementos de um vetor em ordem crescente (ou decrescente). Facilita muito a busca e a recuperação de itens. Entre os métodos estudados estão o BubbleSort (método da bolha) e o InsertSort (inserção direta)." },
+          { t: "h", h: "BubbleSort (método da bolha)" },
+          { t: "p", p: "A ideia é percorrer o vetor várias vezes, fazendo 'flutuar' o maior elemento até o fim a cada passagem (ou o menor para o início, conforme a ordem). É o método mais simples de implementar, porém o menos eficiente — não é recomendado para vetores grandes." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+void bubble_sort(int v[], int n) {
+    int k, j, aux;
+    for (k = n - 1; k > 0; k--) {
+        for (j = 0; j < k; j++) {
+            if (v[j] > v[j + 1]) {
+                aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+            }
+        }
+    }
+}
+
+int main() {
+    int v[5] = {5, 2, 4, 1, 3};
+    int i;
+    bubble_sort(v, 5);
+    for (i = 0; i < 5; i++)
+        printf("%d ", v[i]);
+    printf("\n");
+    return 0;
+}` },
+          { t: "h", h: "InsertSort (inserção direta)" },
+          { t: "p", p: "A cada passo, a partir do segundo elemento, o elemento 'eleito' é apanhado e inserido na sua posição correta dentro da parte já ordenada do vetor, deslocando os maiores para a direita. Assemelha-se a como um jogador organiza as cartas na mão. É eficiente em vetores com poucos elementos." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+void insertion_sort(int v[], int n) {
+    int i, j, eleito;
+    for (i = 1; i < n; i++) {
+        eleito = v[i];
+        j = i - 1;
+        while (j >= 0 && eleito < v[j]) {
+            v[j + 1] = v[j];
+            j = j - 1;
+        }
+        v[j + 1] = eleito;
+    }
+}
+
+int main() {
+    int v[5] = {5, 2, 4, 1, 3};
+    int i;
+    insertion_sort(v, 5);
+    for (i = 0; i < 5; i++)
+        printf("%d ", v[i]);
+    printf("\n");
+    return 0;
+}` },
+          { t: "note", p: "No interpretador do site, declare e preencha o vetor elemento a elemento (não use as chaves de inicialização usadas acima por clareza; o depurador exige preenchimento manual). A lógica de ordenação em si continua a mesma." },
+          { t: "warn", p: "O BubbleSort faz muitas trocas e tem complexidade O(n²). Para vetores grandes, prefira métodos mais rápidos como o QuickSort — mas para a disciplina, o BubbleSort e o InsertSort são os estudados." }
+        ],
+        quiz: [
+          { q: "No BubbleSort, o que acontece com o maior elemento a cada passagem?", opts: ["Permanece no início.", "Flutua até a sua posição correta (o fim, em ordem crescente).", "É removido do vetor.", "Nada muda."], ans: 1, expl: "A cada passagem o maior elemento 'sobe' até sua posição final, reduzindo a área ainda não ordenada." },
+          { q: "Qual é a principal desvantagem do BubbleSort?", opts: ["É o mais lento e não indicado para vetores grandes.", "Não ordena vetores de inteiros.", "Exige muito mais memória.", "Não funciona em C."], ans: 0, expl: "O BubbleSort é simples, porém pouco eficiente (O(n²)), não sendo recomendado para muitos elementos." },
+          { q: "No InsertSort, o elemento 'eleito' é:", opts: ["O primeiro elemento do vetor.", "O elemento atual sendo inserido na posição correta.", "O maior elemento sempre.", "O último elemento."], ans: 1, expl: "A cada iteração o elemento atual (eleito) é deslocado até sua posição correta na parte ordenada." },
+          { q: "No InsertSort, os elementos maiores que o eleito são:", opts: ["Eliminados.", "Deslocados uma posição para a direita.", "Mantidos fixos.", "Movidos para outro vetor."], ans: 1, expl: "O laço interno desloca para a direita os elementos maiores que o eleito para abrir espaço." },
+          { q: "Qual método lembra a forma como um jogador ordena cartas na mão?", opts: ["BubbleSort", "InsertSort", "QuickSort", "Busca binária"], ans: 1, expl: "O InsertSort insere cada nova carta (elemento) na posição correta, como quem organiza cartas na mão." },
+          { q: "Depois de ordenar o vetor {5, 2, 4, 1, 3} em ordem crescente, obtemos:", opts: ["{5, 4, 3, 2, 1}", "{1, 2, 3, 4, 5}", "{2, 1, 5, 3, 4}", "{3, 1, 4, 2, 5}"], ans: 1, expl: "Em ordem crescente, os elementos ficam do menor para o maior: 1, 2, 3, 4, 5." }
+        ]
+      },
+      {
+        id: "c-busca",
+        title: "Busca em vetores",
+        subtitle: "Pesquisa sequencial e binária, e quando usar cada uma.",
+        blocks: [
+          { t: "h", h: "Pesquisa sequencial (linear)" },
+          { t: "p", p: "A pesquisa sequencial percorre o vetor elemento a elemento até encontrar o valor procurado ou chegar ao fim. Não exige que o vetor esteja ordenado. É simples, porém lenta em vetores grandes." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int busca_sequencial(int v[], int n, int num) {
+    int i;
+    for (i = 0; i < n; i++)
+        if (v[i] == num) return 1;
+    return 0;
+}
+
+int main() {
+    int v[6] = {54, 12, 15, 48, 58, 17};
+    printf("%d\n", busca_sequencial(v, 6, 48));
+    return 0;
+}` },
+          { t: "h", h: "Pesquisa binária" },
+          { t: "p", p: "A pesquisa binária exige um vetor PREVIAMENTE ORDENADO. A cada passo, comparamos o valor procurado com o elemento do meio: se for menor, procuramos na metade esquerda; se maior, na metade direita. Funciona como procurar em um dicionário." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int busca_binaria(int v[], int n, int num) {
+    int alto = n - 1, baixo = 0, meio;
+    while (baixo <= alto) {
+        meio = (baixo + alto) / 2;
+        if (num == v[meio]) return 1;
+        else if (num < v[meio]) alto = meio - 1;
+        else baixo = meio + 1;
+    }
+    return 0;
+}
+
+int main() {
+    int v[10] = {20, 35, 46, 48, 58, 68, 71, 74, 87, 98};
+    printf("%d\n", busca_binaria(v, 10, 71));
+    return 0;
+}` },
+          { t: "note", p: "Se o vetor não estiver ordenado, a busca binária falha ou dá resultado errado. Por isso ela é sempre usada junto com uma ordenação prévia." },
+          { t: "warn", p: "A busca binária divide a busca ao meio a cada passo, o que a torna muito mais rápida que a sequencial em vetores grandes — desde que o vetor esteja ordenado." }
+        ],
+        quiz: [
+          { q: "Qual é o pré-requisito para usar a pesquisa binária?", opts: ["O vetor estar ordenado.", "O vetor ter no máximo 10 elementos.", "O vetor ser de caracteres.", "Nenhum."], ans: 0, expl: "A pesquisa binária só funciona corretamente em vetores previamente ordenados." },
+          { q: "A pesquisa sequencial é adequada quando:", opts: ["O vetor está ordenado e é grande.", "Não há garantia de ordenação ou o vetor é pequeno.", "O vetor é um número enorme.", "Somente com ponteiros."], ans: 1, expl: "A sequencial não exige ordenação, por isso serve para vetores desordenados ou pequenos." },
+          { q: "Na busca binária, a cada passo você:", opts: ["Percorre o vetor inteiro.", "Descarta metade do intervalo.", "Retira dois elementos.", "Embaralha o vetor."], ans: 1, expl: "Comparando com o elemento do meio, descarta-se metade do intervalo a cada iteração." },
+          { q: "No vetor {20, 35, 46, 48, 58}, qual é o primeiro elemento comparado ao procurar 35?", opts: ["20", "46", "35", "58"], ans: 1, expl: "O meio é 46 (índice 2). Como 35 < 46, a busca continua na metade esquerda {20, 35}." },
+          { q: "A busca sequencial, no pior caso, percorre:", opts: ["Metade do vetor.", "O vetor inteiro.", "O primeiro elemento apenas.", "O último elemento apenas."], ans: 1, expl: "Se o valor está no fim (ou não existe), a sequencial precisa percorrer todos os elementos." },
+          { q: "Por que a busca binária é mais rápida que a sequencial?", opts: ["Porque usa ponteiros.", "Porque elimina metade das opções a cada comparação.", "Porque o vetor é menor.", "Na verdade é mais lenta."], ans: 1, expl: "Ao comparar com o meio e descartar metade a cada passo, o número de comparações cresce muito mais devagar." }
+        ]
+      },
+      {
+        id: "c-matrizes-especiais",
+        title: "Matrizes especiais",
+        subtitle: "Quadrada, diagonal, identidade, triangular, transposta, simétrica e antissimétrica.",
+        blocks: [
+          { t: "h", h: "Matriz quadrada" },
+          { t: "p", p: "Uma matriz é quadrada quando o número de linhas é igual ao número de colunas. Ex.: uma matriz 4x4 é de ordem 4." },
+          { t: "h", h: "Diagonal, identidade e triangular" },
+          { t: "lst", items: [
+            "Diagonal: apenas os elementos da diagonal principal (ou secundária) são diferentes de zero.",
+            "Identidade: matriz diagonal em que os elementos da diagonal principal valem 1 e os demais, 0.",
+            "Triangular: elementos de um lado da diagonal são todos zero (triangular superior ou inferior)."
+          ]},
+          { t: "code", c: String.raw`#include <stdio.h>
+
+int main() {
+    int m[3][3];
+    int L, C;
+    for (L = 0; L < 3; L++)
+        for (C = 0; C < 3; C++) {
+            if (L == C) m[L][C] = 1;
+            else m[L][C] = 0;
+        }
+
+    for (L = 0; L < 3; L++) {
+        for (C = 0; C < 3; C++)
+            printf("%d ", m[L][C]);
+        printf("\n");
+    }
+    return 0;
+}` },
+          { t: "h", h: "Transposta, simétrica e antissimétrica" },
+          { t: "p", p: "A transposta de A é a matriz AT obtida trocando linhas por colunas: AT[i][j] = A[j][i]. Uma matriz é simétrica quando é igual à sua transposta (M[i][j] = M[j][i]). É antissimétrica quando é igual à transposta com o sinal invertido (M[i][j] = -M[j][i])." },
+          { t: "h", h: "Diagonal principal e secundária em C" },
+          { t: "p", p: "Em uma matriz n×n, a diagonal principal usa m[i][i] (linha == coluna). A diagonal secundária usa a condição i + j == n - 1 (pois os índices começam em 0)." },
+          { t: "note", p: "No interpretador do site, construa as matrizes elemento a elemento com laços aninhados e use if/else em vez do operador ternário ?: (não suportado). Use um primeiro laço for zerar a matriz e depois preencha as diagonais conforme a regra." },
+          { t: "warn", p: "Confunde-se facilmente: na diagonal principal m[i][i]; na secundária i + j = n - 1 (cuidado com a base 0!). Memorize as duas condições." }
+        ],
+        quiz: [
+          { q: "Quando uma matriz é dita quadrada?", opts: ["Quando tem 4 linhas.", "Quando o número de linhas é igual ao de colunas.", "Quando todos os elementos são a soma.", "Quando é 3x3 apenas."], ans: 1, expl: "Quadrada: o número de linhas é igual ao número de colunas." },
+          { q: "Na matriz identidade, os elementos da diagonal principal valem:", opts: ["0", "1", "O valor lido", "Sua coluna"], ans: 1, expl: "A identidade tem 1 na diagonal principal e 0 no restante." },
+          { q: "Em C, a condição para um elemento estar na diagonal secundária de uma matriz n×n é:", opts: ["i == j", "i + j == n - 1", "i + j == n", "i - j == n"], ans: 1, expl: "Como os índices começam em 0, a diagonal secundária satisfaz i + j = n - 1." },
+          { q: "A transposta de uma matriz é obtida:", opts: ["Invertendo os sinais.", "Trocando linhas por colunas (AT[i][j] = A[j][i]).", "Somando a diagonal.", "Zeroando a principal."], ans: 1, expl: "A transposta troca linhas por colunas: AT[i][j] = A[j][i]." },
+          { q: "Uma matriz é simétrica quando:", opts: ["É igual à sua transposta.", "É igual ao negativo da transposta.", "Tem diagonal zero.", "É quadrada sempre."], ans: 0, expl: "Simétrica: M[i][j] = M[j][i], ou seja, é igual à própria transposta." },
+          { q: "Uma matriz é antissimétrica quando:", opts: ["M[i][j] = M[j][i]", "M[i][j] = -M[j][i]", "Só possui zeros.", "É a matriz identidade."], ans: 1, expl: "Antissimétrica: é igual à transposta com o sinal invertido, ou seja, M[i][j] = -M[j][i]." }
+        ]
+      },
+      {
+        id: "c-modularizacao",
+        title: "Modularização",
+        subtitle: "Sub-rotinas e funções: dividindo o problema em módulos, parâmetros formais e atuais.",
+        blocks: [
+          { t: "h", h: "Programação modularizada" },
+          { t: "p", p: "Problemas grandes podem ser divididos em problemas menores. Cada módulo é um grupo de comandos com uma função bem definida e o mais independente possível. O módulo principal é onde a execução começa e chama os demais módulos." },
+          { t: "h", h: "Sub-rotina vs. função" },
+          { t: "lst", items: [
+            "Sub-rotina: trecho declarado uma única vez e chamado várias vezes; executa comandos (não devolve valor). Corresponde em C a uma função void.",
+            "Função: retorna obrigatoriamente um valor a cada chamada; pode ser usada dentro de expressões, como se fosse uma variável."
+          ]},
+          { t: "h", h: "Parâmetros formais e atuais" },
+          { t: "p", p: "Os parâmetros formais são os nomes declarados no cabeçalho do módulo (usados dentro dele). Os parâmetros atuais (argumentos) são os valores passados na chamada e podem ser constantes, variáveis ou expressões. Devem concordar em número, ordem e tipo." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+/* função com parâmetro formal N, devolve N*N */
+int quadrado(int N) {
+    return N * N;
+}
+
+int main() {
+    int X = 4;
+    printf("%d\n", quadrado(X)); /* X é o parâmetro atual */
+    printf("%d\n", quadrado(7)); /* 7 é constante (parâmetro atual) */
+    return 0;
+}` },
+          { t: "h", h: "Sub-rotina (função void)" },
+          { t: "p", p: "Uma sub-rotina não devolve valor. Em C, usamos funções com retorno void para representá-la." },
+          { t: "code", c: String.raw`#include <stdio.h>
+
+/* sub-rotina: mostra o quadrado, sem retornar valor */
+void mostra_quadrado(int N) {
+    int Q = N * N;
+    printf("O quadrado é: %d\n", Q);
+}
+
+int main() {
+    mostra_quadrado(4);
+    mostra_quadrado(9);
+    return 0;
+}` },
+          { t: "h", h: "Objetos globais e locais" },
+          { t: "p", p: "Objetos locais existem apenas dentro do módulo em que foram declarados e são criados/liberados na entrada/saída do módulo. Objetos globais podem ser usados em qualquer módulo. O uso de objetos locais reduz os 'efeitos colaterais' entre módulos." },
+          { t: "note", p: "Em C, uma variável declarada fora de qualquer função é global; declarada dentro de uma função é local. As locais são criadas a cada chamada e destruídas ao retornar." },
+          { t: "warn", p: "Os parâmetros atuais e formais devem concordar em número, ordem e tipo. Passar um número errado de argumentos é um erro clássico de modularização." }
+        ],
+        quiz: [
+          { q: "A diferença principal entre sub-rotina e função é:", opts: ["A função retorna um valor; a sub-rotina não.", "A sub-rotina é mais rápida.", "A função não pode ter parâmetros.", "Não há diferença."], ans: 0, expl: "Uma função devolve um valor a cada chamada; uma sub-rotina apenas executa comandos (em C, função void)." },
+          { q: "Na chamada QUADRADO(X), o termo X é:", opts: ["Parâmetro formal.", "Parâmetro atual (argumento).", "Uma constante.", "A função."], ans: 1, expl: "Os valores passados na chamada são os parâmetros atuais; X aqui é uma variável usada como argumento." },
+          { q: "Os parâmetros formais são:", opts: ["Os valores passados na chamada.", "Os nomes declarados no cabeçalho do módulo.", "Variáveis globais.", "Constantes."], ans: 1, expl: "Parâmetros formais são os nomes simbólicos do cabeçalho do módulo, usados dentro dele." },
+          { q: "Em C, uma sub-rotina corresponde a:", opts: ["Uma função com retorno int.", "Uma função com retorno void.", "Um ponteiro.", "Um vetor."], ans: 1, expl: "Como não devolve valor, a sub-rotina equivale a uma função void." },
+          { q: "Uma variável declarada dentro de uma função em C é:", opts: ["Global.", "Local.", "Estática sempre.", "Um parâmetro formal."], ans: 1, expl: "Declarada dentro de uma função, a variável é local: existe apenas durante aquela chamada." },
+          { q: "Por que usar objetos locais ajuda na programação modularizada?", opts: ["Deixam o programa maior.", "Reduzem efeitos colaterais entre módulos.", "São sempre globais.", "Eliminam as funções."], ans: 1, expl: "Objetos locais não interferem em outros módulos, minimizando efeitos colaterais." }
+        ]
       }
     ]
   },
