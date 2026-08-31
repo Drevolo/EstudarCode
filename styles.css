@@ -1748,6 +1748,12 @@ pre code {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 120ms;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card > .bar {
+  margin-bottom: auto;
 }
 
 .course-card:hover {

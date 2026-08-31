@@ -913,6 +913,12 @@ html[data-theme="dark"] {
   .course-card {
     @apply relative overflow-hidden bg-surface-card border-2 border-edge rounded shadow-card px-[18px] pt-[18px] pb-5 transition-all;
     transition-duration: 120ms;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-card > .bar {
+    margin-bottom: auto;
   }
 
   .course-card:hover {
