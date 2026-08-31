@@ -2279,6 +2279,7 @@ function syncSidebar() {
   if (inCourse) tab.style.display = "flex";
   else tab.style.display = "none";
   placeHeader();
+  updateMobileStreak();
 }
 
 let drawerHead = null;
@@ -2847,6 +2848,19 @@ function checkBadges() {
   renderStats();
 }
 
+function hasDoneAnyActivity() {
+  const p = loadProgress();
+  const hasAnswers = p && typeof p === "object" && Object.keys(p).length > 0;
+  const hasGamActivity = (gam.correctQ || 0) > 0 ||
+    (gam.cardsSeen || 0) > 0 ||
+    (gam.runs || 0) > 0 ||
+    (gam.xp || 0) > 0 ||
+    (gam.earned && Object.keys(gam.earned).length > 0) ||
+    (gam.doneTopics && Object.keys(gam.doneTopics).length > 0) ||
+    (gam.badges && Object.keys(gam.badges).length > 0);
+  return !!hasAnswers || hasGamActivity;
+}
+
 function renderStats() {
   const el = document.getElementById("statsBar");
   if (!el) return;
@@ -2858,6 +2872,9 @@ function renderStats() {
     const svg = window.EstudarIcons && window.EstudarIcons[filled ? "heart" : "o-heart"];
     heartsHtml += '<span class="heart' + (filled ? "" : " lost") + '">' + svg + "</span>";
   }
+  // Foguinho: acende (laranja) quando há atividade; apagado (cinza) caso contrário.
+  const active = hasDoneAnyActivity();
+  const fireIcon = (window.EstudarIcons && (active ? window.EstudarIcons.fire : window.EstudarIcons["fire-off"])) || "";
   el.innerHTML =
     '<span class="stat-chip chip-hearts" title="Corações: errou perde 1; recupera 1 por dia de atividade">' + heartsHtml + "</span>" +
     '<span class="stat-chip chip-xp" title="Pontos de experiência">' +
@@ -2866,10 +2883,38 @@ function renderStats() {
     '<span class="chip-icon">' + (window.EstudarIcons && window.EstudarIcons.bolt) + "</span>" +
     "<b>" + gam.xp + "</b> XP" +
     "</span>" +
-    '<span class="stat-chip chip-streak" title="Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)">' +
-    '<span class="chip-icon">' + (window.EstudarIcons && window.EstudarIcons.fire) + "</span>" +
-    gam.streak + " dia" + (gam.streak === 1 ? "" : "s") +
+    '<span class="stat-chip chip-streak' + (active ? " on" : " off") + '" title="Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)">' +
+    '<span class="chip-icon">' + fireIcon + "</span>" +
+    '<span class="chip-val">' + gam.streak + " dia" + (gam.streak === 1 ? "" : "s") + "</span>" +
     "</span>";
+  updateMobileStreak();
+}
+
+// Indicador de streak "flutuante" exibido apenas em modo curso no celular,
+// já que nesse modo a topbar (com as estatísticas) fica oculta.
+function updateMobileStreak() {
+  if (typeof window.matchMedia === "function" && !window.matchMedia("(max-width: 640px)").matches) return;
+  const inCourse = state.course !== "home";
+  let el = document.getElementById("mobileStreak");
+  if (!inCourse) {
+    if (el) el.style.display = "none";
+    return;
+  }
+  if (!el) {
+    el = document.createElement("button");
+    el.id = "mobileStreak";
+    el.setAttribute("type", "button");
+    el.className = "mobile-streak";
+    el.title = "Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)";
+    document.body.appendChild(el);
+  }
+  const active = hasDoneAnyActivity();
+  const fireIcon = (window.EstudarIcons && (active ? window.EstudarIcons.fire : window.EstudarIcons["fire-off"])) || "";
+  el.className = "mobile-streak" + (active ? " on" : " off");
+  el.innerHTML =
+    '<span class="chip-icon">' + fireIcon + "</span>" +
+    '<span class="chip-val">' + gam.streak + "</span>";
+  el.style.display = "flex";
 }
 
 /* ---------- toast e confete ---------- */
@@ -3391,6 +3436,28 @@ function syncLocalToCloud() {
   }
 }
 
+// Mostra o popup uma única vez após o login quando o usuário ainda não fez
+// nenhuma atividade no site (nenhuma resposta, cartão, execução ou XP).
+let _firstActivityPopupShown = false;
+function maybeShowFirstActivityPopup() {
+  if (_firstActivityPopupShown) return;
+  // Aguarda o merge local→nuvem terminar para não exibir o aviso erradamente
+  // antes de o progresso existente da conta ser carregado.
+  if (S && S.getMergeStatus && S.getMergeStatus() === "merging") return;
+  _firstActivityPopupShown = true;
+  if (hasDoneAnyActivity()) return;
+  openOverlay(
+    '<h3 class="ov-title">Você ainda não fez nenhuma atividade</h3>' +
+    '<p class="ov-sub">Para acender o foguinho (streak), responda a um quiz, revise com cartões ou use o depurador. Seu progresso fica salvo na sua conta.</p>' +
+    '<div class="flash-actions"><button class="btn" onclick="closeOverlay(); openCourseStart(\'' + firstCourseKey() + '\')">Começar a estudar</button></div>'
+  );
+}
+
+function firstCourseKey() {
+  for (const key in DATA) return key;
+  return "lp";
+}
+
 async function handleAuthChange(ev) {
   const logged = ev && ev.user;
   const tagline = document.getElementById("authTagline");
@@ -3400,6 +3467,7 @@ async function handleAuthChange(ev) {
       authScreen.hidden = true;
       authScreen.setAttribute("data-logged", "true");
     }
+    maybeShowFirstActivityPopup();
   } else {
     // Sem sessão confirmada: exige login (nunca "entra direto").
     if (authScreen) {

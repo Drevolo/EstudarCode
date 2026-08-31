@@ -246,8 +246,16 @@ html[data-theme="dark"] {
     vertical-align: -0.1em;
   }
 
-  .chip-streak .chip-icon {
+  .chip-streak.on .chip-icon {
     @apply text-brand-orange;
+  }
+
+  .chip-streak.off {
+    @apply text-text-muted;
+  }
+
+  .chip-streak.off .chip-icon {
+    @apply text-text-muted;
   }
 
   /* ---------- botões topbar ---------- */
@@ -589,6 +597,7 @@ html[data-theme="dark"] {
   /* ---------- Content ---------- */
   .content {
     @apply bg-surface-card border-2 border-edge rounded-[20px] p-7 min-h-[60vh] shadow-card;
+    min-width: 0;
   }
 
   .breadcrumb {
@@ -1447,14 +1456,16 @@ html[data-theme="dark"] {
       order: 2;
       min-width: 0;
       gap: 4px;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
       padding: 1px;
     }
-    .stat-chip { flex: 0 0 auto; height: 28px; padding: 0 6px; gap: 3px; font-size: 0.66rem; border-radius: 8px; }
-    .heart { font-size: 0.85rem; }
-    .chip-streak { display: none; }
-    .chip-xp .xp-mini { width: 30px; height: 5px; }
+    .stat-chip { flex: 0 1 auto; height: 28px; padding: 0 6px; gap: 3px; font-size: 0.66rem; border-radius: 8px; min-width: 0; max-width: 100%; }
+    .chip-hearts { gap: 1.5px; }
+    .heart { font-size: 0.8rem; }
+    .chip-xp .xp-mini { width: 26px; height: 5px; flex: none; }
+    .chip-streak { flex: 0 0 auto; }
 
     .top-actions {
       flex: 0 0 auto;
@@ -1470,6 +1481,41 @@ html[data-theme="dark"] {
     .theme-btn { padding: 0 7px; }
     .theme-btn .theme-text { display: none; }
     .theme-btn .theme-icon { font-size: 0.9rem; line-height: 1; }
+
+    /* Indicador de streak no celular (modo curso, topbar oculta) */
+    .mobile-streak {
+      position: fixed;
+      top: 10px;
+      right: 12px;
+      z-index: 75;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      height: 34px;
+      padding: 0 10px;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      border-bottom-width: 4px;
+      background: var(--card);
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 0.82rem;
+      font-family: "Nunito", sans-serif;
+      box-shadow: var(--shadow);
+      line-height: 1;
+    }
+    .mobile-streak .chip-icon svg {
+      width: 1.15em;
+      height: 1.15em;
+      display: block;
+    }
+    .mobile-streak.on {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+    .mobile-streak.off {
+      color: var(--muted);
+    }
 
     .layout { padding: 8px; gap: 8px; }
     .layout:not(.course-mode) {

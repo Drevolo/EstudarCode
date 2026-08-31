@@ -402,6 +402,8 @@ button:not(:disabled) {
 }
 
 @media (max-width: 640px) {
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
+
   .xp-mini i pre {
     width: 100%;
     max-width: 100%;
@@ -412,6 +414,8 @@ button:not(:disabled) {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
 
   .xp-mini i pre {
     width: 100%;
@@ -444,8 +448,16 @@ button:not(:disabled) {
   vertical-align: -0.1em;
 }
 
-.chip-streak .chip-icon {
+.chip-streak.on .chip-icon {
   color: var(--orange);
+}
+
+.chip-streak.off {
+  color: var(--muted);
+}
+
+.chip-streak.off .chip-icon {
+  color: var(--muted);
 }
 
 /* ---------- botões topbar ---------- */
@@ -1023,6 +1035,7 @@ button:not(:disabled) {
   --tw-shadow: var(--shadow);
   --tw-shadow-colored: var(--shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  min-width: 0;
 }
 
 .breadcrumb {
@@ -1630,6 +1643,8 @@ pre code {
 }
 
 @media (max-width: 640px) {
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
+
   .hero-bar pre {
     width: 100%;
     max-width: 100%;
@@ -1640,6 +1655,8 @@ pre code {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
 
   .hero-bar pre {
     width: 100%;
@@ -1688,6 +1705,8 @@ pre code {
 }
 
 @media (max-width: 640px) {
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
+
   .hero-bar i pre {
     width: 100%;
     max-width: 100%;
@@ -1698,6 +1717,8 @@ pre code {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
 
   .hero-bar i pre {
     width: 100%;
@@ -2255,6 +2276,8 @@ pre code {
 }
 
 @media (max-width: 640px) {
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
+
   .dbg-label pre {
     width: 100%;
     max-width: 100%;
@@ -2265,6 +2288,8 @@ pre code {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
 
   .dbg-label pre {
     width: 100%;
@@ -2535,6 +2560,8 @@ pre code {
 }
 
 @media (max-width: 640px) {
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
+
   .auth-form pre,
   .auth-label pre {
     width: 100%;
@@ -2547,6 +2574,8 @@ pre code {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
 
   .auth-form pre,
   .auth-label pre {
@@ -2769,31 +2798,39 @@ pre code {
     order: 2;
     min-width: 0;
     gap: 4px;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
     padding: 1px;
   }
 
   .stat-chip {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     height: 28px;
     padding: 0 6px;
     gap: 3px;
     font-size: 0.66rem;
     border-radius: 8px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .chip-hearts {
+    gap: 1.5px;
   }
 
   .heart {
-    font-size: 0.85rem;
-  }
-
-  .chip-streak {
-    display: none;
+    font-size: 0.8rem;
   }
 
   .chip-xp .xp-mini {
-    width: 30px;
+    width: 26px;
     height: 5px;
+    flex: none;
+  }
+
+  .chip-streak {
+    flex: 0 0 auto;
   }
 
   .top-actions {
@@ -2829,6 +2866,45 @@ pre code {
   .theme-btn .theme-icon {
     font-size: 0.9rem;
     line-height: 1;
+  }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
+
+  .mobile-streak {
+    position: fixed;
+    top: 10px;
+    right: 12px;
+    z-index: 75;
+    display: none;
+    align-items: center;
+    gap: 4px;
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    border-bottom-width: 4px;
+    background: var(--card);
+    color: var(--muted);
+    font-weight: 900;
+    font-size: 0.82rem;
+    font-family: "Nunito", sans-serif;
+    box-shadow: var(--shadow);
+    line-height: 1;
+  }
+
+  .mobile-streak .chip-icon svg {
+    width: 1.15em;
+    height: 1.15em;
+    display: block;
+  }
+
+  .mobile-streak.on {
+    color: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .mobile-streak.off {
+    color: var(--muted);
   }
 
   .layout {
@@ -3069,6 +3145,8 @@ pre code {
   .content strong {
     color: var(--text);
   }
+
+  /* Indicador de streak no celular (modo curso, topbar oculta) */
 
   .layout:not(.course-mode) .\!sidebar {
     position: static !important;
