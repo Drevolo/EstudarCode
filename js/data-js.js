@@ -29,7 +29,9 @@ console.log(10 + 5);`, lang: "js" },
       quiz: [
         { q: "A função que exibe uma mensagem no console é:", opts: ["print()", "echo()", "console.log()", "write()"], ans: 2, expl: "console.log() imprime no console do navegador, essencial para testar o código." },
         { q: "O atalho F12 no navegador abre:", opts: ["As Ferramentas do Desenvolvedor (DevTools).", "Um novo site.", "O menu de impressão.", "Configurações."], ans: 0, expl: "F12 abre o DevTools, onde fica o console para executar e depurar JS." },
-        { q: "Além do navegador, o JavaScript também roda:", opts: ["Nunca fora do navegador.", "Em qualquer máquina, sem nada instalado.", "No servidor, com o Node.js.", "Somente no celular."], ans: 2, expl: "O Node.js permite executar JavaScript no servidor (back-end)." }
+        { q: "Além do navegador, o JavaScript também roda:", opts: ["Nunca fora do navegador.", "Em qualquer máquina, sem nada instalado.", "No servidor, com o Node.js.", "Somente no celular."], ans: 2, expl: "O Node.js permite executar JavaScript no servidor (back-end)." },
+        { q: "A função alert() faz o quê?", opts: ["Imprime no console.", "Fecha o navegador.", "Abre uma janela com uma mensagem na tela.", "Salva um arquivo."], ans: 2, expl: "alert() abre uma caixa de diálogo no navegador com o texto indicado." },
+        { q: "Como ligamos um arquivo .js a uma página HTML?", opts: ["Usando a tag <link>.", "Com a tag <script src=\"...\">.", "Através de <style>.", "Não é possível."], ans: 1, expl: "A tag <script> com o atributo src carrega e executa o arquivo JavaScript externo." }
       ]
     },
     {
@@ -72,7 +74,9 @@ console.log(nome + " tem " + idade + " anos.");`, lang: "js" },
       quiz: [
         { q: "Qual palavra-chave declara uma variável que NÃO pode ser reatribuída?", opts: ["let", "var", "const", "static"], ans: 2, expl: "const cria uma constante: o valor não pode ser alterado depois." },
         { q: "typeof é usado para:", opts: ["Imprimir na tela.", "Descobrir o tipo de um valor.", "Criar variáveis.", "Somar números."], ans: 1, expl: "typeof devolve uma string com o tipo: \"number\", \"string\", \"boolean\", etc." },
-        { q: "Para uma variável que vai mudar de valor, o ideal é usar:", opts: ["const", "let", "nenhuma", "types"], ans: 1, expl: "let é para valores variáveis; const é para valores fixos." }
+        { q: "Para uma variável que vai mudar de valor, o ideal é usar:", opts: ["const", "let", "nenhuma", "types"], ans: 1, expl: "let é para valores variáveis; const é para valores fixos." },
+        { q: "O que typeof null retorna em JavaScript?", opts: ["\"null\"", "\"undefined\"", "\"object\"", "\"boolean\""], ans: 2, expl: "typeof null retorna \"object\" — é um bug histórico da linguagem, mas null não é um objeto de verdade." },
+        { q: "Em JavaScript, qual é o resultado de \"2\" + 2?", opts: ["4", "\"22\"", "Erro de tipo", "\"4\""], ans: 1, expl: "Quando o + mistura string e number, o JS converte o número para texto e concatena: \"2\" + 2 = \"22\"." }
       ]
     },
     {
@@ -103,7 +107,9 @@ console.log(triplo(4));   // 12`, lang: "js" },
       quiz: [
         { q: "Qual palavra declara uma função tradicional?", opts: ["func", "def", "function", "funcao"], ans: 2, expl: "Em JavaScript, usamos a palavra function." },
         { q: "O que a arrow (x) => x * 3 faz?", opts: ["Soma x com 3.", "Multiplica x por 3.", "Declara uma classe.", "Imprime x."], ans: 1, expl: "A arrow recebe x e devolve x * 3; sem chaves, o resultado é retornado automaticamente." },
-        { q: "return dentro de uma função:", opts: ["Imprime um valor.", "Devolve um valor e encerra a função.", "Inicia um laço.", "Cria uma variável."], ans: 1, expl: "return envia o resultado de volta para quem chamou a função." }
+        { q: "return dentro de uma função:", opts: ["Imprime um valor.", "Devolve um valor e encerra a função.", "Inicia um laço.", "Cria uma variável."], ans: 1, expl: "return envia o resultado de volta para quem chamou a função." },
+        { q: "Qual é a forma correta de declarar uma arrow function que recebe um parâmetro e retorna o dobro?", opts: ["x => x * 2", "x -> x * 2", "function(x) -> x * 2", "arrow(x) => x * 2"], ans: 0, expl: "Quando há apenas um parâmetro, os parênteses são opcionais em arrow functions: x => x * 2." },
+        { q: "O que acontece se uma função não tiver uma instrução return?", opts: ["Retorna 0.", "Retorna null.", "Retorna undefined automaticamente.", "Dá erro de compilação."], ans: 2, expl: "Funções sem return explicitamente retornam undefined por padrão em JavaScript." }
       ]
     },
     {
@@ -144,7 +150,9 @@ switch (cor) {
       quiz: [
         { q: "O operador === compara:", opts: ["Apenas o valor.", "O valor e o tipo.", "Somente o tipo.", "Nada."], ans: 1, expl: "=== exige igualdade de valor E de tipo, evitando conversões inesperadas." },
         { q: "Em JS, 5 == \"5\" resulta em:", opts: ["true", "false", "Erro", "undefined"], ans: 0, expl: "== converte automaticamente e compara só o valor, por isso \"5\" e 5 são considerados iguais." },
-        { q: "Para testar uma variável contra vários valores constantes, a estrutura ideal é:", opts: ["for", "switch", "while", "função"], ans: 1, expl: "O switch serve exatamente para comparar uma variável com vários casos constantes." }
+        { q: "Para testar uma variável contra vários valores constantes, a estrutura ideal é:", opts: ["for", "switch", "while", "função"], ans: 1, expl: "O switch serve exatamente para comparar uma variável com vários casos constantes." },
+        { q: "O que acontece no switch se esquecer o break?", opts: ["O programa para na hora.", "Continua executando os cases seguintes até encontrar um break ou o final.", "Dá erro de sintaxe.", "Volta ao primeiro case."], ans: 1, expl: "Sem break, o switch faz 'fall-through': executa o próximo case sem verificar a condição." },
+        { q: "Qual é o resultado de: 10 > 5 && 3 < 1?", opts: ["true", "false", "15", "Erro"], ans: 1, expl: "O operador && exige que AMBAS as expressões sejam true. Como 3 < 1 é false, o resultado é false." }
       ]
     },
     {
@@ -180,7 +188,9 @@ cores.forEach(function (c) {
       quiz: [
         { q: "Quantas vezes executa for (let i = 1; i <= 3; i++)?", opts: ["2 vezes", "3 vezes", "4 vezes", "Infinitas"], ans: 1, expl: "Executa para i = 1, 2 e 3 — três repetições." },
         { q: "O forEach é usado para:", opts: ["Somar dois números.", "Percorrer os elementos de um array.", "Criar variáveis.", "Declarar funções."], ans: 1, expl: "forEach executa uma função para cada elemento do array." },
-        { q: "O while testa a condição:", opts: ["Depois de executar o bloco.", "Antes de cada repetição.", "Uma única vez.", "Somente no final do programa."], ans: 1, expl: "O while verifica a condição antes de executar o bloco a cada volta." }
+        { q: "O while testa a condição:", opts: ["Depois de executar o bloco.", "Antes de cada repetição.", "Uma única vez.", "Somente no final do programa."], ans: 1, expl: "O while verifica a condição antes de executar o bloco a cada volta." },
+        { q: "Para percorrer os elementos de um array sem usar índices, qual é a opção moderna?", opts: ["for (let i = 0; ...)", "while", "for...of", "do...while"], ans: 2, expl: "O for...of percorre diretamente os valores do array, sem precisar gerenciar o índice manualmente." },
+        { q: "A expressão i++ equivale a qual outra forma?", opts: ["i = i - 1", "i += 2", "i = i + 1", "i = i * 1"], ans: 2, expl: "i++ é um atalho para i = i + 1, incrementando o valor da variável em 1." }
       ]
     },
     {
@@ -224,7 +234,9 @@ console.log(dobrados);   // [2, 4, 6, 8]`, lang: "js" },
       quiz: [
         { q: "O método push:", opts: ["Remove o último item.", "Adiciona um item no final do array.", "Ordena o array.", "Descobre o tipo."], ans: 1, expl: "push(x) acrescenta x ao final do array." },
         { q: "Para acessar a propriedade nome da pessoa, usamos:", opts: ["pessoa(nome)", "pessoa.nome", "nome.pessoa", "pessoa -> nome"], ans: 1, expl: "Objetos são acessados com notação de ponto: objeto.propriedade." },
-        { q: "O método map:", opts: ["Elimina o array.", "Cria um novo array aplicando uma função em cada item.", "Imprime o array.", "Adiciona ao final."], ans: 1, expl: "map aplica a função a cada elemento e devolve um novo array com os resultados." }
+        { q: "O método map:", opts: ["Elimina o array.", "Cria um novo array aplicando uma função em cada item.", "Imprime o array.", "Adiciona ao final."], ans: 1, expl: "map aplica a função a cada elemento e devolve um novo array com os resultados." },
+        { q: "O método pop() em um array:", opts: ["Adiciona um item no início.", "Remove e retorna o último elemento.", "Remove o primeiro elemento.", "Não existe em JavaScript."], ans: 1, expl: "pop() remove o último item do array e o devolve. Para remover o primeiro, use shift()." },
+        { q: "Dado const nums = [10, 20, 30], qual é o valor de nums.indexOf(20)?", opts: ["0", "1", "2", "-1"], ans: 1, expl: "indexOf devolve o índice da primeira ocorrência do valor. 20 está na posição 1 (contando de 0)." }
       ]
     },
     {
@@ -265,7 +277,9 @@ botao.addEventListener("click", function () {
       quiz: [
         { q: "Qual função seleciona um elemento pelo seu id?", opts: ["document.getElementById()", "document.querySelectorAll()", "document.write()", "element.get()"], ans: 0, expl: "getElementById(\"id\") retorna o elemento cujo atributo id corresponde." },
         { q: "Para trocar o texto de um elemento, usamos:", opts: ["element.textContent = ...", "element.value = ...", "element.text()", "element.innerHTML()"], ans: 0, expl: "textContent substitui o texto dentro do elemento." },
-        { q: "addEventListener(\"click\", funcao) serve para:", opts: ["Criar um elemento.", "Executar uma função quando o clique acontecer.", "Sumir com o elemento.", "Trocar o estilo."], ans: 1, expl: "O evento \"click\" dispara a função passada sempre que o usuário clicar no elemento." }
+        { q: "addEventListener(\"click\", funcao) serve para:", opts: ["Criar um elemento.", "Executar uma função quando o clique acontecer.", "Sumir com o elemento.", "Trocar o estilo."], ans: 1, expl: "O evento \"click\" dispara a função passada sempre que o usuário clicar no elemento." },
+        { q: "Qual método seleciona o PRIMEIRO elemento que corresponde a um seletor CSS?", opts: ["document.getElementById()", "document.querySelector()", "document.querySelectorAll()", "document.getElement()"], ans: 1, expl: "querySelector aceita qualquer seletor CSS e devolve o primeiro elemento encontrado. querySelectorAll devolve todos." },
+        { q: "Qual é a diferença entre textContent e innerHTML?", opts: ["São sinônimos.", "textContent injeta HTML; innerHTML injeta apenas texto.", "textContent define o texto puro; innerHTML injeta HTML interpretado pelo navegador.", "innerHTML não existe em JavaScript."], ans: 2, expl: "textContent insere texto como está (mais seguro); innerHTML interpreta a string como HTML, o que pode ser útil, mas abre brechas de segurança (XSS) se vier de usuários." }
       ]
     },
     {
@@ -312,7 +326,9 @@ console.log(deVolta.nome);         // Ana`, lang: "js" },
         { q: "Dado const p = { nome: \"Ana\" }, qual opção NÃO devolve \"Ana\"?", opts: ["p.nome", "p[\"nome\"]", "p[\"no\" + \"me\"]", "p.nome()"], ans: 3, expl: "p.nome() tenta chamar a propriedade como função; como nome é uma string, isso lança TypeError. As outras três formas de acesso devolvem \"Ana\"." },
         { q: "Qual função devolve um array com as chaves de um objeto?", opts: ["Object.keys(obj)", "obj.keys()", "Array.keys(obj)", "JSON.stringify(obj)"], ans: 0, expl: "Object.keys(obj) devolve o array de chaves. obj.keys() não existe para objetos comuns — em arrays, keys() devolve um iterador de índices, não um array." },
         { q: "O que JSON.parse(texto) faz?", opts: ["Converte JSON em texto legível.", "Analisa um texto JSON e constrói o valor JavaScript equivalente.", "Valida arquivos HTML.", "Ordena as chaves de um objeto."], ans: 1, expl: "JSON.parse interpreta o texto e monta o valor (objeto, array, número...); se o texto não for JSON válido, lança SyntaxError. O caminho inverso é JSON.stringify." },
-        { q: "Qual afirmação sobre JSON e objetos JS está correta?", opts: ["Chaves de JSON são obrigatoriamente com aspas duplas; chaves de objeto JS podem ficar sem aspas.", "Objetos JS não podem virar texto.", "JSON aceita funções e undefined.", "JSON e objeto JavaScript são exatamente a mesma coisa."], ans: 0, expl: "JSON é um formato de texto restrito: aspas duplas nas chaves e apenas dados serializáveis, sem funções, undefined ou comentários. Objetos JS são estruturas em memória com sintaxe mais livre." }
+        { q: "Qual afirmação sobre JSON e objetos JS está correta?", opts: ["Chaves de JSON são obrigatoriamente com aspas duplas; chaves de objeto JS podem ficar sem aspas.", "Objetos JS não podem virar texto.", "JSON aceita funções e undefined.", "JSON e objeto JavaScript são exatamente a mesma coisa."], ans: 0, expl: "JSON é um formato de texto restrito: aspas duplas nas chaves e apenas dados serializáveis, sem funções, undefined ou comentários. Objetos JS são estruturas em memória com sintaxe mais livre." },
+        { q: "O que Object.keys({ a: 1, b: 2 }) devolve?", opts: ["[1, 2]", "[\"a\", \"b\"]", "[\"a: 1\", \"b: 2\"]", "undefined"], ans: 1, expl: "Object.keys devolve um array com os nomes das propriedades (chaves) do objeto." },
+        { q: "O que acontece se você usar for...of em um objeto comum em JavaScript?", opts: ["Percorre as chaves normalmente.", "Lança TypeError, pois objeto não é iterável.", "Retorna undefined.", "Percorre os valores automaticamente."], ans: 1, expl: "Objetos comuns não são iteráveis. Para percorrer propriedades, use for...in ou Object.keys()." }
       ]
     },
     {
@@ -355,7 +371,9 @@ console.log(aprovados);   // 16`, lang: "js" },
         { q: "Dado const ns = [10, 20, 5], o que devolve ns.find((n) => n > 15)?", opts: ["[20]", "20", "true", "undefined"], ans: 1, expl: "find devolve o PRIMEIRO elemento que atende ao teste, no caso 20 — um valor, não um array. Se nenhum passasse, devolveria undefined." },
         { q: "Com const ns = [2, 10, 1], o que produz ns.sort() sem função de comparação?", opts: ["[1, 2, 10]", "[10, 2, 1]", "[1, 10, 2]", "[2, 1, 10]"], ans: 2, expl: "O sort padrão ordena como string em ordem lexicográfica: \"1\", \"10\", \"2\" resultam em [1, 10, 2]. Por isso números exigem a função (a, b) => a - b." },
         { q: "Qual método retorna true apenas se TODOS os elementos passarem no teste?", opts: ["some", "every", "find", "filter"], ans: 1, expl: "every exige que todos passem; some basta um. filter devolve um array com os aprovados e find devolve o primeiro elemento." },
-        { q: "Qual é a diferença prática entre map e forEach?", opts: ["São idênticos.", "map devolve um NOVO array com os resultados; forEach não devolve nada útil.", "map altera o array original; forEach não.", "forEach devolve um novo array; map não devolve nada."], ans: 1, expl: "map constrói e devolve um novo array sem tocar no original, permitindo encadeamento. forEach apenas executa um efeito para cada item e devolve undefined." }
+        { q: "Qual é a diferença prática entre map e forEach?", opts: ["São idênticos.", "map devolve um NOVO array com os resultados; forEach não devolve nada útil.", "map altera o array original; forEach não.", "forEach devolve um novo array; map não devolve nada."], ans: 1, expl: "map constrói e devolve um novo array sem tocar no original, permitindo encadeamento. forEach apenas executa um efeito para cada item e devolve undefined." },
+        { q: "O que filter() faz com o array original?", opts: ["Altera-o removendo os itens reprovados.", "Não o altera — devolve um novo array apenas com os itens aprovados.", "Remove todos os elementos.", "Devolve true ou false."], ans: 1, expl: "filter é imutável: o array original continua intacto. Ele cria e retorna um novo array com apenas os elementos que passaram no teste." },
+        { q: "Como o reduce funciona em poucas palavras?", opts: ["Remove duplicatas de um array.", "Acumula os elementos em um único valor usando uma função acumuladora.", "Filtra valores acima da média.", "Organiza o array em ordem crescente."], ans: 1, expl: "reduce recebe uma função (acumulador, valor atual) e um valor inicial, iterando sobre cada item para construir um resultado final (soma, string, objeto, etc.)." }
       ]
     },
     {
@@ -393,7 +411,9 @@ console.log("Esta linha roda antes do .then acima.");`, lang: "js" },
         { q: "Com setTimeout(callback, 0), quando o callback roda?", opts: ["Imediatamente, interrompendo o bloco atual.", "Depois que o bloco síncrono atual terminar, mesmo com delay 0.", "Em uma thread separada, em paralelo.", "Nunca, se o tempo for 0."], ans: 1, expl: "O delay 0 apenas significa \"não esperar\"; o callback ainda é agendado e só executa após a tarefa síncrona atual — o event loop não interrompe o que está rodando." },
         { q: "O que é uma Promise em JavaScript?", opts: ["Um tipo de loop.", "Um objeto que representa o resultado de uma operação assíncrona (um valor futuro).", "Uma função exclusiva de HTML.", "Um sinônimo de variável global."], ans: 1, expl: "Uma Promise encapsula um valor que ainda não existe: fica pendente e depois é resolvida ou rejeitada. Acompanhamos a resolução com .then e o erro com .catch." },
         { q: "No código promise.then(ok).catch(erro), o que acontece se a Promise rejeitar?", opts: ["ok é chamado mesmo assim.", "erro é chamado com o motivo da rejeição.", "Nada; o erro é ignorado em silêncio.", "O programa recarrega a página."], ans: 1, expl: "A rejeição pula o .then e cai no .catch, que recebe o motivo. Sem tratamento, transforma-se em Unhandled Rejection — erro silencioso, difícil de depurar." },
-        { q: "Qual é o papel do async em async function carregar()?", opts: ["Faz a função rodar mais rápido.", "Faz a função SEMPRE devolver uma Promise.", "Permite usar variáveis globais.", "Transforma a função em um loop."], ans: 1, expl: "Toda função async devolve uma Promise; dentro dela, o await pausa o fluxo aguardando outra Promise (como um fetch), deixando o código com aparência sequencial sem travar a página." }
+        { q: "Qual é o papel do async em async function carregar()?", opts: ["Faz a função rodar mais rápido.", "Faz a função SEMPRE devolver uma Promise.", "Permite usar variáveis globais.", "Transforma a função em um loop."], ans: 1, expl: "Toda função async devolve uma Promise; dentro dela, o await pausa o fluxo aguardando outra Promise (como um fetch), deixando o código com aparência sequencial sem travar a página." },
+        { q: "No async/await, como tratamos erros de forma semelhante ao .catch?", opts: ["Usando um segundo .then()", "Envolvendo o código com try/catch.", "Usando setTimeout.", "Não é possível tratar erros com await."], ans: 1, expl: "Dentro de uma função async, o bloco try/catch captura erros das Promises aguardadas com await, da mesma forma que .catch faz na cadeia de Promises." },
+        { q: "fetch(url) devolve o quê?", opts: ["Um objeto String.", "Uma Promise que resolve com a resposta da requisição HTTP.", "Um objeto DOM.", "Um array de dados."], ans: 1, expl: "fetch é assíncrono e retorna uma Promise. Para obter os dados, encadear .then(r => r.json()) ou usar await dentro de uma função async." }
       ]
     }
   ]

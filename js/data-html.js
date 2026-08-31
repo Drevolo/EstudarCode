@@ -38,7 +38,9 @@ window.COURSES.html = {
       quiz: [
         { q: "A primeira linha de um documento HTML5 é:", opts: ["<html>", "<!DOCTYPE html>", "<head>", "<DOCTYPE>"], ans: 1, expl: "<!DOCTYPE html> declara que o documento usa HTML5 e vem antes de tudo." },
         { q: "Onde fica o título que aparece na aba do navegador?", opts: ["No <body>", "No <title> dentro do <head>", "No <footer>", "Em qualquer lugar"], ans: 1, expl: "O <title> fica dentro do <head> e controla o texto da aba do navegador." },
-        { q: "O conteúdo visível da página fica dentro de:", opts: ["<head>", "<meta>", "<body>", "<script>"], ans: 2, expl: "Tudo que o visitante vê vai dentro do <body>." }
+        { q: "O conteúdo visível da página fica dentro de:", opts: ["<head>", "<meta>", "<body>", "<script>"], ans: 2, expl: "Tudo que o visitante vê vai dentro do <body>." },
+        { q: "Para que serve o atributo lang no <html>?", opts: ["Definir o estilo da página.", "Informar o idioma do documento.", "Criar um link externo.", "Ativar JavaScript."], ans: 1, expl: "O lang define o idioma do conteúdo, auxiliando leitores de tela e mecanismos de busca." },
+        { q: "Qual é a função da tag <meta charset=\"UTF-8\">?", opts: ["Criar um parágrafo.", "Garantir que acentos e emojis sejam exibidos corretamente.", "Definir o título da página.", "Inserir uma imagem."], ans: 1, expl: "A codificação UTF-8 suporta caracteres especiais do português e emojis, evitando problemas de exibição." }
       ]
     },
     {
@@ -65,7 +67,9 @@ window.COURSES.html = {
       quiz: [
         { q: "Quantos níveis de heading existem (h1 até h)?", opts: ["3", "4", "5", "6"], ans: 3, expl: "Os níveis vão de <h1> a <h6>." },
         { q: "Qual tag deixa o texto em negrito com significado?", opts: ["<b>", "<strong>", "<bold>", "<negrito>"], ans: 1, expl: "<strong> dá ênfase com significado semântico (além do efeito visual)." },
-        { q: "Um comentário em HTML começa com:", opts: ["//", "<!--", "/*", "#"], ans: 1, expl: "Comentários HTML vão de <!-- até -->." }
+        { q: "Um comentário em HTML começa com:", opts: ["//", "<!--", "/*", "#"], ans: 1, expl: "Comentários HTML vão de <!-- até -->." },
+        { q: "A tag correta para criar um parágrafo de texto é:", opts: ["<div>", "<p>", "<span>", "<text>"], ans: 1, expl: "A tag <p> define parágrafos; <div> é genérica e <span> é inline." },
+        { q: "A quebra de linha dentro de um parágrafo é feita com:", opts: ["<br>", "<hr>", "<lb>", "<break>"], ans: 0, expl: "A tag <br> insere uma quebra de linha sem iniciar um novo parágrafo." }
       ]
     },
     {
@@ -93,7 +97,9 @@ window.COURSES.html = {
       quiz: [
         { q: "Qual tag cria um link?", opts: ["<link>", "<a>", "<href>", "<url>"], ans: 1, expl: "A tag de âncora <a> cria links; <link> serve para ligar folhas de estilo." },
         { q: "O atributo que define o endereço de um link é:", opts: ["src", "url", "href", "link"], ans: 2, expl: "href indica o destino do <a> que o usuário vai abrir." },
-        { q: "O atributo alt de uma imagem serve para:", opts: ["Definir a altura.", "Descrever o conteúdo da imagem (acessibilidade).", "Mostrar a imagem maior.", "Trocar o tamanho."], ans: 1, expl: "alt descreve a imagem para leitores de tela e aparece se a imagem falhar." }
+        { q: "O atributo alt de uma imagem serve para:", opts: ["Definir a altura.", "Descrever o conteúdo da imagem (acessibilidade).", "Mostrar a imagem maior.", "Trocar o tamanho."], ans: 1, expl: "alt descreve a imagem para leitores de tela e aparece se a imagem falhar." },
+        { q: "O atributo target=\"_blank\" em um link faz:", opts: ["Abrir o link na mesma aba.", "Abrir o link em uma nova aba ou janela.", "Baixar o arquivo linkado.", "Desativar o link."], ans: 1, expl: "target=\"_blank\" instrui o navegador a abrir o destino do link em uma nova aba." },
+        { q: "A tag <img> é considerada auto-fechada porque:", opts: ["Não precisa de alt.", "Não possui tag de fechamento correspondente.", "Sempre aparece no início da página.", "Não aceita atributos."], ans: 1, expl: "Diferente de tags como <p>, a <img> não tem uma tag de fechamento; ela se encerra sozinha." }
       ]
     },
     {
@@ -133,7 +139,9 @@ window.COURSES.html = {
       quiz: [
         { q: "A tag que cria uma linha na tabela é:", opts: ["<td>", "<tr>", "<th>", "<line>"], ans: 1, expl: "<tr> (table row) define uma linha; dentro dela vão <th> ou <td>." },
         { q: "Uma célula de cabeçalho é criada com:", opts: ["<td>", "<th>", "<head>", "<cabeçalho>"], ans: 1, expl: "<th> (table header) cria células de cabeçalho, normalmente em negrito." },
-        { q: "A tag que envolve toda a tabela é:", opts: ["<tabela>", "<table>", "<tb>", "<rows>"], ans: 1, expl: "A tabela inteira fica dentro de <table>." }
+        { q: "A tag que envolve toda a tabela é:", opts: ["<tabela>", "<table>", "<tb>", "<rows>"], ans: 1, expl: "A tabela inteira fica dentro de <table>." },
+        { q: "As tags <thead> e <tbody> servem para:", opts: ["Estilizar a tabela com CSS.", "Separar semanticamente o cabeçalho e o corpo da tabela.", "Adicionar linhas automaticamente.", "Remover células vazias."], ans: 1, expl: "O <thead> agrupa as linhas de cabeçalho e o <tbody> as linhas de dados, melhorando a organização e o acesso de leitores de tela." },
+        { q: "O que acontece se uma linha da tabela tiver menos <td> que as outras?", opts: ["Nada, o navegador ajusta sozinho.", "A tabela pode ficar desalinhada ou com colunas quebradas.", "O navegador gera um erro visível.", "A linha é ignorada automaticamente."], ans: 1, expl: "A quantidade de células deve ser consistente em cada linha para manter o alinhamento correto das colunas." }
       ]
     },
     {
@@ -171,7 +179,9 @@ window.COURSES.html = {
       quiz: [
         { q: "Qual atributo do input valida formato de e-mail no navegador?", opts: ["type=\"email\"", "type=\"text\"", "type=\"mail\"", "readonly"], ans: 0, expl: "type=\"email\" faz o navegador validar o formato do e-mail automaticamente." },
         { q: "O <label for=\"nome\"> se liga ao campo:", opts: ["Ao de cima na página.", "Ao input com id ou name igual a \"nome\".", "Ao primeiro input.", "A nenhum."], ans: 1, expl: "O for do label referencia o id do input, melhorando a acessibilidade e o clique." },
-        { q: "Para uma área de texto grande, usamos:", opts: ["<input type=\"text\">", "<textarea>", "<select>", "<p contenteditable>"], ans: 1, expl: "O <textarea> é o campo multi-linha para textos maiores." }
+        { q: "Para uma área de texto grande, usamos:", opts: ["<input type=\"text\">", "<textarea>", "<select>", "<p contenteditable>"], ans: 1, expl: "O <textarea> é o campo multi-linha para textos maiores." },
+        { q: "O atributo action de um <form> indica:", opts: ["O método HTTP usado.", "O destino para onde os dados do formulário são enviados.", "O tipo de cada campo.", "O idioma do formulário."], ans: 1, expl: "O action aponta a URL que receberá os dados quando o formulário é enviado." },
+        { q: "Qual atributo do botão dispara o envio do formulário?", opts: ["type=\"button\"", "type=\"submit\"", "type=\"send\"", "type=\"post\""], ans: 1, expl: "O type=\"submit\" faz o botão enviar os dados do formulário ao servidor." }
       ]
     },
     {
@@ -219,7 +229,9 @@ window.COURSES.html = {
       quiz: [
         { q: "A tag que representa o conteúdo principal da página é:", opts: ["<header>", "<main>", "<nav>", "<aside>"], ans: 1, expl: "<main> envolve o conteúdo central e único da página." },
         { q: "Menus e links de navegação ficam dentro de:", opts: ["<nav>", "<footer>", "<h1>", "<article>"], ans: 0, expl: "<nav> marca blocos de navegação, como menus." },
-        { q: "A diferença entre <section> e <div> é:", opts: ["Nenhuma.", "A section tem significado semântico de agrupar conteúdo relacionado.", "A div é sempre maior.", "Section não existe."], ans: 1, expl: "<section> agrupa conteúdo com significado; <div> é apenas uma caixa genérica." }
+        { q: "A diferença entre <section> e <div> é:", opts: ["Nenhuma.", "A section tem significado semântico de agrupar conteúdo relacionado.", "A div é sempre maior.", "Section não existe."], ans: 1, expl: "<section> agrupa conteúdo com significado; <div> é apenas uma caixa genérica." },
+        { q: "Qual tag semântica representa um conteúdo independente, como uma notícia ou post?", opts: ["<div>", "<section>", "<article>", "<aside>"], ans: 2, expl: "<article> é usada para conteúdo autônomo que faz sentido fora do contexto da página." },
+        { q: "O <aside> é indicado para:", opts: ["O conteúdo principal da página.", "Conteúdo complementar, como uma barra lateral.", "Links de navegação.", "Rodapé do site."], ans: 1, expl: "O <aside> representa conteúdo relacionado de forma indireta ao texto principal, como dicas ou anúncios laterais." }
       ]
     },
     {
@@ -270,7 +282,9 @@ window.COURSES.html = {
         { q: "loading=\"lazy\" em uma <img> significa que:", opts: ["A imagem nunca carrega.", "A imagem é carregada somente quando está perto da área visível.", "A imagem carrega primeiro que todas.", "A imagem só carrega com clique."], ans: 1, expl: "lazy adia o download até a imagem se aproximar do viewport, economizando dados em telas longas." },
         { q: "Qual é o papel do <source> dentro de <video>?", opts: ["Definir a legenda do vídeo.", "Oferecer formatos alternativos; o navegador usa o primeiro que suporta.", "Controlar o volume do vídeo.", "Redimensionar a imagem."], ans: 1, expl: "Vários <source> dão alternativas de codec; o navegador escolhe o primeiro suportado, garantindo compatibilidade." },
         { q: "A diferença entre <figure> e <img> com legenda solta é:", opts: ["Nenhuma.", "O <figure> com <figcaption> liga a mídia à sua legenda de forma semântica.", "O <figure> deixa a imagem maior.", "O <img> não aceita texto."], ans: 1, expl: "<figcaption> dentro de <figure> associa a legenda ao conteúdo de forma semanticamente correta, útil para leitores de tela." },
-        { q: "Por que width e height ajudam no desempenho, mesmo com loading=\"lazy\"?", opts: ["Eles diminuem o peso do arquivo.", "Reservam espaço e evitam o salto de layout ao carregar.", "Eles comprimem a imagem automaticamente.", "Não ajudam em nada."], ans: 1, expl: "Definir as dimensões reserva o espaço na página, prevenindo o deslocamento do conteúdo (CLS) quando a imagem termina de carregar." }
+        { q: "Por que width e height ajudam no desempenho, mesmo com loading=\"lazy\"?", opts: ["Eles diminuem o peso do arquivo.", "Reservam espaço e evitam o salto de layout ao carregar.", "Eles comprimem a imagem automaticamente.", "Não ajudam em nada."], ans: 1, expl: "Definir as dimensões reserva o espaço na página, prevenindo o deslocamento do conteúdo (CLS) quando a imagem termina de carregar." },
+        { q: "Qual atributo define a imagem de capa de um vídeo antes de ele ser reproduzido?", opts: ["thumb", "poster", "cover", "preview"], ans: 1, expl: "O atributo poster exibe uma imagem de pré-visualização enquanto o vídeo não foi iniciado." },
+        { q: "O elemento <source> dentro de <audio> ou <video> serve para:", opts: ["Definir o volume do arquivo de mídia.", "Fornecer formatos alternativos para o navegador escolher o que suporta.", "Controlar a velocidade de reprodução.", "Inserir uma legenda."], ans: 1, expl: "Cada <source> aponta para um formato diferente; o navegador usa o primeiro que consegue reproduzir." }
       ]
     },
     {
@@ -328,7 +342,9 @@ window.COURSES.html = {
         { q: "O <datalist> se diferencia do <select> porque:", opts: ["Mostra apenas opções fixas.", "Oferece sugestões, mas o usuário pode digitar livremente.", "Não funciona em navegadores.", "Só aceita números."], ans: 1, expl: "datalist sugere valores sem restringir a digitação; o select limita às opções listadas." },
         { q: "O atributo pattern em um campo usa:", opts: ["Plain text simples.", "Uma expressão regular (regex) para validar o formato.", "Uma lista de valores permitidos.", "JavaScript embutido."], ans: 1, expl: "pattern recebe uma regex que o valor digitado deve satisfazer para a validação nativa passar." },
         { q: "Qual método HTTP NÃO mostra os dados na URL?", opts: ["GET", "POST", "PUT", "DELETE"], ans: 1, expl: "O POST envia os dados no corpo da requisição, fora da URL; o GET os coloca na própria URL." },
-        { q: "Quando o objetivo é buscar rapidamente um termo que pode virar um favorito/URL compartilhável, o melhor é:", opts: ["Sempre POST.", "GET, porque os parâmetros ficam na URL.", "Sempre file.", "Não usar form."], ans: 1, expl: "GET expõe os parâmetros na URL, o que permite compartilhar e favoritar buscas; dados sensíveis devem usar POST." }
+        { q: "Quando o objetivo é buscar rapidamente um termo que pode virar um favorito/URL compartilhável, o melhor é:", opts: ["Sempre POST.", "GET, porque os parâmetros ficam na URL.", "Sempre file.", "Não usar form."], ans: 1, expl: "GET expõe os parâmetros na URL, o que permite compartilhar e favoritar buscas; dados sensíveis devem usar POST." },
+        { q: "O <fieldset> com <legend> serve para:", opts: ["Criar uma tabela de dados.", "Agrupar campos relacionados com um título descritivo.", "Esconder campos do formulário.", "Validar os dados no servidor."], ans: 1, expl: "O <fieldset> delimita um grupo de campos e o <legend> fornece um rótulo acessível para esse grupo." },
+        { q: "Qual atributo define o passo de incremento de um <input type=\"number\">?", opts: ["increment", "step", "delta", "range"], ans: 1, expl: "O atributo step define o intervalo entre valores válidos, como step=\"0.5\" para meio em meio." }
       ]
     },
     {
@@ -373,7 +389,9 @@ window.COURSES.html = {
         { q: "Uma imagem puramente decorativa deve ter:", opts: ["Um alt bem descritivo.", "alt vazio (alt=\"\"), para o leitor de tela ignorar.", "Sem tag img.", "Um title obrigatório."], ans: 1, expl: "Imagem decorativa usa alt=\"\" para os leitores de tela pularem; imagens informativas exigem alt descritivo." },
         { q: "Qual é a hierarquia de headings correta em uma página?", opts: ["Vários <h1> e nenhum <h2>.", "Um <h1>, depois <h2>, <h3>... sem pular níveis.", "Começar pelo <h6>.", "Qualquer ordem, tanto faz."], ans: 1, expl: "A hierarquia deve ser lógica e sem lacunas, garantindo a estrutura de navegação para leitores de tela." },
         { q: "Quando devemos adicionar o atributo role a um elemento?", opts: ["Sempre, em todo elemento.", "Só quando a semântica nativa não existe ou é insuficiente.", "Nunca.", "Só em textos."], ans: 1, expl: "role é um recurso de última instância; a semântica nativa deve vir primeiro. ARIA mal usado prejudica." },
-        { q: "O contraste mínimo recomendado pela WCAG para texto normal é:", opts: ["1.5:1", "3:1", "4.5:1", "10:1"], ans: 2, expl: "Para texto de tamanho normal, a WCAG exige pelo menos 4.5:1 de contraste entre texto e fundo." }
+        { q: "O contraste mínimo recomendado pela WCAG para texto normal é:", opts: ["1.5:1", "3:1", "4.5:1", "10:1"], ans: 2, expl: "Para texto de tamanho normal, a WCAG exige pelo menos 4.5:1 de contraste entre texto e fundo." },
+        { q: "O atributo aria-label é útil quando:", opts: ["O elemento já tem um <label> visível.", "Um elemento interativo não tem texto visível para descrever sua função.", "A página precisa de mais contraste.", "O navegador é antigo."], ans: 1, expl: "aria-label fornece um nome acessível a elementos como botões sem texto, permitindo que leitores de tela descrevam sua função." },
+        { q: "O atributo lang no <html> serve para:", opts: ["Mudar a cor do texto.", "Informar o idioma da página aos leitores de tela e buscadores.", "Traduzir o conteúdo automaticamente.", "Definir a codificação do documento."], ans: 1, expl: "O lang permite que leitores de tela pronunciem o texto corretamente e que buscadores identifiquem o idioma." }
       ]
     }
   ]

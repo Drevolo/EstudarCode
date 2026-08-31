@@ -343,8 +343,15 @@ button:not(:disabled) {
 }
 
 .heart {
-  font-size: 1.15rem;
   color: var(--red);
+  line-height: 1;
+}
+
+.heart svg {
+  width: 1.15em;
+  height: 1.15em;
+  display: inline-block;
+  vertical-align: -0.15em;
 }
 
 .heart.lost {
@@ -426,8 +433,19 @@ button:not(:disabled) {
   background-color: rgb(75 75 75 / var(--tw-bg-opacity, 1));
 }
 
+.chip-icon {
+  line-height: 1;
+}
+
+.chip-icon svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.1em;
+}
+
 .chip-streak .chip-icon {
-  font-size: 1.05rem;
+  color: var(--orange);
 }
 
 /* ---------- botões topbar ---------- */
@@ -509,6 +527,39 @@ button:not(:disabled) {
 .theme-btn:hover {
   border-color: var(--accent-2);
   color: var(--accent-2);
+}
+
+/* ---------- SVG icon sizing ---------- */
+
+.icon svg,
+  .btn-icon svg,
+  .theme-icon svg {
+  width: 1.15em;
+  height: 1.15em;
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logout-btn svg {
+  color: var(--red);
+}
+
+.side-tab svg {
+  width: 1.2em;
+  height: 1.2em;
 }
 
 /* ---------- Layout ---------- */
@@ -939,7 +990,12 @@ button:not(:disabled) {
 
 .mini-badge .badge-icon {
   margin: 0px;
-  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.mini-badge .badge-icon svg {
+  width: 1.05em;
+  height: 1.05em;
 }
 
 .muted-small {
@@ -1866,14 +1922,20 @@ pre code {
   border-width: 2px;
   border-color: var(--border);
   background-color: transparent;
-  font-size: 1.3rem;
   font-weight: 700;
   color: var(--muted);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   cursor: pointer;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-close svg {
+  width: 1.2em;
+  height: 1.2em;
 }
 
 .overlay-close:hover {
@@ -1939,6 +2001,14 @@ pre code {
 .badge-icon {
   margin-bottom: 0.375rem;
   font-size: 1.9rem;
+  line-height: 1;
+}
+
+.badge-icon svg {
+  width: 1.6em;
+  height: 1.6em;
+  display: inline-block;
+  vertical-align: -0.2em;
 }
 
 .badge-name {
@@ -1961,6 +2031,13 @@ pre code {
   right: 0.625rem;
   font-size: 0.8rem;
   color: var(--muted);
+}
+
+.badge-status svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.1em;
 }
 
 .badge.unlocked .badge-status {
@@ -3409,6 +3486,10 @@ pre code {
   flex: 1 1 0%;
 }
 
+.flex-shrink {
+  flex-shrink: 1;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -3907,10 +3988,6 @@ pre code {
   font-size: 1.05rem;
 }
 
-.text-\[1\.15rem\] {
-  font-size: 1.15rem;
-}
-
 .text-\[1\.18rem\] {
   font-size: 1.18rem;
 }
@@ -3925,10 +4002,6 @@ pre code {
 
 .text-\[1\.35rem\] {
   font-size: 1.35rem;
-}
-
-.text-\[1\.3rem\] {
-  font-size: 1.3rem;
 }
 
 .text-\[1\.4rem\] {

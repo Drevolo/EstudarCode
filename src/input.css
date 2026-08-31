@@ -207,7 +207,15 @@ html[data-theme="dark"] {
   }
 
   .heart {
-    @apply text-[1.15rem] text-brand-red;
+    @apply text-brand-red;
+    line-height: 1;
+  }
+
+  .heart svg {
+    width: 1.15em;
+    height: 1.15em;
+    display: inline-block;
+    vertical-align: -0.15em;
   }
 
   .heart.lost {
@@ -227,8 +235,19 @@ html[data-theme="dark"] {
     @apply block h-full bg-[#4b4b4b] rounded;
   }
 
+  .chip-icon {
+    line-height: 1;
+  }
+
+  .chip-icon svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.1em;
+  }
+
   .chip-streak .chip-icon {
-    @apply text-[1.05rem];
+    @apply text-brand-orange;
   }
 
   /* ---------- botões topbar ---------- */
@@ -274,6 +293,38 @@ html[data-theme="dark"] {
 
   .theme-btn:hover {
     @apply text-brand-blue border-brand-blue;
+  }
+
+  /* ---------- SVG icon sizing ---------- */
+  .icon svg,
+  .btn-icon svg,
+  .theme-icon svg {
+    width: 1.15em;
+    height: 1.15em;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+  }
+
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .theme-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .logout-btn svg {
+    @apply text-brand-red;
+  }
+
+  .side-tab svg {
+    width: 1.2em;
+    height: 1.2em;
   }
 
   /* ---------- Layout ---------- */
@@ -516,7 +567,13 @@ html[data-theme="dark"] {
   }
 
   .mini-badge .badge-icon {
-    @apply text-[1.05rem] m-0;
+    @apply m-0;
+    line-height: 1;
+  }
+
+  .mini-badge .badge-icon svg {
+    width: 1.05em;
+    height: 1.05em;
   }
 
   .muted-small {
@@ -968,9 +1025,16 @@ html[data-theme="dark"] {
   }
 
   .overlay-close {
-    @apply absolute top-3.5 right-4 bg-transparent border-2 border-edge text-text-muted text-[1.3rem] font-bold w-[34px] h-[34px] rounded-full transition-all;
+    @apply absolute top-3.5 right-4 bg-transparent border-2 border-edge text-text-muted font-bold w-[34px] h-[34px] rounded-full transition-all;
     cursor: pointer;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay-close svg {
+    width: 1.2em;
+    height: 1.2em;
   }
 
   .overlay-close:hover {
@@ -1011,6 +1075,14 @@ html[data-theme="dark"] {
 
   .badge-icon {
     @apply text-[1.9rem] mb-1.5;
+    line-height: 1;
+  }
+
+  .badge-icon svg {
+    width: 1.6em;
+    height: 1.6em;
+    display: inline-block;
+    vertical-align: -0.2em;
   }
 
   .badge-name {
@@ -1023,6 +1095,13 @@ html[data-theme="dark"] {
 
   .badge-status {
     @apply absolute top-2 right-2.5 text-[0.8rem] text-text-muted;
+  }
+
+  .badge-status svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.1em;
   }
 
   .badge.unlocked .badge-status {

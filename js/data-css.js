@@ -37,7 +37,9 @@ window.COURSES.css = {
       quiz: [
         { q: "A melhor forma de usar CSS em um projeto é:", opts: ["Estilo inline em cada tag.", "Arquivo externo ligado com <link>.", "Sempre dentro do <body>.", "Não usar CSS."], ans: 1, expl: "Arquivo externo separa estilo de estrutura, fácil de reutilizar e manter." },
         { q: "A sintaxe de uma regra CSS é:", opts: ["propriedade: valor; { seletor }", "seletor { propriedade: valor; }", "seletor = propriedade", "{ propriedade: seletor }"], ans: 1, expl: "Escolhemos um seletor e, entre chaves, declaramos propriedades: valores." },
-        { q: "O nome \"Cascata\" (Cascading) se refere a:", opts: ["Uma cascata de fontes.", "Regras que se combinam e sobrepõem.", "Animações em cascata.", "Ordem alfabética."], ans: 1, expl: "Regras CSS se acumulam; quando há conflito, a mais específica ou a última vence." }
+        { q: "O nome \"Cascata\" (Cascading) se refere a:", opts: ["Uma cascata de fontes.", "Regras que se combinam e sobrepõem.", "Animações em cascata.", "Ordem alfabética."], ans: 1, expl: "Regras CSS se acumulam; quando há conflito, a mais específica ou a última vence." },
+        { q: "Em CSS, o HTML é responsável por:", opts: ["Definir as cores e fontes.", "Criar a estrutura e o conteúdo da página.", "Controlar o layout responsivo.", "Gerenciar variáveis de estilo."], ans: 1, expl: "O HTML cuida da estrutura e do conteúdo; o CSS cuida da aparência e do layout." },
+        { q: "Qual das formas abaixo é considerada a pior prática para aplicar CSS?", opts: ["Arquivo externo com <link>.", "Tag <style> no <head>.", "Atributo style inline no elemento.", "Uma única regra no seletor *."], ans: 2, expl: "O estilo inline mistura conteúdo e apresentação, é difícil de manter e tem alta especificidade." }
       ]
     },
     {
@@ -83,7 +85,9 @@ h1, h2 {
       quiz: [
         { q: "Um seletor de classe começa com:", opts: ["#", ".", "&", "@"], ans: 1, expl: "Ponto (.minhaClasse) seleciona por classe; #minhaId seleciona por id." },
         { q: "O seletor universal é:", opts: ["div", "*", "all", "body"], ans: 1, expl: "O asterisco * seleciona todos os elementos da página." },
-        { q: "Seletor descendente \"div p\" estiliza:", opts: ["Todas as divs.", "Todos os <p> que estão DENTRO de uma <div>.", "Todas as tags.", "Só o primeiro <p>."], ans: 1, expl: "\"div p\" usa o espaço para exigir que o <p> seja descendente de uma <div>." }
+        { q: "Seletor descendente \"div p\" estiliza:", opts: ["Todas as divs.", "Todos os <p> que estão DENTRO de uma <div>.", "Todas as tags.", "Só o primeiro <p>."], ans: 1, expl: "\"div p\" usa o espaço para exigir que o <p> seja descendente de uma <div>." },
+        { q: "A regra fundamental sobre o uso de id no HTML é:", opts: ["Pode repetir o mesmo id em vários elementos.", "Cada id deve ser único na página.", "O id é opcional em todos os elementos.", "O id funciona apenas com JavaScript."], ans: 1, expl: "O id deve ser único; repetir o mesmo id em vários elementos é inválido e pode causar comportamentos inesperados." },
+        { q: "O que o seletor h1, h2 (com vírgula) faz?", opts: ["Seleciona apenas o h1.", "Aplica o estilo a todos os h1 E todos os h2.", "Seleciona um h1 dentro de um h2.", "Cria um seletor descendente."], ans: 1, expl: "A vírgula agrupa seletores, aplicando o mesmo estilo a todos os listados." }
       ]
     },
     {
@@ -118,7 +122,9 @@ h1, h2 {
       quiz: [
         { q: "Na cor hexadecimal, o vermelho puro é:", opts: ["#00ff00", "#ff0000", "#0000ff", "#ffffff"], ans: 1, expl: "#ff0000 = máximo de vermelho (ff), zero de verde e zero de azul." },
         { q: "A propriedade que muda a fonte é:", opts: ["color", "font-size", "font-family", "font-style"], ans: 2, expl: "font-family escolhe a família tipográfica (ex.: Arial, Times)." },
-        { q: "font-size: 16px define:", opts: ["A largura do texto.", "O tamanho da letra.", "A cor da fonte.", "O espaçamento entre linhas."], ans: 1, expl: "font-size controla o tamanho do texto." }
+        { q: "font-size: 16px define:", opts: ["A largura do texto.", "O tamanho da letra.", "A cor da fonte.", "O espaçamento entre linhas."], ans: 1, expl: "font-size controla o tamanho do texto." },
+        { q: "A unidade relativa rem é relativa a:", opts: ["O tamanho da fonte do elemento pai.", "O tamanho da fonte do elemento raiz (<html>).", "A largura da janela do navegador.", "A resolução da tela em pixels."], ans: 1, expl: "rem (root em) sempre se baseia no font-size do elemento raiz, diferente de em que depende do pai." },
+        { q: "A propriedade line-height: 1.5 faz o quê?", opts: ["Aumenta a largura da fonte.", "Define a distância entre linhas de texto.", "Muda a cor do texto.", "Alinha o texto à direita."], ans: 1, expl: "line-height controla a altura de cada linha de texto, e 1.5 é um valor recomendado para boa leitura." }
       ]
     },
     {
@@ -151,7 +157,9 @@ h1, h2 {
       quiz: [
         { q: "De dentro para fora, a ordem correta é:", opts: ["margin, border, padding, conteúdo", "conteúdo, padding, border, margin", "border, conteúdo, margin, padding", "padding, margin, conteúdo, border"], ans: 1, expl: "Conteúdo primeiro, depois padding (interno), border e margin (externo)." },
         { q: "O que o box-sizing: border-box faz?", opts: ["Soma padding/borda ao width.", "Faz o width incluir padding e borda.", "Remove a borda.", "Deixa o elemento invisível."], ans: 1, expl: "Com border-box, o width declarado já inclui padding e borda, facilitando os cálculos." },
-        { q: "O espaço DENTRO da borda (entre conteúdo e borda) é o:", opts: ["margin", "padding", "border-radius", "gap"], ans: 1, expl: "Padding é o respiro interno; margin é o espaço externo entre elementos." }
+        { q: "O espaço DENTRO da borda (entre conteúdo e borda) é o:", opts: ["margin", "padding", "border-radius", "gap"], ans: 1, expl: "Padding é o respiro interno; margin é o espaço externo entre elementos." },
+        { q: "O que a margin faz em um elemento CSS?", opts: ["Adiciona um espaço interno ao redor do conteúdo.", "Cria um espaço externo entre o elemento e seus vizinhos.", "Define a espessura da borda.", "Arredonda os cantos do elemento."], ans: 1, expl: "Margin é o espaço externo, usado para afastar um elemento de outros ao seu redor." },
+        { q: "Sem box-sizing: border-box, um elemento com width: 200px e padding: 20px terá largura total de:", opts: ["200px.", "220px.", "240px.", "180px."], ans: 2, expl: "No modelo padrão (content-box), o width soma só o conteúdo; padding é adicionado por fora, resultando em 200 + 20 + 20 = 240px." }
       ]
     },
     {
@@ -191,7 +199,9 @@ h1, h2 {
       quiz: [
         { q: "Habilitamos o Flexbox com:", opts: ["display: grid", "display: flex", "position: flex", "flex: yes"], ans: 1, expl: "display: flex ativa o modelo Flexbox no contêiner." },
         { q: "justify-content alinha os itens no eixo:", opts: ["Transversal", "Principal (horizontal no padrão)", "Diagonal", "Nenhum"], ans: 1, expl: "Por padrão, os itens ficam em linha (eixo principal horizontal) e o justify-content distribui nesse eixo." },
-        { q: "O position que fixa o elemento na janela é:", opts: ["relative", "absolute", "fixed", "static"], ans: 2, expl: "fixed mantém o elemento preso à janela, mesmo ao rolar a página." }
+        { q: "O position que fixa o elemento na janela é:", opts: ["relative", "absolute", "fixed", "static"], ans: 2, expl: "fixed mantém o elemento preso à janela, mesmo ao rolar a página." },
+        { q: "A propriedade align-items no Flexbox controla o alinhamento no eixo:", opts: ["Principal (horizontal).", "Transversal (vertical no padrão).", "Diagonal.", "Z."], ans: 1, expl: "align-items distribui os filhos no eixo transversal, perpendicular ao eixo principal definido por flex-direction." },
+        { q: "flex-direction: column faz com que os itens do Flexbox fiquem:", opts: ["Em linha, da esquerda para a direita.", "Empilhados de cima para baixo.", "Centralizados na página.", "Invisíveis."], ans: 1, expl: "flex-direction: column inverte os eixos: o eixo principal passa a ser vertical e os itens ficam empilhados." }
       ]
     },
     {
@@ -227,7 +237,9 @@ h1, h2 {
       quiz: [
         { q: "O principal recurso do CSS para adaptar o layout por tela é:", opts: ["JavaScript", "A media query @media", "O atributo width do HTML", "Imagens grandes"], ans: 1, expl: "As media queries aplicam regras CSS conforme o tamanho da tela." },
         { q: "@media (min-width: 768px) aplica as regras quando:", opts: ["A tela for menor que 768px.", "A tela tiver 768px ou mais.", "Sempre.", "No celular."], ans: 1, expl: "min-width ativa a partir de 768px para cima." },
-        { q: "Mobile-first significa:", opts: ["Começar o CSS pelos computadores.", "Começar o desenvolvimento pelos celulares e ir crescendo.", "Não usar CSS no mobile.", "Usar apenas px."], ans: 1, expl: "Mobile-first começa nas telas pequenas e evolui com @media (min-width)." }
+        { q: "Mobile-first significa:", opts: ["Começar o CSS pelos computadores.", "Começar o desenvolvimento pelos celulares e ir crescendo.", "Não usar CSS no mobile.", "Usar apenas px."], ans: 1, expl: "Mobile-first começa nas telas pequenas e evolui com @media (min-width)." },
+        { q: "Em um layout responsivo, por que é preferível usar max-width ao invés de width fixo?", opts: ["max-width é mais rápido para o navegador.", "Permite que o elemento encolha, mas não cresça além do limite definido.", "Garante que o elemento sempre ocupe 100% da tela.", "É a única forma de usar porcentagens."], ans: 1, expl: "max-width define o teto; o elemento se adapta ao espaço disponível sem ultrapassar o limite." },
+        { q: "A unidade vw representa:", opts: ["1% da largura da janela do navegador.", "1% da altura da janela.", "Um valor fixo em pixels.", "A largura do elemento pai."], ans: 0, expl: "vw (viewport width) equivale a 1% da largura da janela de visualização." }
       ]
     },
     {
@@ -281,7 +293,9 @@ h1, h2 {
         { q: "A principal diferença entre Grid e Flexbox é:", opts: ["Não há diferença.", "Grid trabalha em duas dimensões; Flexbox, em uma.", "Flexbox é duas dimensões; Grid, uma.", "Grid é mais lento."], ans: 1, expl: "Grid organiza linhas E colunas simultaneamente; Flexbox alinha em um único eixo por vez." },
         { q: "repeat(auto-fit, minmax(200px, 1fr)) produz:", opts: ["Sempre 3 colunas.", "O número de colunas que couber, cada uma com mínimo de 200px.", "Uma coluna única.", "Colunas de 200px exatas."], ans: 1, expl: "auto-fit cria colunas flexíveis com mínimo de 200px, ajustando a quantidade ao espaço disponível." },
         { q: "A diferença entre auto-fit e auto-fill é:", opts: ["Nenhuma.", "auto-fit colapsa colunas vazias (itens esticam); auto-fill mantém os trilhos vazios.", "auto-fill é mais rápido.", "auto-fit só funciona com fr."], ans: 1, expl: "auto-fill mantém trilhos vazios reservando espaço; auto-fit os colapsa, fazendo os itens ocuparem a largura toda." },
-        { q: "Em grid-column: 2 / 4, o item ocupa:", opts: ["2 colunas (das linhas 2 a 4).", "3 colunas.", "4 colunas.", "1 coluna."], ans: 0, expl: "grid-column usa as linhas da grade; de 2 a 4 cobre 2 colunas (2-3 e 3-4)." }
+        { q: "Em grid-column: 2 / 4, o item ocupa:", opts: ["2 colunas (das linhas 2 a 4).", "3 colunas.", "4 colunas.", "1 coluna."], ans: 0, expl: "grid-column usa as linhas da grade; de 2 a 4 cobre 2 colunas (2-3 e 3-4)." },
+        { q: "Com grid-template-areas, como um elemento é posicionado em uma região nomeada?", opts: ["Usando grid-area: nomeDaRegiao.", "Usando grid-column: nomeDaRegiao.", "Usando position: area.", "Usando display: area."], ans: 0, expl: "grid-area atribui o elemento a uma região definida no grid-template-areas." },
+        { q: "A unidade fr (fraction) no CSS Grid:", opts: ["Define uma largura fixa em pixels.", "Distribui o espaço livre proporcionalmente entre as colunas.", "É sinônimo de porcentagem.", "Só funciona com fixed-width containers."], ans: 1, expl: "fr divide o espaço restante do contêiner proporcionalmente entre as colunas (ou linhas) que a utilizam." }
       ]
     },
     {
@@ -347,7 +361,9 @@ h1, h2 {
         { q: "Qual é a forma mais eficiente de animar um elemento?", opts: ["Animando width e height.", "Animando transform e opacity.", "Animando margin e top.", "Não importa."], ans: 1, expl: "transform e opacity são compostas pela GPU e não causam reflow; animar layout é custoso e causa jank." },
         { q: "A diferença entre transition e animation é:", opts: ["Nenhuma.", "transition anima entre estados (ex.: hover); animation usa @keyframes com controle total de repetição e frames.", "animation não existe.", "transition só funciona com hover."], ans: 1, expl: "transition reage a uma mudança de estado; animation roda keyframes declarados, com repetição, atraso e direção." },
         { q: "O recurso do CSS para respeitar usuários sensíveis a movimento é:", opts: ["@media (prefers-reduced-motion).", "animation: none global.", "A tag <stop> do HTML.", "transition: reduced."], ans: 0, expl: "prefers-reduced-motion é uma media query que permite desativar animações para quem solicitar." },
-        { q: "O easing ease-out significa:", opts: ["Velocidade constante.", "Começa rápido e desacelera.", "Começa lento e acelera.", "Parece uma mola."], ans: 1, expl: "ease-out inicia rápido e reduz a velocidade no fim, dando sensação de chegada suave." }
+        { q: "O easing ease-out significa:", opts: ["Velocidade constante.", "Começa rápido e desacelera.", "Começa lento e acelera.", "Parece uma mola."], ans: 1, expl: "ease-out inicia rápido e reduz a velocidade no fim, dando sensação de chegada suave." },
+        { q: "Para criar uma animação com @keyframes, qual é a primeira etapa?", opts: ["Definir o seletor do elemento.", "Criar os frames intermediários da animação.", "Aplicar a propriedade animation no elemento.", "Escolher um timing function."], ans: 1, expl: "Primeiro se define os estados intermediários com @keyframes, depois se aplica a animação no elemento." },
+        { q: "A função transform: rotate(45deg) faz o quê?", opts: ["Move o elemento 45 pixels para baixo.", "Gira o elemento 45 graus no sentido horário.", "Aumenta o elemento em 45%.", "Espelha o elemento."], ans: 1, expl: "rotate() gira o elemento em torno do seu centro, usando graus ou radianos como medida." }
       ]
     },
     {
@@ -418,7 +434,9 @@ body {
         { q: "Como declarar e usar uma variável CSS?", opts: ["Declarar $cor e usar $cor.", "Declarar --cor e usar var(--cor).", "Declarar @cor e usar cor.", "Declarar var e usar var()."], ans: 1, expl: "Custom properties usam --no nome e são lidas com var(--nome)." },
         { q: "O que acontece se --cor não for definida e usarmos var(--cor, azul)?", opts: ["A declaração é ignorada.", "Usa o fallback azul.", "Quebra a página.", "Usa preto."], ans: 1, expl: "O segundo argumento do var() é o fallback, usado quando a variável não está definida (ou não alcançada)." },
         { q: "O escopo de uma variável declarada em :root é:", opts: ["Somente a raiz.", "Todo o documento.", "Somente o primeiro elemento.", "Apenas o body."], ans: 1, expl: ":root é o elemento raiz, e variáveis ali são herdadas por toda a página." },
-        { q: "Sobrescrever --cor-fundo dentro de uma classe .card:", opts: ["Não tem efeito.", "Aplica o novo valor apenas dentro de .card e seus descendentes.", "Muda toda a página.", "Cria um erro."], ans: 1, expl: "Por causa da cascata e do escopo, redefinir a variável localmente muda o valor apenas naquele subárvore." }
+        { q: "Sobrescrever --cor-fundo dentro de uma classe .card:", opts: ["Não tem efeito.", "Aplica o novo valor apenas dentro de .card e seus descendentes.", "Muda toda a página.", "Cria um erro."], ans: 1, expl: "Por causa da cascata e do escopo, redefinir a variável localmente muda o valor apenas naquele subárvore." },
+        { q: "A media query prefers-color-scheme permite:", opts: ["Mudar o layout conforme o tamanho da tela.", "Alternar entre temas claro e escuro conforme a preferência do sistema do usuário.", "Esconder elementos no modo offline.", "Aumentar a resolução de imagens."], ans: 1, expl: "prefers-color-scheme detecta se o usuário prefere tema claro ou escuro, permitindo adaptar as cores automaticamente." },
+        { q: "Se uma variável CSS existir, mas seu valor for inválido no contexto de uso, o que acontece?", opts: ["O fallback é aplicado automaticamente.", "A declaração inteira é descartada e o navegador ignora a propriedade.", "O navegador corrige o valor automaticamente.", "A página quebra com erro de renderização."], ans: 1, expl: "O fallback só funciona se a variável não existir; se existir mas o valor for inválido no contexto, a propriedade é descartada." }
       ]
     }
   ]
