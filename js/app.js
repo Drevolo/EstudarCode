@@ -2880,10 +2880,11 @@ function renderStats() {
   el.innerHTML =
     '<span class="stat-chip chip-hearts" title="Corações: errou perde 1; recupera 1 por dia de atividade">' + heartsHtml + "</span>" +
     '<span class="stat-chip chip-xp" title="Pontos de experiência">' +
-    'Nível <b>' + li.lvl + "</b>" +
+    '<span class="xp-level">Nível <b>' + li.lvl + '</b></span>' +
     '<span class="xp-mini"><i style="width:' + lvlPct + '%"></i></span>' +
     '<span class="chip-icon">' + (window.EstudarIcons && window.EstudarIcons.bolt) + "</span>" +
-    "<b>" + gam.xp + "</b> XP" +
+    '<b class="xp-val">' + gam.xp + '</b>' +
+    '<span class="xp-unit">xp</span>' +
     "</span>" +
     '<span class="stat-chip chip-streak' + (active ? " on" : " off") + '" title="Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)">' +
     '<span class="chip-icon">' + fireIcon + "</span>" +
