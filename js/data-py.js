@@ -31,7 +31,12 @@ print("Olá, mundo!")   # comentário no fim da linha`, lang: "python" },
         { q: "Como escrevemos um comentário em Python?", opts: ["// texto", "/* texto */", "# texto", "<!-- texto -->"], ans: 2, expl: "Em Python, o # marca comentário até o fim da linha." },
         { q: "Python é famoso principalmente por:", opts: ["Ser a linguagem mais antiga do mundo.", "Ter sintaxe simples e legível.", "Não poder rodar no navegador.", "Exigir declaração de tipos em toda variável."], ans: 1, expl: "A leitura simples e amigável é uma das maiores marcas do Python." },
         { q: "Python é uma linguagem:", opts: ["Compilada com passos manuais de build.", "Interpretada, executada linha a linha.", "Exclusiva para criação de jogos.", "Que só roda em navegadores."], ans: 1, expl: "Python é interpretado: o código é executado linha a linha, sem um passo de compilação separado." },
-        { q: "Qual comando escreve um comentário no fim da linha?", opts: ["print(# texto)", "// texto", "# texto", "/* texto */"], ans: 2, expl: "O # marca um comentário até o fim da linha, podendo ser usado no fim dela também." }
+        { q: "Qual comando escreve um comentário no fim da linha?", opts: ["print(# texto)", "// texto", "# texto", "/* texto */"], ans: 2, expl: "O # marca um comentário até o fim da linha, podendo ser usado no fim dela também." },
+        { q: "A extensão padrão de arquivos Python é:", opts: [".py", ".python", ".pt", ".pyt"], ans: 0, expl: "Arquivos Python usam a extensão .py, reconhecida automaticamente pelo interpretador." },
+        { q: "Para iniciar o interpretador interativo do Python no terminal, digitamos:", opts: ["python", "run python", "start python", "exec python"], ans: 0, expl: "No terminal, basta digitar python (ou python3) para abrir o prompt interativo." },
+        { q: "Python é considerada uma linguagem de:", opts: ["Baixo nível, próxima do hardware.", "Alto nível, com sintaxe legível.", "Apenas scripts web.", "Apenas cálculos matemáticos."], ans: 1, expl: "Python é de alto nível, com sintaxe próxima do português e foco na legibilidade do código." },
+        { q: "O que acontece ao executar print(3 + 2)?", opts: ["Imprime \"3 + 2\".", "Imprime 5.", "Imprime 32.", "Dá erro."], ans: 1, expl: "print() avalia a expressão 3 + 2 (resultado 5) e exibe o valor no terminal." },
+        { q: "Para imprimir duas variáveis na mesma linha, usamos:", opts: ["print(a e b)", "print(a, b)", "print(a; b)", "print[a, b]"], ans: 1, expl: "print(a, b) recebe múltiplos argumentos e os imprime separados por espaço na mesma linha." }
       ]
     },
     {
@@ -80,7 +85,11 @@ print(f"{nome} tem {idade} anos.")` , lang: "python" },
         { q: "True e False, em Python, são valores do tipo:", opts: ["str", "int", "bool", "none"], ans: 2, expl: "True e False pertencem ao tipo bool (booleano), usados em condições." },
         { q: "O que imprime f\"{nome} tem {idade} anos.\" com nome=\"Ana\" e idade=20?", opts: ["nome tem idade anos.", "{nome} tem {idade} anos.", "Ana tem 20 anos.", "Erro de compilação."], ans: 2, expl: "As f-strings substituem as {variáveis} pelos seus valores, com grande legibilidade." },
         { q: "Qual destes é um valor do tipo float?", opts: ["18", "True", "3.14", "\"Gabriel\""], ans: 2, expl: "3.14 tem casas decimais, caracterizando o tipo float. 18 é int, True é bool e o texto é str." },
-        { q: "O que acontece se fizermos idade = int(input(\"...\"))?", opts: ["idade vira texto sempre.", "idade vira um número inteiro, após a conversão.", "O programa sempre dá erro.", "input() para de funcionar."], ans: 1, expl: "input() devolve str, mas int() a converte em número inteiro, permitindo fazer contas com idade." }
+        { q: "O que acontece se fizermos idade = int(input(\"...\"))?", opts: ["idade vira texto sempre.", "idade vira um número inteiro, após a conversão.", "O programa sempre dá erro.", "input() para de funcionar."], ans: 1, expl: "input() devolve str, mas int() a converte em número inteiro, permitindo fazer contas com idade." },
+        { q: "O resultado de type(3.14) é:", opts: ["<class 'int'>", "<class 'float'>", "<class 'str'>", "<class 'bool'>"], ans: 1, expl: "3.14 possui casas decimais, portanto é do tipo float." },
+        { q: "Qual das variáveis abaixo tem nome INVÁLIDO em Python?", opts: ["_nome", "nome_completo", "2nome", "meuNome"], ans: 2, expl: "Variáveis em Python não podem começar com número; 2nome gera SyntaxError." },
+        { q: "A conversão float(\"3.14\") devolve:", opts: ["3.14 (float)", "\"3.14\" (str)", "3 (int)", "Erro de sintaxe"], ans: 0, expl: "float() converte o texto \"3.14\" em um número decimal 3.14 do tipo float." },
+        { q: "O que acontece ao digitar x = None e depois print(x)?", opts: ["Imprime 0.", "Imprime None.", "Imprime vazio.", "Dá erro."], ans: 1, expl: "None representa ausência de valor; print(x) exibe None no terminal." }
       ]
     },
     {
@@ -124,7 +133,12 @@ else:
         { q: "Qual é o resultado de 2 ** 3?", opts: ["6", "8", "9", "5"], ans: 1, expl: "** é potência: 2 elevado a 3 = 8." },
         { q: "O operador lógico and retorna True quando:", opts: ["Qualquer condição for verdadeira.", "As duas condições forem verdadeiras.", "Nenhuma condição for verdadeira.", "As duas forem falsas."], ans: 1, expl: "No and, basta uma condição falsa para o resultado total ser False." },
         { q: "Qual é o resultado de 10 % 3?", opts: ["3", "1", "0.333", "10"], ans: 1, expl: "% é o resto da divisão: 10 dividido por 3 deixa resto 1." },
-        { q: "O operador relacional que compara igualdade é:", opts: ["=", "!=", "==", ":="], ans: 2, expl: "== testa igualdade; = é atribuição e != testa diferença." }
+        { q: "O operador relacional que compara igualdade é:", opts: ["=", "!=", "==", ":="], ans: 2, expl: "== testa igualdade; = é atribuição e != testa diferença." },
+        { q: "Qual é o resultado de 15 / 3?", opts: ["5", "5.0", "15", "3"], ans: 1, expl: "A divisão / sempre devolve float: 15 / 3 = 5.0, não 5." },
+        { q: "O operador not inverte:", opts: ["True para False e False para True.", "Texto para número.", "Números positivos para negativos.", "O valor de duas variáveis."], ans: 0, expl: "not inverte o valor booleano: True vira False e False vira True." },
+        { q: "Qual é o resultado de 3 ** 2 ** 2?", opts: ["81", "16", "36", "9"], ans: 0, expl: "** é avaliado da direita para esquerda: 2**2=4, depois 3**4=81." },
+        { q: "O operador or retorna True quando:", opts: ["As duas condições forem verdadeiras.", "Nenhuma condição for verdadeira.", "Pelo menos uma condição for verdadeira.", "Todas as condições forem falsas."], ans: 2, expl: "or retorna True se pelo menos uma das condições for verdadeira." },
+        { q: "Qual é o resultado de 7 % 5?", opts: ["1.4", "2", "1", "5"], ans: 1, expl: "7 dividido por 5 dá 1 com resto 2; o operador % devolve o resto da divisão inteira." }
       ]
     },
     {
@@ -157,7 +171,12 @@ else:
         { q: "O elif serve para:", opts: ["Encerrar o programa.", "Testar uma nova condição quando o if for falso.", "Definir uma função.", "Imprimir na tela."], ans: 1, expl: "elif é o \"senão se\": uma nova condição testada só quando as anteriores falharam." },
         { q: "Com nota = 5, o primeiro exemplo imprime:", opts: ["Aprovado!", "Recuperação.", "Reprovado.", "Nada."], ans: 1, expl: "5 não é >= 6, mas é >= 4, então cai no elif: Recuperação." },
         { q: "Qual desvio acontece ao misturar espaços e TAB no mesmo bloco?", opts: ["O Python usa o primeiro caractere.", "Gera IndentationError.", "O bloco é ignorado.", "O programa vira maiúsculas."], ans: 1, expl: "Misturar espaços e TAB no mesmo bloco lança IndentationError; use um único tipo de indentação." },
-        { q: "Quantas condições o elif permite encadear após um if?", opts: ["Nenhuma.", "Apenas uma.", "Quantas forem necessárias.", "No máximo duas."], ans: 2, expl: "O elif é o \"senão se\" e você pode encadear quantos quiser após o if inicial." }
+        { q: "Quantas condições o elif permite encadear após um if?", opts: ["Nenhuma.", "Apenas uma.", "Quantas forem necessárias.", "No máximo duas."], ans: 2, expl: "O elif é o \"senão se\" e você pode encadear quantos quiser após o if inicial." },
+        { q: "É obrigatório usar elif após um if?", opts: ["Sim, sempre.", "Não, elif é opcional.", "Sim, pelo menos um.", "Apenas com else."], ans: 1, expl: "elif é opcional: você pode usar só if, ou if + else, sem necessidade de elif." },
+        { q: "O que imprime if 5 > 3: print(\"sim\") else: print(\"não\")?", opts: ["não", "sim", "5 > 3", "Erro"], ans: 1, expl: "5 > 3 é True, então o bloco do if é executado, imprimindo \"sim\"." },
+        { q: "É possível usar condições com strings em Python?", opts: ["Não, só com números.", "Sim, como \"a\" == \"a\".", "Apenas com int.", "Só com float."], ans: 1, expl: "Strings suportam comparações como ==, !=, <, >; \"a\" == \"a\" é True." },
+        { q: "A indentação em Python é feita com:", opts: ["Chaves { }.", "Qualquer quantidade de espaços misturados.", "Geralmente 4 espaços por nível.", "Parênteses ( )."], ans: 2, expl: "A convenção em Python são 4 espaços por nível de indentação; misturar espaços e tab gera erro." },
+        { q: "Um bloco else é executado quando:", opts: ["Sempre.", "Quando todas as condições anteriores forem falsas.", "Quando a primeira condição for verdadeira.", "Nunca, é apenas decorativo."], ans: 1, expl: "else é o caminho padrão: roda quando nenhum if nem elif anterior foi atendido." }
       ]
     },
     {
@@ -196,7 +215,12 @@ print("Acesso liberado!")`, lang: "python" },
         { q: "Qual palavra encerra o laço imediatamente?", opts: ["continue", "pass", "break", "end"], ans: 2, expl: "break sai do laço na hora; continue apenas pula para a próxima volta." },
         { q: "O while repete:", opts: ["Um número fixo de vezes.", "Enquanto a condição for verdadeira.", "Sempre uma vez.", "Até o usuário fechar o programa."], ans: 1, expl: "O while testa a condição antes de cada repetição e continua enquanto ela for verdadeira." },
         { q: "O que faz a palavra continue em um laço?", opts: ["Encerra o laço imediatamente.", "Pula para a próxima repetição.", "Reinicia o programa.", "Cria uma variável."], ans: 1, expl: "continue interrompe a volta atual e salta para a próxima iteração do laço." },
-        { q: "O que ocorre se a condição de um while nunca ficar falsa?", opts: ["O programa termina normalmente.", "Gera um loop infinito.", "O laço é pulado.", "Começa outra vez do zero."], ans: 1, expl: "Sem algo dentro do corpo para mudar a condição, o while repete para sempre — um loop infinito." }
+        { q: "O que ocorre se a condição de um while nunca ficar falsa?", opts: ["O programa termina normalmente.", "Gera um loop infinito.", "O laço é pulado.", "Começa outra vez do zero."], ans: 1, expl: "Sem algo dentro do corpo para mudar a condição, o while repete para sempre — um loop infinito." },
+        { q: "O que imprime for i in range(0, 10, 2): print(i)?", opts: ["0 1 2 3 4 5 6 7 8 9", "0 2 4 6 8", "1 3 5 7 9", "2 4 6 8 10"], ans: 1, expl: "range(0, 10, 2) gera 0, 2, 4, 6 e 8, com passo 2." },
+        { q: "Em um for, o que a variável itera sobre?", opts: ["Um índice numérico apenas.", "Os elementos de uma sequência (lista, string, range etc.).", "Sempre números inteiros.", "Apenas textos."], ans: 1, expl: "for percorre os elementos de qualquer sequência: listas, strings, ranges, tuplas etc." },
+        { q: "while True: cria:", opts: ["Um laço que executa uma única vez.", "Um loop infinito, a menos que haja break.", "Um erro de sintaxe.", "Uma condição falsa."], ans: 1, expl: "True nunca muda para False; o laço repete para sempre até encontrar break ou saída manual." },
+        { q: "Qual a diferença entre break e continue?", opts: ["Não há diferença.", "break sai do laço; continue pula para a próxima volta.", "break pausa; continue encerra.", "break imprime; continue apaga."], ans: 1, expl: "break interrompe o laço completamente; continue pula o resto da iteração atual e vai para a próxima." },
+        { q: "range(1, 4) gera quantos valores?", opts: ["4", "3", "1", "5"], ans: 1, expl: "range(1, 4) gera 1, 2 e 3 — três valores, pois o fim não é incluído." }
       ]
     },
     {
@@ -239,7 +263,12 @@ print(len(nome))    # 7`, lang: "python" },
         { q: "O método append serve para:", opts: ["Remover o último item.", "Adicionar um item no final da lista.", "Ordenar a lista.", "Medir o tamanho."], ans: 1, expl: "append() acrescenta um elemento ao final da lista." },
         { q: "len(nome) retorna:", opts: ["A última letra.", "O tamanho (quantidade de caracteres).", "A primeira letra.", "Um erro."], ans: 1, expl: "len() devolve quantos elementos há na lista ou quantos caracteres há no texto." },
         { q: "Dado nome = \"Gabriel\", o que retorna nome[2:5]?", opts: ["\"Gabr\"", "\"bri\"", "\"riel\"", "\"abri\""], ans: 1, expl: "O fatiamento [2:5] pega os índices 2, 3 e 4 — as letras b, r e i, formando \"bri\"." },
-        { q: "Qual método remove espaços das pontas de uma string?", opts: ["upper()", "strip()", "split()", "append()"], ans: 1, expl: "strip() remove os espaços (ou quebras de linha) das extremidades do texto." }
+        { q: "Qual método remove espaços das pontas de uma string?", opts: ["upper()", "strip()", "split()", "append()"], ans: 1, expl: "strip() remove os espaços (ou quebras de linha) das extremidades do texto." },
+        { q: "Como remover o último item de uma lista?", opts: ["lista.pop()", "lista.remove()", "lista.delete()", "lista.last()"], ans: 0, expl: "pop() sem argumento remove e devolve o último item da lista." },
+        { q: "Qual método separa uma string em uma lista de palavras?", opts: ["upper()", "split()", "strip()", "replace()"], ans: 1, expl: "split() divide a string em uma lista usando espaços como separador padrão." },
+        { q: "O que acontece ao tentar acessar lista[10] em uma lista de 5 elementos?", opts: ["Retorna None.", "Retorna o último elemento.", "Lança IndexError.", "Retorna 0."], ans: 2, expl: "Índice fora do intervalo lança IndexError; é necessário verificar o tamanho antes de acessar." },
+        { q: "Dado s = \"Hello\", o que retorna s.upper()?", opts: ["\"hello\"", "\"HELLO\"", "\"Hello\"", "\"hELLO\""], ans: 1, expl: "upper() converte todos os caracteres da string para maiúsculas." },
+        { q: "O fatiamento lista[1:3] inclui o índice 3?", opts: ["Sim, inclui.", "Não, o fim não é incluído.", "Depende da lista.", "Sempre inclui."], ans: 1, expl: "No fatiamento [1:3], os índices incluídos são 1 e 2; o índice final nunca é incluído." }
       ]
     },
     {
@@ -276,7 +305,12 @@ print(area(5, 3))   # 15`, lang: "python" },
         { q: "O que acontece se chamar area(5) sem passar altura?", opts: ["Erro", "Use 0", "Usa o valor padrão altura=1", "Usa None"], ans: 2, expl: "Quando o parâmetro tem valor padrão, ele é usado caso nada seja passado." },
         { q: "Em uma função, o comando return:", opts: ["Imprime um valor.", "Devolve um valor a quem chamou e encerra a função.", "Reinicia o programa.", "Declara uma variável."], ans: 1, expl: "return envia o resultado de volta e encerra a execução da função." },
         { q: "Qual o resultado da chamada quadrado(4) com def quadrado(x): return x * x?", opts: ["4", "8", "16", "None"], ans: 2, expl: "quadrado(4) devolve 4 * 4 = 16, o valor retornado pela função." },
-        { q: "O que uma função devolve quando termina sem return?", opts: ["0", "True", "None", "Um erro"], ans: 2, expl: "Sem return, a função devolve None, indicando ausência de valor de retorno." }
+        { q: "O que uma função devolve quando termina sem return?", opts: ["0", "True", "None", "Um erro"], ans: 2, expl: "Sem return, a função devolve None, indicando ausência de valor de retorno." },
+        { q: "Uma função pode chamar outra função?", opts: ["Não, é proibido.", "Sim, funções podem ser chamadas dentro de outras.", "Apenas se estiver no mesmo arquivo.", "Somente funções built-in."], ans: 1, expl: "Funções podem chamar outras funções; isso é parte da reutilização e modularização de código." },
+        { q: "Qual é o resultado de:\ndef soma(a, b=5):\n    return a + b\n\nsoma(3)?", opts: ["3", "5", "8", "Erro"], ans: 2, expl: "a recebe 3 e b usa o valor padrão 5; o retorno é 3 + 5 = 8." },
+        { q: "Parâmetros com valor padrão devem estar:", opts: ["No início da lista de parâmetros.", "No final da lista de parâmetros.", "Em qualquer posição.", "Antes do nome da função."], ans: 1, expl: "Parâmetros com valor padrão ficam no final; os obrigatórios vêm primeiro, da esquerda para direita." },
+        { q: "Chamar uma função significa:", opts: ["Definir seu código.", "Executar o bloco de código dela passando os argumentos.", "Criar uma variável.", "Apagar o código anterior."], ans: 1, expl: "Chamar (invocar) a função executa o corpo dela com os argumentos fornecidos e retorna o resultado." },
+        { q: "Uma função que altera uma variável local pode afetar uma variável externa?", opts: ["Sim, sempre.", "Não, variáveis locais não alteram externas diretamente.", "Apenas com global.", "Somente em Python 3."], ans: 1, expl: "Variáveis criadas dentro da função são locais; para modificar uma externa, use global ou passe como argumento." }
       ]
     },
     {
@@ -330,7 +364,11 @@ print(a + b + c)      # 60`, lang: "python" },
         { q: "Em `for chave, valor in d.items():`, a variável chave recebe, a cada iteração:", opts: ["Um índice numérico.", "Uma tupla (chave, valor).", "O valor associado à chave.", "A chave (o nome) do par."], ans: 3, expl: "items() devolve tuplas (chave, valor); percorrer com duas variáveis faz o desempacotamento automático a cada volta: chave recebe o primeiro elemento, valor o segundo." },
         { q: "Sobre tuplas, qual afirmação está correta?", opts: ["São mutáveis, como listas.", "Não podem ser desempacotadas.", "Após t = (1, 2), a expressão t[0] = 9 lança TypeError.", "Precisam de pelo menos três elementos."], ans: 2, expl: "Tuplas são imutáveis: tentar atribuir a um índice lança TypeError. Desempacotamento como a, b = t funciona normalmente, e o uso cai bem para dados que não podem mudar." },
         { q: "Com notas = {\"Ana\": 8.5}, como adicionaríamos o par para \"Ivo\" com 9.0?", opts: ["notas.append(\"Ivo\": 9.0)", "notas[\"Ivo\"] = 9.0", "notas.add(\"Ivo\", 9.0)", "notas[0] = \"Ivo\""], ans: 1, expl: "Atribuir a uma chave nova com colchetes adiciona o par ao dicionário: notas[\"Ivo\"] = 9.0." },
-        { q: "Qual método devolve as chaves de um dicionário?", opts: ["keys()", "values()", "items()", "append()"], ans: 0, expl: "keys() retorna as chaves; values() os valores e items() os pares como tuplas." }
+        { q: "Qual método devolve as chaves de um dicionário?", opts: ["keys()", "values()", "items()", "append()"], ans: 0, expl: "keys() retorna as chaves; values() os valores e items() os pares como tuplas." },
+        { q: "Com d = {'Ana': 8, 'Bia': 9}, como remover a chave 'Ana'?", opts: ["d.remove('Ana')", "del d['Ana']", "d.pop_all('Ana')", "d.delete(0)"], ans: 1, expl: "del remove o par pela chave; d.pop('Ana') também funciona e devolve o valor." },
+        { q: "Quantos pares tem d = {'a': 1, 'b': 2, 'c': 3}?", opts: ["1", "2", "3", "6"], ans: 2, expl: "len(d) devolve a quantidade de chaves: três pares chave-valor." },
+        { q: "O que d.items() devolve?", opts: ["Uma lista de chaves.", "Uma lista de valores.", "Uma lista de tuplas (chave, valor).", "Um dicionário invertido."], ans: 2, expl: "items() retorna uma visualização dos pares como tuplas (chave, valor), útil em loops." },
+        { q: "Acesse a nota1 da Ana em turma = {'Ana': {'nota1': 8}} usando:", opts: ["turma['Ana.nota1']", "turma['Ana']['nota1']", "turma[0][0]", "turma.nota1.ana"], ans: 1, expl: "Para acessar dados aninhados, encadeie colchetes: turma['Ana']['nota1'] devolve 8." }
       ]
     },
     {
@@ -385,7 +423,11 @@ print(validar_nota(7))   # 7`, lang: "python" },
         { q: "O que `except ValueError as e` vincula à variável e?", opts: ["O número da linha do erro.", "A pilha de chamadas inteira.", "O objeto da exceção, de onde vem a mensagem.", "O programa inteiro, para reiniciá-lo."], ans: 2, expl: "`as e` captura o objeto da exceção; imprimir e (ou str(e)) mostra a mensagem que detalha o problema — no exemplo, o literal inválido na conversão." },
         { q: "Por que evitar `except:` sem especificar a exceção?", opts: ["Porque a sintaxe não existe no Python.", "Porque captura qualquer erro, incluindo erros de programação e KeyboardInterrupt.", "Porque só consegue capturar SyntaxError.", "Porque é cerca de três vezes mais lento."], ans: 1, expl: "except puro engole qualquer exceção, transformando bugs reais em comportamento silencioso. Prefira exceções específicas, cada bloco responsável por um cenário." },
         { q: "Qual exceção é lançada ao dividir um número por zero?", opts: ["ValueError", "KeyError", "ZeroDivisionError", "IndexError"], ans: 2, expl: "Divisão por zero em Python lança ZeroDivisionError, que pode ser capturada com try/except." },
-        { q: "O que o comando raise faz?", opts: ["Captura uma exceção.", "Lança uma exceção de propósito.", "Ignora todos os erros.", "Termina o programa silenciosamente."], ans: 1, expl: "raise lança (gera) uma exceção deliberadamente, obrigando o chamador a decidir como tratá-la." }
+        { q: "O que o comando raise faz?", opts: ["Captura uma exceção.", "Lança uma exceção de propósito.", "Ignora todos os erros.", "Termina o programa silenciosamente."], ans: 1, expl: "raise lança (gera) uma exceção deliberadamente, obrigando o chamador a decidir como tratá-la." },
+        { q: "O bloco finally é executado:", opts: ["Apenas quando há erro.", "Apenas quando não há erro.", "Sempre, com ou sem erro.", "Nunca, é apenas decorativo."], ans: 2, expl: "finally roda incondicionalmente: mesmo que haja return ou outra exceção, ele sempre é executado." },
+        { q: "Por que exceções específicas devem vir antes das gerais?", opts: ["Não importa a ordem.", "Para o Python usar o primeiro bloco que corresponder ao tipo.", "Por exigência do compilador.", "Para evitar erros de sintaxe."], ans: 1, expl: "Python usa o primeiro except cujo tipo corresponde; exceções específicas antes evitam que uma geral capture tudo." },
+        { q: "Qual estrutura captura qualquer exceção que herda de Exception?", opts: ["except:", "except Exception:", "except Error:", "except All:"], ans: 1, expl: "except Exception: captura a maioria dos erros sem pegar SystemExit ou KeyboardInterrupt." },
+        { q: "É possível criar exceções personalizadas em Python?", opts: ["Não, apenas as built-in existem.", "Sim, criando uma classe que herda de Exception.", "Apenas com bibliotecas externas.", "Somente em Python 3.10+."], ans: 1, expl: "Basta criar uma classe que herda de Exception; raise MinhaExceção() então pode ser usado e capturado normalmente." }
       ]
     },
     {
@@ -435,7 +477,11 @@ print(sorted(pairs, key=ordenar))   # [(2, "a"), (1, "z")]`, lang: "python" },
         { q: "Qual é o resultado de list(map(lambda x: x + 1, [1, 2, 3]))?", opts: ["[1, 2, 3]", "[2, 3, 4]", "[1, 4, 9]", "[0, 1, 2]"], ans: 1, expl: "map aplica a função a cada item, em ordem; somar 1 a [1, 2, 3] produz [2, 3, 4]. [1, 4, 9] seria o resultado de um quadrado." },
         { q: "Sobre funções lambda, qual afirmação é correta?", opts: ["Podem ter várias linhas com return.", "O corpo é uma única expressão, sem return explícito.", "Não aceitam argumentos.", "São obrigatórias em list comprehensions."], ans: 1, expl: "lambda é uma função anônima limitada a uma expressão — o resultado da expressão é o retorno. Para lógica maior, use def, que aceita corpo completo." },
         { q: "Qual é o resultado de [nome.upper() for nome in [\"ana\", \"bia\"]]?", opts: ["[\"ana\", \"bia\"]", "[\"ANA\", \"BIA\"]", "[\"Ana\", \"Bia\"]", "[\"a\", \"b\"]"], ans: 1, expl: "A comprehension aplica upper() a cada elemento, transformando os textos em maiúsculas." },
-        { q: "O que devolve list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4]))?", opts: ["[1, 3]", "[2, 4]", "[1, 2, 3, 4]", "[2]"], ans: 1, expl: "filter mantém apenas os elementos para os quais a função devolve True — os pares 2 e 4." }
+        { q: "O que devolve list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4]))?", opts: ["[1, 3]", "[2, 4]", "[1, 2, 3, 4]", "[2]"], ans: 1, expl: "filter mantém apenas os elementos para os quais a função devolve True — os pares 2 e 4." },
+        { q: "O que gera {x: x**2 for x in range(5)}?", opts: ["Uma lista.", "Um dicionário.", "Um conjunto.", "Uma tupla."], ans: 1, expl: "Chaves {} com par chave: valor em comprehension produzem um dicionário." },
+        { q: "O que gera {n for n in range(5)}?", opts: ["Uma lista.", "Um dicionário.", "Um conjunto (set).", "Uma string."], ans: 2, expl: "Chaves {} sem dois-ponto criam um set comprehension, sem duplicatas." },
+        { q: "Qual é a sintaxe correta de uma comprehension aninhada?", opts: ["[y for x in m for y in x]", "[y for y in x for x in m]", "[for x in m for y in x]", "[(x, y) for x in m]"], ans: 0, expl: "Os fors vêm na mesma ordem de um loop aninhado normal: de fora para dentro." },
+        { q: "O que imprime [x if x > 0 else 0 for x in [-1, 2, -3, 4]]?", opts: ["[-1, 2, -3, 4]", "[0, 2, 0, 4]", "[1, 2, 3, 4]", "[0, 0, 0, 0]"], ans: 1, expl: "Para cada elemento, se x > 0 mantém x, senão substitui por 0: negativos viram 0." }
       ]
     },
     {
@@ -507,7 +553,11 @@ print(c.incrementar())   # 3`, lang: "python" },
         { q: "O que uma função ou método retorna quando termina sem return?", opts: ["self", "0", "None", "Um erro de execução"], ans: 2, expl: "Sem return, o Python devolve None — inclusive em métodos que apenas alteram o estado. Se precisar do valor novo, coloque return explícito." },
         { q: "Qual é a diferença prática entre função pura e classe?", opts: ["Nenhuma; são sinônimos.", "Função pura calcula a partir dos argumentos sem manter estado; classe guarda estado que evolui com as chamadas.", "Função pura é sempre mais lenta.", "Classe não pode ter métodos nem atributos."], ans: 1, expl: "Para as mesmas entradas, uma função pura devolve sempre o mesmo resultado e não altera nada; um objeto conserva estado (como o saldo) que muda a cada método chamado." },
         { q: "O método __str__ tem a função de:", opts: ["Criar uma nova instância.", "Definir como o objeto vira texto em print() e f-strings.", "Deletar o objeto.", "Incrementar um contador interno."], ans: 1, expl: "__str__ devolve a representação textual do objeto, usada por print() e f-strings para exibi-lo de forma legível." },
-        { q: "Criar um objeto a partir de uma classe é chamado de:", opts: ["Compilação.", "Instanciação.", "Importação.", "Iteração."], ans: 1, expl: "Escrever Classe(...) cria (instancia) um objeto — uma instância — a partir do molde definido pela classe." }
+        { q: "Criar um objeto a partir de uma classe é chamado de:", opts: ["Compilação.", "Instanciação.", "Importação.", "Iteração."], ans: 1, expl: "Escrever Classe(...) cria (instancia) um objeto — uma instância — a partir do molde definido pela classe." },
+        { q: "Uma variável de classe é compartilhada entre:", opts: ["Cada instância isoladamente.", "Todas as instâncias da classe.", "Apenas o método que a criou.", "Ninguém, é apagada após o __init__."], ans: 1, expl: "Variáveis de classe (definidas fora de métodos, na classe) são compartilhadas por todas as instâncias." },
+        { q: "O que isinstance(obj, Classe) retorna?", opts: ["O valor do atributo do objeto.", "True se obj for instância de Classe, False caso contrário.", "O construtor da classe.", "Uma nova instância."], ans: 1, expl: "isinstance() verifica se o objeto é instância da classe (ou de uma subclasse), retornando True ou False." },
+        { q: "Uma subclasse pode sobrescrever métodos da superclasse?", opts: ["Não, métodos são imutáveis.", "Sim, basta definir o mesmo nome na subclasse.", "Apenas com decorators.", "Somente métodos built-in."], ans: 1, expl: "A subclasse pode redefinir métodos com o mesmo nome; Python usa o método da classe mais específica." },
+        { q: "O método __repr__ é usado para:", opts: ["Criar o objeto.", "Retornar uma representação oficial/debug do objeto.", "Imprimir o objeto com cores.", "Apagar o objeto da memória."], ans: 1, expl: "__repr__ retorna uma string destinada ao debug; é distinto de __str__, que é voltado ao usuário final." }
       ]
     }
   ]

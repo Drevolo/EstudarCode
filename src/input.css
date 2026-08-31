@@ -1155,6 +1155,30 @@ html[data-theme="dark"] {
     @apply bg-brand-accent-soft text-brand-green-text;
     border-color: var(--green);
     transform: rotateY(180deg);
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .flash-opts {
+    @apply list-none p-0 m-0 w-full text-left space-y-1.5;
+  }
+
+  .flash-opt {
+    @apply px-3 py-2 rounded border-2 border-edge bg-surface text-text text-[0.95rem] font-bold leading-snug flex items-center gap-2;
+  }
+
+  .flash-opt-correct {
+    @apply border-brand-green text-brand-green-text;
+  }
+
+  .flash-opt-correct svg {
+    color: var(--green);
+    flex: none;
+  }
+
+  .flash-expl {
+    @apply text-[0.9rem] leading-snug text-brand-green-text;
   }
 
   .flash-actions {

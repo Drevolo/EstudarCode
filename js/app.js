@@ -58,7 +58,12 @@ FIM` },
           { q: "Qual das opções NÃO é característica de um bom algoritmo?", opts: ["Terminar em algum momento (ser finito).", "Ter passos claros e sem ambiguidade.", "Não receber nem produzir dados, para rodar sem erro.", "Resolver um problema de forma estruturada."], ans: 2, expl: "Um bom algoritmo pode até dispensar entrada, mas normalmente produz uma saída — e sempre resolve um problema de forma clara e finita." },
           { q: "O pseudocódigo (Portugol) é usado para:", opts: ["Rodar direto no processador.", "Descrever a lógica do algoritmo de forma estruturada, próxima do português.", "Substituir o fluxograma em todos os casos.", "Compilar programas em C."], ans: 1, expl: "O Portugol representa a lógica em texto estruturado, servindo de ponte entre o raciocínio e a linguagem de programação." },
           { q: "Qual das opções abaixo melhor descreve um fluxograma?", opts: ["Um programa executável.", "Uma representação gráfica de um algoritmo usando formas geométricas e setas.", "Um tipo de variável.", "Uma linguagem de programação."], ans: 1, expl: "O fluxograma usa figuras geométricas conectadas por setas para representar visualmente os passos de um algoritmo." },
-          { q: "Para que serve a pseudocódigo em relação a uma linguagem de programação como o C?", opts: ["Substitui o compilador.", "Permite planejar a lógica antes de escrever o código na linguagem real.", "É mais rápido que C.", "Não tem relação com programação."], ans: 1, expl: "O pseudocódigo é uma ferramenta de planejamento: você resolve a lógica nele e depois traduz para a linguagem de programação." }
+          { q: "Para que serve a pseudocódigo em relação a uma linguagem de programação como o C?", opts: ["Substitui o compilador.", "Permite planejar a lógica antes de escrever o código na linguagem real.", "É mais rápido que C.", "Não tem relação com programação."], ans: 1, expl: "O pseudocódigo é uma ferramenta de planejamento: você resolve a lógica nele e depois traduz para a linguagem de programação." },
+          { q: "Qual das opções abaixo é uma característica obrigatória de todo algoritmo?", opts: ["Ter pelo menos 10 passos.", "Ser escrito em pseudocódigo.", "Ser finito, ou seja, terminar em algum momento.", "Usar variáveis."], ans: 2, expl: "Todo algoritmo deve ser finito: precisa terminar após um número limitado de passos." },
+          { q: "Um algoritmo para calcular a média de 3 notas deve, obrigatoriamente:", opts: ["Ler 3 valores, somá-los, dividir por 3 e mostrar o resultado.", " Ler apenas um valor e multiplicar por 3.", "Usar pelo menos duas variáveis.", "Ter uma estrutura de repetição."], ans: 0, expl: "O algoritmo de média precisa ler os dados, processar (somar e dividir) e exibir o resultado final." },
+          { q: "A diferença entre um algoritmo e um programa de computador é:", opts: ["Não existe diferença.", "O algoritmo é a lógica abstrata; o programa é a implementação em uma linguagem de programação.", "O programa é mais curto que o algoritmo.", "O algoritmo só funciona em C."], ans: 1, expl: "O algoritmo descreve a lógica da solução de forma abstrata; o programa é essa lógica traduzida para uma linguagem que o computador entende." },
+          { q: "Qual forma de representação de algoritmo usa formas geométricas ligadas por setas?", opts: ["Pseudocódigo.", "Descrição narrativa.", "Fluxograma.", "Tabela-verdade."], ans: 2, expl: "O fluxograma representa passos com formas geométricas (retângulos, losangos, elipses) conectadas por setas." },
+          { q: "Em um fluxograma, qual forma geométrica é usada para decisões (condições)?", opts: ["Retângulo.", "Elipse.", "Losango.", "Paralelogramo."], ans: 2, expl: "O losango representa uma decisão: o fluxo se divide em dois caminhos conforme a condição (verdadeira ou falsa)." }
         ]
       },
       {
@@ -114,7 +119,12 @@ FIM` },
           { q: "O tipo de dado mais adequado para \"aprovado ou reprovado\" é:", opts: ["INTEIRO", "LOGICO", "REAL", "CARACTERE"], ans: 1, expl: "Lógico guarda apenas VERDADEIRO ou FALSO — perfeito para esse caso." },
           { q: "A atribuição \"idade <- 18\" significa:", opts: ["A variável idade é comparada com 18.", "A variável idade recebe o valor 18.", "18 é mudado para idade.", "O programa imprime \"idade 18\"."], ans: 1, expl: "O operador <- armazena (atribui) o valor 18 na variável idade." },
           { q: "Qual é o tipo de dado mais adequado para armazenar o preço de um produto como 19.90?", opts: ["INTEIRO", "LOGICO", "REAL", "CARACTERE"], ans: 2, expl: "REAL guarda números com casa decimal, como 19.90. INTEIRO só aceita números sem parte fracionária." },
-          { q: "Qual das opções abaixo é um nome inválido para uma variável?", opts: ["totalGeral", "TOTAL", "_resultado", "2valor"], ans: 3, expl: "Nomes de variáveis não podem começar com número. \"2valor\" viola essa regra." }
+          { q: "Qual das opções abaixo é um nome inválido para uma variável?", opts: ["totalGeral", "TOTAL", "_resultado", "2valor"], ans: 3, expl: "Nomes de variáveis não podem começar com número. \"2valor\" viola essa regra." },
+          { q: "Ao fazer idade <- 18 e depois idade <- 25, qual é o valor final de idade?", opts: ["18", "25", "43", "Erro de compilação"], ans: 1, expl: "A segunda atribuição sobrescreve o valor anterior. idade passa a guardar 25." },
+          { q: "Qual é a diferença entre uma variável e uma constante?", opts: ["Não há diferença.", "A constante não pode ter o valor alterado durante a execução do programa.", "A variável só guarda textos.", "A constante ocupa mais memória."], ans: 1, expl: "Uma constante tem valor fixo durante toda a execução; a variável pode mudar de valor a qualquer momento." },
+          { q: "Qual tipo de dado deve ser usado para armazenar o texto \"Brasil\"?", opts: ["INTEIRO", "REAL", "LOGICO", "CARACTERE"], ans: 3, expl: "CARACTERE (ou cadeia de caracteres) é o tipo adequado para textos." },
+          { q: "Uma variável declarada como INTEIRO pode armazenar o valor 3.75?", opts: ["Sim, sem problemas.", "Sim, mas arredonda automaticamente.", "Não, pois INTEIRO só aceita números sem parte decimal.", "Depende do computador."], ans: 2, expl: "O tipo INTEIRO guarda apenas números inteiros. Para valores fracionários, use REAL." },
+          { q: "Em pseudocódigo, qual símbolo é usado para atribuição?", opts: ["=", "==", "<-", "+"], ans: 2, expl: "O operador <- significa \"recebe\" e é usado para atribuir valores a variáveis no pseudocódigo." }
         ]
       },
       {
@@ -171,7 +181,12 @@ FIM` },
           { q: "O resultado de (5 > 3) E (2 < 1) é:", opts: ["VERDADEIRO", "FALSO", "Erro de execução", "Depende do dia"], ans: 1, expl: "A segunda condição é falsa e, no operador E, basta uma condição falsa para o resultado ser falso." },
           { q: "Qual operador relacional retorna VERDADEIRO quando os dois valores são iguais?", opts: ["<>", "=", ">", ">="], ans: 1, expl: "O operador de igualdade no pseudocódigo é = . Já <> significa diferente." },
           { q: "Qual é o resultado de (3 > 5) OU (7 > 2)?", opts: ["VERDADEIRO", "FALSO", "Erro", "Depende"], ans: 0, expl: "Embora 3 > 5 seja FALSO, 7 > 2 é VERDADEIRO. No operador OU, basta uma condição verdadeira para o resultado ser verdadeiro." },
-          { q: "Na expressão 2 + 3 * 4, qual operação é resolvida primeiro?", opts: ["2 + 3", "3 * 4", "Depende da ordem", "Todas ao mesmo tempo"], ans: 1, expl: "Multiplicação tem precedência sobre adição, então 3 * 4 é resolvido antes da soma." }
+          { q: "Na expressão 2 + 3 * 4, qual operação é resolvida primeiro?", opts: ["2 + 3", "3 * 4", "Depende da ordem", "Todas ao mesmo tempo"], ans: 1, expl: "Multiplicação tem precedência sobre adição, então 3 * 4 é resolvido antes da soma." },
+          { q: "Qual é o resultado de NAO (5 > 3)?", opts: ["VERDADEIRO", "FALSO", "Erro de sintaxe", "5"], ans: 1, expl: "5 > 3 é VERDADEIRO; NAO inverte para FALSO." },
+          { q: "O resultado de 10 / 3 no pseudocódigo com variáveis INTEIRAS é:", opts: ["3,333...", "3", "4", "Depende da linguagem"], ans: 1, expl: "Na divisão inteira entre dois números INTEIROS, o resultado é o quociente sem resto: 3." },
+          { q: "O operador <> significa:", opts: ["Maior ou igual.", "Igual a.", "Diferente de.", "Menor que."], ans: 2, expl: "O operador <> verifica se dois valores são diferentes (não é igual)." },
+          { q: "Se A = 4 e B = 2, quanto vale A >= B E A <> B?", opts: ["VERDADEIRO", "FALSO", "Erro", "Depende"], ans: 0, expl: "A >= B (4 >= 2) é V; A <> B (4 <> 2) é V; V E V = VERDADEIRO." },
+          { q: "Se X = 3 e Y = 5, quanto vale NAO (X + Y > 9)?", opts: ["VERDADEIRO", "FALSO", "Erro", "8"], ans: 0, expl: "X + Y = 8; 8 > 9 é FALSO; NAO (FALSO) = VERDADEIRO." }
         ]
       },
       {
@@ -226,7 +241,12 @@ FIM` },
           { q: "Com nota = 5, o que o Exemplo 2 imprime?", opts: ["Aprovado!", "Recuperação.", "Reprovado.", "Nada."], ans: 1, expl: "5 não é >= 6, mas é >= 4, então cai no meio: Recuperação." },
           { q: "Para testar uma condição sem executar nada quando ela for falsa, usamos:", opts: ["Apenas o SE", "O SE...SENAO", "Duas variáveis", "Um laço"], ans: 0, expl: "Sem o SENAO, quando a condição é falsa o programa simplesmente segue para a próxima linha." },
           { q: "Em uma estrutura SE...SENAO SE...SENAO, quantos blocos podem ser executados ao mesmo tempo?", opts: ["Todos.", "No máximo um.", "Dois.", "Depende do tamanho do código."], ans: 1, expl: "Apenas um bloco é executado: o primeiro cuja condição for verdadeira, ou o SENAO final." },
-          { q: "Para testar se um número está entre 10 e 50 (inclusive), a condição correta é:", opts: ["SE (n > 10) E (n < 50)", "SE (n >= 10) E (n <= 50)", "SE (n >= 10) OU (n <= 50)", "SE (n > 10) OU (n < 50)"], ans: 1, expl: "\"Entre 10 e 50 inclusive\" significa n maior ou igual a 10 E menor ou igual a 50." }
+          { q: "Para testar se um número está entre 10 e 50 (inclusive), a condição correta é:", opts: ["SE (n > 10) E (n < 50)", "SE (n >= 10) E (n <= 50)", "SE (n >= 10) OU (n <= 50)", "SE (n > 10) OU (n < 50)"], ans: 1, expl: "\"Entre 10 e 50 inclusive\" significa n maior ou igual a 10 E menor ou igual a 50." },
+          { q: "No exemplo 1 (par ou ímpar), se o usuário digita 7, o que é impresso?", opts: ["7 é par.", "7 é ímpar.", "Nada.", "Erro."], ans: 1, expl: "7 mod 2 = 1 (diferente de 0), então a condição é falsa e o SENAO executa: \"7 é ímpar\"." },
+          { q: "Em uma estrutura SE aninhada (SE dentro de SE), quantas vezes o FIMSE deve aparecer?", opts: ["Uma vez só.", "Uma vez para cada SE aberto.", "Duas vezes no máximo.", "Não precisa de FIMSE."], ans: 1, expl: "Cada SE precisa do seu próprio FIMSE correspondente; se há 3 SE aninhados, há 3 FIMSE." },
+          { q: "Qual é a diferença entre SE...SENAO e SE...SENAO SE...SENAO?", opts: ["Não há diferença.", "O primeiro testa uma condição; o segundo testa múltiplas condições em sequência.", "O segundo é sempre mais lento.", "O primeiro aceita mais condições."], ans: 1, expl: "O SE...SENAO SE permite testar múltiplas condições em sequência, executando apenas o bloco do primeiro caso verdadeiro." },
+          { q: "Se nota = 3,99, o que o Exemplo 2 imprime?", opts: ["Aprovado!", "Recuperação.", "Reprovado.", "Erro."], ans: 2, expl: "3,99 não é >= 6 e também não é >= 4 (é menor que 4), então cai no SENAO final: Reprovado." },
+          { q: "Em pseudocódigo, qual estrutura alternativa ao SE quando se quer executar algo só se a condição for verdadeira?", opts: ["Usar um PARA.", "Apenas o SE sem SENAO.", "Usar REPITA.", "Usar um vetor."], ans: 1, expl: "Sem o SENAO, o bloco do SE é executado apenas quando a condição é verdadeira; se falsa, nada acontece." }
         ]
       },
       {
@@ -277,7 +297,12 @@ FIM` },
           { q: "A diferença principal entre ENQUANTO e REPITA é:", opts: ["ENQUANTO testa antes de executar; REPITA testa depois (executa ao menos uma vez).", "Não há diferença.", "REPITA é sempre mais rápido.", "ENQUANTO não usa condição."], ans: 0, expl: "ENQUANTO verifica no início; REPITA verifica no final, por isso sempre executa pelo menos uma vez." },
           { q: "No trecho soma <- soma + i, a variável soma:", opts: ["Recebe o valor de i.", "Acumula o valor de i a cada repetição.", "É comparada com i.", "Sempre vale 1."], ans: 1, expl: "Esse padrão acumula: a cada iteração o total recebe o valor atual de i somado ao que já tinha." },
           { q: "No laço ENQUANTO, se a condição nunca se tornar falsa, o que acontece?", opts: ["O programa termina normalmente.", "O programa entra em loop infinito.", "O compilador avisa o erro.", "O laço executa apenas uma vez."], ans: 1, expl: "Se a condição nunca ficar falsa, o laço repete para sempre, causando um loop infinito." },
-          { q: "Qual estrutura de repetição testa a condição no final, garantindo pelo menos uma execução?", opts: ["PARA", "ENQUANTO", "REPITA", "Nenhuma delas"], ans: 2, expl: "O REPITA testa a condição ao final do bloco, então o corpo é executado pelo menos uma vez." }
+          { q: "Qual estrutura de repetição testa a condição no final, garantindo pelo menos uma execução?", opts: ["PARA", "ENQUANTO", "REPITA", "Nenhuma delas"], ans: 2, expl: "O REPITA testa a condição ao final do bloco, então o corpo é executado pelo menos uma vez." },
+          { q: "Se um PARA vai de 1 ATE 5 FACA, quantas vezes o corpo é executado?", opts: ["4", "5", "6", "10"], ans: 1, expl: "O PARA executa para i = 1, 2, 3, 4 e 5 — exatamente 5 vezes." },
+          { q: "Qual é a diferença prática entre ENQUANTO e PARA?", opts: ["Não existe diferença.", "O PARA usa variável de controle com limite definido; o ENQUANTO repete enquanto uma condição for verdadeira.", "O ENQUANTO é mais rápido.", "O PARA não pode ser aninhado."], ans: 1, expl: "O PARA é ideal quando sabemos quantas repetições serão; o ENQUANTO é melhor quando a condição depende de um teste lógico." },
+          { q: "No trecho PARA i DE 1 ATE 4 FACA, se quisermos que i pule de 2 em 2, como ficaria?", opts: ["PARA i DE 1 ATE 4 PASSO 2", "PARA i DE 1 ATE 4 PASSO 1", "PARA i DE 2 ATE 4", "Não é possível"], ans: 0, expl: "O passo define o incremento de cada iteração. PASSO 2 faz i valer 1 e 3 (saltando de 2 em 2)." },
+          { q: "Se o ENQUANTO tem condição (n > 0) e n começa com -1, o que acontece?", opts: ["O laço executa uma vez.", "O laço não executa nenhuma vez.", "O laço é infinito.", "Erro de compilação."], ans: 1, expl: "O ENQUANTO testa a condição antes de executar. Como -1 > 0 é falso, o corpo nunca é executado." },
+          { q: "O que acontece se um REPITA tiver a condição sempre verdadeira desde o início?", opts: ["O laço não executa.", "O laço executa uma vez e para.", "O laço é infinito.", "Erro de sintaxe."], ans: 2, expl: "No REPITA, a condição \"ATE\" é de parada. Se ela é verdadeira logo no início, o laço continua repetindo para sempre (loop infinito)." }
         ]
       },
       {
@@ -326,7 +351,12 @@ FIM` },
           { q: "Qual é a principal utilidade de um vetor?", opts: ["Guardar tipos diferentes na mesma posição.", "Armazenar vários valores do mesmo tipo para manipular com laços.", "Só enfeitar o código.", "Eliminar a necessidade de entrada de dados."], ans: 1, expl: "O vetor agrupa valores do mesmo tipo e permite processá-los em conjunto com laços." },
           { q: "Para guardar as notas de 30 alunos em 7 provas, o ideal é:", opts: ["30 variáveis.", "Um vetor simples.", "Uma matriz [1..30, 1..7].", "Uma constante."], ans: 2, expl: "Precisamos de duas dimensões: uma para o aluno e outra para a prova. Isso é uma matriz." },
           { q: "Para percorrer todas as posições de um vetor, o laço mais indicado é:", opts: ["Um SE", "Um PARA com variável de controle percorrendo os índices", "Um REPITA sem condição", "Não é possível percorrer um vetor"], ans: 1, expl: "O PARA com um contador que vai de 1 até o tamanho do vetor é a forma mais comum e clara de acessar todas as posições." },
-          { q: "Acessar uma posição de vetor que não existe (por exemplo, notas[6] em um vetor de 5 posições) resulta em:", opts: ["Um erro de compilação garantido.", "Um valor zero automático.", "Um erro lógico: o programa acessa memória indevida.", "Nada acontece."], ans: 2, expl: "Vetores não verificam limites automaticamente; acessar além do intervalo causa comportamento imprevisível." }
+          { q: "Acessar uma posição de vetor que não existe (por exemplo, notas[6] em um vetor de 5 posições) resulta em:", opts: ["Um erro de compilação garantido.", "Um valor zero automático.", "Um erro lógico: o programa acessa memória indevida.", "Nada acontece."], ans: 2, expl: "Vetores não verificam limites automaticamente; acessar além do intervalo causa comportamento imprevisível." },
+          { q: "No pseudocódigo, como se declara um vetor de 10 posições inteiras?", opts: ["VETOR v[1..10] DE INTEIRO", "INTEIRO v[1..10]", "VETOR v DE 10", "v : 10 INTEIROS"], ans: 0, expl: "A forma correta de declarar é VETOR seguido do nome, intervalo de índices e o tipo dos dados." },
+          { q: "Se um vetor tem índices de 1 a 8, quantos elementos ele contém?", opts: ["7", "8", "9", "16"], ans: 1, expl: "De 1 a 8 são exatamente 8 posições, logo 8 elementos." },
+          { q: "Para alterar o valor da terceira posição de um vetor notas, qual instrução é correta?", opts: ["notas[3] <- 10", "notas(3) <- 10", "notas <- 10[3]", "SET notas[3] = 10"], ans: 0, expl: "No pseudocódigo, acessa-se a posição com colchetes e atribui com <-." },
+          { q: "Se o vetor dados é declarado como VETOR dados[1..5] DE INTEIRO e você executa dados[1] <- 7 e dados[2] <- dados[1] + 3, qual é o valor de dados[2]?", opts: ["3", "7", "10", "Erro"], ans: 2, expl: "dados[1] vale 7; dados[2] recebe 7 + 3 = 10." },
+          { q: "Qual é a vantagem de usar um vetor em vez de criar variáveis separadas (nota1, nota2, nota3)?", opts: ["Não há vantagem.", "Permite acessar qualquer posição com um laço e evitar repetição de código.", "Vetores são sempre mais rápidos.", "Variáveis separadas não existem no pseudocódigo."], ans: 1, expl: "Com um vetor, um único laço pode processar todas as posições; com variáveis separadas, seria necessário escrever código repetido para cada uma." }
         ]
       },
       {
@@ -373,7 +403,12 @@ FIM` },
           { q: "Os parâmetros de uma função servem para:", opts: ["Melhorar a aparência do código.", "Receber os dados que a função precisa para trabalhar.", "Não servem para nada.", "Declarar o tipo de retorno."], ans: 1, expl: "Parâmetros são a porta de entrada da função: é por eles que passamos as informações necessárias." },
           { q: "Qual é a grande vantagem de modularizar o programa com funções?", opts: ["O programa fica obrigatoriamente mais rápido.", "É possível reutilizar e testar cada parte separadamente.", "Elimina a necessidade de variáveis.", "O programa nunca terá erros."], ans: 1, expl: "Modularizar organiza o raciocínio, facilita reuso e torna os testes muito mais fáceis." },
           { q: "Em uma função que calcula o dobro de um número, o parâmetro serve para:", opts: ["Receber o valor a ser dobrado.", "Armazenar o resultado.", "Controlar um laço.", "Não tem utilidade."], ans: 0, expl: "O parâmetro recebe o dado de entrada que a função precisa para realizar seu cálculo." },
-          { q: "Se uma função retorna um valor, esse valor pode ser:", opts: ["Apenas impresso na tela.", "Usado em uma expressão ou atribuído a uma variável.", "Guardado em um vetor.", "Apenas comparado."], ans: 1, expl: "O retorno de uma função é um valor que pode ser usado diretamente em expressões ou armazenado em variáveis." }
+          { q: "Se uma função retorna um valor, esse valor pode ser:", opts: ["Apenas impresso na tela.", "Usado em uma expressão ou atribuído a uma variável.", "Guardado em um vetor.", "Apenas comparado."], ans: 1, expl: "O retorno de uma função é um valor que pode ser usado diretamente em expressões ou armazenado em variáveis." },
+          { q: "No exemplo da função maior(a, b), se chamarmos maior(8, 3), o retorno será:", opts: ["3", "8", "11", "Erro"], ans: 1, expl: "8 > 3 é verdadeiro, então a função retorna a, que vale 8." },
+          { q: "Uma função pode chamar outra função?", opts: ["Não, é proibido.", "Sim, chamar uma função dentro de outra é permitido.", "Somente se tiver o mesmo nome.", "Apenas em C."], ans: 1, expl: "Funções podem chamar outras funções (mesmo a si mesmas, no caso da recursão); isso é perfeitamente válido." },
+          { q: "Se não houver um comando RETORNAR em uma função, o que acontece?", opts: ["A função retorna 0 automaticamente.", "Erro de compilação em pseudocódigo.", "Depende da linguagem.", "A função nunca termina."], ans: 1, expl: "No pseudocódigo, toda função que promete um tipo de retorno precisa usar RETORNAR. Sem ele, há erro." },
+          { q: "Qual é a importância do tipo de retorno declarado em uma função?", opts: ["Não tem importância.", "Indica qual tipo de dado a função vai devolver ao chamador.", "É apenas decorativo.", "Controla o número de parâmetros."], ans: 1, expl: "O tipo de retorno informa ao programador (e ao compilador) que tipo de dado esperar da função." },
+          { q: "Se uma função soma(a, b) retorna a + b, o que soma(3, soma(1, 2)) retorna?", opts: ["3", "5", "6", "Erro"], ans: 2, expl: "soma(1, 2) retorna 3; depois soma(3, 3) retorna 6. Chamadas aninhadas são resolvidas de dentro para fora." }
         ]
       },
       {
@@ -424,7 +459,11 @@ FIM` },
           { q: "No exemplo, por que a \"quebra de linha\" no fim de cada linha é importante ao exibir a matriz?", opts: ["Para não estourar a memória.", "Sem ela, todas as linhas seriam impressas em sequência contínua, perdendo o formato de grade.", "Não é importante.", "Para acelerar o programa."], ans: 1, expl: "A quebra de linha separa as linhas visualmente, preservando a estrutura bidimensional na saída." },
           { q: "Qual é a consequência de acessar um índice fora dos limites da matriz?", opts: ["O programa sempre para com um erro claro.", "Não causa nenhum problema.", "Acessa memória indevida, gerando resultados imprevisíveis.", "O valor retornado é sempre zero."], ans: 2, expl: "Índices fora dos limites acessam regiões de memória que não pertencem à matriz, causando bugs difíceis de encontrar." },
           { q: "Se a matriz m é declarada como m[3][4], quantas linhas e colunas ela tem?", opts: ["3 linhas e 3 colunas.", "4 linhas e 3 colunas.", "3 linhas e 4 colunas.", "7 linhas."], ans: 2, expl: "A primeira dimensão é o número de linhas (3) e a segunda é o de colunas (4)." },
-          { q: "Para somar todos os elementos de uma matriz, é necessário:", opts: ["Apenas um laço.", "Dois laços aninhados: um para linhas e outro para colunas.", "Não é possível somar uma matriz.", "Usar apenas a diagonal principal."], ans: 1, expl: "A matriz tem duas dimensões; são necessários dois laços para percorrer todas as linhas e colunas." }
+          { q: "Para somar todos os elementos de uma matriz, é necessário:", opts: ["Apenas um laço.", "Dois laços aninhados: um para linhas e outro para colunas.", "Não é possível somar uma matriz.", "Usar apenas a diagonal principal."], ans: 1, expl: "A matriz tem duas dimensões; são necessários dois laços para percorrer todas as linhas e colunas." },
+          { q: "Em uma matriz m[3][3], como se acessa o elemento da primeira linha e segunda coluna?", opts: ["m[2][1]", "m[1][2]", "m[3][2]", "m[2][2]"], ans: 1, expl: "O primeiro índice é a linha (1) e o segundo a coluna (2): m[1][2]." },
+          { q: "Uma matriz é essencialmente:", opts: ["Um vetor com um único índice.", "Um vetor de vetores, ou seja, um arranjo bidimensional.", "Um tipo de dado que guarda texto.", "Uma estrutura que só guarda números inteiros."], ans: 1, expl: "A matriz organiza dados em linhas e colunas, sendo internamente implementada como um vetor de vetores." },
+          { q: "Ao trocar a ordem dos laços aninhados para percorrer uma matriz, o que acontece?", opts: ["Nada muda.", "A matriz é percorrida na vertical (coluna a coluna) em vez de na horizontal (linha a linha).", "O programa dá erro.", "A matriz é apagada."], ans: 1, expl: "Com o laço de colunas por fora, a primeira coluna é percorrida inteira antes de passar para a segunda." },
+          { q: "Se uma matriz tem 5 linhas e 6 colunas, quantos elementos ela contém no total?", opts: ["11", "30", "56", "65"], ans: 1, expl: "O total de elementos é linhas × colunas: 5 × 6 = 30." }
         ]
       },
       {
@@ -481,7 +520,11 @@ FIM` },
           { q: "O que acontece se removêssemos o caso-base do fatorial?", opts: ["O resultado fica maior.", "Nada muda.", "A função entraria em recursão infinita até estourar a pilha.", "O programa compila mais rápido."], ans: 2, expl: "Sem caso-base, cada chamada gera outra, sem fim, esgotando a memória da pilha." },
           { q: "A diferença conceitual central entre recursão e iteração é:", opts: ["Não há diferença.", "Recursão resolve chamando a si mesma com um caso menor; iteração repete com laços.", "Iteração sempre é mais lenta.", "Recursão nunca usa caso-base."], ans: 1, expl: "Recursão reduz o problema com autochamadas; iteração repete um bloco com laços." },
           { q: "Qual é o resultado de fatorial(4) usando a função recursiva do exemplo?", opts: ["4", "12", "24", "256"], ans: 2, expl: "4! = 4 x 3! = 4 x 3 x 2! = 4 x 3 x 2 x 1! = 24." },
-          { q: "O que acontece na memória a cada chamada recursiva?", opts: ["Nada muda na memória.", "Uma nova cópia da função é empilhada (pilha de chamadas).", "A função original é apagada.", "A memória é liberada automaticamente."], ans: 1, expl: "Cada chamada recursiva ocupa espaço na pilha (stack); quando retorna, esse espaço é liberado." }
+          { q: "O que acontece na memória a cada chamada recursiva?", opts: ["Nada muda na memória.", "Uma nova cópia da função é empilhada (pilha de chamadas).", "A função original é apagada.", "A memória é liberada automaticamente."], ans: 1, expl: "Cada chamada recursiva ocupa espaço na pilha (stack); quando retorna, esse espaço é liberado." },
+          { q: "Se fibonacci(6) é chamado, qual é o resultado?", opts: ["5", "6", "8", "13"], ans: 2, expl: "fibonacci(6) = fibonacci(5) + fibonacci(4) = 5 + 3 = 8." },
+          { q: "Na recursão, o caso-base é importante porque:", opts: ["Torna o código mais curto.", "Interrompe a recursão, evitando chamadas infinitas.", "Aumenta a velocidade.", "É opcional."], ans: 1, expl: "Sem o caso-base, a função chamaria a si mesma para sempre, causando estouro de pilha." },
+          { q: "Qual é a complexidade de espaço típica de uma recursão simples com chamadas encadeadas (uma chamada por nível)?", opts: ["O(1)", "O(n)", "O(n²)", "O(2^n)"], ans: 1, expl: "Cada chamada empilha um frame na pilha; no pior caso, há n frames, resultando em complexidade O(n) de espaço." },
+          { q: "Uma função recursiva que calcula fibonacci(4) faz quantas chamadas no total (incluindo a inicial)?", opts: ["4", "7", "9", "15"], ans: 3, expl: "fibonacci(4) gera fibonacci(3) + fibonacci(2), que se expandem em 9 chamadas no total (contando com a chamada inicial)." }
         ]
       },
       {
@@ -569,7 +612,11 @@ FIM` },
           { q: "Na busca linear, no pior caso, quantos elementos são examinados?", opts: ["Sempre somente um.", "Metade deles.", "Todos eles.", "Nenhum."], ans: 2, expl: "Se o valor estiver no final (ou ausente), a busca linear examina o vetor inteiro." },
           { q: "Na ordenação por bolha, o que \"sobe\" a cada passada pelo vetor?", opts: ["O menor valor.", "Nada se move.", "Os valores menores vão para o fim.", "Os maiores valores vão para o fim."], ans: 3, expl: "As comparações de vizinhos empurram os maiores valores para as últimas posições." },
           { q: "Qual é a complexidade da busca linear no melhor caso?", opts: ["O(1) — examina apenas um elemento.", "O(n) — examina todos.", "O(log n) — divide ao meio.", "O(n²) — compara tudo."], ans: 0, expl: "No melhor caso, o valor procurado está na primeira posição, e a busca linear o encontra imediatamente." },
-          { q: "Na ordenação por seleção, o que se faz a cada passada?", opts: ["Compara elementos vizinhos e troca.", "Procura o menor elemento do trecho não ordenado e troca com a primeira posição.", "Divide o vetor ao meio.", "Inverte a ordem do vetor."], ans: 1, expl: "A ordenação por seleção busca o menor elemento restante e o coloca na posição correta." }
+          { q: "Na ordenação por seleção, o que se faz a cada passada?", opts: ["Compara elementos vizinhos e troca.", "Procura o menor elemento do trecho não ordenado e troca com a primeira posição.", "Divide o vetor ao meio.", "Inverte a ordem do vetor."], ans: 1, expl: "A ordenação por seleção busca o menor elemento restante e o coloca na posição correta." },
+          { q: "Em um vetor de 8 elementos, a busca binária no pior caso faz no máximo quantas comparações?", opts: ["8", "4", "3", "64"], ans: 2, expl: "A busca binária divide o vetor ao meio; log2(8) = 3 comparações no máximo." },
+          { q: "Se o valor procurado está na primeira posição do vetor, a busca linear encontra em:", opts: ["O(1) — primeira comparação.", "O(n) — percorre tudo.", "O(log n) — divide ao meio.", "Nunca encontra."], ans: 0, expl: "No melhor caso, o valor já está na primeira posição e a busca linear o encontra na primeira comparação." },
+          { q: "Na ordenação por bolha, após a primeira passada completa pelo vetor [5, 2, 9, 1, 7], qual elemento está na última posição?", opts: ["5", "7", "9", "1"], ans: 2, expl: "A primeira passada da bolha empurra o maior valor (9) para a última posição." },
+          { q: "Qual é a complexidade da busca binária?", opts: ["O(n)", "O(n²)", "O(log n)", "O(1)"], ans: 2, expl: "A busca binária divide o espaço de busca pela metade a cada passo: O(log n)." }
         ]
       },
       {
@@ -632,7 +679,11 @@ fim algoritmo` },
           { q: "Após X <- 2 e depois X <- Y (com Y = 0,05), qual é o valor final de X?", opts: ["2", "0,05", "2,05", "Indefinido"], ans: 1, expl: "A segunda atribuição sobrescreve X: ele passa a guardar o valor de Y." },
           { q: "No teste de mesa do laço para cont <- 1 até 5, por que o laço termina?", opts: ["Porque o vetor tem 5 posições.", "Porque cont fica maior que 5 e o teste cont <= 5 falha.", "Porque o usuário digitou 0.", "Porque leia parou."], ans: 1, expl: "A condição de continuidade do PARA falha quando a variável de controle ultrapassa o limite." },
           { q: "Ao fazer teste de mesa de um vetor, você deve anotar:", opts: ["Apenas o valor final do vetor.", "Os valores de cada posição do vetor a cada instrução executada.", "Só os valores de entrada.", "Nada, basta executar o código."], ans: 1, expl: "O teste de mesa rastreia o estado de todas as variáveis, incluindo cada posição do vetor, a cada passo." },
-          { q: "Se um algoritmo tem duas variáveis A e B e você troca seus valores com aux <- A; A <- B; B <- aux, qual é o valor final de A se A = 3 e B = 7?", opts: ["3", "7", "0", "Indefinido"], ans: 1, expl: "Após a troca, A recebe o valor que B tinha (7) e B recebe o que A tinha (3)." }
+          { q: "Se um algoritmo tem duas variáveis A e B e você troca seus valores com aux <- A; A <- B; B <- aux, qual é o valor final de A se A = 3 e B = 7?", opts: ["3", "7", "0", "Indefinido"], ans: 1, expl: "Após a troca, A recebe o valor que B tinha (7) e B recebe o que A tinha (3)." },
+          { q: "Se um algoritmo faz X <- 5 e depois X <- X + 3, qual é o valor final de X?", opts: ["5", "3", "8", "13"], ans: 2, expl: "X começa em 5; depois X recebe 5 + 3 = 8. A variável sobrescreve o valor anterior." },
+          { q: "Ao fazer teste de mesa de um PARA de 1 a 5, quantas linhas a tabela terá (uma por iteração)?", opts: ["4", "5", "6", "Depende do código."], ans: 1, expl: "O PARA executa 5 vezes (de 1 a 5), então a tabela registra 5 estados diferentes." },
+          { q: "Se o algoritmo faz B <- 0 e depois B <- B + 2 três vezes, qual é o valor final de B?", opts: ["2", "4", "6", "8"], ans: 2, expl: "B começa em 0; após 3 incrementos de 2: 0+2=2, 2+2=4, 4+2=6." },
+          { q: "Em um teste de mesa, se uma variável A recebe 10 e depois SE (A > 5) ENTAO A <- A - 3, qual é o valor final de A?", opts: ["10", "7", "5", "13"], ans: 1, expl: "10 > 5 é verdadeiro; A recebe 10 - 3 = 7." }
         ]
       },
       {
@@ -681,7 +732,11 @@ fim algoritmo` },
           { q: "Com N = 7, o que RESTO(N, 2) devolve e o que isso significa?", opts: ["0; o número é par", "1; o número é ímpar", "2; o número é divisível", "3,5; resultado decimal"], ans: 1, expl: "7 não é divisível por 2: sobra 1, e por isso o número é ímpar." },
           { q: "Na expressão A - B * C + D, qual operação é resolvida primeiro?", opts: ["A - B", "B * C", "C + D", "A + D"], ans: 1, expl: "Multiplicação tem prioridade sobre adição e subtração, então B * C é resolvida antes." },
           { q: "O que devolve TRUNCA(7.9)?", opts: ["8", "7", "7.9", "0"], ans: 1, expl: "TRUNCA remove a parte fracionária, retornando apenas a parte inteira: 7." },
-          { q: "O que devolve SINAL(-5)?", opts: ["5", "-1", "+1", "0"], ans: 1, expl: "SINAL devolve -1 para números negativos, +1 para positivos e 0 para zero." }
+          { q: "O que devolve SINAL(-5)?", opts: ["5", "-1", "+1", "0"], ans: 1, expl: "SINAL devolve -1 para números negativos, +1 para positivos e 0 para zero." },
+          { q: "O que devolve ARREDONDA(7,6)?", opts: ["7", "8", "7,6", "Erro"], ans: 1, expl: "ARREDONDA converte para o inteiro mais próximo; 7,6 arredonda para 8." },
+          { q: "O que devolve LOG(100)?", opts: ["2", "10", "100", "50"], ans: 0, expl: "LOG retorna o logaritmo na base 10. log10(100) = 2, pois 10^2 = 100." },
+          { q: "O que devolve EXP(0)?", opts: ["0", "1", "e", "Erro"], ans: 1, expl: "EXP(0) = e^0 = 1, qualquer que seja a base (qualquer número elevado a 0 é 1)." },
+          { q: "Se N = 17, o que RESTO(N, 5) devolve?", opts: ["3", "2", "5", "17"], ans: 1, expl: "17 dividido por 5 dá quociente 3 e sobra resto 2. RESTO(17, 5) = 2." }
         ]
       },
       {
@@ -739,7 +794,11 @@ fim algoritmo` },
           { q: "Com L = falso, A = 2, B = 7 e C = 3,5, quanto vale \"não L e A / B >= C\"?", opts: ["verdadeiro", "falso", "depende do programa", "não dá para avaliar"], ans: 1, expl: "não L é V; A / B = 0,28... >= 3,5 é F; então V e F = F." },
           { q: "Qual é a ordem de prioridade entre os operadores lógicos?", opts: ["ou, e, não", "e, ou, não", "não, e, ou", "todos têm a mesma prioridade"], ans: 2, expl: "A prioridade é 1º não, 2º e, 3º ou." },
           { q: "Se p = verdadeiro e q = falso, quanto vale p ou q?", opts: ["verdadeiro", "falso", "Depende", "Erro"], ans: 0, expl: "No operador OU, basta um dos dois ser verdadeiro para o resultado ser verdadeiro." },
-          { q: "Qual expressão resulta em falso quando A = 5 e B = 10?", opts: ["A > 3", "B < A", "A * 2 = B", "B - A > 0"], ans: 1, expl: "10 < 5 é falso; as demais expressões resultam em verdadeiro." }
+          { q: "Qual expressão resulta em falso quando A = 5 e B = 10?", opts: ["A > 3", "B < A", "A * 2 = B", "B - A > 0"], ans: 1, expl: "10 < 5 é falso; as demais expressões resultam em verdadeiro." },
+          { q: "Se p = falso e q = falso, quanto vale p ou q?", opts: ["verdadeiro", "falso", "Depende", "não p"], ans: 1, expl: "No operador OU, se ambos são falsos, o resultado é falso." },
+          { q: "A expressão não (A = 5) E (B = 10), com A = 5 e B = 7, resulta em:", opts: ["verdadeiro", "falso", "Depende", "Erro"], ans: 1, expl: "A = 5 é V; não V = F; B = 10 é F; F E F = F." },
+          { q: "Qual é a prioridade entre os operadores aritméticos e os relacionais?", opts: ["Os relacionais primeiro.", "Os aritméticos primeiro.", "Todos têm a mesma prioridade.", "Depende da expressão."], ans: 1, expl: "A prioridade é: 1º aritméticos, 2º relacionais, 3º não, 4º e, 5º ou." },
+          { q: "Se X = 10 e Y = 3, quanto vale X mod Y <> 0 E X > Y?", opts: ["verdadeiro", "falso", "Erro", "Depende"], ans: 0, expl: "X mod Y = 1; 1 <> 0 é V; X > Y é V; V E V = VERDADEIRO." }
         ]
       },
       {
@@ -821,7 +880,11 @@ fim algoritmo` },
           { q: "O que faz o comando CON <- CON + 1?", opts: ["Soma o valor de CON à própria CON, contando uma ocorrência.", "Multiplica CON por 1.", "Apaga CON.", "Lê um valor para CON."], ans: 0, expl: "Incrementar CON em 1 é a forma clássica de contar quantas vezes o laço passou." },
           { q: "Um flag (ou sentinela) serve para:", opts: ["deixar o laço mais rápido", "indicar, por um valor especial, que a leitura deve parar", "trocar valores entre variáveis", "arredondar números"], ans: 1, expl: "Um valor especial (como 0) marca o fim das entradas quando a quantidade é desconhecida." },
           { q: "Se o acumulador ACM começa em 0 e os valores lidos são 3, 5 e 2, qual é o valor final de ACM?", opts: ["0", "5", "10", "3"], ans: 2, expl: "ACM acumula as somas: 0 + 3 = 3, 3 + 5 = 8, 8 + 2 = 10." },
-          { q: "Para contar quantos números pares foram digitados, o contador deve ser incrementado quando:", opts: ["O número for maior que zero.", "O resto da divisão por 2 for igual a zero.", "O número for ímpar.", "O número for negativo."], ans: 1, expl: "Um número é par quando RESTO(n, 2) = 0. O contador incrementa apenas nesse caso." }
+          { q: "Para contar quantos números pares foram digitados, o contador deve ser incrementado quando:", opts: ["O número for maior que zero.", "O resto da divisão por 2 for igual a zero.", "O número for ímpar.", "O número for negativo."], ans: 1, expl: "Um número é par quando RESTO(n, 2) = 0. O contador incrementa apenas nesse caso." },
+          { q: "Se um acumulador ACM começa em 0 e o laço soma os valores 10, 20 e 30, qual é o valor final de ACM?", opts: ["0", "30", "50", "60"], ans: 3, expl: "ACM acumula: 0 + 10 = 10, 10 + 20 = 30, 30 + 30 = 60." },
+          { q: "Para contar quantas vezes um laço executa, a variável contador deve ser incrementada:", opts: ["Antes do laço.", "Dentro do laço, a cada iteração.", "Depois do laço.", "Nunca."], ans: 1, expl: "O contador precisa ser incrementado dentro do laço para registrar cada passada corretamente." },
+          { q: "Se todos os valores lidos são negativos e o algoritmo inicia maior <- 0, qual problema ocorre?", opts: ["Nenhum problema.", "O maior será 0, que não é um dos valores lidos.", "O programa trava.", "O menor fica errado."], ans: 1, expl: "Iniciar maior com 0 faz o resultado ser 0, que não é nenhum dos valores digitados. Por isso é melhor iniciar com o primeiro valor lido." },
+          { q: "Se o acumulador de produto (ACM) deve começar em qual valor?", opts: ["0", "1", "2", "-1"], ans: 1, expl: "Para produto, o acumulador começa em 1 (elemento neutro da multiplicação). Começar em 0 resultaria sempre em 0." }
         ]
       },
       {
@@ -876,7 +939,11 @@ fim algoritmo` },
           { q: "Qual estrutura executa o corpo SEMPRE pelo menos uma vez?", opts: ["Enquanto", "Repita (até)", "Para com passo 1", "Todas"], ans: 1, expl: "O Repita testa a condição no final, garantindo no mínimo uma execução." },
           { q: "Se o passo não for informado em para A até B, ele vale:", opts: ["0", "1", "B", "depende de A"], ans: 1, expl: "O passo padrão do PARA é 1." },
           { q: "No exemplo das notas fiscais, para que o acumulador somaNF seja zerado antes do laço interno?", opts: ["Para não acumular o total das NFs anteriores no somatório da NF atual.", "Para tornar o programa mais rápido.", "Porque o compilador exige.", "Para contar o número de NFs."], ans: 0, expl: "Se somaNF não for zerado, o somatório da NF atual somaria ao da anterior, gerando um total incorreto." },
-          { q: "Se um PARA tem passo 3 e vai de 1 até 10, quais valores a variável de controle assume?", opts: ["1, 2, 3, 4, 5, 6, 7, 8, 9, 10", "1, 4, 7, 10", "3, 6, 9", "1, 3, 6, 9"], ans: 1, expl: "Começa em 1 e soma 3 a cada iteração: 1, 4, 7, 10. O próximo valor (13) ultrapassa o limite." }
+          { q: "Se um PARA tem passo 3 e vai de 1 até 10, quais valores a variável de controle assume?", opts: ["1, 2, 3, 4, 5, 6, 7, 8, 9, 10", "1, 4, 7, 10", "3, 6, 9", "1, 3, 6, 9"], ans: 1, expl: "Começa em 1 e soma 3 a cada iteração: 1, 4, 7, 10. O próximo valor (13) ultrapassa o limite." },
+          { q: "Em dois laços aninhados, onde o externo roda 3 vezes e o interno 4, quantas vezes o laço interno roda no total?", opts: ["3", "4", "7", "12"], ans: 3, expl: "O laço interno roda 4 vezes para cada iteração do externo: 3 x 4 = 12." },
+          { q: "Se um PARA vai de 10 até 1 com passo -2, quais valores são impressos?", opts: ["10 9 8 7 6 5 4 3 2 1", "10 8 6 4 2", "10 7 4 1", "10 8 6 4 2 0"], ans: 1, expl: "Começa em 10 e subtrai 2: 10, 8, 6, 4, 2. O próximo (-1) ultrapassa o limite inferior." },
+          { q: "Quando a contagem é regressiva no PARA, o passo deve ser:", opts: ["Positivo.", "Zero.", "Negativo.", "Qualquer valor."], ans: 2, expl: "Para contar de trás para frente (decrescente), o passo precisa ser negativo." },
+          { q: "Se o laço externo vai de 1 a 3 e o interno de 1 a 5, a última iteração do laço interno ocorre quando o externo vale:", opts: ["1", "2", "3", "5"], ans: 2, expl: "O laço interno completa suas 5 iterações para cada valor do externo. A última vez é quando o externo vale 3." }
         ]
       },
       {
@@ -945,7 +1012,11 @@ fim algoritmo` },
           { q: "Um objeto local:", opts: ["pode ser usado em qualquer módulo", "existe somente dentro do módulo que o declarou", "é criado quando o programa inicia", "é sempre uma constante"], ans: 1, expl: "Locais só existem dentro do módulo que os define; são criados na chamada e liberados no fim." },
           { q: "Quantos valores uma função pode devolver?", opts: ["nenhum", "um valor, associado ao próprio nome", "dois", "quantos quiser"], ans: 1, expl: "A função devolve um único valor, ligado ao nome da função." },
           { q: "Quando você deve usar uma sub-rotina em vez de uma função?", opts: ["Quando precisa devolver um valor.", "Quando o objetivo é apenas executar comandos, sem devolver valor.", "Quando o algoritmo é curto.", "Nunca é necessário."], ans: 1, expl: "A sub-rotina executa ações sem retornar valor; a função é usada quando o chamador precisa do resultado." },
-          { q: "Usar parâmetros locais em vez de variáveis globais:", opts: ["Deixa o programa mais lento.", "Minimiza efeitos colaterais entre módulos.", "É proibido em pseudocódigo.", "Não faz diferença."], ans: 1, expl: "Variáveis locais existem apenas dentro do módulo, evitando que alterações indevidas afetem outros módulos." }
+          { q: "Usar parâmetros locais em vez de variáveis globais:", opts: ["Deixa o programa mais lento.", "Minimiza efeitos colaterais entre módulos.", "É proibido em pseudocódigo.", "Não faz diferença."], ans: 1, expl: "Variáveis locais existem apenas dentro do módulo, evitando que alterações indevidas afetem outros módulos." },
+          { q: "Na chamada QUADRADO(X), o que é X?", opts: ["Um parâmetro formal.", "Um parâmetro atual (argumento).", "Um módulo.", "Um comentário."], ans: 1, expl: "X é o valor real passado na chamada, ou seja, um parâmetro atual. Os formais seriam os nomes no cabeçalho da sub-rotina." },
+          { q: "Qual é a função do módulo principal em um algoritmo modularizado?", opts: ["Não tem função.", "Iniciar a execução e coordenar as chamadas aos demais módulos.", "Só declarar variáveis globais.", "Ser o único módulo que imprime."], ans: 1, expl: "O módulo principal é o ponto de entrada: ele inicia a execução e chama os outros módulos conforme necessário." },
+          { q: "Em uma função, o valor de retorno pode ser usado diretamente em:", opts: ["Apenas em ESCREVER.", "Uma expressão, como em ACM <- ACM + PAR(X).", "Somente em comparações.", "Nenhum lugar."], ans: 1, expl: "O retorno da função atua como um valor comum, podendo integrar expressões e atribuições." },
+          { q: "Se uma sub-rotina não devolve valor, para que ela serve?", opts: ["Para nada.", "Para executar um conjunto de comandos repetidamente, sem retornar um resultado.", "Para ser mais lenta.", "Para substituir variáveis."], ans: 1, expl: "A sub-rotina executa ações (como calcular e imprimir) sem devolver valor ao chamador." }
         ]
       },
       {
@@ -1009,7 +1080,11 @@ fim algoritmo` },
           { q: "A matriz identidade de ordem N tem:", opts: ["todos os elementos 1", "diagonal principal 1 e o resto 0", "diagonal secundária 1", "todos os elementos 0"], ans: 1, expl: "Identidade: 1 na diagonal principal, 0 nos demais." },
           { q: "Multiplicando A (2x3) por B (3x4), a matriz C resultante é:", opts: ["de ordem 2x4", "de ordem 3x3", "de ordem 2x3", "impossível"], ans: 0, expl: "O produto tem as linhas de A (2) e as colunas de B (4): C é 2x4." },
           { q: "Uma matriz transposta AT de uma matriz A (m x n) tem dimensões:", opts: ["m x m", "n x m", "m x n", "n x n"], ans: 1, expl: "A transposta troca linhas por colunas: se A é m x n, AT é n x m." },
-          { q: "Para que o produto de matrizes A (3x4) e B (4x2) resulte em C, as dimensões de C são:", opts: ["3x2", "4x4", "2x3", "3x4"], ans: 0, expl: "O resultado C tem as linhas de A (3) e as colunas de B (2): C é 3x2." }
+          { q: "Para que o produto de matrizes A (3x4) e B (4x2) resulte em C, as dimensões de C são:", opts: ["3x2", "4x4", "2x3", "3x4"], ans: 0, expl: "O resultado C tem as linhas de A (3) e as colunas de B (2): C é 3x2." },
+          { q: "Uma matriz triangular inferior é caracterizada por:", opts: ["Zeros abaixo da diagonal principal.", "Zeros acima da diagonal principal.", "Todos os elementos iguais.", "Zeros na diagonal principal."], ans: 1, expl: "Na triangular inferior, os zeros estão acima da diagonal principal (I < J -> 0)." },
+          { q: "O produto de matrizes A (2x3) por B (3x2) resulta em uma matriz de ordem:", opts: ["2x2", "3x3", "2x3", "3x2"], ans: 0, expl: "O resultado tem as linhas de A (2) e as colunas de B (2): 2x2." },
+          { q: "Uma matriz é simétrica quando:", opts: ["É igual à sua transposta.", "Todos os elementos são iguais.", "Só tem zeros.", "É quadrada."], ans: 0, expl: "Simétrica significa M[i,j] = M[j,i], ou seja, a matriz é igual à própria transposta." },
+          { q: "Na multiplicação de matrizes C[i,k] = SOMA de A[i,j] * B[j,k], o índice j percorre:", opts: ["As linhas de A.", "As colunas de B.", "As colunas de A (que coincidem com as linhas de B).", "As colunas de C."], ans: 2, expl: "Para o produto ser válido, o número de colunas de A é igual ao de linhas de B; o índice j percorre essa dimensão comum." }
         ]
       }
     ]
@@ -1050,7 +1125,11 @@ int main() {
           { q: "O que significa \\n dentro do printf?", opts: ["Um erro de sintaxe.", "Quebra de linha.", "Uma variável.", "Um comentário."], ans: 1, expl: "\\n é a sequência de escape que pula para a próxima linha." },
           { q: "Em C, cada comando termina com:", opts: ["Ponto final .", "Ponto e vírgula ;", "Dois pontos :", "Nada."], ans: 1, expl: "O ponto e vírgula finaliza cada instrução em C." },
           { q: "A função main() em C retorna um valor do tipo:", opts: ["void", "float", "int", "char"], ans: 2, expl: "No programa principal padrão, main() retorna int, geralmente 0 para indicar sucesso." },
-          { q: "O que acontece quando um programa em C termina com return 0?", opts: ["Indica que houve erro.", "Indica que o programa terminou com sucesso.", "O programa reinicia.", "Nada acontece."], ans: 1, expl: "return 0 é o código de saída padrão que indica execução bem-sucedida." }
+          { q: "O que acontece quando um programa em C termina com return 0?", opts: ["Indica que houve erro.", "Indica que o programa terminou com sucesso.", "O programa reinicia.", "Nada acontece."], ans: 1, expl: "return 0 é o código de saída padrão que indica execução bem-sucedida." },
+          { q: "Para compilar um programa em C, qual ferramenta é comumente utilizada?", opts: ["Python", "GCC (GNU Compiler Collection)", "Photoshop", "Excel"], ans: 1, expl: "O GCC é o compilador mais utilizado para programação em C no ambiente Linux e também disponível em outras plataformas." },
+          { q: "O que são comentários em C e como são criados com //?", opts: ["Instruções que o compilador executa.", "Textos ignorados pelo compilador, usados para documentar o código.", "Variáveis especiais.", "Comandos de entrada de dados."], ans: 1, expl: "Comentários são anotações para o programador; o compilador os ignora completamente." },
+          { q: "Qual é a função da diretiva #include no início de um programa C?", opts: ["Declarar variáveis.", "Incluir o conteúdo de um arquivo de cabeçalho (biblioteca).", "Definir uma constante.", "Iniciar a função main."], ans: 1, expl: "#include copia o conteúdo do arquivo especificado (como stdio.h) para o programa antes da compilação." },
+          { q: "Se uma função em C declarada como int não tiver um return, o que pode acontecer?", opts: ["Nada, é opcional.", "Retorna automaticamente 0.", "O comportamento é indefinido e pode causar erros.", "O compilador adiciona um return 1."], ans: 2, expl: "O comportamento é indefinido se uma função int não retornar um valor explicitamente (fora do main no C99+)." }
         ]
       },
       {
@@ -1113,7 +1192,11 @@ int main() {
           { q: "Para ler um double com scanf, usamos:", opts: ["%d", "%c", "%lf", "%s"], ans: 2, expl: "double é lido com %lf. (float seria %f.)" },
           { q: "O tipo char armazena:", opts: ["Um número inteiro grande.", "Um único caractere, como 'a' ou 'Z'.", "Um texto inteiro.", "Números decimais."], ans: 1, expl: "char guarda um único caractere; textos usam vetores de char (strings)." },
           { q: "Para exibir um número inteiro com printf, usamos o código de formato:", opts: ["%f", "%c", "%d", "%s"], ans: 2, expl: "%d é o código de formato para inteiros decimais em C." },
-          { q: "Qual é a diferença entre float e double em C?", opts: ["Não há diferença.", "float tem precisão simples; double tem precisão dupla (mais precisa).", "float é para inteiros; double para textos.", "double é mais lento e sempre preferível."], ans: 1, expl: "double ocupa mais memória, mas guarda números com mais casas decimais que float." }
+          { q: "Qual é a diferença entre float e double em C?", opts: ["Não há diferença.", "float tem precisão simples; double tem precisão dupla (mais precisa).", "float é para inteiros; double para textos.", "double é mais lento e sempre preferível."], ans: 1, expl: "double ocupa mais memória, mas guarda números com mais casas decimais que float." },
+          { q: "Qual é a diferença entre declarar e atribuir uma variável?", opts: ["São a mesma coisa.", "Declarar reserva o espaço na memória; atribui coloca um valor nesse espaço.", "Declarar é opcional em C.", "Atribuir cria a variável na memória."], ans: 1, expl: "Declarar define o tipo e nome; atribui (=) coloca um valor na variável já declarada." },
+          { q: "Em C, o que acontece se você usar uma variável sem inicializá-la?", opts: ["Sempre vale 0.", "Sempre vale NULL.", "Tem um valor indeterminado (lixo de memória).", "O compilador gera erro."], ans: 2, expl: "Variáveis locais não inicializadas contêm lixo de memória; seu valor é imprevisível." },
+          { q: "O código \"int a = 5, b = 10;\" declara:", opts: ["Uma variável com o valor 5 e 10.", "Duas variáveis int: a valendo 5 e b valendo 10.", "Uma única variável chamada a,b.", "Um erro de sintaxe."], ans: 1, expl: "É possível declarar e inicializar múltiplas variáveis do mesmo tipo em uma linha, separadas por vírgula." },
+          { q: "Qual o tamanho (em memória) típico de um int em C em uma arquitetura de 32 bits?", opts: ["1 byte", "2 bytes", "4 bytes", "8 bytes"], ans: 2, expl: "Em sistemas de 32 bits, int normalmente ocupa 4 bytes (32 bits), armazenando valores de -2^31 a 2^31-1." }
         ]
       },
       {
@@ -1176,7 +1259,11 @@ int main() {
           { q: "O \"default\" do switch executa quando:", opts: ["A condição é verdadeira.", "Nenhum case corresponde à variável.", "Sempre, antes do primeiro case.", "O programa encerra."], ans: 1, expl: "default é o \"senão\" do switch: roda se nenhum case der match." },
           { q: "Para testar vários valores constantes de uma única variável, a estrutura ideal é:", opts: ["while", "switch", "for", "vetor"], ans: 1, expl: "O switch foi feito exatamente para esse padrão de testes com valores constantes." },
           { q: "No switch em C, o que o comando break faz?", opts: ["Encerra o programa.", "Impede que a execução caia no case seguinte.", "Repete o case atual.", "Não tem função importante."], ans: 1, expl: "Sem break, o programa continua executando os cases seguintes (fall-through), o que geralmente é indesejado." },
-          { q: "Qual expressão testa corretamente se x é igual a 5 em C?", opts: ["if (x = 5)", "if (x == 5)", "if (x eq 5)", "if (x := 5)"], ans: 1, expl: "Em C, == é o operador de igualdade; o = sozinho é de atribuição." }
+          { q: "Qual expressão testa corretamente se x é igual a 5 em C?", opts: ["if (x = 5)", "if (x == 5)", "if (x eq 5)", "if (x := 5)"], ans: 1, expl: "Em C, == é o operador de igualdade; o = sozinho é de atribuição." },
+          { q: "O que acontece se você escrever if (x = 5) em vez de if (x == 5)?", opts: ["Erro de compilação imediato.", "A condição sempre será verdadeira, pois atribui 5 a x.", "O programa para.", "A expressão é ignorada."], ans: 1, expl: "if (x = 5) atribui 5 a x e, como 5 é diferente de zero, a condição é sempre verdadeira — um erro lógico clássico." },
+          { q: "Qual operador é usado para testar desigualdade (diferente de) em C?", opts: ["<>", "!=", "=/=", "!<"], ans: 1, expl: "O operador de desigualdade em C é != (diferente de)." },
+          { q: "Em C, no switch, quais são os valores aceitos nos labels case?", opts: ["Expressões qualquer.", "Somente constantes inteiras (ou char).", "Strings.", "Variáveis e constantes sem restrição."], ans: 1, expl: "Os labels case aceitam apenas constantes inteiras (int ou char). Strings e expressões variáveis não são permitidos." },
+          { q: "Qual é o resultado da expressão 5 > 3 && 2 < 4 em C?", opts: ["0", "1", "Erro", "8"], ans: 1, expl: "5 > 3 é 1 (verdadeiro) e 2 < 4 também é 1; 1 && 1 = 1 (verdadeiro)." }
         ]
       },
       {
@@ -1231,7 +1318,12 @@ int main() {
           { q: "Qual laço garante que o bloco seja executado pelo menos uma vez?", opts: ["for", "while", "do-while", "if"], ans: 2, expl: "No do-while a condição é testada no final, então o corpo sempre roda ao menos uma vez." },
           { q: "soma += i é o mesmo que:", opts: ["soma = i", "soma = soma + i", "i = i + soma", "soma = soma * i"], ans: 1, expl: "O operador composto += soma o valor da direita à variável da esquerda." },
           { q: "O que o comando i++ faz em C?", opts: ["Multiplica i por 2.", "Incrementa o valor de i em 1.", "Decrementa i.", "Imprime o valor de i."], ans: 1, expl: "i++ é equivalente a i = i + 1; aumenta o valor da variável em 1 unidade." },
-          { q: "No laço while, se a condição for falsa desde o início, o corpo:", opts: ["Executa uma vez.", "Nunca é executado.", "Executa infinitamente.", "Causa erro de compilação."], ans: 1, expl: "O while testa antes de executar; se a condição já é falsa, o corpo não roda nenhuma vez." }
+          { q: "No laço while, se a condição for falsa desde o início, o corpo:", opts: ["Executa uma vez.", "Nunca é executado.", "Executa infinitamente.", "Causa erro de compilação."], ans: 1, expl: "O while testa antes de executar; se a condição já é falsa, o corpo não roda nenhuma vez." },
+          { q: "O que acontece se você esquecer o comando i++ dentro de um laço while?", opts: ["O laço roda uma vez a mais.", "O laço vira um loop infinito.", "Erro de compilação.", "Nada muda."], ans: 1, expl: "Sem alterar a variável de controle, a condição nunca muda de valor e o laço nunca termina (loop infinito)." },
+          { q: "No laço do-while, em que momento a condição é avaliada?", opts: ["Antes da primeira execução.", "No final de cada iteração.", "Somente no início do programa.", "Nunca."], ans: 1, expl: "No do-while, a condição é testada ao final de cada iteração, garantindo que o corpo execute ao menos uma vez." },
+          { q: "Quantas vezes o bloco executa em: do { ... } while (0); ?", opts: ["Zero vezes.", "Uma vez.", "Infinitas vezes.", "Depende do conteúdo."], ans: 1, expl: "O do-while executa o corpo uma vez e só então testa a condição. Como 0 é falso, o laço termina após a primeira execução." },
+          { q: "Qual seria o resultado de for (i = 10; i >= 1; i--) que imprime i?", opts: ["1 2 3 ... 10", "10 9 8 ... 1", "10 8 6 ... 2", "Nada"], ans: 1, expl: "Com i-- e condição i >= 1, o laço imprime de 10 até 1 em ordem decrescente." },
+          { q: "Qual é a forma correta de um laço for que soma de 1 a 100?", opts: ["for (i = 1; i < 100; i++)", "for (i = 1; i <= 100; i++)", "for (i = 100; i >= 1; i++)", "for (i = 0; i < 100; i++)"], ans: 1, expl: "Para incluir o 100 na soma, a condição deve ser i <= 100 (ou i < 101)." }
         ]
       },
       {
@@ -1300,7 +1392,11 @@ int main() {
           { q: "Para ler um inteiro na posição i do vetor, usamos:", opts: ["scanf(\"%d\", notas[i]);", "scanf(\"%d\", &notas[i]);", "scanf(\"%d\", &notas);", "scanf(\"%d\", notas);"], ans: 1, expl: "Cada elemento precisa do seu endereço: &notas[i]." },
           { q: "Em uma matriz, mat[1][2] significa:", opts: ["Linha 1, coluna 2.", "Linha 2, coluna 1.", "Expressão inválida.", "O valor 12."], ans: 0, expl: "O primeiro índice é a linha e o segundo a coluna." },
           { q: "Em C, o último índice válido de um vetor int v[10] é:", opts: ["v[10]", "v[9]", "v[11]", "v[1]"], ans: 1, expl: "A contagem começa em 0, então as posições vão de v[0] a v[9]." },
-          { q: "Ao ler uma string com scanf(\"%s\", nome), o que acontece se o usuário digitar \"João Silva\"?", opts: ["A string inteira é lida.", "Apenas \"João\" é lida, parando no espaço.", "O programa trava.", "Dá erro de compilação."], ans: 1, expl: "scanf com %s lê até encontrar um espaço. Para ler a frase completa, seria necessário usar fgets." }
+          { q: "Ao ler uma string com scanf(\"%s\", nome), o que acontece se o usuário digitar \"João Silva\"?", opts: ["A string inteira é lida.", "Apenas \"João\" é lida, parando no espaço.", "O programa trava.", "Dá erro de compilação."], ans: 1, expl: "scanf com %s lê até encontrar um espaço. Para ler a frase completa, seria necessário usar fgets." },
+          { q: "O que acontece se você acessar uma posição além dos limites de um vetor em C?", opts: ["O compilador acusa erro.", "É um comportamento indefinido: acessa memória indevida.", "Retorna sempre 0.", "O programa não compila."], ans: 1, expl: "C não verifica limites de vetores; acessar além do tamanho lê memória de outra região, com resultado imprevisível." },
+          { q: "Qual é a utilidade do operador (float) em soma / 5 no exemplo da média?", opts: ["Multiplicar a soma por 5.", "Fazer a divisão resultar em um número real (float) em vez de inteiro truncado.", "Nenhuma, é desnecessário.", "Converter para inteiro."], ans: 1, expl: "O cast (float) força a divisão a ser realizada em ponto flutuante, evitando a truncagem da divisão inteira." },
+          { q: "Para percorrer todos os elementos de um vetor int v[5], o laço mais adequado é:", opts: ["for (i = 1; i <= 5; i++)", "for (i = 0; i < 5; i++)", "while (i > 5)", "Nenhum."], ans: 1, expl: "Como os índices vão de 0 a 4, o laço correto é de 0 até menor que 5." },
+          { q: "Como se calcula a média de um vetor de inteiros corretamente em C?", opts: ["media = soma / n;", "media = (float) soma / n;", "media = soma % n;", "media = soma * n;"], ans: 1, expl: "Para que a média tenha casas decimais, é preciso converter o numerador para float antes de dividir." }
         ]
       },
       {
@@ -1357,7 +1453,12 @@ int main() {
           { q: "Uma função declarada como void:", opts: ["Precisa retornar um int.", "Não retorna valor.", "Só pode imprimir números.", "Não pode ter parâmetros."], ans: 1, expl: "void indica que a função não devolve nenhum resultado." },
           { q: "O protótipo de uma função serve para:", opts: ["Imprimir o resultado antecipadamente.", "Avisar o compilador sobre a função antes de seu uso.", "Armazenar valores.", "Quebrar linha."], ans: 1, expl: "O protótipo declara a assinatura da função, permitindo chamá-la antes da definição." },
           { q: "Uma função void em C:", opts: ["Precisa retornar um int.", "Não retorna valor.", "Não pode ter parâmetros.", "Só pode ser chamada uma vez."], ans: 1, expl: "void indica que a função não devolve nenhum valor ao chamador." },
-          { q: "Ao chamar uma função, os argumentos são:", opts: ["Sempre variáveis.", "Podem ser constantes, variáveis ou expressões.", "Sempre do tipo int.", "Ignorados pela função."], ans: 1, expl: "Argumentos podem ser valores literais (5), variáveis (x) ou expressões (x + 3) que correspondam aos tipos dos parâmetros." }
+          { q: "Ao chamar uma função, os argumentos são:", opts: ["Sempre variáveis.", "Podem ser constantes, variáveis ou expressões.", "Sempre do tipo int.", "Ignorados pela função."], ans: 1, expl: "Argumentos podem ser valores literais (5), variáveis (x) ou expressões (x + 3) que correspondam aos tipos dos parâmetros." },
+          { q: "O que o comando return valor faz em uma função?", opts: ["Imprime o valor na tela.", "Encerra a função devolvendo um valor ao chamador.", "Reinicia o programa.", "Declara uma variável local."], ans: 1, expl: "return devolve o resultado ao chamador e encerra imediatamente a execução da função." },
+          { q: "Em C, uma função pode ser chamada de dentro de outra função?", opts: ["Não, é proibido.", "Sim, funções podem chamar outras funções livremente.", "Somente se for main.", "Apenas se não retornar valor."], ans: 1, expl: "Funções podem chamar outras funções, inclusive de bibliotecas ou definidas pelo programador (recursão inclusive)." },
+          { q: "Qual é a complexidade de usar passagem por referência em vez de por valor?", opts: ["Torna o código sempre mais lento.", "Permite que a função modifique a variável original do chamador.", "Elimina a necessidade do main.", "Não tem função no C."], ans: 1, expl: "Com ponteiros (por referência), a função recebe o endereço e pode alterar o valor da variável original." },
+          { q: "Uma variável declarada dentro de uma função é:", opts: ["Global.", "Local, e só existe durante a chamada à função.", "Estática por padrão.", "Compartilhada entre todas as funções."], ans: 1, expl: "Variáveis locais são criadas ao entrar na função e destruídas quando ela retorna." },
+          { q: "Qual é o resultado do programa ao chamar quadrado(3)?", opts: ["6", "9", "12", "3"], ans: 1, expl: "quadrado(3) retorna 3 * 3 = 9." }
         ]
       },
       {
@@ -1401,7 +1502,12 @@ int main() {
           { q: "Dado int *ptr = &x, a expressão *ptr representa:", opts: ["O endereço de x.", "O valor armazenado em x.", "Um erro de sintaxe.", "Um texto."], ans: 1, expl: "Desreferenciar (*ptr) acessa o valor guardado no endereço apontado — ou seja, o valor de x." },
           { q: "Qual é a principal utilidade de passar um ponteiro para uma função?", opts: ["Tornar o programa menor.", "Permitir alterar a variável original dentro da função.", "Eliminar as variáveis.", "Acelerar o compilador."], ans: 1, expl: "Com ponteiros, a função muda o valor na própria variável original (passagem por referência)." },
           { q: "Se int x = 42; int *p = &x; o que *p + 1 resulta?", opts: ["O endereço de x somado a 1.", "O valor 43.", "Erro de compilação.", "O valor 42."], ans: 1, expl: "*p acessa o valor de x (42); somando 1, o resultado é 43." },
-          { q: "Para declarar um ponteiro para o tipo float, usamos:", opts: ["float p;", "float *p;", "int *p;", "float &p;"], ans: 1, expl: "O * na declaração indica que p é um ponteiro. float *p significa 'ponteiro para float'." }
+          { q: "Para declarar um ponteiro para o tipo float, usamos:", opts: ["float p;", "float *p;", "int *p;", "float &p;"], ans: 1, expl: "O * na declaração indica que p é um ponteiro. float *p significa 'ponteiro para float'." },
+          { q: "Dado int x = 10; int *p = &x; qual é o efeito do comando *p = 20;?", opts: ["Nenhum, é inválido.", "Altera o valor de x para 20.", "Cria outro ponteiro.", "Imprime o endereço."], ans: 1, expl: "Desreferenciar com *p acessa a variável apontada (x); atribuir altera x para 20." },
+          { q: "Qual é o operador que obtém o endereço de uma variável?", opts: ["*", "&", "#", "@"], ans: 1, expl: "O operador & retorna o endereço de memória da variável." },
+          { q: "O que acontece se você desreferenciar um ponteiro sem ter atribuído um endereço válido?", opts: ["Retorna NULL automaticamente.", "É um comportamento indefinido, acessando memória inválida.", "Nunca causa erro.", "Retorna sempre 0."], ans: 1, expl: "Desreferenciar ponteiro não inicializado acessa endereço inválido e causa erro/segfault." },
+          { q: "Como um vetor se relaciona com ponteiros em C?", opts: ["Não há relação.", "O nome de um vetor é um ponteiro constante para seu primeiro elemento.", "Vetores não podem ser usados com ponteiros.", "O vetor é sempre um int."], ans: 1, expl: "O identificador de um vetor equivale ao endereço do primeiro elemento (notas == &notas[0])." },
+          { q: "Qual é a utilidade da função malloc() relacionada a ponteiros?", opts: ["Imprimir valores.", "Alocar memória dinamicamente, retornando um ponteiro.", "Comparar strings.", "Liberar o programa."], ans: 1, expl: "malloc reserva memória em tempo de execução e devolve um ponteiro para o início da região alocada." }
         ]
       },
       {
@@ -1466,7 +1572,11 @@ int main() {
           { q: "Para somar todos os elementos da coluna C, qual é o papel dos loops?", opts: ["Manter C fixo e variar L no loop externo.", "Variar C fixo e manter L.", "Usar apenas um loop sem índices.", "Não é possível somar colunas."], ans: 0, expl: "A coluna fica fixa (m[L][C] com C constante) enquanto a linha varia no loop." },
           { q: "O que acontece se você acessar m[3][1] em uma matriz int m[3][3]?", opts: ["Um erro de compilação garantido.", "Acessa memória fora da matriz, com resultado imprevisível.", "Retorna sempre zero.", "O programa trava na hora."], ans: 1, expl: "Os índices válidos vão de 0 a 2; acessar índice 3 lê memória indevida sem aviso." },
           { q: "Em uma matriz int m[3][3], como se acessa o elemento da linha 2, coluna 1?", opts: ["m[2][1]", "m[1][2]", "m[3][1]", "m[2,1]"], ans: 0, expl: "O primeiro índice é a linha (2) e o segundo a coluna (1): m[2][1]." },
-          { q: "Para preencher uma matriz 3x3 com valores de 1 a 9, a melhor abordagem é:", opts: ["Um único laço percorrendo 9 posições.", "Dois laços aninhados, um para linhas e outro para colunas.", "Declarar cada elemento manualmente.", "Não é possível preencher uma matriz."], ans: 1, expl: "Dois laços aninhados (linhas x colunas) percorrem todos os elementos de forma organizada." }
+          { q: "Para preencher uma matriz 3x3 com valores de 1 a 9, a melhor abordagem é:", opts: ["Um único laço percorrendo 9 posições.", "Dois laços aninhados, um para linhas e outro para colunas.", "Declarar cada elemento manualmente.", "Não é possível preencher uma matriz."], ans: 1, expl: "Dois laços aninhados (linhas x colunas) percorrem todos os elementos de forma organizada." },
+          { q: "Na matriz int m[3][3], o elemento m[1][1] está localizado na:", opts: ["Linha 1, coluna 1 (segunda linha, segunda coluna).", "Linha 0, coluna 0.", "Linha 3, coluna 3.", "Linha 2, coluna 2."], ans: 0, expl: "Os índices em C começam em 0; m[1][1] é a segunda linha, segunda coluna." },
+          { q: "Como somar todos os elementos de uma matriz int m[3][3]?", opts: ["Usar um único laço.", "Usar dois laços aninhados acumulando m[L][C].", "Não é possível.", "Somar apenas a diagonal."], ans: 1, expl: "Dois laços aninhados percorrem todas as linhas e colunas, acumulando cada m[L][C]." },
+          { q: "Qual é o tipo de retorno do exemplo que soma a diagonal?", opts: ["void", "int", "float", "char"], ans: 1, expl: "A soma da diagonal envolve valores inteiros e a variável que acumula é do tipo int." },
+          { q: "Em uma matriz int m[4][3], qual é o elemento da última linha e última coluna?", opts: ["m[4][3]", "m[3][2]", "m[0][0]", "m[2][3]"], ans: 1, expl: "Os índices vão de 0 a 3 (linhas) e de 0 a 2 (colunas): o último é m[3][2]." }
         ]
       },
       {
@@ -1518,7 +1628,11 @@ int main() {
           { q: "Para declarar uma string capaz de guardar até 19 caracteres significativos, usamos:", opts: ["char s[19];", "char s[20];", "char s;", "string s;"], ans: 1, expl: "Precisamos de espaço para os caracteres mais o '\\0': 19 + 1 = 20." },
           { q: "O que acontece na comparação se uma string não tiver o '\\0' final?", opts: ["A comparação para imediatamente.", "O loop lê além do vetor, comparando memória indevida.", "Resulta em erro de compilação.", "O programa imprime \"Iguais\" sempre."], ans: 1, expl: "Sem o terminador, o loop não encontra o fim e segue lendo memória além do vetor, com resultados imprevisíveis." },
           { q: "Ao declarar char s[5] = \"Hi\"; quantos caracteres significativos a string contém?", opts: ["5", "2", "3", "4"], ans: 1, expl: "\"Hi\" tem 2 caracteres significativos ('H' e 'i'), mas ocupa 3 posições (incluindo o '\\0')." },
-          { q: "Como percorrer uma string caractere a caractere em C?", opts: ["Usar um laço while verificando se cada caractere é diferente de '\\0'.", "Usar um laço for com tamanho fixo.", "Não é possível percorrer strings em C.", "Usar a função strlen."], ans: 0, expl: "O loop percorre o vetor até encontrar o terminador '\\0', processando cada caractere." }
+          { q: "Como percorrer uma string caractere a caractere em C?", opts: ["Usar um laço while verificando se cada caractere é diferente de '\\0'.", "Usar um laço for com tamanho fixo.", "Não é possível percorrer strings em C.", "Usar a função strlen."], ans: 0, expl: "O loop percorre o vetor até encontrar o terminador '\\0', processando cada caractere." },
+          { q: "Qual é o valor numérico do caractere nulo '\\0'?", opts: ["0", "1", "32 (espaço)", "10 (nova linha)"], ans: 0, expl: "O caractere nulo '\\0' tem valor numérico 0 e é usado para finalizar strings." },
+          { q: "Quantas posições o vetor char precisa para guardar \"Vetor\" (5 letras)?", opts: ["5", "6", "7", "4"], ans: 1, expl: "São os 5 caracteres mais o '\\0' final: 6 posições ao todo." },
+          { q: "Se declararmos char s[5] = {'A','B','C','D','\\0'}, o que printf(\"%s\", s) imprime?", opts: ["ABCD\\0", "ABCD", "ABC", "Erro de compilação"], ans: 1, expl: "O %s imprime os caracteres até o '\\0', que não é exibido: \"ABCD\"." },
+          { q: "Por que não usamos & antes de nome ao ler com scanf(\"%s\", nome)?", opts: ["É obrigatório usar &.", "Porque nome já é o endereço do primeiro caractere do vetor.", "Para não compilar.", "Porque strings não podem ser lidas."], ans: 1, expl: "O nome de um vetor de char é um ponteiro para o primeiro elemento, então já é o endereço desejado." }
         ]
       },
       {
@@ -1570,7 +1684,11 @@ int main() {
           { q: "Por que fib(30) recursivo é muito mais lento que um loop?", opts: ["Porque usa mais varáveis.", "Porque recalcula os mesmos valores muitas vezes, em árvore.", "Porque C não suporta recursão.", "Não é mais lento."], ans: 1, expl: "As chamadas sobrepostas repetem o cálculo de muitos termos, explodindo o número de operações." },
           { q: "No interpretador, por que o código recursivo não pode usar o operador ?:", opts: ["Porque ?: é mais lento.", "Porque o interpretador não suporta o ternário ?:. ", "Porque ?: não existe em C.", "Porque exige mais memória."], ans: 1, expl: "O interpretador deste projeto não dá suporte ao operador ternário; devemos usar if/else." },
           { q: "O que acontece se uma função recursiva em C não tiver caso-base?", opts: ["Retorna 0.", "Causa estouro de pilha (stack overflow) e o programa trava.", "Compila normalmente.", "Executa apenas uma vez."], ans: 1, expl: "Sem caso-base, cada chamada empilha uma nova cópia até esgotar a memória da pilha." },
-          { q: "A chamada fatorial(3) expande para qual expressão?", opts: ["3 * fatorial(1)", "3 * 2 * 1", "3 * 2 * fatorial(1)", "3 * 2 * 3"], ans: 2, expl: "fatorial(3) = 3 * fatorial(2) = 3 * 2 * fatorial(1). O caso-base (n <= 1) retorna 1." }
+          { q: "A chamada fatorial(3) expande para qual expressão?", opts: ["3 * fatorial(1)", "3 * 2 * 1", "3 * 2 * fatorial(1)", "3 * 2 * 3"], ans: 2, expl: "fatorial(3) = 3 * fatorial(2) = 3 * 2 * fatorial(1). O caso-base (n <= 1) retorna 1." },
+          { q: "Qual é o resultado de fib(3) usando a função recursiva do exemplo?", opts: ["2", "3", "5", "1"], ans: 0, expl: "fib(3) = fib(2) + fib(1) = (fib(1)+fib(0)) + 1 = (1+0)+1 = 2." },
+          { q: "Qual é a complexidade de tempo da versão recursiva de Fibonacci?", opts: ["O(n)", "O(n²)", "O(2^n)", "O(log n)"], ans: 2, expl: "Cada chamada gera duas novas chamadas, resultando em crescimento exponencial O(2^n)." },
+          { q: "Em uma recursão de fatorial(5), quantas chamadas recursivas são feitas até o caso-base?", opts: ["4", "5", "6", "1"], ans: 1, expl: "São chamadas fatorial(5), fatorial(4), fatorial(3), fatorial(2) e fatorial(1) — 5 chamadas ao todo (4 além da inicial até o caso-base)." },
+          { q: "Se você modificar o passo recursivo para fatorial(n) retornar fatorial(n-1) sem multiplicar, o que acontece?", opts: ["Retorna o valor correto.", "Todas as chamadas retornam o caso-base (1), pois o valor n é descartado.", "Erro de compilação.", "Loop infinito."], ans: 1, expl: "Sem multiplicar por n, cada chamada apenas propaga o resultado do caso-base, retornando 1 sempre." }
         ]
       },
       {
@@ -1619,7 +1737,11 @@ int main() {
           { q: "O que devolve fabs(-7.5)?", opts: ["-7.5", "7.5", "0", "erro em tempo de execução"], ans: 1, expl: "fabs devolve o valor absoluto, sem o sinal." },
           { q: "floor(2.9) e ceil(2.1) são, respectivamente:", opts: ["2 e 2", "3 e 3", "2 e 3", "3 e 2"], ans: 2, expl: "floor arredonda para baixo (2.9 -> 2); ceil arredonda para cima (2.1 -> 3)." },
           { q: "O que devolve trunc(3.9)?", opts: ["3", "4", "3.9", "0"], ans: 0, expl: "trunc remove a parte fracionária: 3.9 vira 3." },
-          { q: "Qual é o valor de log10(100)?", opts: ["2, pois 10² = 100.", "100.", "10.", "Erro de compilação."], ans: 0, expl: "log10 calcula o logaritmo na base 10: log10(100) = 2." }
+          { q: "Qual é o valor de log10(100)?", opts: ["2, pois 10² = 100.", "100.", "10.", "Erro de compilação."], ans: 0, expl: "log10 calcula o logaritmo na base 10: log10(100) = 2." },
+          { q: "O que devolve pow(3, 2)?", opts: ["6", "9", "12", "23"], ans: 1, expl: "pow(x, y) eleva x à potência y: pow(3, 2) = 3² = 9." },
+          { q: "Qual função arredonda um número para o inteiro seguinte (para cima)?", opts: ["floor", "ceil", "trunc", "fabs"], ans: 1, expl: "ceil(n) arredonda para cima: ceil(2.1) = 3." },
+          { q: "Qual é o resultado de 13 % 4 em C?", opts: ["3", "1", "4", "3.25"], ans: 1, expl: "O operador % devolve o resto da divisão inteira: 13 % 4 = 1." },
+          { q: "Qual função calcula o logaritmo natural (na base e)?", opts: ["log10", "log", "exp", "sqrt"], ans: 1, expl: "log(n) calcula o logaritmo neperiano (natural), na base do número de Euler (e)." }
         ]
       },
       {
@@ -1675,7 +1797,11 @@ int main() {
           { q: "Como ler uma linha inteira de texto (com espaços) em C?", opts: ["scanf(\"%d\", &x)", "scanf(\" %[^\\n]\", nome)", "printf(\"%s\", x)", "Nenhuma das anteriores."], ans: 1, expl: "O scanset %[^\\n] lê todos os caracteres até a quebra de linha." },
           { q: "5 / 2 em C com tipos inteiros devolve:", opts: ["2.5", "2", "3", "erro de compilação"], ans: 1, expl: "A divisão entre inteiros trunca: 5 / 2 = 2." },
           { q: "Para imprimir uma string com printf, usamos o código:", opts: ["%d", "%f", "%s", "%c"], ans: 2, expl: "%s é o código de formato para strings (cadeias de caracteres) no printf." },
-          { q: "O que acontece se você usar printf(\"%d\", 3.14)?", opts: ["Imprime 3.14 corretamente.", "Imprime um valor lixo, pois %d espera um inteiro.", "Erro de compilação.", "Imprime 3."], ans: 1, expl: "%d interpreta os bytes como inteiro; passar um float gera comportamento imprevisível." }
+          { q: "O que acontece se você usar printf(\"%d\", 3.14)?", opts: ["Imprime 3.14 corretamente.", "Imprime um valor lixo, pois %d espera um inteiro.", "Erro de compilação.", "Imprime 3."], ans: 1, expl: "%d interpreta os bytes como inteiro; passar um float gera comportamento imprevisível." },
+          { q: "Qual código de formato é usado para exibir um caractere?", opts: ["%d", "%c", "%f", "%s"], ans: 1, expl: "%c é o código de formato para caracteres simples em C." },
+          { q: "O que significa o modificador l em %lf?", opts: ["Que o número é long.", "Que se trata de um double (variante com l).", "Que o número é pequeno.", "Que é um caractere."], ans: 1, expl: "%lf é usado para ler/exibir variáveis do tipo double (o l indica long)." },
+          { q: "Como exibir o símbolo de percentual % usando printf?", opts: ["printf(\"%\")", "printf(\"%%\")", "printf(\"\\\\%\")", "printf(\"%p\")"], ans: 1, expl: "Para exibir um % textual, é preciso escrever %% no printf." },
+          { q: "No comando scanf(\" %[^\\n]\", nome), para que serve o espaço antes de %[^\\n]?", opts: ["Para não ler nada.", "Para limpar o buffer do teclado, descartando a quebra de linha.", "Para imprimir um espaço.", "Não tem utilidade."], ans: 1, expl: "O espaço consome a quebra de linha residual de um scanf anterior, permitindo ler a linha completa." }
         ]
       },
       {
@@ -1723,7 +1849,11 @@ int main() {
           { q: "int LIVRO[4][3][3] armazena quantos elementos?", opts: ["9", "12", "36", "33"], ans: 2, expl: "4 x 3 x 3 = 36." },
           { q: "Para percorrer uma matriz 3x3 em C, quantos laços aninhados são necessários?", opts: ["um", "dois", "três", "nenhum"], ans: 1, expl: "Uma dimensão por laço: um para linhas e outro para colunas." },
           { q: "No produto de matrizes, por que precisamos de três laços aninhados?", opts: ["Um para cada dimensão: linhas de A, colunas de B e a soma dos produtos.", "Porque matrizes sempre precisam de 3 laços.", "Para ler os dados de entrada.", "Para imprimir o resultado."], ans: 0, expl: "O laço mais interno calcula a soma dos produtos A[i][j]*B[j][k] para cada par (i, k) da matriz resultado." },
-          { q: "Se A é uma matriz 2x3 e B é uma matriz 3x4, qual é a dimensão de C = A x B?", opts: ["2x3", "3x4", "2x4", "3x3"], ans: 2, expl: "C herda as linhas de A (2) e as colunas de B (4), resultando em 2x4." }
+          { q: "Se A é uma matriz 2x3 e B é uma matriz 3x4, qual é a dimensão de C = A x B?", opts: ["2x3", "3x4", "2x4", "3x3"], ans: 2, expl: "C herda as linhas de A (2) e as colunas de B (4), resultando em 2x4." },
+          { q: "Na multiplicação C[i][k] += A[i][j] * B[j][k], o índice j percorre:", opts: ["As linhas de C.", "A dimensão comum: colunas de A e linhas de B.", "As colunas de C.", "As linhas de B."], ans: 1, expl: "j percorre o número de colunas de A, que deve ser igual ao número de linhas de B." },
+          { q: "Por que não é possível multiplicar uma matriz 2x3 por outra 2x3?", opts: ["Porque são iguais.", "Porque o número de colunas de A (3) não é igual ao número de linhas de B (2).", "Porque são muito pequenas.", "É possível."], ans: 1, expl: "Para multiplicar, o número de colunas de A deve igualar o número de linhas de B. 3 ≠ 2, logo não é possível." },
+          { q: "Em uma multiplicação de matrizes, quantos loops aninhados são necessários para A (m x n) por B (n x p)?", opts: ["1", "2", "3", "4"], ans: 2, expl: "São três loops: um para as linhas de A (i), um para as colunas de B (k) e um interno para os produtos (j)." },
+          { q: "Qual é o elemento C[0][0] ao multiplicar A = [[1,2],[3,4]] por B = [[5,6],[7,8]]?", opts: ["5", "19", "11", "21"], ans: 1, expl: "C[0][0] = A[0][0]*B[0][0] + A[0][1]*B[1][0] = 1*5 + 2*7 = 5 + 14 = 19." }
         ]
       },
       {
@@ -1794,7 +1924,11 @@ int main() {
           { q: "No InsertSort, o elemento 'eleito' é:", opts: ["O primeiro elemento do vetor.", "O elemento atual sendo inserido na posição correta.", "O maior elemento sempre.", "O último elemento."], ans: 1, expl: "A cada iteração o elemento atual (eleito) é deslocado até sua posição correta na parte ordenada." },
           { q: "No InsertSort, os elementos maiores que o eleito são:", opts: ["Eliminados.", "Deslocados uma posição para a direita.", "Mantidos fixos.", "Movidos para outro vetor."], ans: 1, expl: "O laço interno desloca para a direita os elementos maiores que o eleito para abrir espaço." },
           { q: "Qual método lembra a forma como um jogador ordena cartas na mão?", opts: ["BubbleSort", "InsertSort", "QuickSort", "Busca binária"], ans: 1, expl: "O InsertSort insere cada nova carta (elemento) na posição correta, como quem organiza cartas na mão." },
-          { q: "Depois de ordenar o vetor {5, 2, 4, 1, 3} em ordem crescente, obtemos:", opts: ["{5, 4, 3, 2, 1}", "{1, 2, 3, 4, 5}", "{2, 1, 5, 3, 4}", "{3, 1, 4, 2, 5}"], ans: 1, expl: "Em ordem crescente, os elementos ficam do menor para o maior: 1, 2, 3, 4, 5." }
+          { q: "Depois de ordenar o vetor {5, 2, 4, 1, 3} em ordem crescente, obtemos:", opts: ["{5, 4, 3, 2, 1}", "{1, 2, 3, 4, 5}", "{2, 1, 5, 3, 4}", "{3, 1, 4, 2, 5}"], ans: 1, expl: "Em ordem crescente, os elementos ficam do menor para o maior: 1, 2, 3, 4, 5." },
+          { q: "Qual é a complexidade de tempo no pior caso do BubbleSort?", opts: ["O(n)", "O(n²)", "O(log n)", "O(1)"], ans: 1, expl: "O BubbleSort tem complexidade O(n²), pois usa dois laços aninhados." },
+          { q: "No InsertSort, o laço interno tem o objetivo de:", opts: ["Percorrer o vetor inteiro.", "Deslocar elementos maiores que o eleito para abrir espaço.", "Ordenar de forma binária.", "Contar elementos."], ans: 1, expl: "O eleito encontra seu lugar deslocando para a direita os elementos maiores que ele." },
+          { q: "Para que serve a variável aux no BubbleSort?", opts: ["Para armazenar um valor temporariamente durante uma troca.", "Para contar iterações.", "Para armazenar o menor elemento.", "Para controlar o fim."], ans: 0, expl: "aux guarda temporariamente um valor para que a troca entre v[j] e v[j+1] seja feita sem perda de dados." },
+          { q: "Qual desses métodos é o mais eficiente para vetores muito grandes?", opts: ["BubbleSort", "InsertSort", "Apenas QuickSort (métodos O(n²) não são recomendados)", "Qualquer um deles"], ans: 2, expl: "Para vetores grandes, métodos O(n²) como Bubble e Insert são lentos; QuickSort (divide e conquista) é preferível." }
         ]
       },
       {
@@ -1847,7 +1981,11 @@ int main() {
           { q: "Na busca binária, a cada passo você:", opts: ["Percorre o vetor inteiro.", "Descarta metade do intervalo.", "Retira dois elementos.", "Embaralha o vetor."], ans: 1, expl: "Comparando com o elemento do meio, descarta-se metade do intervalo a cada iteração." },
           { q: "No vetor {20, 35, 46, 48, 58}, qual é o primeiro elemento comparado ao procurar 35?", opts: ["20", "46", "35", "58"], ans: 1, expl: "O meio é 46 (índice 2). Como 35 < 46, a busca continua na metade esquerda {20, 35}." },
           { q: "A busca sequencial, no pior caso, percorre:", opts: ["Metade do vetor.", "O vetor inteiro.", "O primeiro elemento apenas.", "O último elemento apenas."], ans: 1, expl: "Se o valor está no fim (ou não existe), a sequencial precisa percorrer todos os elementos." },
-          { q: "Por que a busca binária é mais rápida que a sequencial?", opts: ["Porque usa ponteiros.", "Porque elimina metade das opções a cada comparação.", "Porque o vetor é menor.", "Na verdade é mais lenta."], ans: 1, expl: "Ao comparar com o meio e descartar metade a cada passo, o número de comparações cresce muito mais devagar." }
+          { q: "Por que a busca binária é mais rápida que a sequencial?", opts: ["Porque usa ponteiros.", "Porque elimina metade das opções a cada comparação.", "Porque o vetor é menor.", "Na verdade é mais lenta."], ans: 1, expl: "Ao comparar com o meio e descartar metade a cada passo, o número de comparações cresce muito mais devagar." },
+          { q: "Qual é o passo inicial da busca binária?", opts: ["Comparar o valor com o primeiro elemento.", "Comparar o valor com o elemento do meio do vetor.", "Ordenar o vetor novamente.", "Comparar com o último elemento."], ans: 1, expl: "A busca binária começa comparando com o elemento central para decidir em qual metade continuar." },
+          { q: "Qual é a complexidade de tempo da busca binária?", opts: ["O(n)", "O(n²)", "O(log n)", "O(1)"], ans: 2, expl: "A cada passo a busca binária descarta metade do intervalo, resultando em O(log n)." },
+          { q: "No vetor {10, 20, 30, 40, 50}, ao buscar 45, qual é o primeiro meio?", opts: ["20", "30", "40", "50"], ans: 1, expl: "O meio (índice 2) é 30. Como 45 > 30, a busca continua na metade direita {40, 50}." },
+          { q: "Qual é a principal desvantagem da busca sequencial?", opts: ["Não funciona em C.", "É muito lenta em vetores grandes, pois percorre todos os elementos no pior caso.", "Requer vetor ordenado.", "Não pode buscar valores negativos."], ans: 1, expl: "No pior caso, a busca sequencial examina todos os elementos, tornando-se lenta em vetores grandes." }
         ]
       },
       {
@@ -1894,7 +2032,11 @@ int main() {
           { q: "Em C, a condição para um elemento estar na diagonal secundária de uma matriz n×n é:", opts: ["i == j", "i + j == n - 1", "i + j == n", "i - j == n"], ans: 1, expl: "Como os índices começam em 0, a diagonal secundária satisfaz i + j = n - 1." },
           { q: "A transposta de uma matriz é obtida:", opts: ["Invertendo os sinais.", "Trocando linhas por colunas (AT[i][j] = A[j][i]).", "Somando a diagonal.", "Zeroando a principal."], ans: 1, expl: "A transposta troca linhas por colunas: AT[i][j] = A[j][i]." },
           { q: "Uma matriz é simétrica quando:", opts: ["É igual à sua transposta.", "É igual ao negativo da transposta.", "Tem diagonal zero.", "É quadrada sempre."], ans: 0, expl: "Simétrica: M[i][j] = M[j][i], ou seja, é igual à própria transposta." },
-          { q: "Uma matriz é antissimétrica quando:", opts: ["M[i][j] = M[j][i]", "M[i][j] = -M[j][i]", "Só possui zeros.", "É a matriz identidade."], ans: 1, expl: "Antissimétrica: é igual à transposta com o sinal invertido, ou seja, M[i][j] = -M[j][i]." }
+          { q: "Uma matriz é antissimétrica quando:", opts: ["M[i][j] = M[j][i]", "M[i][j] = -M[j][i]", "Só possui zeros.", "É a matriz identidade."], ans: 1, expl: "Antissimétrica: é igual à transposta com o sinal invertido, ou seja, M[i][j] = -M[j][i]." },
+          { q: "A matriz identidade 3x3 possui quantos elementos iguais a 1?", opts: ["9", "3", "6", "1"], ans: 1, expl: "A identidade tem 1 apenas na diagonal principal: m[0][0], m[1][1] e m[2][2] — 3 elementos." },
+          { q: "Em uma matriz quadrada, quais elementos são iguais a m[i][i]?", opts: ["Os da diagonal secundária.", "Os da diagonal principal.", "Todos os elementos.", "Somente os zeros."], ans: 1, expl: "m[i][i], com linha igual à coluna, define a diagonal principal." },
+          { q: "Uma matriz é triangular quando:", opts: ["Todos os elementos são iguais.", "Um dos lados da diagonal é todo zero.", "É necessariamente identidade.", "Tem 2 linhas."], ans: 1, expl: "Triangular: os elementos de um lado da diagonal principal (acima ou abaixo) são todos zero." },
+          { q: "Qual é a relação entre a matriz identidade e a matriz diagonal?", opts: ["Não há relação.", "A identidade é um caso especial de matriz diagonal, com 1s na diagonal.", "A diagonal é um caso da identidade.", "São a mesma coisa."], ans: 1, expl: "A identidade é uma matriz diagonal cujos elementos da diagonal principal valem 1." }
         ]
       },
       {
@@ -1950,7 +2092,11 @@ int main() {
           { q: "Os parâmetros formais são:", opts: ["Os valores passados na chamada.", "Os nomes declarados no cabeçalho do módulo.", "Variáveis globais.", "Constantes."], ans: 1, expl: "Parâmetros formais são os nomes simbólicos do cabeçalho do módulo, usados dentro dele." },
           { q: "Em C, uma sub-rotina corresponde a:", opts: ["Uma função com retorno int.", "Uma função com retorno void.", "Um ponteiro.", "Um vetor."], ans: 1, expl: "Como não devolve valor, a sub-rotina equivale a uma função void." },
           { q: "Uma variável declarada dentro de uma função em C é:", opts: ["Global.", "Local.", "Estática sempre.", "Um parâmetro formal."], ans: 1, expl: "Declarada dentro de uma função, a variável é local: existe apenas durante aquela chamada." },
-          { q: "Por que usar objetos locais ajuda na programação modularizada?", opts: ["Deixam o programa maior.", "Reduzem efeitos colaterais entre módulos.", "São sempre globais.", "Eliminam as funções."], ans: 1, expl: "Objetos locais não interferem em outros módulos, minimizando efeitos colaterais." }
+          { q: "Por que usar objetos locais ajuda na programação modularizada?", opts: ["Deixam o programa maior.", "Reduzem efeitos colaterais entre módulos.", "São sempre globais.", "Eliminam as funções."], ans: 1, expl: "Objetos locais não interferem em outros módulos, minimizando efeitos colaterais." },
+          { q: "Na função int quadrado(int N), o identificador N é:", opts: ["Um parâmetro atual.", "Um parâmetro formal.", "Uma variável global.", "Uma constante."], ans: 1, expl: "N aparece no cabeçalho da função, sendo um parâmetro formal usado dentro dela." },
+          { q: "Quantos valores uma função em C pode retornar com um único return?", opts: ["Nenhum.", "Um único valor.", "Dois.", "Quantos quiser."], ans: 1, expl: "O comando return devolve um único valor; para múltiplos valores é preciso usar ponteiros ou estruturas." },
+          { q: "Se a chamada da função quadrado(7), qual é o parâmetro atual?", opts: ["N", "7 (constante)", "quadrado", "int"], ans: 1, expl: "O valor 7 passado na chamada é um parâmetro atual (argumento constante)." },
+          { q: "Uma variável global em C é declarada:", opts: ["Dentro de uma função.", "Fora de qualquer função.", "Apenas no main.", "No cabeçalho da função."], ans: 1, expl: "Declarada fora de toda função, a variável passa a ser global, acessível em qualquer módulo." }
         ]
       }
     ]
@@ -2805,7 +2951,14 @@ function buildFlashcards(course, topicId) {
   const topic = DATA[course].topics.find(function (t) { return t.id === topicId; });
   if (!topic) return [];
   return topic.quiz.map(function (q) {
-    return { front: q.q, back: q.opts[q.ans] + " — " + q.expl };
+    const order = shuffle([0, 1, 2, 3]);
+    const opts = order.map(function (i) { return q.opts[i]; });
+    return {
+      front: q.q,
+      opts: opts,
+      correctIdx: order.indexOf(q.ans),
+      expl: q.expl
+    };
   });
 }
 
@@ -2846,11 +2999,18 @@ function flashcardHTML() {
       "</div>";
   }
   const card = cards[fcState.order[fcState.idx]];
+  let optList = "";
+  card.opts.forEach(function (op, i) {
+    const isCorrect = i === card.correctIdx;
+    optList += '<li class="flash-opt' + (isCorrect ? " flash-opt-correct" : "") + '">' +
+      (isCorrect ? window.EstudarIcon("check") : "") + escapeHtml(op) + "</li>";
+  });
   return '<h3 class="ov-title">Cartões de estudo</h3>' +
     '<p class="ov-sub">Aperte no cartão para revelar a resposta. (' + (fcState.idx + 1) + " de " + fcState.order.length + ")</p>" +
     '<div class="flash-wrap"><div class="flash-card" id="flashCard" onclick="flashFlip()">' +
     '<div class="flash-face flash-front">' + escapeHtml(card.front) + "</div>" +
-    '<div class="flash-face flash-back">' + escapeHtml(card.back) + "</div>" +
+    '<div class="flash-face flash-back"><ul class="flash-opts">' + optList + "</ul>" +
+    '<div class="flash-expl">' + escapeHtml(card.expl) + "</div>" +
     "</div></div>" +
     '<div class="flash-actions">' +
     '<button class="btn danger-ghost" onclick="flashAnswer(0)">' + window.EstudarIcon("x-circle") + " Não lembrava</button>" +

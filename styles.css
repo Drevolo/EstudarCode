@@ -2110,6 +2110,60 @@ pre code {
   color: var(--green-text);
   border-color: var(--green);
   transform: rotateY(180deg);
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.flash-opts {
+  margin: 0px;
+  width: 100%;
+  list-style-type: none;
+}
+
+.flash-opts > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
+}
+
+.flash-opts {
+  padding: 0px;
+  text-align: left;
+}
+
+.flash-opt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  border-width: 2px;
+  border-color: var(--border);
+  background-color: var(--bg);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.375;
+  color: var(--text);
+}
+
+.flash-opt-correct {
+  border-color: var(--green);
+  color: var(--green-text);
+}
+
+.flash-opt-correct svg {
+  color: var(--green);
+  flex: none;
+}
+
+.flash-expl {
+  font-size: 0.9rem;
+  line-height: 1.375;
+  color: var(--green-text);
 }
 
 .flash-actions {
@@ -3526,6 +3580,10 @@ pre code {
   resize: vertical;
 }
 
+.list-none {
+  list-style-type: none;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -3592,6 +3650,12 @@ pre code {
 
 .gap-\[7px\] {
   gap: 7px;
+}
+
+.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden {
@@ -3760,6 +3824,10 @@ pre code {
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .p-3 {
@@ -4092,6 +4160,10 @@ pre code {
 
 .leading-\[1\.6\] {
   line-height: 1.6;
+}
+
+.leading-snug {
+  line-height: 1.375;
 }
 
 .tracking-\[-0\.3px\] {
