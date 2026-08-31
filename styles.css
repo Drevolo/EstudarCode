@@ -2731,14 +2731,14 @@ pre code {
   .topbar-row {
     flex-direction: row;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     padding: 8px 12px;
     gap: 8px;
   }
 
   .topbar-right {
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     flex: 1 1 auto;
     min-width: 0;
@@ -2759,10 +2759,12 @@ pre code {
   }
 
   .stats {
-    flex: 0 0 auto;
+    flex: 0 0 100%;
+    order: 2;
     min-width: 0;
     gap: 4px;
     flex-wrap: nowrap;
+    justify-content: flex-end;
     padding: 1px;
   }
 
