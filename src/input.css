@@ -917,10 +917,6 @@ html[data-theme="dark"] {
     flex-direction: column;
   }
 
-  .course-card > .bar {
-    margin-bottom: auto;
-  }
-
   .course-card:hover {
     @apply border-edge-strong;
     transform: translateY(-2px);
@@ -963,7 +959,8 @@ html[data-theme="dark"] {
   }
 
   .course-card .bar {
-    @apply h-[10px] rounded-[6px] bg-surface-app overflow-hidden mb-3;
+    @apply h-[10px] rounded-[6px] bg-surface-app overflow-hidden;
+    margin-bottom: auto;
   }
 
   .course-card .bar i {
