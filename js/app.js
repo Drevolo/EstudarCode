@@ -2469,19 +2469,6 @@ function renderSidebar() {
       '<div class="progress-bar"><div class="progress-bar-fill" style="width:' + ov.pct + '%"></div></div>' +
       "Geral: <b>" + ov.correct + "/" + ov.total + "</b> questões (" + ov.pct + "%)" +
       "</div>";
-
-    const ids = Object.keys(BADGES);
-    const unlocked = ids.filter(function (id) { return gam.badges[id]; });
-    html += '<div class="side-title">Conquistas</div>';
-    let mini = "";
-    unlocked.forEach(function (id) {
-      const b = BADGES[id];
-      mini += '<div class="mini-badge" title="' + escapeHtml(b.desc) + '"><span class="badge-icon">' + window.EstudarIcon(b.icon) + "</span>" + escapeHtml(b.name) + "</div>";
-    });
-    html += '<div class="mini-badges">' +
-      (mini || '<p class="muted-small">Nenhuma conquista ainda. Comece a estudar para desbloquear!</p>') +
-      "</div>";
-    html += '<button class="btn ghost" style="width:100%;margin-top:12px" onclick="openBadges()">Ver conquistas</button>';
   } else {
     const stats = courseStats(state.course);
     html += '<div class="progress-pill">' +

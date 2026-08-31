@@ -1445,42 +1445,76 @@ html[data-theme="dark"] {
     .topbar { position: static; }
     .tabs-bar { display: none; }
     .course-tabs { padding: 8px 12px; gap: 6px; }
-    .tab-btn { padding: 6px 10px; font-size: 0.74rem; }
-    .topbar-row { flex-direction: row; align-items: center; flex-wrap: wrap; padding: 8px 12px; gap: 8px; }
-    .topbar-right { flex-direction: row; flex-wrap: wrap; align-items: center; flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 6px; }
-    .logo { font-size: 1.15rem; gap: 6px; flex: 0 0 auto; }
-    .logo::before { width: 24px; height: 24px; border-radius: 7px; }
+    .tab-btn { padding: 6px 10px; font-size: 0.72rem; }
+
+    /* Header em uma linha só: logo + estatísticas + ações (ícones) */
+    .topbar-row {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 8px 10px;
+    }
+    .logo { font-size: 1.06rem; gap: 5px; flex: 0 0 auto; }
+    .logo::before { width: 22px; height: 22px; border-radius: 7px; }
 
     .stats {
-      flex: 0 0 100%;
-      order: 2;
+      flex: 1 1 auto;
       min-width: 0;
-      gap: 4px;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 4px;
       padding: 1px;
+      overflow: hidden;
     }
-    .stat-chip { flex: 0 1 auto; height: 28px; padding: 0 6px; gap: 3px; font-size: 0.66rem; border-radius: 8px; min-width: 0; max-width: 100%; }
+    .stat-chip {
+      flex: 0 1 auto;
+      min-width: 0;
+      height: 26px;
+      padding: 0 5px;
+      gap: 3px;
+      font-size: 0.62rem;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
     .chip-hearts { gap: 1.5px; }
-    .heart { font-size: 0.8rem; }
-    .chip-xp .xp-mini { width: 26px; height: 5px; flex: none; }
+    .heart { font-size: 0.72rem; }
+    .stat-chip .chip-icon svg { width: 0.95em; height: 0.95em; }
+    /* Chip de XP: só ícone + número (esconde o rótulo "XP" e a barrinha) */
+    .chip-xp { font-size: 0; }
+    .chip-xp b { font-size: 0.72rem; line-height: 1; }
+    .chip-xp .chip-icon { font-size: 0.95rem; }
+    .chip-xp .xp-mini { display: none; }
     .chip-streak { flex: 0 0 auto; }
 
     .top-actions {
       flex: 0 0 auto;
       min-width: 0;
       display: flex;
-      justify-content: flex-start;
+      align-items: center;
+      justify-content: flex-end;
       flex-wrap: nowrap;
       gap: 5px;
-      padding: 1px;
     }
+    /* Botões viram ícones quadrados (o texto do rótulo é escondido) */
     .top-actions .app-btn,
-    .top-actions .reset-btn { flex: 0 0 auto; height: 28px; padding: 0 8px; font-size: 0.64rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 4px; }
-    .theme-btn { padding: 0 7px; }
+    .top-actions .reset-btn {
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      font-size: 0;
+      border-radius: 9px;
+      border-bottom-width: 3px;
+      justify-content: center;
+      gap: 0;
+    }
+    .top-actions .btn-icon,
+    .top-actions .theme-icon { font-size: 0.98rem; }
     .theme-btn .theme-text { display: none; }
-    .theme-btn .theme-icon { font-size: 0.9rem; line-height: 1; }
 
     /* Indicador de streak no celular (modo curso, topbar oculta) */
     .mobile-streak {
