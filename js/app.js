@@ -2010,6 +2010,18 @@ function scrollTop() {
   if (window.scrollTo) window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function courseLogo(key) {
+  const logos = {
+    lp: null,
+    c: "icons/logo-c.svg",
+    py: "icons/logo-python.svg",
+    js: "icons/logo-javascript.svg",
+    html: "icons/logo-html5.svg",
+    css: "icons/logo-css3.svg"
+  };
+  return logos[key] || null;
+}
+
 function courseColor(key) {
   const colors = {
     lp: "#ce82ff", c: "#1cb0f6", py: "#58cc02",
@@ -2029,11 +2041,14 @@ function renderDashboard() {
     const tp = topicProgress(key);
     const done = tp.total > 0 && tp.done === tp.total;
     const color = courseColor(key);
+    const logo = courseLogo(key);
     const emblemTxt = key === "js" ? "#4b4b4b" : "#ffffff";
     cards += '<div class="course-card' + (done ? " done" : "") + '" style="--c:' + color + '">' +
       '<div class="cc-rail" style="background:' + color + '"></div>' +
       '<div class="course-card-top">' +
-      '<span class="course-emblem" style="background:linear-gradient(180deg,' + color + ',' + color + 'cc);color:' + emblemTxt + '">' + escapeHtml(c.name.charAt(0)) + "</span>" +
+      '<span class="course-emblem" style="background:linear-gradient(180deg,' + color + ',' + color + 'cc)' + (logo ? ';border-radius:12px' : ';color:' + emblemTxt) + '">' +
+      (logo ? '<img src="' + logo + '" alt="" class="course-logo">' : escapeHtml(c.name.charAt(0))) +
+      "</span>" +
       "<div><h3>" + escapeHtml(c.name) + "</h3>" +
       '<div class="course-pills">' +
       '<span class="mini-pill">' + qs.correct + "/" + qs.total + " questões</span>" +
