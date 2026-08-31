@@ -2863,6 +2863,11 @@ function hasDoneAnyActivity() {
   return !!hasAnswers || hasGamActivity;
 }
 
+// Foguinho aceso apenas se houve atividade HOJE (independente do histórico).
+function activeToday() {
+  return !!gam.lastActive && gam.lastActive === todayStr(0);
+}
+
 function renderStats() {
   const el = document.getElementById("statsBar");
   if (!el) return;
@@ -2874,8 +2879,8 @@ function renderStats() {
     const svg = window.EstudarIcons && window.EstudarIcons[filled ? "heart" : "o-heart"];
     heartsHtml += '<span class="heart' + (filled ? "" : " lost") + '">' + svg + "</span>";
   }
-  // Foguinho: acende (laranja) quando há atividade; apagado (cinza) caso contrário.
-  const active = hasDoneAnyActivity();
+  // Foguinho: acende (laranja) quando há atividade hoje; apagado (cinza) caso contrário.
+  const active = activeToday();
   const fireIcon = (window.EstudarIcons && (active ? window.EstudarIcons.fire : window.EstudarIcons["fire-off"])) || "";
   el.innerHTML =
     '<span class="stat-chip chip-hearts" title="Corações: errou perde 1; recupera 1 por dia de atividade">' + heartsHtml + "</span>" +
@@ -2911,7 +2916,7 @@ function updateMobileStreak() {
     el.title = "Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)";
     document.body.appendChild(el);
   }
-  const active = hasDoneAnyActivity();
+  const active = activeToday();
   const fireIcon = (window.EstudarIcons && (active ? window.EstudarIcons.fire : window.EstudarIcons["fire-off"])) || "";
   el.className = "mobile-streak" + (active ? " on" : " off");
   el.innerHTML =

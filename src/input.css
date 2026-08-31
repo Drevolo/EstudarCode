@@ -1508,6 +1508,7 @@ html[data-theme="dark"] {
     .chip-xp .xp-val { font-size: 0.72rem; line-height: 1; }
     .chip-xp .xp-unit { font-size: 0.72rem; line-height: 1; text-transform: lowercase; margin-left: -2px; }
     .chip-streak { flex: 0 0 auto; }
+    .chip-streak .chip-icon svg { width: 1.35em; height: 1.35em; }
 
     .top-actions {
       display: flex;
@@ -1543,22 +1544,22 @@ html[data-theme="dark"] {
       display: none;
       align-items: center;
       gap: 4px;
-      height: 34px;
-      padding: 0 10px;
+      height: 40px;
+      padding: 0 12px;
       border-radius: 12px;
       border: 2px solid var(--border);
       border-bottom-width: 4px;
       background: var(--card);
       color: var(--muted);
       font-weight: 900;
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       font-family: "Nunito", sans-serif;
       box-shadow: var(--shadow);
       line-height: 1;
     }
     .mobile-streak .chip-icon svg {
-      width: 1.15em;
-      height: 1.15em;
+      width: 1.6em;
+      height: 1.6em;
       display: block;
     }
     .mobile-streak.on {
