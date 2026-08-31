@@ -6,7 +6,7 @@
 
 const DATA = {
   lp: {
-    name: "Lógica de Programação",
+    name: "Lógica",
     topics: [
       {
         id: "lp-algoritmo",
