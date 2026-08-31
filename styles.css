@@ -474,6 +474,9 @@ button:not(:disabled) {
   border-bottom-width: 4px;
   cursor: pointer;
   transition: filter 0.12s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .app-btn:hover {
@@ -516,6 +519,9 @@ button:not(:disabled) {
   border-bottom-width: 4px;
   cursor: pointer;
   transition-duration: 120ms;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .reset-btn:hover {
