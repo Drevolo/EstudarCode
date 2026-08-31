@@ -410,6 +410,8 @@ button:not(:disabled) {
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
 
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+
   .xp-mini i pre {
     width: 100%;
     max-width: 100%;
@@ -428,6 +430,8 @@ button:not(:disabled) {
   /* Botões viram ícones quadrados (o texto do rótulo é escondido) */
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
+
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
 
   .xp-mini i pre {
     width: 100%;
@@ -1663,6 +1667,8 @@ pre code {
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
 
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+
   .hero-bar pre {
     width: 100%;
     max-width: 100%;
@@ -1681,6 +1687,8 @@ pre code {
   /* Botões viram ícones quadrados (o texto do rótulo é escondido) */
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
+
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
 
   .hero-bar pre {
     width: 100%;
@@ -1737,6 +1745,8 @@ pre code {
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
 
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+
   .hero-bar i pre {
     width: 100%;
     max-width: 100%;
@@ -1755,6 +1765,8 @@ pre code {
   /* Botões viram ícones quadrados (o texto do rótulo é escondido) */
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
+
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
 
   .hero-bar i pre {
     width: 100%;
@@ -2320,6 +2332,8 @@ pre code {
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
 
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+
   .dbg-label pre {
     width: 100%;
     max-width: 100%;
@@ -2338,6 +2352,8 @@ pre code {
   /* Botões viram ícones quadrados (o texto do rótulo é escondido) */
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
+
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
 
   .dbg-label pre {
     width: 100%;
@@ -2616,6 +2632,8 @@ pre code {
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
 
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+
   .auth-form pre,
   .auth-label pre {
     width: 100%;
@@ -2636,6 +2654,8 @@ pre code {
   /* Botões viram ícones quadrados (o texto do rótulo é escondido) */
 
   /* Indicador de streak no celular (modo curso, topbar oculta) */
+
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
 
   .auth-form pre,
   .auth-label pre {
@@ -2993,6 +3013,12 @@ pre code {
     top: auto;
   }
 
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+
+  .side-conquistas {
+    display: none;
+  }
+
   .content {
     padding: 16px 14px;
     border-radius: 16px;
@@ -3229,6 +3255,8 @@ pre code {
     position: static !important;
     top: auto !important;
   }
+
+  /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
 }
 
 @media (max-width: 480px) {

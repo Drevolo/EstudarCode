@@ -1560,6 +1560,8 @@ html[data-theme="dark"] {
       position: static;
       top: auto;
     }
+    /* Conquistas só na sidebar em telas grandes; no celular some (fica no header) */
+    .side-conquistas { display: none; }
     .content { padding: 16px 14px; border-radius: 16px; }
 
     .home-hero { padding: 18px 16px; border-radius: 16px; }
