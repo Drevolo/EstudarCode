@@ -367,6 +367,13 @@ html[data-theme="dark"] {
     @apply bg-brand-green border-brand-green text-white;
   }
 
+  /* Esconde a aba ao rolar para baixo; reaparece ao rolar para cima */
+  .side-tab.scroll-hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .layout.drawer-open .side-tab {
     transform: translateX(-180%);
     opacity: 0;

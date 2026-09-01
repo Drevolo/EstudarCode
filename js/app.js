@@ -3381,6 +3381,25 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") setSidebarOpen(false);
 });
 
+/* Esconde o botão "Trilha" ao rolar para baixo; mostra ao rolar para cima. */
+const scrollLayout = document.getElementById("layout");
+let lastScrollY = window.scrollY;
+let lastScrollAt = 0;
+window.addEventListener("scroll", function () {
+  if (!scrollLayout || !scrollLayout.classList.contains("course-mode")) return;
+  const now = window.scrollY;
+  const dt = Date.now() - lastScrollAt;
+  lastScrollAt = Date.now();
+  // Ignora gestos recém-iniciados ou movimentos mínimos para evitar oscilação.
+  if (dt < 80 || Math.abs(now - lastScrollY) < 5) return;
+  if (now > lastScrollY && now > 8) {
+    sideTab.classList.add("scroll-hidden");
+  } else if (now < lastScrollY) {
+    sideTab.classList.remove("scroll-hidden");
+  }
+  lastScrollY = now;
+});
+
 /* ----------------------------------------------------------------
  * Autenticação obrigatória + sincronização com a nuvem
  * ---------------------------------------------------------------- */
