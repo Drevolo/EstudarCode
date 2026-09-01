@@ -34,6 +34,7 @@
   // Estado em memória, espelho do que fica na nuvem + localStorage
   const LR_ANSWERS = "estudarC_progress";
   const LR_GAM = "estudarCode_gam";
+  const LR_MOD = "estudarCode_modifiedAt";
 
   let answers = readLocalAnswers();   // { "curso/topico/qN": {picked, correct} }
   let gam = readLocalGam();
@@ -55,6 +56,14 @@
   }
   function writeLocalGam(v) { try { localStorage.setItem(LR_GAM, JSON.stringify(v)); } catch (e) {} }
 
+  // Momento da última gravação local (quando o dispositivo escreveu progresso).
+  function readLocalModified() {
+    try { return Number(localStorage.getItem(LR_MOD)) || 0; } catch (e) { return 0; }
+  }
+  function writeLocalModified(t) {
+    try { localStorage.setItem(LR_MOD, t); } catch (e) {}
+  }
+
   /* ---------------- merge de gamificação ---------------- */
   // Regras de fusão entre o progresso local e o da nuvem (ambos do mesmo usuário).
   function mergeGam(a, b) {
@@ -68,6 +77,12 @@
     });
     // última atividade: o mais recente
     if (a.lastActive && b.lastActive) out.lastActive = a.lastActive > b.lastActive ? a.lastActive : b.lastActive;
+    // marcador de reset: o mais recente vence (nunca regride)
+    if (a.resetAt || b.resetAt) {
+      const ar = a.resetAt ? Date.parse(a.resetAt) || 0 : 0;
+      const br = b.resetAt ? Date.parse(b.resetAt) || 0 : 0;
+      out.resetAt = ar >= br ? a.resetAt : b.resetAt;
+    }
     return out;
   }
 
@@ -84,8 +99,11 @@
   /* ---------------- API de dados (usada pelo app.js) ---------------- */
   function getGam() { return gam; }
   function setGam(obj) {
+    // Preserva o marcador de reset na nuvem (não deixa um save normal apagá-lo)
+    if (gam && gam.resetAt && obj && !obj.resetAt) obj.resetAt = gam.resetAt;
     gam = obj;
     writeLocalGam(gam);  // espelho local (rápido/offline)
+    writeLocalModified(String(Date.now()));
     markDirty();
   }
   function getAnswers() { return answers; }
@@ -93,11 +111,13 @@
   function setAnswer(key, value) {
     answers[key] = value;
     writeLocalAnswers(answers);   // espelho local (rápido/offline)
+    writeLocalModified(String(Date.now()));
     markDirty();
   }
   function removeAnswer(key) {
     delete answers[key];
     writeLocalAnswers(answers);
+    writeLocalModified(String(Date.now()));
     markDirty();
   }
 
@@ -110,13 +130,25 @@
   }
 
   // Zera todo o progresso em memória, local e na nuvem.
+  // Em vez de apagar a linha da nuvem, grava um marcador "resetAt" nela.
+  // Assim, quando outro dispositivo sincronizar, ele vê que houve um reset
+  // e descarta o cache local antigo (em vez de reenviar o progresso apagado).
   async function resetAll() {
+    const resetAt = new Date().toISOString();
+    // Cancela qualquer save agendado para não sobrescrever o reset com dado antigo.
+    if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+    dirty = false;
     answers = {};
-    gam = {};
+    gam = { resetAt: resetAt };
     try { localStorage.removeItem(LR_ANSWERS); } catch (e) {}
     try { localStorage.removeItem(LR_GAM); } catch (e) {}
+    try { localStorage.removeItem(LR_MOD); } catch (e) {}
     if (sb && currentUser) {
-      try { await sb.from("user_progress").delete().eq("user_id", currentUser.id); } catch (e) { console.warn(e); }
+      try {
+        await sb.from("user_progress")
+          .upsert({ user_id: currentUser.id, answers: {}, gam: gam, updated_at: resetAt },
+            { onConflict: "user_id" });
+      } catch (e) { console.warn(e); }
     }
     notify();
   }
@@ -162,9 +194,27 @@
       const localAnswers = readLocalAnswers();
       const localGam = readLocalGam();
 
-      // Se não há nada local, apenas carrega a nuvem.
-      const mergedAnswers = mergeAnswers(localAnswers, (cloud && cloud.answers) || {});
-      const mergedGam = mergeGam(Object.keys(localGam).length ? localGam : {}, (cloud && cloud.gam) || {});
+      // Se a conta foi reiniciada na nuvem (resetAt) depois de os dados locais
+      // terem sido gravados, o cache local é obsoleto e NÃO deve ser reenviado.
+      const cloudReset = cloud && cloud.gam && cloud.gam.resetAt;
+      const cloudResetT = cloudReset ? Date.parse(cloudReset) || 0 : 0;
+      const localModified = readLocalModified();
+      const localReset = localGam && localGam.resetAt;
+      const cloudNewer =
+        !!cloudResetT &&
+        (!localModified || cloudResetT >= localModified) &&
+        (!localReset || cloudResetT >= (Date.parse(localReset) || 0));
+
+      let mergedAnswers, mergedGam;
+      if (cloudNewer) {
+        // Reset mais recente na nuvem: descarta o local e usa a nuvem (vazia).
+        mergedAnswers = (cloud && cloud.answers) || {};
+        mergedGam = Object.assign({ resetAt: cloudReset }, (cloud && cloud.gam) || {});
+      } else {
+        // Sem reset mais recente na nuvem: fluxo normal de fusão.
+        mergedAnswers = mergeAnswers(localAnswers, (cloud && cloud.answers) || {});
+        mergedGam = mergeGam(Object.keys(localGam).length ? localGam : {}, (cloud && cloud.gam) || {});
+      }
 
       answers = mergedAnswers;
       gam = mergedGam;
