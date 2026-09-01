@@ -1720,3 +1720,52 @@ html[data-theme="dark"] {
     .auth-tagline { margin-bottom: 18px; }
   }
 }
+
+/* --- Fire-off popup --- */
+.fire-off-popup {
+  text-align: center;
+  padding: 12px 8px 8px;
+}
+.fire-off-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.fire-off-icon svg {
+  width: 56px;
+  height: 56px;
+  color: var(--muted);
+  opacity: 0.7;
+}
+.fire-warn .fire-off-icon svg {
+  color: var(--orange);
+  opacity: 1;
+}
+.fire-off-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--red);
+}
+.fire-off-popup.fire-warn .fire-off-title {
+  color: var(--orange);
+}
+.fire-off-popup.fire-warn .fire-off-btn {
+  background: var(--orange);
+}
+.fire-off-text {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+.fire-off-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+.fire-off-btn {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+}

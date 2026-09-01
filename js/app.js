@@ -2766,16 +2766,54 @@ function todayStr(offsetDays) {
 function registerDay() {
   const t = todayStr(0);
   if (gam.lastActive === t) return;
-  if (gam.lastActive) {
-    if (gam.lastActive === todayStr(-1)) gam.streak += 1;
-    else gam.streak = 1;
-  } else {
-    gam.streak = 1;
-  }
+  if (gam.lastActive === todayStr(-1)) gam.streak += 1;
+  else gam.streak = 1;
   gam.lastActive = t;
   if (gam.streak > gam.bestStreak) gam.bestStreak = gam.streak;
   if (gam.hearts < gam.maxHearts) gam.hearts += 1;
   saveGam();
+}
+
+// Verifica o estado do "fogo" (streak) ao abrir a plataforma, mostrando
+// um aviso quando o fogo está prestes a apagar ou já apagou.
+function checkFireStatus() {
+  const t = todayStr(0);
+  const y = todayStr(-1);
+  if (!gam.lastActive) return;              // nunca estudou: sem fogo para cuidar
+  if (gam.lastActive === t) return;         // já estudou hoje: fogo aceso
+
+  // Estuda hoje ainda pode manter a sequência → avisa antes de apagar.
+  if (gam.lastActive === y && gam.streak > 1) {
+    openOverlay(
+      '<div class="fire-off-popup fire-warn">' +
+        '<div class="fire-off-icon">' + window.EstudarIcon("fire") + '</div>' +
+        '<h2 class="fire-off-title">Seu fogo vai apagar!</h2>' +
+        '<p class="fire-off-text">Você está com <b>' + gam.streak + ' dias</b> seguidos, mas ainda não estudou <b>hoje</b>.</p>' +
+        '<p class="fire-off-sub">Estude hoje para manter a chama acesa!</p>' +
+        '<button class="btn fire-off-btn" onclick="closeOverlay(); openCourseStart(\'' + firstCourseKey() + '\')">Estudar agora</button>' +
+      '</div>'
+    );
+    return;
+  }
+
+  // Pulou pelo menos um dia inteiro → o fogo apagou.
+  if (gam.streak > 1) {
+    const lost = gam.streak;
+    gam.streak = 0;
+    saveGam();
+    openOverlay(
+      '<div class="fire-off-popup">' +
+        '<div class="fire-off-icon">' + window.EstudarIcon("fire-off") + '</div>' +
+        '<h2 class="fire-off-title">Seu fogo apagou!</h2>' +
+        '<p class="fire-off-text">Você estava com <b>' + lost + ' dias</b> seguidos, mas não estudou ontem. Sua sequência foi reiniciada.</p>' +
+        '<p class="fire-off-sub">Estude hoje para acender o foguinho de novo!</p>' +
+        '<button class="btn fire-off-btn" onclick="closeOverlay(); openCourseStart(\'' + firstCourseKey() + '\')">Voltar a estudar</button>' +
+      '</div>'
+    );
+  } else {
+    gam.streak = 0;
+    saveGam();
+  }
 }
 
 function levelInfo() {
@@ -3476,6 +3514,7 @@ async function handleAuthChange(ev) {
       authScreen.setAttribute("data-logged", "true");
     }
     maybeShowFirstActivityPopup();
+    checkFireStatus();
   } else {
     // Sem sessão confirmada: exige login (nunca "entra direto").
     if (authScreen) {
