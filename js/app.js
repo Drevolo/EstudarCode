@@ -2392,7 +2392,7 @@ function scrollTop() {
 
 function courseLogo(key) {
   const logos = {
-    lp: null,
+    lp: "icons/logo-lp.svg",
     c: "icons/logo-c.svg",
     py: "icons/logo-python.svg",
     js: "icons/logo-javascript.svg",
