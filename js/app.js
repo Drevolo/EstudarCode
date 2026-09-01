@@ -2279,7 +2279,6 @@ function syncSidebar() {
   if (inCourse) tab.style.display = "flex";
   else tab.style.display = "none";
   placeHeader();
-  updateMobileStreak();
 }
 
 let drawerHead = null;
@@ -2739,7 +2738,7 @@ const GAM_KEY = "estudarCode_gam";
 
 function freshGam() {
   return {
-    xp: 0, hearts: 5, maxHearts: 5, streak: 0, bestStreak: 0, lastActive: null,
+    xp: 0, hearts: 5, maxHearts: 5, lastActive: null,
     correctQ: 0, earned: {}, doneTopics: {}, badges: {}, cardsSeen: 0, runs: 0
   };
 }
@@ -2766,54 +2765,9 @@ function todayStr(offsetDays) {
 function registerDay() {
   const t = todayStr(0);
   if (gam.lastActive === t) return;
-  if (gam.lastActive === todayStr(-1)) gam.streak += 1;
-  else gam.streak = 1;
   gam.lastActive = t;
-  if (gam.streak > gam.bestStreak) gam.bestStreak = gam.streak;
   if (gam.hearts < gam.maxHearts) gam.hearts += 1;
   saveGam();
-}
-
-// Verifica o estado do "fogo" (streak) ao abrir a plataforma, mostrando
-// um aviso quando o fogo está prestes a apagar ou já apagou.
-function checkFireStatus() {
-  const t = todayStr(0);
-  const y = todayStr(-1);
-  if (!gam.lastActive) return;              // nunca estudou: sem fogo para cuidar
-  if (gam.lastActive === t) return;         // já estudou hoje: fogo aceso
-
-  // Estuda hoje ainda pode manter a sequência → avisa antes de apagar.
-  if (gam.lastActive === y && gam.streak > 1) {
-    openOverlay(
-      '<div class="fire-off-popup fire-warn">' +
-        '<div class="fire-off-icon">' + window.EstudarIcon("fire") + '</div>' +
-        '<h2 class="fire-off-title">Seu fogo vai apagar!</h2>' +
-        '<p class="fire-off-text">Você está com <b>' + gam.streak + ' dias</b> seguidos, mas ainda não estudou <b>hoje</b>.</p>' +
-        '<p class="fire-off-sub">Estude hoje para manter a chama acesa!</p>' +
-        '<button class="btn fire-off-btn" onclick="closeOverlay(); openCourseStart(\'' + firstCourseKey() + '\')">Estudar agora</button>' +
-      '</div>'
-    );
-    return;
-  }
-
-  // Pulou pelo menos um dia inteiro → o fogo apagou.
-  if (gam.streak > 1) {
-    const lost = gam.streak;
-    gam.streak = 0;
-    saveGam();
-    openOverlay(
-      '<div class="fire-off-popup">' +
-        '<div class="fire-off-icon">' + window.EstudarIcon("fire-off") + '</div>' +
-        '<h2 class="fire-off-title">Seu fogo apagou!</h2>' +
-        '<p class="fire-off-text">Você estava com <b>' + lost + ' dias</b> seguidos, mas não estudou ontem. Sua sequência foi reiniciada.</p>' +
-        '<p class="fire-off-sub">Estude hoje para acender o foguinho de novo!</p>' +
-        '<button class="btn fire-off-btn" onclick="closeOverlay(); openCourseStart(\'' + firstCourseKey() + '\')">Voltar a estudar</button>' +
-      '</div>'
-    );
-  } else {
-    gam.streak = 0;
-    saveGam();
-  }
 }
 
 function levelInfo() {
@@ -2843,8 +2797,6 @@ const BADGES = {
   xp100:    { name: "100 XP",            desc: "Acumular 100 XP",              icon: "sparkles" },
   xp500:    { name: "500 XP",            desc: "Acumular 500 XP",              icon: "bolt" },
   xp1000:   { name: "1.000 XP",          desc: "Acumular 1.000 XP",            icon: "trophy" },
-  streak3:  { name: "3 Dias Seguidos",   desc: "Estudar 3 dias seguidos",      icon: "fire" },
-  streak7:  { name: "7 Dias Seguidos",   desc: "Estudar 7 dias seguidos",      icon: "fire" },
   cards10:  { name: "10 Cartões",        desc: "Responder 10 cartões",         icon: "rectangle-stack" },
   cards50:  { name: "50 Cartões",        desc: "Responder 50 cartões",         icon: "square-2-stack" },
   code1:    { name: "Primeiro Run",      desc: "Executar um código",           icon: "code-bracket-square" },
@@ -2876,8 +2828,6 @@ function checkBadges() {
   if (gam.xp >= 100) unlockBadge("xp100");
   if (gam.xp >= 500) unlockBadge("xp500");
   if (gam.xp >= 1000) unlockBadge("xp1000");
-  if (gam.streak >= 3) unlockBadge("streak3");
-  if (gam.streak >= 7) unlockBadge("streak7");
   if (gam.cardsSeen >= 10) unlockBadge("cards10");
   if (gam.cardsSeen >= 50) unlockBadge("cards50");
   if (gam.runs >= 1) unlockBadge("code1");
@@ -2901,11 +2851,6 @@ function hasDoneAnyActivity() {
   return !!hasAnswers || hasGamActivity;
 }
 
-// Foguinho aceso apenas se houve atividade HOJE (independente do histórico).
-function activeToday() {
-  return !!gam.lastActive && gam.lastActive === todayStr(0);
-}
-
 function renderStats() {
   const el = document.getElementById("statsBar");
   if (!el) return;
@@ -2917,9 +2862,6 @@ function renderStats() {
     const svg = window.EstudarIcons && window.EstudarIcons[filled ? "heart" : "o-heart"];
     heartsHtml += '<span class="heart' + (filled ? "" : " lost") + '">' + svg + "</span>";
   }
-  // Foguinho: acende (laranja) quando há atividade hoje; apagado (cinza) caso contrário.
-  const active = activeToday();
-  const fireIcon = (window.EstudarIcons && (active ? window.EstudarIcons.fire : window.EstudarIcons["fire-off"])) || "";
   el.innerHTML =
     '<span class="stat-chip chip-hearts" title="Corações: errou perde 1; recupera 1 por dia de atividade">' + heartsHtml + "</span>" +
     '<span class="stat-chip chip-xp" title="Pontos de experiência">' +
@@ -2928,39 +2870,7 @@ function renderStats() {
     '<span class="chip-icon">' + (window.EstudarIcons && window.EstudarIcons.bolt) + "</span>" +
     '<b class="xp-val">' + gam.xp + '</b>' +
     '<span class="xp-unit">xp</span>' +
-    "</span>" +
-    '<span class="stat-chip chip-streak' + (active ? " on" : " off") + '" title="Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)">' +
-    '<span class="chip-icon">' + fireIcon + "</span>" +
-    '<span class="chip-val">' + gam.streak + " dia" + (gam.streak === 1 ? "" : "s") + "</span>" +
     "</span>";
-  updateMobileStreak();
-}
-
-// Indicador de streak "flutuante" exibido apenas em modo curso no celular,
-// já que nesse modo a topbar (com as estatísticas) fica oculta.
-function updateMobileStreak() {
-  if (typeof window.matchMedia === "function" && !window.matchMedia("(max-width: 640px)").matches) return;
-  const inCourse = state.course !== "home";
-  let el = document.getElementById("mobileStreak");
-  if (!inCourse) {
-    if (el) el.style.display = "none";
-    return;
-  }
-  if (!el) {
-    el = document.createElement("button");
-    el.id = "mobileStreak";
-    el.setAttribute("type", "button");
-    el.className = "mobile-streak";
-    el.title = "Dias seguidos fazendo atividade (se passar 1 dia sem atividade, zera)";
-    document.body.appendChild(el);
-  }
-  const active = activeToday();
-  const fireIcon = (window.EstudarIcons && (active ? window.EstudarIcons.fire : window.EstudarIcons["fire-off"])) || "";
-  el.className = "mobile-streak" + (active ? " on" : " off");
-  el.innerHTML =
-    '<span class="chip-icon">' + fireIcon + "</span>" +
-    '<span class="chip-val">' + gam.streak + "</span>";
-  el.style.display = "flex";
 }
 
 /* ---------- toast e confete ---------- */
@@ -3494,7 +3404,7 @@ function maybeShowFirstActivityPopup() {
   if (hasDoneAnyActivity()) return;
   openOverlay(
     '<h3 class="ov-title">Você ainda não fez nenhuma atividade</h3>' +
-    '<p class="ov-sub">Para acender o foguinho (streak), responda a um quiz, revise com cartões ou use o depurador. Seu progresso fica salvo na sua conta.</p>' +
+    '<p class="ov-sub">Responda a um quiz, revise com cartões ou use o depurador. Seu progresso fica salvo na sua conta.</p>' +
     '<div class="flash-actions"><button class="btn" onclick="closeOverlay(); openCourseStart(\'' + firstCourseKey() + '\')">Começar a estudar</button></div>'
   );
 }
@@ -3514,7 +3424,6 @@ async function handleAuthChange(ev) {
       authScreen.setAttribute("data-logged", "true");
     }
     maybeShowFirstActivityPopup();
-    checkFireStatus();
   } else {
     // Sem sessão confirmada: exige login (nunca "entra direto").
     if (authScreen) {

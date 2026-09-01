@@ -60,7 +60,7 @@
   function mergeGam(a, b) {
     const out = Object.assign({}, a, b);
     const pickMax = function (k) { if (typeof a[k] === "number" && typeof b[k] === "number") out[k] = Math.max(a[k], b[k]); };
-    ["xp", "hearts", "maxHearts", "streak", "bestStreak", "correctQ", "cardsSeen", "runs"].forEach(pickMax);
+    ["xp", "hearts", "maxHearts", "correctQ", "cardsSeen", "runs"].forEach(pickMax);
     // badges / doneTopics / earned: união de chaves (verdadeiro vence)
     ["badges", "doneTopics", "earned"].forEach(function (k) {
       const merged = Object.assign({}, (a && a[k]) || {}, (b && b[k]) || {});

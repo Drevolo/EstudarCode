@@ -254,18 +254,6 @@ html[data-theme="dark"] {
     vertical-align: -0.1em;
   }
 
-  .chip-streak.on .chip-icon {
-    @apply text-brand-orange;
-  }
-
-  .chip-streak.off {
-    @apply text-text-muted;
-  }
-
-  .chip-streak.off .chip-icon {
-    @apply text-text-muted;
-  }
-
   /* ---------- botões topbar ---------- */
   .top-actions {
     @apply flex items-center gap-2 flex-wrap;
@@ -1517,8 +1505,6 @@ html[data-theme="dark"] {
     .chip-xp .chip-icon { font-size: 0.88rem; }
     .chip-xp .xp-val { font-size: 0.72rem; line-height: 1; }
     .chip-xp .xp-unit { font-size: 0.72rem; line-height: 1; text-transform: lowercase; margin-left: -2px; }
-    .chip-streak { flex: 0 0 auto; }
-    .chip-streak .chip-icon svg { width: 1.35em; height: 1.35em; }
 
     .top-actions {
       display: flex;
@@ -1544,41 +1530,6 @@ html[data-theme="dark"] {
     .top-actions .btn-icon,
     .top-actions .theme-icon { font-size: 0.98rem; }
     .theme-btn .theme-text { display: none; }
-
-    /* Indicador de streak no celular (modo curso, topbar oculta) */
-    .mobile-streak {
-      position: fixed;
-      top: 10px;
-      right: 12px;
-      z-index: 75;
-      display: none;
-      align-items: center;
-      gap: 4px;
-      height: 40px;
-      padding: 0 12px;
-      border-radius: 12px;
-      border: 2px solid var(--border);
-      border-bottom-width: 4px;
-      background: var(--card);
-      color: var(--muted);
-      font-weight: 900;
-      font-size: 0.9rem;
-      font-family: "Nunito", sans-serif;
-      box-shadow: var(--shadow);
-      line-height: 1;
-    }
-    .mobile-streak .chip-icon svg {
-      width: 1.6em;
-      height: 1.6em;
-      display: block;
-    }
-    .mobile-streak.on {
-      color: var(--orange);
-      border-color: var(--orange);
-    }
-    .mobile-streak.off {
-      color: var(--muted);
-    }
 
     .layout { padding: 8px; gap: 8px; }
     .layout:not(.course-mode) {
@@ -1729,53 +1680,4 @@ html[data-theme="dark"] {
     }
     .auth-tagline { margin-bottom: 18px; }
   }
-}
-
-/* --- Fire-off popup --- */
-.fire-off-popup {
-  text-align: center;
-  padding: 12px 8px 8px;
-}
-.fire-off-icon {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-.fire-off-icon svg {
-  width: 56px;
-  height: 56px;
-  color: var(--muted);
-  opacity: 0.7;
-}
-.fire-warn .fire-off-icon svg {
-  color: var(--orange);
-  opacity: 1;
-}
-.fire-off-title {
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin: 0 0 8px;
-  color: var(--red);
-}
-.fire-off-popup.fire-warn .fire-off-title {
-  color: var(--orange);
-}
-.fire-off-popup.fire-warn .fire-off-btn {
-  background: var(--orange);
-}
-.fire-off-text {
-  font-size: 0.95rem;
-  color: var(--text);
-  margin: 0 0 4px;
-  line-height: 1.5;
-}
-.fire-off-sub {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin: 0 0 18px;
-}
-.fire-off-btn {
-  width: 100%;
-  max-width: 260px;
-  margin: 0 auto;
 }
