@@ -558,6 +558,16 @@ html[data-theme="dark"] {
     @apply mb-3.5 text-[0.82rem] text-text font-extrabold bg-surface border-2 border-edge rounded-sm p-3;
   }
 
+  /* Esconde o resumo "Geral:" no celular */
+  .home-overall-pill {
+    display: none;
+  }
+  @media (min-width: 641px) {
+    .home-overall-pill {
+      display: block;
+    }
+  }
+
   .progress-bar {
     @apply h-[10px] bg-surface-app rounded-[6px] overflow-hidden mb-1.5;
   }

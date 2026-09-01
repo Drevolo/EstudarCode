@@ -2465,7 +2465,7 @@ function renderSidebar() {
 
   if (state.course === "home") {
     const ov = overallProgress();
-    html += '<div class="progress-pill">' +
+    html += '<div class="progress-pill home-overall-pill">' +
       '<div class="progress-bar"><div class="progress-bar-fill" style="width:' + ov.pct + '%"></div></div>' +
       "Geral: <b>" + ov.correct + "/" + ov.total + "</b> questões (" + ov.pct + "%)" +
       "</div>";
