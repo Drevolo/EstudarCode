@@ -2148,9 +2148,16 @@ function removeAnswer(course, topicId, qi) {
 }
 
 function resetProgress() {
-  // Com Supabase, o reset completo é feito por S.resetAll() (inclusive nuvem).
-  // Aqui apenas o fallback local.
-  localStorage.removeItem(PROGRESS_KEY);
+  // Zera respostas + gamificação no local e na nuvem (Supabase), quando disponível.
+  if (S && S.resetAll) {
+    S.resetAll();
+  } else {
+    localStorage.removeItem(PROGRESS_KEY);
+    localStorage.removeItem(GAM_KEY);
+  }
+  gam = freshGam();
+  renderStats();
+  renderAll();
 }
 
 function allDone(course, topicId) {
@@ -2913,6 +2920,34 @@ function openOverlay(bodyHtml, wide) {
 function closeOverlay() {
   document.getElementById("overlayRoot").innerHTML = "";
   document.body.classList.remove("no-scroll");
+}
+
+/* ---------- configurações ---------- */
+function openSettings() {
+  openOverlay(
+    '<h3 class="ov-title">Configurações</h3>' +
+    '<p class="ov-sub">Gerencie o seu progresso e os dados da conta.</p>' +
+    '<div class="flash-actions">' +
+    '<button class="btn danger-ghost" style="width:100%" onclick="confirmResetProgress()">' + window.EstudarIcon("arrow-right-on-rectangle") + ' Reiniciar progresso</button>' +
+    "</div>"
+  );
+}
+
+function confirmResetProgress() {
+  openOverlay(
+    '<h3 class="ov-title">Reiniciar progresso</h3>' +
+    '<p class="ov-sub">Tem certeza? Isso vai apagar <b>todas</b> as suas respostas, XP, corações e conquistas. Essa ação não pode ser desfeita.</p>' +
+    '<div class="flash-actions">' +
+    '<button class="btn ghost" onclick="closeOverlay()">Cancelar</button>' +
+    '<button class="btn danger-ghost" onclick="doResetProgress()">Apagar tudo</button>' +
+    "</div>"
+  );
+}
+
+function doResetProgress() {
+  closeOverlay();
+  resetProgress();
+  toast("Progresso reiniciado. Bons estudos!");
 }
 
 /* ---------- conquistas ---------- */
