@@ -2345,7 +2345,7 @@ function renderTabs() {
 }
 
 function debugLangForCourse(course) {
-  return ({ lp: "c", c: "c", py: "python", js: "js", html: "web", css: "web" })[course] || "c";
+  return ({ lp: "c", c: "c", py: "python", js: "js", html: "web", css: "web", sql: "sql", react: "js", rest: "json", php: "php", node: "js", java: "java", git: "bash", docker: "yaml" })[course] || "c";
 }
 
 function currentDebugLang() {
@@ -2397,7 +2397,9 @@ function courseLogo(key) {
     py: "icons/logo-python.svg",
     js: "icons/logo-javascript.svg",
     html: "icons/logo-html5.svg",
-    css: "icons/logo-css3.svg"
+    css: "icons/logo-css3.svg",
+    sql: null, react: null, rest: null, php: null,
+    node: null, java: null, git: null, docker: null
   };
   return logos[key] || null;
 }
@@ -2405,7 +2407,9 @@ function courseLogo(key) {
 function courseColor(key) {
   const colors = {
     lp: "#ce82ff", c: "#1cb0f6", py: "#58cc02",
-    js: "#ffc800", html: "#ff9600", css: "#00cd9c"
+    js: "#ffc800", html: "#ff9600", css: "#00cd9c",
+    sql: "#336791", react: "#61DAFB", rest: "#009688", php: "#777BB4",
+    node: "#339933", java: "#ED8B00", git: "#F05032", docker: "#2496ED"
   };
   return colors[key] || "#58cc02";
 }
